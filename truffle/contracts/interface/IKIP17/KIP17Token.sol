@@ -6,11 +6,13 @@
 pragma solidity ^0.8.0;
 
 import "../../utils/Context.sol";
-import "../../utils/KIP13.sol";
-import "./IKIP17Metadata.sol";
 import "../../utils/Address.sol";
 import "../../utils/Strings.sol";
+
 import "./IKIP17Receiver.sol";
+import "./IKIP17Metadata.sol";
+
+import "../KIP13.sol";
 
 /**
  * @dev Implementation of https://kips.klaytn.com/KIPs/kip-17 Non-Fungible Token Standard, including
@@ -38,6 +40,8 @@ contract KIP17Token is Context, KIP13, IKIP17Metadata {
 
     // Mapping from owner to operator approvals
     mapping(address => mapping(address => bool)) private _operatorApprovals;
+
+    mapping(uint256 => string) private _tokenUri;
 
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
@@ -187,6 +191,10 @@ contract KIP17Token is Context, KIP13, IKIP17Metadata {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
+    function _setTokenUri(uint256 tokenId, string memory _uri) internal {
+        _tokenUri[tokenId] = _uri;
+    }
+
     /**
      * @dev See {IKIP17-isApprovedForAll}.
      */
@@ -321,10 +329,6 @@ contract KIP17Token is Context, KIP13, IKIP17Metadata {
      *
      * Emits a {Transfer} event.
      */
-
-     function mint(uint256 tokenId) public {
-         _safeMint(msg.sender,tokenId);
-     }
     function _safeMint(address to, uint256 tokenId) internal virtual {
         _safeMint(to, tokenId, "");
     }
@@ -391,6 +395,8 @@ contract KIP17Token is Context, KIP13, IKIP17Metadata {
 
         _balances[owner] -= 1;
         delete _owners[tokenId];
+
+        _setTokenUri(tokenId, "");
 
         emit Transfer(owner, address(0), tokenId);
 

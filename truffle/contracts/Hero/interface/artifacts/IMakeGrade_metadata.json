@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "makeGrade",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Hero/interface/IMakeGrade.sol": "IMakeGrade"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Hero/interface/IMakeGrade.sol": {
+			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
+				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
+			]
+		}
+	},
+	"version": 1
+}
