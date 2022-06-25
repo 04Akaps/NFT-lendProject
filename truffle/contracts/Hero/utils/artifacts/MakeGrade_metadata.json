@@ -1,0 +1,86 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "makeGrade",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Hero/utils/MakeGrade.sol": "MakeGrade"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Hero/interface/IMakeGrade.sol": {
+			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
+				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
+			]
+		},
+		"Hero/utils/MakeGrade.sol": {
+			"keccak256": "0xeb363143a894aaefa13bb90845d4b7aca7ef5ed2395c00ff624aebd0a148a8cc",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d284fc411990fe1e14774c75587ebc78abe10d68f6d7851e62e835e373d34c05",
+				"dweb:/ipfs/Qmcb6MLJcHZH2Te4xaeEgogGjjESYVRXmWB4YrKdft1aYo"
+			]
+		},
+		"utils/SafeMath.sol": {
+			"keccak256": "0x72f53db77ad38e00bf1f7409a6367bdc259fbf196e759c2daa023c313211ec0e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://eb4600a095a19fa42b1ba4050ccb38d1c3afddc510cc75e995e5ecc590711b59",
+				"dweb:/ipfs/QmQ1ep88ySZ3cK8GfX5hmz2gwhAX7ppLkVVSn4wxSYHNVj"
+			]
+		}
+	},
+	"version": 1
+}

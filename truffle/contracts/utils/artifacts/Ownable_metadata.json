@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"utils/Ownable.sol": "Ownable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"utils/Ownable.sol": {
+			"keccak256": "0x9a2a407d09582799485ed7c004a1ee1202481c42686c9a669a77e802c82487d3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c9cfd1ae11b58931f69c00a29b85f9d15802c07c0e88aa52bd2c793783dc17f3",
+				"dweb:/ipfs/QmVhQXobTfUPyH5iffyzUsQVRNdJcaRDZ3Ce1Uv338cjog"
+			]
+		}
+	},
+	"version": 1
+}

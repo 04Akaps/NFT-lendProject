@@ -1,0 +1,216 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "changePaused",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getDiagram",
+				"outputs": [
+					{
+						"internalType": "contract IMakeGrade",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getHeroNFT",
+				"outputs": [
+					{
+						"internalType": "contract IHeroNFT",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPaused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getToken",
+				"outputs": [
+					{
+						"internalType": "contract IKIP7",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "init",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_heroNFT",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_gradeDiagram",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_klay",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "priceOfKlay",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "priceOfToken",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Hero/utils/HeroController.sol": "HeroController"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Hero/interface/IHeroNFT.sol": {
+			"keccak256": "0x38a552ee305a6f4689f5640e9cde01cc00566617c4167d42fcd73f67581854b8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32e25ef77354cb53a1a46a7d91ac5f5ee076d65a109b90063ed07f2374d95fa1",
+				"dweb:/ipfs/QmcYdCPFE5irWJzwRbDc489azoERL9GenVRf3iVVZRvZc1"
+			]
+		},
+		"Hero/interface/IMakeGrade.sol": {
+			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
+				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
+			]
+		},
+		"Hero/utils/HeroController.sol": {
+			"keccak256": "0xeb6446e1972fb6d70a5e3a607d66c566e535440ccd28ee40bffa8e17ebb0d8f8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9cf22a8f0e6a8a4bda142d5e21b8aa22c82c8cfef0ffdf3d06ffca7e1ce2296",
+				"dweb:/ipfs/QmRDyrxptfmK7SUrGWKoACQxDJkgrnMC6QqJQY6RdkiAaJ"
+			]
+		},
+		"interface/IKIP7/IKIP7.sol": {
+			"keccak256": "0x4c3bdc0a389a3e9ad8039b34c93e54a590b17a78f83102f7ec22efb0fa07ad4f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://279b2ae593d87bb256da617bd6ebbb0d6a230d01141a998025e53d0e0987407f",
+				"dweb:/ipfs/QmSJbjVTUypSB6FQuDDsdqbwAsJ1PptFLotoxCH3K5KYey"
+			]
+		},
+		"utils/SafeMath.sol": {
+			"keccak256": "0x72f53db77ad38e00bf1f7409a6367bdc259fbf196e759c2daa023c313211ec0e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://eb4600a095a19fa42b1ba4050ccb38d1c3afddc510cc75e995e5ecc590711b59",
+				"dweb:/ipfs/QmQ1ep88ySZ3cK8GfX5hmz2gwhAX7ppLkVVSn4wxSYHNVj"
+			]
+		}
+	},
+	"version": 1
+}

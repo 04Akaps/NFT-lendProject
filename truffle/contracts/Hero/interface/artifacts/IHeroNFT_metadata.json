@@ -6,22 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "name_",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "symbol_",
-						"type": "string"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -126,11 +110,24 @@
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "balance",
 						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -145,8 +142,34 @@
 				"outputs": [
 					{
 						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getHeroCore",
+				"outputs": [
+					{
+						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTokenIndex",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -177,16 +200,16 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "name",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
 					}
 				],
-				"stateMutability": "view",
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -201,7 +224,7 @@
 				"outputs": [
 					{
 						"internalType": "address",
-						"name": "",
+						"name": "owner",
 						"type": "address"
 					}
 				],
@@ -250,7 +273,7 @@
 					},
 					{
 						"internalType": "bytes",
-						"name": "_data",
+						"name": "data",
 						"type": "bytes"
 					}
 				],
@@ -268,11 +291,24 @@
 					},
 					{
 						"internalType": "bool",
-						"name": "approved",
+						"name": "_approved",
 						"type": "bool"
 					}
 				],
 				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_heroCore",
+						"type": "address"
+					}
+				],
+				"name": "setContract",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -291,38 +327,6 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "symbol",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "tokenId",
-						"type": "uint256"
-					}
-				],
-				"name": "tokenURI",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -353,50 +357,37 @@
 			}
 		],
 		"devdoc": {
-			"details": "Implementation of https://kips.klaytn.com/KIPs/kip-17 Non-Fungible Token Standard, including the Metadata extension, but not including the Enumerable extension, which is available separately as {KIP17Enumerable}.",
 			"kind": "dev",
 			"methods": {
 				"approve(address,uint256)": {
-					"details": "See {IKIP17-approve}."
+					"details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
 				},
 				"balanceOf(address)": {
-					"details": "See {IKIP17-balanceOf}."
-				},
-				"constructor": {
-					"details": "Initializes the contract by setting a `name` and a `symbol` to the token collection."
+					"details": "Returns the number of tokens in ``owner``'s account."
 				},
 				"getApproved(uint256)": {
-					"details": "See {IKIP17-getApproved}."
+					"details": "Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist."
 				},
 				"isApprovedForAll(address,address)": {
-					"details": "See {IKIP17-isApprovedForAll}."
-				},
-				"name()": {
-					"details": "See {IKIP17Metadata-name}."
+					"details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}"
 				},
 				"ownerOf(uint256)": {
-					"details": "See {IKIP17-ownerOf}."
+					"details": "Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist."
 				},
 				"safeTransferFrom(address,address,uint256)": {
-					"details": "See {IKIP17-safeTransferFrom}."
+					"details": "Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
 				},
 				"safeTransferFrom(address,address,uint256,bytes)": {
-					"details": "See {IKIP17-safeTransferFrom}."
+					"details": "Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
 				},
 				"setApprovalForAll(address,bool)": {
-					"details": "See {IKIP17-setApprovalForAll}."
+					"details": "Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event."
 				},
 				"supportsInterface(bytes4)": {
-					"details": "See {IKIP13-supportsInterface}."
-				},
-				"symbol()": {
-					"details": "See {IKIP17Metadata-symbol}."
-				},
-				"tokenURI(uint256)": {
-					"details": "See {IKIP17Metadata-tokenURI}."
+					"details": "Returns true if this contract implements the interface defined by `interfaceId`. See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard#how-interface-identifiers-are-defined to learn more about how these ids are created. Requirements: - implementation of this function call must use less than 30 000 gas"
 				},
 				"transferFrom(address,address,uint256)": {
-					"details": "See {IKIP17-transferFrom}."
+					"details": "Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event."
 				}
 			},
 			"version": 1
@@ -409,7 +400,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"interface/IKIP17/KIP17Token.sol": "KIP17Token"
+			"Hero/interface/IHeroNFT.sol": "IHeroNFT"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -423,6 +414,14 @@
 		"remappings": []
 	},
 	"sources": {
+		"Hero/interface/IHeroNFT.sol": {
+			"keccak256": "0x20dbae1691e8155f15b9bb6077821861eb70893b4779679624d89543e4335504",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://32221f001031bf969de8f71db60756d741c8ffcd5b1dabda09e19a0494a71523",
+				"dweb:/ipfs/QmUc8UTko4GCSBfTvMGYrz7VRV3nbUghoDSaD9xkoAjF4e"
+			]
+		},
 		"interface/IKIP13.sol": {
 			"keccak256": "0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46",
 			"license": "MIT",
@@ -437,62 +436,6 @@
 			"urls": [
 				"bzz-raw://6707e94aab2ecf8ae4bedbba16cd2465299944644d89f3ce42d85277a8c110b0",
 				"dweb:/ipfs/Qmb2S5XaidxjUtbiEE89JJNpCATHGXLJ69QHCzEy8sr2Yc"
-			]
-		},
-		"interface/IKIP17/IKIP17Metadata.sol": {
-			"keccak256": "0x1035d7ffcb1341c013b74834ea8c50ced6fc6fc0cc3a736ba4652cf994e915a5",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://5519419c6e981e1939c90f404fab6d62d63080ffa4c95fbd00e74cd1e225310d",
-				"dweb:/ipfs/QmNhGvZVrm417KivjPxCC2forwVMPGCCZbN53jCEJEVc64"
-			]
-		},
-		"interface/IKIP17/IKIP17Receiver.sol": {
-			"keccak256": "0x6cd2dc3fa3f2656adb92baddde366f99ec6c9db6e06a1e7d9be345050df2b15d",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://d998f68debfb93aeb3e771fbb6c5e29e18ffa0c80eaa48fae1931dcb1869adbb",
-				"dweb:/ipfs/QmekfbvEgcdstojWrYdN2WeK8vJQgjNVfX9hhquES4hbqn"
-			]
-		},
-		"interface/IKIP17/KIP17Token.sol": {
-			"keccak256": "0x9996aff83b37027b3e21fb517b57f3cf20fa9b63cc01de96ca8c8c6571a931d9",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://7c1814b6001cd7d181b8f7bf3343cec467b5aaab9cc2a885b5791e83968eeef7",
-				"dweb:/ipfs/QmdW1AAL5Ubwqs9xpkxfzonC3C7BTi2kVKet6Wn6QnaxxN"
-			]
-		},
-		"interface/KIP13.sol": {
-			"keccak256": "0x101d517bdf87da13f270dc8dbabf84e6137e45389a94c653d48b169455b1dfe0",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://88a375b0bb017902d8efe9a55f192d2f556264193f9c69334cc313ab979ca750",
-				"dweb:/ipfs/QmbPgR3kzJwdnpT9tk5c4JxdQc8GRpCJukFgsNNju9qHyr"
-			]
-		},
-		"utils/Address.sol": {
-			"keccak256": "0x5f98f151a3988fd7ef1cfa53b4981a7aadb8d73e0d28429331fa40576120ecbf",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://009d268e182dc88f2cf6224f826d68961a27bfae21b1784e3f7b1ddb30358bfe",
-				"dweb:/ipfs/QmdfRTh51uqK872MKNt5WU9HeFEoEbrBGyWPeooXsRfAd7"
-			]
-		},
-		"utils/Context.sol": {
-			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
-				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
-			]
-		},
-		"utils/Strings.sol": {
-			"keccak256": "0xfffb8dfcece6819bf130fcc0751bdca0c4aba16cbfee0c2245abde0f2ed40c95",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://b95afb94655286a4421c5605a53e69f73301f452722eb03107a16da7773416b0",
-				"dweb:/ipfs/QmPsd7TcBhwyrja2oR1ZKpB5CJAm3CMB5DfEbNm2JGQaHv"
 			]
 		}
 	},

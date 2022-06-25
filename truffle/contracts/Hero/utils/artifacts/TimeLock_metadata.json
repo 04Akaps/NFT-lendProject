@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Hero/utils/TimeLock.sol": "TimeLock"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Hero/utils/TimeLock.sol": {
+			"keccak256": "0x32abed4c14290cf7b296e7c61a3f3e4a2817b2cb06ab92b03f5e810dce8087c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5473989248742851952a4ba9fb4762eb686f34d67ce52dbbbd7d0869ae7e961f",
+				"dweb:/ipfs/QmfK2qs3tE2YzFHM6Mia3xZEkTB9WwhWF35YUG6Xny95Ey"
+			]
+		}
+	},
+	"version": 1
+}
