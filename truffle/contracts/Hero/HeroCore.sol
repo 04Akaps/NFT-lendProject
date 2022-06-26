@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 import "./utils/HeroController.sol";
 import "./utils/TimeLock.sol";
@@ -53,7 +53,8 @@ contract HeroCore is HeroController, TimeLock {
         address requestOwner;
         uint256 duration;
     }
-    mapping(uint256 =>RequestStruct[]) private borrowRequestMap;
+
+    mapping(uint256 => RequestStruct[]) private borrowRequestMap;
     mapping(address => uint256) private myRequestMap;
 
     modifier checkStaked(uint256 _tokenId) {
@@ -112,25 +113,37 @@ contract HeroCore is HeroController, TimeLock {
         HERO storage hero = heroVault[_tokenId];
 
         uint256 currentTime = _currentTIme();
-        uint256 travelDuration =  currentTime.add(TRAVEL_DURATION);
+        uint256 travelDuration = currentTime.add(TRAVEL_DURATION);
 
         require(!hero.status.traveled, "Error : hero is Traveled!");
-        require(!hero.status.mining,"Error : hero is Traveled!");
+        require(!hero.status.mining, "Error : hero is Traveled!");
 
-        if(hero.status.borrowed){
+        if (hero.status.borrowed) {
             // 빌린 상태라면
-            require(msg.sender == hero.status.borrowData.borrowers, "Error : msg.sender is Not Borrowers");
-            require(travelDuration <= hero.status.borrowData.borrowEndTime,"Error : Not Enough Time For Travel && BorrowEndTime");
-        } else{
+            require(
+                msg.sender == hero.status.borrowData.borrowers,
+                "Error : msg.sender is Not Borrowers"
+            );
+            require(
+                travelDuration <= hero.status.borrowData.borrowEndTime,
+                "Error : Not Enough Time For Travel && BorrowEndTime"
+            );
+        } else {
             // 빌리지 않은 상태라면
-            require(msg.sender == hero.status.stakeData.owner, "Error : msg.sender is Not Owner");
+            require(
+                msg.sender == hero.status.stakeData.owner,
+                "Error : msg.sender is Not Owner"
+            );
         }
 
         hero.status.traveled = true;
         hero.status.travelData.travelTime = travelDuration;
     }
 
-    function getRewardToTravel(uint256 _tokenId) external checkStaked(_tokenId) {
+    function getRewardToTravel(uint256 _tokenId)
+        external
+        checkStaked(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
         uint256 currentTime = _currentTIme();
@@ -138,11 +151,17 @@ contract HeroCore is HeroController, TimeLock {
         require(hero.status.traveled, "Error : hero is Traveled!");
         require(hero.status.travelData.travelTime <= currentTime);
 
-        if(hero.status.borrowed){
-            require(msg.sender == hero.status.borrowData.borrowers, "Error : msg.sender is Not Borrowers");
+        if (hero.status.borrowed) {
+            require(
+                msg.sender == hero.status.borrowData.borrowers,
+                "Error : msg.sender is Not Borrowers"
+            );
             // 빌린 상태라면 빌린 User에게 보상을 줘야 한다.
-        }else{
-            require(msg.sender == hero.status.stakeData.owner, "Error : msg.sender is Not Owner");
+        } else {
+            require(
+                msg.sender == hero.status.stakeData.owner,
+                "Error : msg.sender is Not Owner"
+            );
             // 빌리지 않은 상태라면 Stake한 User에게 보상을 주어야 한다.
         }
 
@@ -153,15 +172,26 @@ contract HeroCore is HeroController, TimeLock {
         // maybe 등급 + level을 통해서 더 많은 보상을 가져 갈 수 있게 설정
     }
 
-    function requestBorrow(uint256 _tokenId, uint256 _duartion) external checkStaked(_tokenId) {
+    function requestBorrow(uint256 _tokenId, uint256 _duartion)
+        external
+        checkStaked(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
         require(!hero.status.borrowed, "Error : Hero is Browwed anothor User");
 
-        require(myRequestMap[msg.sender] == 0, "Error : already Request Another Hero");
+        require(
+            myRequestMap[msg.sender] == 0,
+            "Error : already Request Another Hero"
+        );
 
         borrowRequestMap[_tokenId].push(RequestStruct(msg.sender, _duartion));
         myRequestMap[msg.sender] = _tokenId;
+
+        uint256 borrowPrice = duration.mul(borrowPricePerBlock);
+
+        getToken().transferFrom(msg.sender, address(this), borrowPrice);
+        getToken().transfer(depositAddress, borrowPrice);
         // 단순히 request만 신ㄴ청하면 된다.
         // Hero가 없어도 사용이 가능
     }
@@ -173,41 +203,61 @@ contract HeroCore is HeroController, TimeLock {
 
         RequestStruct[] storage requestList = borrowRequestMap[_tokenId];
 
-        for(uint i=0; i< requestList.length; i++){
-            if(requestList[i].requestOwner == msg.sender){
+        for (uint256 i = 0; i < requestList.length; i++) {
+            if (requestList[i].requestOwner == msg.sender) {
                 delete requestList[i];
 
-                if(requestList.length == 1 || requestList.length.sub(1) == i){
+                if (requestList.length == 1 || requestList.length.sub(1) == i) {
                     requestList.pop();
-                }else{
-                    RequestStruct memory lastValue = requestList[requestList.length.sub(1)];
+                } else {
+                    RequestStruct memory lastValue = requestList[
+                        requestList.length.sub(1)
+                    ];
                     requestList[i] = lastValue;
                     requestList.pop();
                 }
 
+                uint256 borrowPrice = requestList[i].duration.mul(
+                    borrowPricePerBlock
+                );
+
+                getToken().transferFrom(
+                    depositAddress,
+                    address(this),
+                    borrowPrice
+                );
+                getToken().transfer(msg.sender, borrowPrice);
+
+                // 이렇게 계속 토큰을 이동시키면 event를 가져올떄 특정 값 이하가 되면 approve를 다시 설정해 주면 된다.
+
                 break;
             }
         }
-
-
     }
 
-    function approveBorrow(uint256 _tokenId, address _apprrovedUser) external checkStaked(_tokenId) {
+    function approveBorrow(uint256 _tokenId, address _apprrovedUser)
+        external
+        checkStaked(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
         uint256 currentTime = _currentTIme();
 
-        require(hero.status.stakeData.owner == msg.sender, "Error : Not Token Owner!");
-        
-        (bool inRequest, RequestStruct memory data) = checkUserInBorrowData(_tokenId, _apprrovedUser);
+        require(
+            hero.status.stakeData.owner == msg.sender,
+            "Error : Not Token Owner!"
+        );
+
+        (bool inRequest, RequestStruct memory data) = checkUserInBorrowData(
+            _tokenId,
+            _apprrovedUser
+        );
         require(inRequest, "Error : RequestUser is Not Existed In RequestData");
 
         uint256 duration = data.duration;
         address requestOwner = data.requestOwner;
 
-        uint256 borrowPrice = duration.mul(borrowPricePerBlock);
-
-        //  비용을 어떻게 전송할지 구성 해야함
+        _returnBorrowRequestToken(_tokenId);
 
         hero.status.borrowed = true;
         hero.status.borrowData.borrowEndTime = currentTime.add(duration);
@@ -264,16 +314,19 @@ contract HeroCore is HeroController, TimeLock {
                 false,
                 stakeStruct(address(0x0), 0),
                 traveledStruct(0),
-                borrowStruct( 0, address(0x0))
+                borrowStruct(0, address(0x0))
             )
         );
     }
 
-    function checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser) internal returns(bool, RequestStruct memory){
-        RequestStruct[] memory requestList= borrowRequestMap[_tokenId];
+    function checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser)
+        internal
+        returns (bool, RequestStruct memory)
+    {
+        RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
 
-        for(uint i=0; i<requestList.length; i++){
-            if(requestList[i].requestOwner == _apprrovedUser){
+        for (uint256 i = 0; i < requestList.length; i++) {
+            if (requestList[i].requestOwner == _apprrovedUser) {
                 return (true, requestList[i]);
             }
         }
@@ -281,7 +334,22 @@ contract HeroCore is HeroController, TimeLock {
         return (false, requestList[0]);
     }
 
-    function _currentTIme() internal view returns(uint256){
+    function _returnBorrowRequestToken(uint256 _tokenId) internal {
+        RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
+
+        for (uint256 i = 0; i < requestList.length; i++) {
+            uint256 borrowPrice = requestList[i].duration.mul(
+                borrowPricePerBlock
+            );
+
+            uint256 approvedOwner = requestList[i].requestOwner;
+
+            getToken().transferFrom(depositAddress, address(this), borrowPrice);
+            getToken().transfer(approvedOwner, borrowPrice);
+        }
+    }
+
+    function _currentTIme() internal view returns (uint256) {
         return block.timestamp;
     }
 

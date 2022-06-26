@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 import "../../utils/SafeMath.sol";
 
@@ -15,6 +15,7 @@ contract HeroController {
     IKIP7 private token;
 
     address payable private coreOwner;
+    address public depositAddress;
 
     bool private initialized;
     bool private paused;
@@ -46,6 +47,7 @@ contract HeroController {
         address _heroNFT,
         address _gradeDiagram,
         address _token,
+        address _depositAddress,
         uint256 _klay,
         uint256 _tokenPrice
     ) external onlyOwner {
@@ -55,6 +57,8 @@ contract HeroController {
         heroNFT = IHeroNFT(_heroNFT);
         gradeDiagram = IMakeGrade(_gradeDiagram);
         token = IKIP7(_token);
+
+        depositAddress = _depositAddress;
     }
 
     function changePaused() external onlyOwner {

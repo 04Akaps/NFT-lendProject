@@ -39,7 +39,13 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
     /**
      * @dev See {IKIP13-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(KIP13) returns (bool) {
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(KIP13)
+        returns (bool)
+    {
         return
             interfaceId == type(IKIP7).interfaceId ||
             interfaceId == type(IKIP7Metadata).interfaceId ||
@@ -88,7 +94,13 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
     /**
      * @dev See {IKIP7-balanceOf}.
      */
-    function balanceOf(address account) public view virtual override returns (uint256) {
+    function balanceOf(address account)
+        public
+        view
+        virtual
+        override
+        returns (uint256)
+    {
         return _balances[account];
     }
 
@@ -100,7 +112,12 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
      * - `to` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      */
-    function transfer(address to, uint256 amount) public virtual override returns (bool) {
+    function transfer(address to, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         address owner = _msgSender();
         _transfer(owner, to, amount);
         return true;
@@ -109,7 +126,13 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
     /**
      * @dev See {IKIP7-allowance}.
      */
-    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+    function allowance(address owner, address spender)
+        public
+        view
+        virtual
+        override
+        returns (uint256)
+    {
         return _allowances[owner][spender];
     }
 
@@ -123,7 +146,12 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 amount) public virtual override returns (bool) {
+    function approve(address spender, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         address owner = _msgSender();
         _approve(owner, spender, amount);
         return true;
@@ -168,7 +196,11 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
      *
      * - `spender` cannot be the zero address.
      */
-    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+    function increaseAllowance(address spender, uint256 addedValue)
+        public
+        virtual
+        returns (bool)
+    {
         address owner = _msgSender();
         _approve(owner, spender, allowance(owner, spender) + addedValue);
         return true;
@@ -188,10 +220,17 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
      * - `spender` must have allowance for the caller of at least
      * `subtractedValue`.
      */
-    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+    function decreaseAllowance(address spender, uint256 subtractedValue)
+        public
+        virtual
+        returns (bool)
+    {
         address owner = _msgSender();
         uint256 currentAllowance = allowance(owner, spender);
-        require(currentAllowance >= subtractedValue, "KIP7: decreased allowance below zero");
+        require(
+            currentAllowance >= subtractedValue,
+            "KIP7: decreased allowance below zero"
+        );
         unchecked {
             _approve(owner, spender, currentAllowance - subtractedValue);
         }
@@ -210,7 +249,11 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
      * - the caller must have a balance of at least `amount`.
      * - if `recipient` is a smart contract, it must implement {IKIP7Receiver}
      */
-    function safeTransfer(address recipient, uint256 amount) public virtual override {
+    function safeTransfer(address recipient, uint256 amount)
+        public
+        virtual
+        override
+    {
         address owner = _msgSender();
         _safeTransfer(owner, recipient, amount, "");
     }
@@ -302,7 +345,10 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
         bytes memory _data
     ) internal virtual {
         _transfer(from, to, amount);
-        require(_checkOnKIP7Received(from, to, amount, _data), "KIP7: transfer to non IKIP7Receiver implementer");
+        require(
+            _checkOnKIP7Received(from, to, amount, _data),
+            "KIP7: transfer to non IKIP7Receiver implementer"
+        );
     }
 
     /**
@@ -412,7 +458,14 @@ contract KIP7Token is KIP13, IKIP7Metadata, Context {
         bytes memory _data
     ) private returns (bool) {
         if (to.isContract()) {
-            try IKIP7Receiver(to).onKIP7Received(_msgSender(), from, amount, _data) returns (bytes4 retval) {
+            try
+                IKIP7Receiver(to).onKIP7Received(
+                    _msgSender(),
+                    from,
+                    amount,
+                    _data
+                )
+            returns (bytes4 retval) {
                 return retval == IKIP7Receiver.onKIP7Received.selector;
             } catch (bytes memory reason) {
                 if (reason.length == 0) {
