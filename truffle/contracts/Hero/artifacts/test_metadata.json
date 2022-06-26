@@ -1,0 +1,58 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "hojin",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Hero/test.sol": "test"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Hero/test.sol": {
+			"keccak256": "0x6a10bc7fe0d34012e6e792ba9c7e68ef95a2e231056dc82b1adb4b66ce5e9676",
+			"urls": [
+				"bzz-raw://3a3651b5c85629ab2e1e2311d7944052ea187966c9982ee5822007b806ed2a74",
+				"dweb:/ipfs/QmYSJfUeRtoZjqRCQ9uHd3oUx7URMCgBUytYt7XR3cbcZx"
+			]
+		}
+	},
+	"version": 1
+}

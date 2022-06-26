@@ -11,9 +11,40 @@
 						"internalType": "uint256",
 						"name": "_tokenId",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_apprrovedUser",
+						"type": "address"
+					}
+				],
+				"name": "approveBorrow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
 					}
 				],
 				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelRequest",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -28,13 +59,6 @@
 			{
 				"inputs": [],
 				"name": "claimMiningAmount",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getBorrow",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -105,7 +129,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
 				"name": "getRewardToTravel",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -244,8 +274,19 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "registerBorrow",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_duartion",
+						"type": "uint256"
+					}
+				],
+				"name": "requestBorrow",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -264,7 +305,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
 				"name": "travel",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -312,11 +359,11 @@
 	},
 	"sources": {
 		"Hero/HeroCore.sol": {
-			"keccak256": "0x41d4e1404cf6137f0449e832bc6c1b08926486758703176e1fb90ebd9c3148ce",
+			"keccak256": "0xb2f56357fed3cc700e3ce3286a0aebcaa0b8fd98a97191554d9b5ef3fbaa0cbe",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://21cac0463a6eef28041c494ec62098c4554911f910c59bfca4204fa4090db08a",
-				"dweb:/ipfs/QmXidCDg25XwZC5wMdriwNvBC5CbmRjjtGBXuUny6gLpF3"
+				"bzz-raw://2a50254cd52e0719083f302171fd641498d5a5b4436e43007ecea1185c0d9460",
+				"dweb:/ipfs/QmYfWnr85TZHfSggssQhjCHuPykfyGHaJkPeRUbewMCFeE"
 			]
 		},
 		"Hero/interface/IHeroNFT.sol": {
@@ -336,19 +383,19 @@
 			]
 		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0xeb6446e1972fb6d70a5e3a607d66c566e535440ccd28ee40bffa8e17ebb0d8f8",
+			"keccak256": "0xc45748dead4802e58ad69bc8b51ba847a3ee9d0157331c4faae5b79ca195cd03",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9cf22a8f0e6a8a4bda142d5e21b8aa22c82c8cfef0ffdf3d06ffca7e1ce2296",
-				"dweb:/ipfs/QmRDyrxptfmK7SUrGWKoACQxDJkgrnMC6QqJQY6RdkiAaJ"
+				"bzz-raw://8c41d67be5b3eade80d5c9288297b603fc0a2e58d17ada3e09c9d6583a0b1258",
+				"dweb:/ipfs/QmbNadf7VKpu6BuYntfAsW7YXZdLwxfPXdc8WyAf9cFWBG"
 			]
 		},
 		"Hero/utils/TimeLock.sol": {
-			"keccak256": "0x32abed4c14290cf7b296e7c61a3f3e4a2817b2cb06ab92b03f5e810dce8087c9",
+			"keccak256": "0x6ef0d8fa07a3a1150b162c46e999932561d0824cabffc34b056e08b0b30e66b5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5473989248742851952a4ba9fb4762eb686f34d67ce52dbbbd7d0869ae7e961f",
-				"dweb:/ipfs/QmfK2qs3tE2YzFHM6Mia3xZEkTB9WwhWF35YUG6Xny95Ey"
+				"bzz-raw://2cdbc92fb613afa8aeab0770e8a0e2be47222808b73dac1c014376770384e608",
+				"dweb:/ipfs/QmXkdrAePtcNoNhTXtCXruEMYVcaZEjM4YFytN6z7EEgjR"
 			]
 		},
 		"interface/IKIP13.sol": {
