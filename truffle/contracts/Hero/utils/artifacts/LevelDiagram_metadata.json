@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Hero/utils/TimeLock.sol": "TimeLock"
+			"Hero/utils/LevelDiagram.sol": "LevelDiagram"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -32,12 +32,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Hero/utils/TimeLock.sol": {
-			"keccak256": "0x339ed4595a37d70486add08e6f934df6c03da83bc1ace739500f72ac8adeac28",
+		"Hero/utils/LevelDiagram.sol": {
+			"keccak256": "0x0e5ce9cf652c00b31bc9f30faa147cf770bf5630e558cafdf31893ac1188baf8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89c342adc54e85d5f27aac57a7bd77897d6a0a02ceee3ea76e926fbf82a96fa0",
-				"dweb:/ipfs/QmRca7SFNupdKzfVTQxEwJfRUYCZVgu7KzrFfWD8SFpoWN"
+				"bzz-raw://fb0f40c4bbfe3cac50acacbc94add00d36a111a7f6407ea7cc9dbaefa22c63cc",
+				"dweb:/ipfs/Qmb97bufk7Me6Ashaw3ZvmKy1SacvMogBqKjsTPoB5Ko9p"
 			]
 		}
 	},

@@ -65,6 +65,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "depositAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getDiagram",
 				"outputs": [
 					{
@@ -179,6 +192,11 @@
 						"type": "address"
 					},
 					{
+						"internalType": "address",
+						"name": "_depositAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "_klay",
 						"type": "uint256"
@@ -195,7 +213,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
 				"name": "levelUp",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -359,19 +383,19 @@
 	},
 	"sources": {
 		"Hero/HeroCore.sol": {
-			"keccak256": "0xb2f56357fed3cc700e3ce3286a0aebcaa0b8fd98a97191554d9b5ef3fbaa0cbe",
+			"keccak256": "0xdd1dd7286117be20bab7118e1dba95fe10cdce2cf1659eeaa38be807ac04a537",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2a50254cd52e0719083f302171fd641498d5a5b4436e43007ecea1185c0d9460",
-				"dweb:/ipfs/QmYfWnr85TZHfSggssQhjCHuPykfyGHaJkPeRUbewMCFeE"
+				"bzz-raw://07b2e4606d9ec4834e99f112a082fc149c87f963487e8014d9d4493ef61b0951",
+				"dweb:/ipfs/QmQBxAqrcEiQdi1FugRjpMwvyLGHtBoahZNCvpBPptYzfu"
 			]
 		},
 		"Hero/interface/IHeroNFT.sol": {
-			"keccak256": "0x20dbae1691e8155f15b9bb6077821861eb70893b4779679624d89543e4335504",
+			"keccak256": "0x3142bf7e33635c4a58ba1511634a9e8a051f5416dd58edbcf9c27adfc4dfcc58",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://32221f001031bf969de8f71db60756d741c8ffcd5b1dabda09e19a0494a71523",
-				"dweb:/ipfs/QmUc8UTko4GCSBfTvMGYrz7VRV3nbUghoDSaD9xkoAjF4e"
+				"bzz-raw://1645ba5a631e37e18ca2c1c2eaaabd6568b1fb899be03a28f24dcda06f21a52e",
+				"dweb:/ipfs/QmSLvQA4RGL5fXEhHVp7Fmh5ACeRZ3PT7cfmgCj2rC2jTa"
 			]
 		},
 		"Hero/interface/IMakeGrade.sol": {
@@ -383,11 +407,19 @@
 			]
 		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0xc45748dead4802e58ad69bc8b51ba847a3ee9d0157331c4faae5b79ca195cd03",
+			"keccak256": "0x8d2b01f9ee2b8cc3b1162a1b1ca8c7ccfbef639f2932742ce69edb765a4096ea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8c41d67be5b3eade80d5c9288297b603fc0a2e58d17ada3e09c9d6583a0b1258",
-				"dweb:/ipfs/QmbNadf7VKpu6BuYntfAsW7YXZdLwxfPXdc8WyAf9cFWBG"
+				"bzz-raw://bc4c79e0ae3bbea85e91cd038fc41655d73b628fd135225378d5477cb039f151",
+				"dweb:/ipfs/QmNhbGVVcXkwNGxbXDMbZ9R6Mn55egX69QW1LmND1AE3kr"
+			]
+		},
+		"Hero/utils/LevelDiagram.sol": {
+			"keccak256": "0x32557f2db27283cf0121e3ce4e3ecfeb8ea742f4a18ff6604cdb3e357ef62f2a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://56387b6e6f75773313856db6a8917b6d6fd5e549fa169e49c7b042835a3106d1",
+				"dweb:/ipfs/QmPVt9oQ25ZXTfTsicGtUYu6EivdAvVpEUvMssasye8xpE"
 			]
 		},
 		"Hero/utils/TimeLock.sol": {

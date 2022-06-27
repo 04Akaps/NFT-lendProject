@@ -66,11 +66,11 @@
 			]
 		},
 		"Hero/utils/MakeGrade.sol": {
-			"keccak256": "0xeb363143a894aaefa13bb90845d4b7aca7ef5ed2395c00ff624aebd0a148a8cc",
+			"keccak256": "0x0de0fec10dd4eb5039d9a4976a2cefbfd4f02f520c501da206781aa2da882396",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d284fc411990fe1e14774c75587ebc78abe10d68f6d7851e62e835e373d34c05",
-				"dweb:/ipfs/Qmcb6MLJcHZH2Te4xaeEgogGjjESYVRXmWB4YrKdft1aYo"
+				"bzz-raw://03f1f8ed5af5fd84ed70d50b61e5c41e627918d65ac9dfb0e3b7972528434e1a",
+				"dweb:/ipfs/QmeyWhaUUpbQGZCnWZmu137qSUu2sDomqzuCJeywkNLUn5"
 			]
 		},
 		"utils/SafeMath.sol": {

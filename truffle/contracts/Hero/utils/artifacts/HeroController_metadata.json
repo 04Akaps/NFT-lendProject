@@ -14,6 +14,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "depositAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getDiagram",
 				"outputs": [
 					{
@@ -102,6 +115,11 @@
 						"type": "address"
 					},
 					{
+						"internalType": "address",
+						"name": "_depositAddress",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "_klay",
 						"type": "uint256"
@@ -172,11 +190,11 @@
 	},
 	"sources": {
 		"Hero/interface/IHeroNFT.sol": {
-			"keccak256": "0x38a552ee305a6f4689f5640e9cde01cc00566617c4167d42fcd73f67581854b8",
+			"keccak256": "0x3142bf7e33635c4a58ba1511634a9e8a051f5416dd58edbcf9c27adfc4dfcc58",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://32e25ef77354cb53a1a46a7d91ac5f5ee076d65a109b90063ed07f2374d95fa1",
-				"dweb:/ipfs/QmcYdCPFE5irWJzwRbDc489azoERL9GenVRf3iVVZRvZc1"
+				"bzz-raw://1645ba5a631e37e18ca2c1c2eaaabd6568b1fb899be03a28f24dcda06f21a52e",
+				"dweb:/ipfs/QmSLvQA4RGL5fXEhHVp7Fmh5ACeRZ3PT7cfmgCj2rC2jTa"
 			]
 		},
 		"Hero/interface/IMakeGrade.sol": {
@@ -188,11 +206,27 @@
 			]
 		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0xeb6446e1972fb6d70a5e3a607d66c566e535440ccd28ee40bffa8e17ebb0d8f8",
+			"keccak256": "0x8d2b01f9ee2b8cc3b1162a1b1ca8c7ccfbef639f2932742ce69edb765a4096ea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9cf22a8f0e6a8a4bda142d5e21b8aa22c82c8cfef0ffdf3d06ffca7e1ce2296",
-				"dweb:/ipfs/QmRDyrxptfmK7SUrGWKoACQxDJkgrnMC6QqJQY6RdkiAaJ"
+				"bzz-raw://bc4c79e0ae3bbea85e91cd038fc41655d73b628fd135225378d5477cb039f151",
+				"dweb:/ipfs/QmNhbGVVcXkwNGxbXDMbZ9R6Mn55egX69QW1LmND1AE3kr"
+			]
+		},
+		"interface/IKIP13.sol": {
+			"keccak256": "0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3d5b38071876acadb51cd31254f6eefa30d9240c21b531bdb89648f7475231fd",
+				"dweb:/ipfs/QmVvkB9Uwwdq2QJp1uU6eJrcetmaU9zdcNvdg2z9zRmy9e"
+			]
+		},
+		"interface/IKIP17/IKIP17.sol": {
+			"keccak256": "0xc38b8dadbb565878acbbd3ddea3942ba9f9f8af764291b5e619a014a0ea7cd6a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6707e94aab2ecf8ae4bedbba16cd2465299944644d89f3ce42d85277a8c110b0",
+				"dweb:/ipfs/Qmb2S5XaidxjUtbiEE89JJNpCATHGXLJ69QHCzEy8sr2Yc"
 			]
 		},
 		"interface/IKIP7/IKIP7.sol": {

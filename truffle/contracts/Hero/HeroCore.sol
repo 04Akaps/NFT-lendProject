@@ -3,10 +3,11 @@ pragma solidity ^0.8.0;
 
 import "./utils/HeroController.sol";
 import "./utils/TimeLock.sol";
+import "./utils/LevelDiagram.sol";
 
 import "../utils/SafeMath.sol";
 
-contract HeroCore is HeroController, TimeLock {
+contract HeroCore is HeroController, TimeLock, LevelDiagram {
     using SafeMath for *;
 
     struct HERO {
@@ -36,6 +37,7 @@ contract HeroCore is HeroController, TimeLock {
     }
 
     struct traveledStruct {
+        address travelOwner;
         uint256 travelTime;
     }
 
@@ -137,6 +139,7 @@ contract HeroCore is HeroController, TimeLock {
         }
 
         hero.status.traveled = true;
+        hero.status.travelData.travelOwner = msg.sender;
         hero.status.travelData.travelTime = travelDuration;
     }
 
@@ -149,26 +152,38 @@ contract HeroCore is HeroController, TimeLock {
         uint256 currentTime = _currentTIme();
 
         require(hero.status.traveled, "Error : hero is Traveled!");
-        require(hero.status.travelData.travelTime <= currentTime);
+        require(
+            hero.status.travelData.travelTime <= currentTime,
+            "Error : Not Travel End Time"
+        );
 
-        if (hero.status.borrowed) {
-            require(
-                msg.sender == hero.status.borrowData.borrowers,
-                "Error : msg.sender is Not Borrowers"
-            );
-            // 빌린 상태라면 빌린 User에게 보상을 줘야 한다.
+        address travelOwner = hero.status.travelData.travelOwner;
+
+        require(
+            msg.sender == hero.status.stakeData.owner ||
+                msg.sender == travelOwner,
+            "Error : Not TravelOwner or stakeOwner"
+        );
+
+        address receiver;
+
+        if (hero.status.borrowData.borrowEndTime < currentTime) {
+            hero.status.borrowed = false;
+            hero.status.borrowData.borrowEndTime = 0;
+            hero.status.borrowData.borrowers = address(0x0);
+
+            receiver = hero.status.stakeData.owner;
         } else {
-            require(
-                msg.sender == hero.status.stakeData.owner,
-                "Error : msg.sender is Not Owner"
-            );
-            // 빌리지 않은 상태라면 Stake한 User에게 보상을 주어야 한다.
+            receiver = travelOwner;
         }
 
         hero.status.traveled = false;
+        hero.status.travelData.travelOwner = address(0x0);
         hero.status.travelData.travelTime = 0;
 
-        // 보상을 주어야 한다.
+        // 보상을 주어야 한다. = receiver
+        // 만약 borrow가 끝나는 시간 이후에 실행이 되면 시간을 지키지 않은 것이기 떄문에 보상은 TokenOwner에게 주어진다.
+
         // maybe 등급 + level을 통해서 더 많은 보상을 가져 갈 수 있게 설정
     }
 
@@ -188,12 +203,10 @@ contract HeroCore is HeroController, TimeLock {
         borrowRequestMap[_tokenId].push(RequestStruct(msg.sender, _duartion));
         myRequestMap[msg.sender] = _tokenId;
 
-        uint256 borrowPrice = duration.mul(borrowPricePerBlock);
+        uint256 borrowPrice = _duartion.mul(borrowPricePerBlock);
 
         getToken().transferFrom(msg.sender, address(this), borrowPrice);
         getToken().transfer(depositAddress, borrowPrice);
-        // 단순히 request만 신ㄴ청하면 된다.
-        // Hero가 없어도 사용이 가능
     }
 
     function cancelRequest(uint256 _tokenId) external checkStaked(_tokenId) {
@@ -255,7 +268,6 @@ contract HeroCore is HeroController, TimeLock {
         require(inRequest, "Error : RequestUser is Not Existed In RequestData");
 
         uint256 duration = data.duration;
-        address requestOwner = data.requestOwner;
 
         _returnBorrowRequestToken(_tokenId);
 
@@ -268,7 +280,29 @@ contract HeroCore is HeroController, TimeLock {
 
     function claimMiningAmount() external {}
 
-    function levelUp() external {}
+    function levelUp(uint256 _tokenId) external checkStaked(_tokenId) {
+        HERO storage hero = heroVault[_tokenId];
+
+        require(
+            msg.sender == hero.status.stakeData.owner,
+            "Error : Not TokenOwner"
+        );
+        uint256 level = hero.level;
+
+        //   uint256 private constant MAX_LEVEL = 5;
+        require(level < MAX_LEVEL, "Error : Token is MaxLevel Status");
+        uint256 calculatePrice = calculateTokenAmount(hero.grade, level);
+
+        require(
+            getToken().balanceOf(msg.sender) >= calculatePrice,
+            "Error : Not Exough Token"
+        );
+
+        getToken().transferFrom(msg.sender, address(this), calculatePrice);
+        getToken().transfer(getOwner(), calculatePrice);
+
+        hero.level = level.add(1);
+    }
 
     function stake(uint256 _tokenId) external {
         address tokenOwner = getHeroNFT().ownerOf(_tokenId);
@@ -313,7 +347,7 @@ contract HeroCore is HeroController, TimeLock {
                 false,
                 false,
                 stakeStruct(address(0x0), 0),
-                traveledStruct(0),
+                traveledStruct(address(0x0), 0),
                 borrowStruct(0, address(0x0))
             )
         );
@@ -321,6 +355,7 @@ contract HeroCore is HeroController, TimeLock {
 
     function checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser)
         internal
+        view
         returns (bool, RequestStruct memory)
     {
         RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
@@ -342,7 +377,7 @@ contract HeroCore is HeroController, TimeLock {
                 borrowPricePerBlock
             );
 
-            uint256 approvedOwner = requestList[i].requestOwner;
+            address approvedOwner = requestList[i].requestOwner;
 
             getToken().transferFrom(depositAddress, address(this), borrowPrice);
             getToken().transfer(approvedOwner, borrowPrice);
