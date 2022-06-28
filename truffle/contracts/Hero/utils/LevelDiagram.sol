@@ -2,8 +2,15 @@
 pragma solidity ^0.8.0;
 
 contract LevelDiagram {
+
+    bytes32 private constant MYTHOLOGY = keccak256("Mythology");
+    bytes32 private constant LEGENDARY = keccak256("Legendary");
+    bytes32 private constant EPIC = keccak256("Epic");
+    bytes32 private constant ADMINISTRATOR = keccak256("Administrator");
+    bytes32 private constant NORMAL = keccak256("Normal");
+
     function calculateTokenAmount(string memory grade, uint256 level)
-        internal
+        public
         pure
         returns (uint256)
     {
@@ -30,18 +37,44 @@ contract LevelDiagram {
         pure
         returns (uint256)
     {
+        bytes32 gradeCheck = keccak256(bytes(grade));
+
         return (
-            keccak256(bytes(grade)) == keccak256("Mythology")
+            gradeCheck == MYTHOLOGY
                 ? 675
-                : keccak256(bytes(grade)) == keccak256("Legendary")
+                : gradeCheck == LEGENDARY
                 ? 450
-                : keccak256(bytes(grade)) == keccak256("Epic")
+                : gradeCheck == EPIC
                 ? 300
-                : keccak256(bytes(grade)) == keccak256("Administrator")
+                : gradeCheck == ADMINISTRATOR
                 ? 225
-                : keccak256(bytes(grade)) == keccak256("Normal")
+                : gradeCheck == NORMAL
                 ? 200
                 : 0
         );
+    }
+
+    function calculatePower(string memory grade , uint256 level) internal pure returns(uint256){
+        bytes32 gradeCheck = keccak256(bytes(grade));
+
+
+        uint256 basicPower = (
+            gradeCheck == MYTHOLOGY ? 450 
+            :  gradeCheck == LEGENDARY 
+            ? 300
+            : gradeCheck == EPIC 
+            ? 200
+            : gradeCheck == ADMINISTRATOR
+            ? 150
+            : gradeCheck == NORMAL
+            ? 100
+            : 0
+        );
+
+        uint256 levelCheck = (
+            level == 1 ? 10 : level == 2 ? 15 : level == 3 ? 25 : level == 4 ? 40 : level == 5 ? 70 : 0
+        );
+
+        return (basicPower * levelCheck) / 10;
     }
 }

@@ -491,11 +491,11 @@
 			]
 		},
 		"interface/IKIP7/IKIP7.sol": {
-			"keccak256": "0x4c3bdc0a389a3e9ad8039b34c93e54a590b17a78f83102f7ec22efb0fa07ad4f",
+			"keccak256": "0xf3f1e32e3d07b7894d60806f2a42b9d369929cc8a429973356f518ca782532a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://279b2ae593d87bb256da617bd6ebbb0d6a230d01141a998025e53d0e0987407f",
-				"dweb:/ipfs/QmSJbjVTUypSB6FQuDDsdqbwAsJ1PptFLotoxCH3K5KYey"
+				"bzz-raw://ddc28fd4b48e353d73949eed634f7a6fd493f0bf5f712f8b3cbff60f85d3f035",
+				"dweb:/ipfs/QmZXnazRkWH2qsKayjNP7oVrwmQPoP5uUPQ837PzP4K7Ws"
 			]
 		},
 		"interface/IKIP7/IKIP7Metadata.sol": {
@@ -515,11 +515,11 @@
 			]
 		},
 		"interface/IKIP7/KIP7Token.sol": {
-			"keccak256": "0x5b26aa82b53167898cc25fba4f28c64cfbe4823b77cf741ce17bf69fe7556e83",
+			"keccak256": "0x80638c66ca12c7ae0d7a1532dc8809da5a132ebabb0cfaf8ed16be817aa533c8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://55cd6bf5c30edafc1de1acc690be2d0a347ebfa7acf8c287246624e45b253560",
-				"dweb:/ipfs/QmSasjxvQnScL55zjkQCBQQC3jkh82EeSvZwqnFzyUNrJc"
+				"bzz-raw://6a88f009f5e545d584393922559013f82d77aae0dd8b35af167ac979115ef287",
+				"dweb:/ipfs/QmSYm4vAYu3q1SvaRkQvxAbKvqj19NpDkujmfUN37fxq63"
 			]
 		},
 		"interface/KIP13.sol": {

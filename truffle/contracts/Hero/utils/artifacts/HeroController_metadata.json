@@ -7,6 +7,13 @@
 		"abi": [
 			{
 				"inputs": [],
+				"name": "changeMiningPaused",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "changePaused",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -46,6 +53,19 @@
 						"internalType": "contract IHeroNFT",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMiningPaused",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -183,7 +203,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
@@ -206,11 +226,11 @@
 			]
 		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0x8d2b01f9ee2b8cc3b1162a1b1ca8c7ccfbef639f2932742ce69edb765a4096ea",
+			"keccak256": "0xd3fb5af28313131a658a85e1db72a2f5ccb08de5e3723870802e1a49be2b0eea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bc4c79e0ae3bbea85e91cd038fc41655d73b628fd135225378d5477cb039f151",
-				"dweb:/ipfs/QmNhbGVVcXkwNGxbXDMbZ9R6Mn55egX69QW1LmND1AE3kr"
+				"bzz-raw://98ddba43c1058355664edc7c5a33b2b032c7b62ec443fef2783b0c4592d4a104",
+				"dweb:/ipfs/QmNpBrStb6DA8E2TpQLAEPFttaahUcuMmyYVLXapGgDwWX"
 			]
 		},
 		"interface/IKIP13.sol": {
@@ -230,11 +250,11 @@
 			]
 		},
 		"interface/IKIP7/IKIP7.sol": {
-			"keccak256": "0x4c3bdc0a389a3e9ad8039b34c93e54a590b17a78f83102f7ec22efb0fa07ad4f",
+			"keccak256": "0xf3f1e32e3d07b7894d60806f2a42b9d369929cc8a429973356f518ca782532a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://279b2ae593d87bb256da617bd6ebbb0d6a230d01141a998025e53d0e0987407f",
-				"dweb:/ipfs/QmSJbjVTUypSB6FQuDDsdqbwAsJ1PptFLotoxCH3K5KYey"
+				"bzz-raw://ddc28fd4b48e353d73949eed634f7a6fd493f0bf5f712f8b3cbff60f85d3f035",
+				"dweb:/ipfs/QmZXnazRkWH2qsKayjNP7oVrwmQPoP5uUPQ837PzP4K7Ws"
 			]
 		},
 		"utils/SafeMath.sol": {

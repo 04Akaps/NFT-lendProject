@@ -19,6 +19,7 @@ contract HeroController {
 
     bool private initialized;
     bool private paused;
+    bool private miningPaused;
 
     uint256 public priceOfKlay;
     uint256 public priceOfToken;
@@ -38,6 +39,7 @@ contract HeroController {
         require(initialized == false, "already Initialized!!");
 
         paused = true;
+        miningPaused = true;
         coreOwner = payable(msg.sender);
 
         initialized = true;
@@ -65,6 +67,10 @@ contract HeroController {
         paused = !paused;
     }
 
+    function changeMiningPaused() external onlyOwner{
+        miningPaused = !miningPaused;
+    }
+
     // **** view Function ****
 
     function getOwner() public view returns (address payable) {
@@ -75,6 +81,10 @@ contract HeroController {
         return paused;
     }
 
+    function getMiningPaused() public view returns(bool){
+        return miningPaused;
+    }
+    
     function getToken() public view returns (IKIP7) {
         return token;
     }

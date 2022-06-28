@@ -389,11 +389,11 @@
 	},
 	"sources": {
 		"interface/IKIP7/IKIP7.sol": {
-			"keccak256": "0x4c3bdc0a389a3e9ad8039b34c93e54a590b17a78f83102f7ec22efb0fa07ad4f",
+			"keccak256": "0xf3f1e32e3d07b7894d60806f2a42b9d369929cc8a429973356f518ca782532a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://279b2ae593d87bb256da617bd6ebbb0d6a230d01141a998025e53d0e0987407f",
-				"dweb:/ipfs/QmSJbjVTUypSB6FQuDDsdqbwAsJ1PptFLotoxCH3K5KYey"
+				"bzz-raw://ddc28fd4b48e353d73949eed634f7a6fd493f0bf5f712f8b3cbff60f85d3f035",
+				"dweb:/ipfs/QmZXnazRkWH2qsKayjNP7oVrwmQPoP5uUPQ837PzP4K7Ws"
 			]
 		},
 		"interface/IKIP7/IKIP7MetaData.sol": {

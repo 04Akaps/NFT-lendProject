@@ -4,7 +4,32 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "grade",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "level",
+						"type": "uint256"
+					}
+				],
+				"name": "calculateTokenAmount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -26,18 +51,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Hero/utils/LevelDiagram.sol": {
-			"keccak256": "0x0e5ce9cf652c00b31bc9f30faa147cf770bf5630e558cafdf31893ac1188baf8",
+			"keccak256": "0xc550ba673588f20d6d5a54fb9a53744979040bf33923e3e0dfa240d861b1c612",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fb0f40c4bbfe3cac50acacbc94add00d36a111a7f6407ea7cc9dbaefa22c63cc",
-				"dweb:/ipfs/Qmb97bufk7Me6Ashaw3ZvmKy1SacvMogBqKjsTPoB5Ko9p"
+				"bzz-raw://fe0af855926bf837c979b93b52dc2902bf30c9987e8ccf78e47cfc4a1ca4bfb8",
+				"dweb:/ipfs/QmStnizfCrgdQJX9ajoyrSftFJD11Qn3BM6sWgCqVgJBMi"
 			]
 		}
 	},
