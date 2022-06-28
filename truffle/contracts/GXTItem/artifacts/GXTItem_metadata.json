@@ -1,0 +1,496 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "uri",
+						"type": "string"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "_approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "_ids",
+						"type": "uint256[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "_values",
+						"type": "uint256[]"
+					}
+				],
+				"name": "TransferBatch",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_value",
+						"type": "uint256"
+					}
+				],
+				"name": "TransferSingle",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "_value",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "URI",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "owners",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					}
+				],
+				"name": "balanceOfBatch",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "amounts",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeBatchTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "uri",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"balanceOf(address,uint256)": {
+					"details": "See {IKIP37-balanceOf}. Requirements: - `owner` cannot be the zero address."
+				},
+				"balanceOfBatch(address[],uint256[])": {
+					"details": "See {IKIP37-balanceOfBatch}. Requirements: - `owners` and `ids` must have the same length."
+				},
+				"isApprovedForAll(address,address)": {
+					"details": "See {IKIP37-isApprovedForAll}."
+				},
+				"safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": {
+					"details": "See {IKIP37-safeBatchTransferFrom}."
+				},
+				"safeTransferFrom(address,address,uint256,uint256,bytes)": {
+					"details": "See {IKIP37-safeTransferFrom}."
+				},
+				"setApprovalForAll(address,bool)": {
+					"details": "See {IKIP37-setApprovalForAll}."
+				},
+				"supportsInterface(bytes4)": {
+					"details": "See {IKIP13-supportsInterface}."
+				},
+				"uri(uint256)": {
+					"details": "See {IKIP37Metadata-uri}. This implementation returns the same URI for *all* token types. It relies on the token type ID substitution mechanism http://kips.klaytn.com/KIPs/kip-37#metadata-extension[defined in the KIP]. Clients calling this function must replace the `\\{id\\}` substring with the actual token type ID."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"GXTItem/GXTItem.sol": "GXTItem"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"GXTItem/GXTItem.sol": {
+			"keccak256": "0x9a410be8ecee217ac2d5e5ec5d461ae8379a25e0ff17e2a0b21c48e18e2482ce",
+			"urls": [
+				"bzz-raw://a63e3eb26894da523d1ad68d363fe263c7421ead6a9bbfb2268d26c55b5ad7c2",
+				"dweb:/ipfs/QmNwtdGLEpuRQdkbt9yw8RahJQgjvcanfz6s4GUCsqqKst"
+			]
+		},
+		"interface/IKIP13.sol": {
+			"keccak256": "0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3d5b38071876acadb51cd31254f6eefa30d9240c21b531bdb89648f7475231fd",
+				"dweb:/ipfs/QmVvkB9Uwwdq2QJp1uU6eJrcetmaU9zdcNvdg2z9zRmy9e"
+			]
+		},
+		"interface/IKIP37/IKIP37.sol": {
+			"keccak256": "0x83dca3f4154b5bffe57c06e4adfb29a48ff58685c59e0bdbd7cec5c7fb905833",
+			"urls": [
+				"bzz-raw://c876df6084bfd61035ebb4e7f3d3060ee330ccfbf6832c8efbabeeefb72d7b63",
+				"dweb:/ipfs/QmepxEHZxmdanTZmbEBCDhS5dWsoB9DV7ikmbmWvY49gdU"
+			]
+		},
+		"interface/IKIP37/IKIP37MetadataURI.sol": {
+			"keccak256": "0x886ab601fabfcf14d4e09a70ebecc4c0c7414a8939b696fee3b3a5508d462dcb",
+			"urls": [
+				"bzz-raw://4ce1205cc5808e4e44748a82dacc9c3bcfef9009cf34d5cd375939341a108480",
+				"dweb:/ipfs/QmU1Fq4BxAXw6TaQN8Z1VmdGuMWWUgThxzyqFaW86pGiUf"
+			]
+		},
+		"interface/IKIP37/IKIP37Receiver.sol": {
+			"keccak256": "0x485eb4f26349d680906fbcf8d9ca3e588fbc4fbc4e2b220337f1302f6ba70387",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://89b18b5de988ab73b5e2c932e4f5609d9d35cc0e1023cdafd770193c946cbdce",
+				"dweb:/ipfs/QmaMGgMcCvtzL9Sqwfb8wSCSHeaEXE9dPCfyrH4ds7ixVD"
+			]
+		},
+		"interface/IKIP37/KIP37.sol": {
+			"keccak256": "0x749b6a64a4c35187780557b1d82110b3caae433593de7f238e23eedfb21bd9ee",
+			"urls": [
+				"bzz-raw://a0db7c1461a21bacc2fa039968ea32158cbf98d55664d314949d107e87fd34b6",
+				"dweb:/ipfs/QmYUDTMQ4b9AgLpXkWnN5joJ4pNZszjkYsC6mYisU22eG7"
+			]
+		},
+		"interface/KIP13.sol": {
+			"keccak256": "0x101d517bdf87da13f270dc8dbabf84e6137e45389a94c653d48b169455b1dfe0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://88a375b0bb017902d8efe9a55f192d2f556264193f9c69334cc313ab979ca750",
+				"dweb:/ipfs/QmbPgR3kzJwdnpT9tk5c4JxdQc8GRpCJukFgsNNju9qHyr"
+			]
+		},
+		"utils/Address.sol": {
+			"keccak256": "0x5f98f151a3988fd7ef1cfa53b4981a7aadb8d73e0d28429331fa40576120ecbf",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://009d268e182dc88f2cf6224f826d68961a27bfae21b1784e3f7b1ddb30358bfe",
+				"dweb:/ipfs/QmdfRTh51uqK872MKNt5WU9HeFEoEbrBGyWPeooXsRfAd7"
+			]
+		},
+		"utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		}
+	},
+	"version": 1
+}

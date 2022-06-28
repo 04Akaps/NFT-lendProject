@@ -491,11 +491,11 @@
 	},
 	"sources": {
 		"Hero/HeroCore.sol": {
-			"keccak256": "0x7eab1396085ccfa00579258998f55d1e6a83e9ff12165bd5698423d04b3c1956",
+			"keccak256": "0xc79114ae61f2618ca4b2c7669ef4fb578924cb4c7504ab8e5d78ef875265f4fb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bb31efe4c366420dfd9a871757a0d2bfbb36be6f2fb0622996f4c53e40fff1a5",
-				"dweb:/ipfs/QmNXYs9xDXM1dHiSvz3HfChu8PzSCyxqaygNkFLfBMXN7Z"
+				"bzz-raw://71d3c1230efbcecda1fd48c50c2bc298664a4151b3ac20d7dfd053abe1fd95b3",
+				"dweb:/ipfs/QmVW6dkabpBZQnaNbWzRbWQ8CSq52xBT1XmN3oqKbzs4JB"
 			]
 		},
 		"Hero/interface/IHeroNFT.sol": {

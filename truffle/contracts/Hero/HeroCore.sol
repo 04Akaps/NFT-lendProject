@@ -159,8 +159,7 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         address travelOwner = hero.status.travelData.travelOwner;
 
         require(
-            msg.sender == hero.status.owner ||
-                msg.sender == travelOwner,
+            msg.sender == hero.status.owner || msg.sender == travelOwner,
             "Error : Not TravelOwner or stakeOwner"
         );
 
@@ -179,7 +178,6 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         hero.status.traveled = false;
         hero.status.travelData.travelOwner = address(0x0);
         hero.status.travelData.travelTime = 0;
-
         // 보상을 주어야 한다. = receiver
         // 만약 borrow가 끝나는 시간 이후에 실행이 되면 시간을 지키지 않은 것이기 떄문에 보상은 TokenOwner에게 주어진다.
 
@@ -256,10 +254,7 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
 
         require(!hero.status.mining, "Error : Token is Mining!");
 
-        require(
-            hero.status.owner == msg.sender,
-            "Error : Not Token Owner!"
-        );
+        require(hero.status.owner == msg.sender, "Error : Not Token Owner!");
 
         (bool inRequest, RequestStruct memory data) = _checkUserInBorrowData(
             _tokenId,
@@ -277,12 +272,9 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         hero.status.borrowData.borrowers = data.requestOwner;
     }
 
-    function mining(uint256 _tokenId)
-        external
-        checkStaked(_tokenId)
-    {
+    function mining(uint256 _tokenId) external checkStaked(_tokenId) {
         HERO storage hero = heroVault[_tokenId];
- 
+
         require(!hero.status.borrowed, "Error : Token is Borrowed!");
         require(!hero.status.traveled, "Error : Token is Traveled!");
 
@@ -291,27 +283,35 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         hero.status.mining = true;
     }
 
-    function claimMiningAmount(uint256 _tokenId) external checkStaked(_tokenId) {
+    function claimMiningAmount(uint256 _tokenId)
+        external
+        checkStaked(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
         _distributeReward();
 
         uint256 rewardAmount = hero.reward;
-        hero.reward  = 0;
+        hero.reward = 0;
 
         require(hero.status.mining, "Error : Token is Not Mining");
 
         lastClaimTime = _currentTime();
 
-        getToken().transfer(msg.sender, rewardAmount);   
+        getToken().transfer(msg.sender, rewardAmount);
     }
 
-    function viewCanClaimAmount(uint256 _tokenId) external view checkStaked(_tokenId) returns(uint256) {
+    function viewCanClaimAmount(uint256 _tokenId)
+        external
+        view
+        checkStaked(_tokenId)
+        returns (uint256)
+    {
         HERO memory hero = heroVault[_tokenId];
 
-         if(!getMiningPaused()){
-            uint256 totalPower = _getHeroPower(0,true);
-            uint256 cycle  = _currentTime().sub(lastClaimTime); 
+        if (!getMiningPaused()) {
+            uint256 totalPower = _getHeroPower(0, true);
+            uint256 cycle = _currentTime().sub(lastClaimTime);
             uint256 totalReward = MINING_REWARD.div(MINING_DURATION).mul(cycle);
 
             uint256 heroPower = _getHeroPower(_tokenId, false);
@@ -321,16 +321,12 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         }
 
         return hero.reward;
-
     }
 
     function levelUp(uint256 _tokenId) external checkStaked(_tokenId) {
         HERO storage hero = heroVault[_tokenId];
 
-        require(
-            msg.sender == hero.status.owner,
-            "Error : Not TokenOwner"
-        );
+        require(msg.sender == hero.status.owner, "Error : Not TokenOwner");
         uint256 level = hero.level;
 
         require(level < MAX_LEVEL, "Error : Token is MaxLevel Status");
@@ -436,45 +432,50 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         }
     }
 
-    function _distributeReward() internal{
-        if(!getMiningPaused()){
-            uint256 totalPower = _getHeroPower(0,true);
+    function _distributeReward() internal {
+        if (!getMiningPaused()) {
+            uint256 totalPower = _getHeroPower(0, true);
 
             uint256 totalSupply = getHeroNFT().getTokenIndex();
 
-            uint256 cycle  = _currentTime().sub(lastClaimTime); 
+            uint256 cycle = _currentTime().sub(lastClaimTime);
             uint256 totalReward = MINING_REWARD.div(MINING_DURATION).mul(cycle);
 
-            for(uint i=1; i<= totalSupply; i++){
+            for (uint256 i = 1; i <= totalSupply; i++) {
                 HERO storage userHero = heroVault[i];
 
                 uint256 heroPower = _getHeroPower(i, false);
 
-                uint256 personalReward = totalReward.div(totalPower).mul(heroPower);
+                uint256 personalReward = totalReward.div(totalPower).mul(
+                    heroPower
+                );
                 userHero.reward = userHero.reward.add(personalReward);
             }
-
         }
-      
     }
 
-    function _getHeroPower(uint256 _tokenId, bool total) internal view returns(uint256) {
-        if(total){
+    function _getHeroPower(uint256 _tokenId, bool total)
+        internal
+        view
+        returns (uint256)
+    {
+        if (total) {
             uint256 totalSupply = getHeroNFT().getTokenIndex();
 
             uint256 totalPower;
 
-            for(uint i=1; i<= totalSupply; i++){
+            for (uint256 i = 1; i <= totalSupply; i++) {
                 HERO memory userHero = heroVault[i];
 
-                if(userHero.status.mining){
-                    totalPower = totalPower.add(calculatePower(userHero.grade, userHero.level));
+                if (userHero.status.mining) {
+                    totalPower = totalPower.add(
+                        calculatePower(userHero.grade, userHero.level)
+                    );
                 }
-
             }
 
             return totalPower;
-        }else{
+        } else {
             HERO memory userHero = heroVault[_tokenId];
 
             return calculatePower(userHero.grade, userHero.level);
