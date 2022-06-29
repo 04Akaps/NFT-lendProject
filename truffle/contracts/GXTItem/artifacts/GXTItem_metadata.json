@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.15+commit.e14f2714"
 	},
 	"language": "Solidity",
 	"output": {
@@ -138,6 +138,19 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
+				"name": "addController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
@@ -177,6 +190,55 @@
 						"internalType": "uint256[]",
 						"name": "",
 						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
+				"name": "deleteController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getOwner",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -355,7 +417,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
@@ -424,10 +486,17 @@
 	},
 	"sources": {
 		"GXTItem/GXTItem.sol": {
-			"keccak256": "0x9a410be8ecee217ac2d5e5ec5d461ae8379a25e0ff17e2a0b21c48e18e2482ce",
+			"keccak256": "0x4fb653a4eac579e122c370f71ec37a2ae53de5539f3c0ebbfdf091757b0bd5d6",
 			"urls": [
-				"bzz-raw://a63e3eb26894da523d1ad68d363fe263c7421ead6a9bbfb2268d26c55b5ad7c2",
-				"dweb:/ipfs/QmNwtdGLEpuRQdkbt9yw8RahJQgjvcanfz6s4GUCsqqKst"
+				"bzz-raw://f72c0c17c5b3c35b1f09467d1ef30011178e4db992177af62220bd58d73396a9",
+				"dweb:/ipfs/QmPifLKogLwCzBsU7afQmJFikLLrPY5bHPyzpqo4fv4A24"
+			]
+		},
+		"GXTItem/utils/Controller.sol": {
+			"keccak256": "0x025c62150d1a7bc8fe1e63379c139c4d332b035b1fc322ceb25d05df686fa529",
+			"urls": [
+				"bzz-raw://85d96d73ac7430e4452df2ab88f50683bec9836d798a01691085b780e734c017",
+				"dweb:/ipfs/QmYu7qmZ2CMVNg9KHVak7cn8EF8wpX9dkqKYYxkejmVQtr"
 			]
 		},
 		"interface/IKIP13.sol": {
@@ -439,32 +508,32 @@
 			]
 		},
 		"interface/IKIP37/IKIP37.sol": {
-			"keccak256": "0x83dca3f4154b5bffe57c06e4adfb29a48ff58685c59e0bdbd7cec5c7fb905833",
+			"keccak256": "0xd259d4a94b6d4e9fedeaebb635304600c4b1742347d584a5b08a09c1dfdf2e1f",
 			"urls": [
-				"bzz-raw://c876df6084bfd61035ebb4e7f3d3060ee330ccfbf6832c8efbabeeefb72d7b63",
-				"dweb:/ipfs/QmepxEHZxmdanTZmbEBCDhS5dWsoB9DV7ikmbmWvY49gdU"
+				"bzz-raw://9d31657d22ffce0903e9850ded6d0c66d569fc32b24224e9790c08bb09b7c4a0",
+				"dweb:/ipfs/QmQB9oLbyxJomynQsCTmRrBDWmUfDdJ9Y5uVCBh3iW79E4"
 			]
 		},
 		"interface/IKIP37/IKIP37MetadataURI.sol": {
-			"keccak256": "0x886ab601fabfcf14d4e09a70ebecc4c0c7414a8939b696fee3b3a5508d462dcb",
+			"keccak256": "0x917308a392f6d30fd6425bfcf0e36ac45dd0ee36836c2c8bf2771291b926c1e4",
 			"urls": [
-				"bzz-raw://4ce1205cc5808e4e44748a82dacc9c3bcfef9009cf34d5cd375939341a108480",
-				"dweb:/ipfs/QmU1Fq4BxAXw6TaQN8Z1VmdGuMWWUgThxzyqFaW86pGiUf"
+				"bzz-raw://fca23c0e05c1721e104a86044873676778fdc0ed9b7a72f10eed9ec09697d83b",
+				"dweb:/ipfs/QmVp1ng2PViGjRaJQNzkA8qNAorwXvNz7b8vxmdcHQzDPd"
 			]
 		},
 		"interface/IKIP37/IKIP37Receiver.sol": {
-			"keccak256": "0x485eb4f26349d680906fbcf8d9ca3e588fbc4fbc4e2b220337f1302f6ba70387",
+			"keccak256": "0x80a3c007f0f9da0df9ca7491169be0da0fc60024531db1c31636ca945680b743",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89b18b5de988ab73b5e2c932e4f5609d9d35cc0e1023cdafd770193c946cbdce",
-				"dweb:/ipfs/QmaMGgMcCvtzL9Sqwfb8wSCSHeaEXE9dPCfyrH4ds7ixVD"
+				"bzz-raw://e85209d1bf73e023d23372882dc579eeaf412a40c5e3491b9647a09224acc33d",
+				"dweb:/ipfs/QmawD3m7HrU2eULkjrK3hYLxB4V6DgVE2JzYU2WsCupvGv"
 			]
 		},
 		"interface/IKIP37/KIP37.sol": {
-			"keccak256": "0x749b6a64a4c35187780557b1d82110b3caae433593de7f238e23eedfb21bd9ee",
+			"keccak256": "0x779199368937739608a6f90b259363da1516c08bc33270a5223f3ee3c2a8e15e",
 			"urls": [
-				"bzz-raw://a0db7c1461a21bacc2fa039968ea32158cbf98d55664d314949d107e87fd34b6",
-				"dweb:/ipfs/QmYUDTMQ4b9AgLpXkWnN5joJ4pNZszjkYsC6mYisU22eG7"
+				"bzz-raw://c3be82bc571cb56eb2de6c37ebfbc5cfdec20ae92da867e02dabdf2a7174d797",
+				"dweb:/ipfs/QmYwp8cmrU4PdzopgDrpGDtHUS6nkEUrKh6PNeNzU13RDf"
 			]
 		},
 		"interface/KIP13.sol": {
@@ -489,6 +558,14 @@
 			"urls": [
 				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"utils/Ownable.sol": {
+			"keccak256": "0x53ff678ddfddcb518111ea8b628313392a5fac52bca167b6888e6991290f7631",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1cb38203805a884319633b0c5770753fdea4fdbeb79885e171af4d981729e0cb",
+				"dweb:/ipfs/QmXfnSoWWMNjE49E1RPd4NBRfqwurSyFmSAEY5FmyXivAB"
 			]
 		}
 	},

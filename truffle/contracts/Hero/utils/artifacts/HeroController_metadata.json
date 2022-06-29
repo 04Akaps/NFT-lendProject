@@ -7,6 +7,11 @@
 		"abi": [
 			{
 				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
 				"name": "changeMiningPaused",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -34,10 +39,10 @@
 			},
 			{
 				"inputs": [],
-				"name": "getDiagram",
+				"name": "getHeroNFT",
 				"outputs": [
 					{
-						"internalType": "contract IMakeGrade",
+						"internalType": "contract IHeroNFT",
 						"name": "",
 						"type": "address"
 					}
@@ -47,10 +52,10 @@
 			},
 			{
 				"inputs": [],
-				"name": "getHeroNFT",
+				"name": "getItem",
 				"outputs": [
 					{
-						"internalType": "contract IHeroNFT",
+						"internalType": "contract IKIP37Full",
 						"name": "",
 						"type": "address"
 					}
@@ -111,13 +116,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "init",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -126,12 +124,12 @@
 					},
 					{
 						"internalType": "address",
-						"name": "_gradeDiagram",
+						"name": "_token",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_token",
+						"name": "_item",
 						"type": "address"
 					},
 					{
@@ -217,20 +215,12 @@
 				"dweb:/ipfs/QmSLvQA4RGL5fXEhHVp7Fmh5ACeRZ3PT7cfmgCj2rC2jTa"
 			]
 		},
-		"Hero/interface/IMakeGrade.sol": {
-			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
-				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
-			]
-		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0xd3fb5af28313131a658a85e1db72a2f5ccb08de5e3723870802e1a49be2b0eea",
+			"keccak256": "0x777f95655ba80ef72f7afe349bf9fe1e3733401e2dfdf15a83bc31b6b597060d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://98ddba43c1058355664edc7c5a33b2b032c7b62ec443fef2783b0c4592d4a104",
-				"dweb:/ipfs/QmNpBrStb6DA8E2TpQLAEPFttaahUcuMmyYVLXapGgDwWX"
+				"bzz-raw://5acca968583e5d97caef43431734b38f4b7b412834b96b3917acd5bde22fd3ad",
+				"dweb:/ipfs/QmYUJsyzUvpheYyacJTYtwPutPLdqRQVaY1Y8eyiBacK4q"
 			]
 		},
 		"interface/IKIP13.sol": {
@@ -247,6 +237,27 @@
 			"urls": [
 				"bzz-raw://6707e94aab2ecf8ae4bedbba16cd2465299944644d89f3ce42d85277a8c110b0",
 				"dweb:/ipfs/Qmb2S5XaidxjUtbiEE89JJNpCATHGXLJ69QHCzEy8sr2Yc"
+			]
+		},
+		"interface/IKIP37/IKIP37.sol": {
+			"keccak256": "0xd259d4a94b6d4e9fedeaebb635304600c4b1742347d584a5b08a09c1dfdf2e1f",
+			"urls": [
+				"bzz-raw://9d31657d22ffce0903e9850ded6d0c66d569fc32b24224e9790c08bb09b7c4a0",
+				"dweb:/ipfs/QmQB9oLbyxJomynQsCTmRrBDWmUfDdJ9Y5uVCBh3iW79E4"
+			]
+		},
+		"interface/IKIP37/IKIP37Full.sol": {
+			"keccak256": "0xd13c65087f8709cb37af9ec020ba536857750aa51a938c352672be814b20186e",
+			"urls": [
+				"bzz-raw://8e89784b1af6476261c3e5a100d5f8ce7f73fee8aa65c801859246f930c8eb35",
+				"dweb:/ipfs/QmNrxDjGTFfcUZmqBApaq9ZTQMYiN57ted8hVHVBJFyqr6"
+			]
+		},
+		"interface/IKIP37/IKIP37MetadataURI.sol": {
+			"keccak256": "0x917308a392f6d30fd6425bfcf0e36ac45dd0ee36836c2c8bf2771291b926c1e4",
+			"urls": [
+				"bzz-raw://fca23c0e05c1721e104a86044873676778fdc0ed9b7a72f10eed9ec09697d83b",
+				"dweb:/ipfs/QmVp1ng2PViGjRaJQNzkA8qNAorwXvNz7b8vxmdcHQzDPd"
 			]
 		},
 		"interface/IKIP7/IKIP7.sol": {

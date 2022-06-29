@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract LevelDiagram {
+import "./HeroController.sol";
+
+contract LevelDiagram is HeroController {
 
     bytes32 private constant MYTHOLOGY = keccak256("Mythology");
     bytes32 private constant LEGENDARY = keccak256("Legendary");
@@ -54,9 +56,22 @@ contract LevelDiagram {
         );
     }
 
-    function calculatePower(string memory grade , uint256 level) internal pure returns(uint256){
-        bytes32 gradeCheck = keccak256(bytes(grade));
+    function calculateItemIndex(uint256 _power) internal view returns(uint256){
+        for(uint i=1; i<=5; i++){
+            uint256 randomNumber = makeRandomNumberForItem(i);
 
+            if(_power >= randomNumber){
+                _power -= randomNumber;
+            }else{
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    function calculatePower(string memory grade , uint256 level) internal view returns(uint256){
+        bytes32 gradeCheck = keccak256(bytes(grade));
 
         uint256 basicPower = (
             gradeCheck == MYTHOLOGY ? 450 
@@ -75,6 +90,31 @@ contract LevelDiagram {
             level == 1 ? 10 : level == 2 ? 15 : level == 3 ? 25 : level == 4 ? 40 : level == 5 ? 70 : 0
         );
 
-        return (basicPower * levelCheck) / 10;
+        uint256 itemPower = 0;
+
+        for(uint i=1; i<=5; i++){
+            uint256 balanceOf = getItem().balanceOf(msg.sender, i);
+            uint256 basicItemPower = i + 1;
+            itemPower = itemPower + (basicItemPower * balanceOf);
+        }
+
+        return ((basicPower + itemPower) * levelCheck) / 10;
+    }
+
+     function makeRandomNumberForItem(uint256 _tokenIndex)
+        internal
+        view
+        returns (uint256)
+    {
+        return
+            uint256(
+                keccak256(
+                    abi.encodePacked(
+                        block.timestamp,
+                        block.difficulty,
+                        _tokenIndex
+                    )
+                )
+            ) % 1000;
     }
 }

@@ -175,6 +175,29 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "_owner",
 						"type": "address"
 					},
@@ -193,6 +216,29 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -354,7 +400,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"interface/IKIP37/IKIP37Full.sol": "IKIP37MetadataURI"
+			"interface/IKIP37/IKIP37Full.sol": "IKIP37Full"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -384,6 +430,13 @@
 			]
 		},
 		"interface/IKIP37/IKIP37Full.sol": {
+			"keccak256": "0xd13c65087f8709cb37af9ec020ba536857750aa51a938c352672be814b20186e",
+			"urls": [
+				"bzz-raw://8e89784b1af6476261c3e5a100d5f8ce7f73fee8aa65c801859246f930c8eb35",
+				"dweb:/ipfs/QmNrxDjGTFfcUZmqBApaq9ZTQMYiN57ted8hVHVBJFyqr6"
+			]
+		},
+		"interface/IKIP37/IKIP37MetadataURI.sol": {
 			"keccak256": "0x917308a392f6d30fd6425bfcf0e36ac45dd0ee36836c2c8bf2771291b926c1e4",
 			"urls": [
 				"bzz-raw://fca23c0e05c1721e104a86044873676778fdc0ed9b7a72f10eed9ec09697d83b",

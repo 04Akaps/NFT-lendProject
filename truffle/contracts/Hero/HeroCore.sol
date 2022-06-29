@@ -4,10 +4,11 @@ pragma solidity ^0.8.0;
 import "./utils/HeroController.sol";
 import "./utils/TimeLock.sol";
 import "./utils/LevelDiagram.sol";
+import "./utils/MakeGrade.sol";
 
 import "../utils/SafeMath.sol";
 
-contract HeroCore is HeroController, TimeLock, LevelDiagram {
+contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
     using SafeMath for *;
 
     struct HERO {
@@ -120,17 +121,16 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         require(!hero.status.mining, "Error : hero is Traveled!");
 
         if (hero.status.borrowed) {
-            // 빌린 상태라면
-            require(
-                msg.sender == hero.status.borrowData.borrowers,
-                "Error : msg.sender is Not Borrowers"
-            );
             require(
                 travelDuration <= hero.status.borrowData.borrowEndTime,
                 "Error : Not Enough Time For Travel && BorrowEndTime"
             );
+
+            require(
+                msg.sender == hero.status.borrowData.borrowers,
+                "Error : msg.sender is Not Borrowers"
+            );
         } else {
-            // 빌리지 않은 상태라면
             require(
                 msg.sender == hero.status.owner,
                 "Error : msg.sender is Not Owner"
@@ -178,10 +178,15 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         hero.status.traveled = false;
         hero.status.travelData.travelOwner = address(0x0);
         hero.status.travelData.travelTime = 0;
-        // 보상을 주어야 한다. = receiver
-        // 만약 borrow가 끝나는 시간 이후에 실행이 되면 시간을 지키지 않은 것이기 떄문에 보상은 TokenOwner에게 주어진다.
 
-        // maybe 등급 + level을 통해서 더 많은 보상을 가져 갈 수 있게 설정
+        uint256 power = _getHeroPower(_tokenId, false);
+        uint256 randomItemNumber = calculateItemIndex(power);
+
+        if (randomItemNumber < 1) {
+            getItem().mint(receiver, 1, 1);
+        }
+
+        getItem().mint(receiver, randomItemNumber, 1);
     }
 
     function requestBorrow(uint256 _tokenId, uint256 _duartion)
@@ -238,8 +243,6 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
                 );
                 getToken().transfer(msg.sender, borrowPrice);
 
-                // 이렇게 계속 토큰을 이동시키면 event를 가져올떄 특정 값 이하가 되면 approve를 다시 설정해 주면 된다.
-
                 break;
             }
         }
@@ -270,6 +273,29 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         hero.status.borrowed = true;
         hero.status.borrowData.borrowEndTime = currentTime.add(duration);
         hero.status.borrowData.borrowers = data.requestOwner;
+    }
+
+    function returnHero(uint256 _tokenId) external checkStaked(_tokenId) {
+        HERO storage hero = heroVault[_tokenId];
+        uint256 currentTime = _currentTime();
+
+        require(!hero.status.mining, "Error : Token is Mining!");
+
+        // borrow한 Hero를 반환하는 함수
+        // Owner가 실행하던가 아니면 빌려간 User가 실행하여 남은 durtion의 금액을 회수한다.
+
+        if (hero.status.borrowData.borrowers == msg.sender) {
+            if (currentTime < hero.status.borrowData.borrowEndTime) {}
+
+            uint256 remainTime = hero.status.borrowData.borrowEndTime;
+        } else {
+            require(hero.status.owner == msg.sender, "Error : Not Token Owner");
+            require(hero.status.borrowData.borrowEndTime <= currentTime);
+
+            hero.status.borrowed = false;
+            hero.status.borrowData.borrowEndTime = 0;
+            hero.status.borrowData.borrowers = address(0x0);
+        }
     }
 
     function mining(uint256 _tokenId) external checkStaked(_tokenId) {
@@ -327,6 +353,7 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         HERO storage hero = heroVault[_tokenId];
 
         require(msg.sender == hero.status.owner, "Error : Not TokenOwner");
+
         uint256 level = hero.level;
 
         require(level < MAX_LEVEL, "Error : Token is MaxLevel Status");
@@ -383,7 +410,7 @@ contract HeroCore is HeroController, TimeLock, LevelDiagram {
         getHeroNFT().mint(msg.sender);
 
         uint256 tokenIndex = getHeroNFT().getTokenIndex();
-        string memory grade = getDiagram().makeGrade(tokenIndex);
+        string memory grade = makeGrade(tokenIndex);
 
         heroVault[tokenIndex] = HERO(
             1,

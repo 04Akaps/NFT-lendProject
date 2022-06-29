@@ -4,20 +4,20 @@ pragma solidity ^0.8.0;
 import "../../utils/SafeMath.sol";
 
 import "../interface/IHeroNFT.sol";
-import "../interface/IMakeGrade.sol";
+
 import "../../interface/IKIP7/IKIP7.sol";
+import "../../interface/IKIP37/IKIP37Full.sol";
 
 contract HeroController {
     using SafeMath for *;
 
     IHeroNFT private heroNFT;
-    IMakeGrade private gradeDiagram;
     IKIP7 private token;
+    IKIP37Full private item;
 
     address payable private coreOwner;
     address public depositAddress;
 
-    bool private initialized;
     bool private paused;
     bool private miningPaused;
 
@@ -34,21 +34,17 @@ contract HeroController {
         require(msg.sender == coreOwner, "HeroCore Error : onlyOwner");
         _;
     }
-
-    function init() external {
-        require(initialized == false, "already Initialized!!");
-
+    
+    constructor() {
         paused = true;
         miningPaused = true;
         coreOwner = payable(msg.sender);
-
-        initialized = true;
     }
 
     function initialize(
         address _heroNFT,
-        address _gradeDiagram,
         address _token,
+        address _item,
         address _depositAddress,
         uint256 _klay,
         uint256 _tokenPrice
@@ -57,8 +53,8 @@ contract HeroController {
         priceOfToken = _tokenPrice.mul(DECIMALS);
 
         heroNFT = IHeroNFT(_heroNFT);
-        gradeDiagram = IMakeGrade(_gradeDiagram);
         token = IKIP7(_token);
+        item = IKIP37Full(_item);
 
         depositAddress = _depositAddress;
     }
@@ -84,13 +80,13 @@ contract HeroController {
     function getMiningPaused() public view returns(bool){
         return miningPaused;
     }
+
+    function getItem() public view returns(IKIP37Full){
+        return item;
+    }
     
     function getToken() public view returns (IKIP7) {
         return token;
-    }
-
-    function getDiagram() public view returns (IMakeGrade) {
-        return gradeDiagram;
     }
 
     function getHeroNFT() public view returns (IHeroNFT) {

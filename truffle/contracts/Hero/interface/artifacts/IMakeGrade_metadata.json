@@ -46,18 +46,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Hero/interface/IMakeGrade.sol": {
-			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
+			"keccak256": "0x06a6706f8ab590630698e8d0b40a50740db1e189ebc173646a27f93d554c48a2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
-				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
+				"bzz-raw://1e8700509e12d6dbfef196bbc299cfc761ab4351827567cb15f2851f8eb678c8",
+				"dweb:/ipfs/QmXfTwgmMmyVvN8cGMTDUVKGyek5DC8hueJ1DQqFCBMTNM"
 			]
 		}
 	},

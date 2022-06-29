@@ -1,10 +1,36 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.15+commit.e14f2714"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
+				"name": "addController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_controller",
+						"type": "address"
+					}
+				],
+				"name": "deleteController",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
 			{
 				"inputs": [],
 				"name": "getOwner",
@@ -32,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"utils/Ownable.sol": "Ownable"
+			"GXTItem/utils/Controller.sol": "Controller"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -46,6 +72,13 @@
 		"remappings": []
 	},
 	"sources": {
+		"GXTItem/utils/Controller.sol": {
+			"keccak256": "0x025c62150d1a7bc8fe1e63379c139c4d332b035b1fc322ceb25d05df686fa529",
+			"urls": [
+				"bzz-raw://85d96d73ac7430e4452df2ab88f50683bec9836d798a01691085b780e734c017",
+				"dweb:/ipfs/QmYu7qmZ2CMVNg9KHVak7cn8EF8wpX9dkqKYYxkejmVQtr"
+			]
+		},
 		"utils/Ownable.sol": {
 			"keccak256": "0x53ff678ddfddcb518111ea8b628313392a5fac52bca167b6888e6991290f7631",
 			"license": "MIT",

@@ -9,25 +9,6 @@
 				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_tokenIndex",
-						"type": "uint256"
-					}
-				],
-				"name": "makeGrade",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -51,26 +32,18 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": false,
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
-		"Hero/interface/IMakeGrade.sol": {
-			"keccak256": "0x6f9898f562cc508866e14e25d277b92331e00a5f7662670d9e6838080ea9be3b",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://9a9afc904ad45d5d850f107336877341094734e71fe59887b0bf6ea02562724b",
-				"dweb:/ipfs/QmWzKHUbPNH7wq2yECQEWT8JKE9B9EWVKUUnFHiQHq758E"
-			]
-		},
 		"Hero/utils/MakeGrade.sol": {
-			"keccak256": "0x0de0fec10dd4eb5039d9a4976a2cefbfd4f02f520c501da206781aa2da882396",
+			"keccak256": "0x20db758bee05614ad27579aee61cb9b8b0ccbc8d6346d95c46e191f2bb789837",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://03f1f8ed5af5fd84ed70d50b61e5c41e627918d65ac9dfb0e3b7972528434e1a",
-				"dweb:/ipfs/QmeyWhaUUpbQGZCnWZmu137qSUu2sDomqzuCJeywkNLUn5"
+				"bzz-raw://1d4b64a9e5ec773afde76039170a372667637da17d37036e4a416f52f0131db8",
+				"dweb:/ipfs/QmUUXoTZsXibaYso4vmPiCw2NfVS3Lkcc7qP3sSoGfXFSn"
 			]
 		},
 		"utils/SafeMath.sol": {

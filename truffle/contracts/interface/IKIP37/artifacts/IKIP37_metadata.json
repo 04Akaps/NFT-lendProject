@@ -358,10 +358,10 @@
 			]
 		},
 		"interface/IKIP37/IKIP37.sol": {
-			"keccak256": "0x83dca3f4154b5bffe57c06e4adfb29a48ff58685c59e0bdbd7cec5c7fb905833",
+			"keccak256": "0xd259d4a94b6d4e9fedeaebb635304600c4b1742347d584a5b08a09c1dfdf2e1f",
 			"urls": [
-				"bzz-raw://c876df6084bfd61035ebb4e7f3d3060ee330ccfbf6832c8efbabeeefb72d7b63",
-				"dweb:/ipfs/QmepxEHZxmdanTZmbEBCDhS5dWsoB9DV7ikmbmWvY49gdU"
+				"bzz-raw://9d31657d22ffce0903e9850ded6d0c66d569fc32b24224e9790c08bb09b7c4a0",
+				"dweb:/ipfs/QmQB9oLbyxJomynQsCTmRrBDWmUfDdJ9Y5uVCBh3iW79E4"
 			]
 		}
 	},

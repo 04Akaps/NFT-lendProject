@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../interface/IMakeGrade.sol";
 import "../../utils/SafeMath.sol";
 
-contract MakeGrade is IMakeGrade {
+contract MakeGrade  {
     using SafeMath for *;
 
     uint256[] private weightValueMap;
@@ -25,9 +24,8 @@ contract MakeGrade is IMakeGrade {
     }
 
     function makeGrade(uint256 _tokenIndex)
-        external
+        internal
         view
-        override
         returns (string memory)
     {
         uint256 randNumber = makeRandomNumber(_tokenIndex);
