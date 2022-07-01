@@ -15,8 +15,14 @@ module.exports = (sequelize, DataTypes) => {
   }
   Hero.init(
     {
-      hash: DataTypes.STRING,
-      from: DataTypes.STRING,
+      hash: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      from: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,

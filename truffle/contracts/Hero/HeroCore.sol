@@ -268,11 +268,21 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
         uint256 duration = data.duration;
 
-        _returnBorrowRequestToken(_tokenId);
+        uint256 approvedOwnerPrice = _returnBorrowRequestToken(
+            _tokenId,
+            _apprrovedUser
+        );
 
         hero.status.borrowed = true;
         hero.status.borrowData.borrowEndTime = currentTime.add(duration);
         hero.status.borrowData.borrowers = data.requestOwner;
+
+        getToken().transferFrom(
+            depositAddress,
+            address(this),
+            approvedOwnerPrice
+        );
+        getToken().transfer(msg.sender, approvedOwnerPrice);
     }
 
     function returnHero(uint256 _tokenId) external checkStaked(_tokenId) {
@@ -283,19 +293,20 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
         // borrow한 Hero를 반환하는 함수
         // Owner가 실행하던가 아니면 빌려간 User가 실행하여 남은 durtion의 금액을 회수한다.
+        require(
+            hero.status.borrowData.borrowers == msg.sender ||
+                hero.status.owner == msg.sender,
+            "Error : Not Owner Or Borrowers"
+        );
 
-        if (hero.status.borrowData.borrowers == msg.sender) {
-            if (currentTime < hero.status.borrowData.borrowEndTime) {}
+        require(
+            hero.status.borrowData.borrowEndTime <= currentTime,
+            "Error : Not Borrow End TIme"
+        );
 
-            uint256 remainTime = hero.status.borrowData.borrowEndTime;
-        } else {
-            require(hero.status.owner == msg.sender, "Error : Not Token Owner");
-            require(hero.status.borrowData.borrowEndTime <= currentTime);
-
-            hero.status.borrowed = false;
-            hero.status.borrowData.borrowEndTime = 0;
-            hero.status.borrowData.borrowers = address(0x0);
-        }
+        hero.status.borrowed = false;
+        hero.status.borrowData.borrowEndTime = 0;
+        hero.status.borrowData.borrowers = address(0x0);
     }
 
     function mining(uint256 _tokenId) external checkStaked(_tokenId) {
@@ -444,8 +455,13 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         return (false, requestList[0]);
     }
 
-    function _returnBorrowRequestToken(uint256 _tokenId) internal {
+    function _returnBorrowRequestToken(uint256 _tokenId, address _approvedOwner)
+        internal
+        returns (uint256)
+    {
         RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
+
+        uint256 approvedOwnerPrice = 0;
 
         for (uint256 i = 0; i < requestList.length; i++) {
             uint256 borrowPrice = requestList[i].duration.mul(
@@ -454,9 +470,19 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
             address approvedOwner = requestList[i].requestOwner;
 
-            getToken().transferFrom(depositAddress, address(this), borrowPrice);
-            getToken().transfer(approvedOwner, borrowPrice);
+            if (approvedOwner != _approvedOwner) {
+                getToken().transferFrom(
+                    depositAddress,
+                    address(this),
+                    borrowPrice
+                );
+                getToken().transfer(approvedOwner, borrowPrice);
+            } else {
+                approvedOwnerPrice = borrowPrice;
+            }
         }
+
+        return approvedOwnerPrice;
     }
 
     function _distributeReward() internal {
