@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(cors())
 
-app.use("/Auth", OAuth)
+app.use("/OAuth", OAuth)
 
 
 app.listen(port, () => {
