@@ -2,9 +2,11 @@ import { Request, Response } from "express";
 import { User } from "../models/User";
 
 import { getGoogleOAuth, getGoogleUser } from "../service/userService";
-import { AUTH_URL, HOME_URL } from "../utils/getEnv";
+import { ACCESS_SECRET, AUTH_URL, HOME_URL } from "../utils/getEnv";
 import getGoogleOAuthURL from "../utils/GetGoogleUrl"
-import bcryptjs from 'bcryptjs';
+
+import {sign} from "jsonwebtoken"
+
 
 export const loginGoogle =async (req: Request ,res: Response) => {
 
@@ -27,83 +29,32 @@ export const getAuth =async (req: Request ,res: Response) => {
         }
 
         const googleId  = googleUser.id as string
+        const googleEmail = googleUser.email as string
         
         const checkUser = await User.findOne({where : {googleId :googleId }})
 
-        const object  = {
-            googleId : googleId,
-            googleEmail : "strig"
-        }
-
         if(!checkUser){
+
+            const object  = {
+                googleId : googleId,
+                googleEmail : googleEmail
+            }
+
             await User.create(object)
+
         }
 
-        
+        const accessToken = sign({googleEmail, googleId}, ACCESS_SECRET, {expiresIn : "20m"} )
 
-
-        res.cookie("test", "test")
+        res.cookie("accessToken", accessToken)
         res.redirect(AUTH_URL)
 
     } catch (error) {
-
+        console.log(error)
         res.redirect(HOME_URL)
 
     }
 
 }
 
-
-
-
-// import {  Model } from "sequelize";
-
-// interface UserInterface{
-//     id: Number,
-//     google_id :string,
-//     email : string,
-//     wallet_Address : string,
-// }
-
-// module.exports = (sequelize: any, DataTypes :any) =>{
-//     class UserInstance extends Model<UserInterface>
-
-//     implements UserInterface {
-//         id!: Number;
-//         google_id!: string;
-//         email!: string;
-//         wallet_Address!: string;
-//         static associate(models: any) {}
-//     };
-
-//     UserInstance.init(
-//     {
-//         id: {
-//             type : DataTypes.INTEGER,
-//             primaryKey : true,
-//             allowNull: false,
-//             autoIncrement : true
-//         },
-//         google_id : {
-//             type : DataTypes.STRING,
-//             allowNull : false,
-//         },
-//         email :{
-//             type :DataTypes.STRING,
-//             allowNull : false
-//         },
-//         wallet_Address :{
-//             type : DataTypes.STRING,
-//             allowNull : false,
-//             defaultValue : "0x0"
-//         }
-//     },
-//     {
-//         sequelize,
-//         tableName: 'UserInstance',
-//         modelName : "UserInstance"
-//     })
-
-// return UserInstance;
-// }
 

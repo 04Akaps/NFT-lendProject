@@ -23,4 +23,6 @@ export class User extends Model {
         defaultValue : "0x0"
     })
     walletAddress! : string;
+
+    
 }

@@ -7,3 +7,8 @@ export const CLIENT_SECRET_PASSWORD = process.env.CLIENT_SECRET_PASSWORD as stri
 export const GOOGLE_REDIRECT_URL = process.env.GOOGLE_REDIRECT_URL as string
 export const HOME_URL = process.env.HOME_URL as string
 export const AUTH_URL = process.env.AUTH_URL as string
+
+export const ACCESS_SECRET = process.env.ACCESS_SECRET as string
+
+export const REFRESH_SECRET = process.env.REFRESH_SECRET as string
+
