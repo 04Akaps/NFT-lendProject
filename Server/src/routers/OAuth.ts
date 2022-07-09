@@ -6,4 +6,5 @@ const router = express.Router();
 router.get("/loginGoogle",loginGoogle )
 router.get("/google", getAuth)
 
+
 export default router;

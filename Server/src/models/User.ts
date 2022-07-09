@@ -7,10 +7,10 @@ import { Model, Column, DataType, Table} from "sequelize-typescript";
 
 export class User extends Model {
     @Column({
-        type : DataType.INTEGER,
+        type : DataType.STRING,
         allowNull : false
     })
-    googleId! : number;
+    googleId! : string;
 
     @Column({
         type : DataType.STRING,

@@ -15,7 +15,7 @@ function Home() {
     <>
       <SideBar />
 
-      <Route path="/MainPage">
+      <Route path="/Auth/MainPage/:id">
         <MainPage />
       </Route>
       <Route path="/MyPage/id">
