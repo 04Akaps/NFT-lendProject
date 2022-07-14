@@ -39,6 +39,7 @@ export const getGoogleOAuth =async ({code}:{code:string}) :Promise<GoogleTokensR
                 'Content-Type' : 'application/x-www-form-urlencoded',
             },
         })
+        console.log(res.data)
         return res.data
     }catch(error : any){
         console.error(error, "failed to fetch Google Oauth Tokens")

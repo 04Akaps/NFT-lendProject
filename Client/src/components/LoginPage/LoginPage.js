@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import "./LoginPage.scss";
 
-import { Button } from "@mui/material";
-import axios from "axios";
+import { clienId } from "../utils/googleLogin";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { gapi } from "gapi-script";
+
+import dotenv from "dotenv";
+dotenv.config();
 
 function LoginPage() {
-  const [googleUri, setGoogleUri] = useState("");
-
-  const googleOAuth = async () => {
-    await axios
-      .get("http://localhost:8080/OAuth/loginGoogle")
-      .then((result) => {
-        const oAuthLink = result.data.uri;
-        setGoogleUri(oAuthLink);
-      });
-  };
+  const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    googleOAuth();
-  }, []);
+    function start() {
+      gapi.client.init({
+        clienId: clienId,
+        scope: "email",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
+  const onSuccess = (result) => {
+    setAuth(true);
+    localStorage.setItem("auth", result.accessToken);
+  };
+
+  const onFailure = () => {
+    localStorage.removeItem("auth");
+  };
 
   return (
     <>
@@ -35,15 +43,13 @@ function LoginPage() {
         <div className="login_container">
           <div className="Login_Box">
             <div className="Login_Box_Method">
-              <Button variant="contained" disableElevation>
-                KaiKas
-              </Button>
-
-              <a href={googleUri.toString()}>
-                <Button variant="contained" disableElevation>
-                  Google
-                </Button>
-              </a>
+              <GoogleLogin
+                clientId={clienId}
+                buttonText="Login"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={"single_host_origin"}
+              ></GoogleLogin>
             </div>
           </div>
         </div>
