@@ -1,0 +1,21 @@
+
+.NavBar_Container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    border-bottom: 1px solid black;
+
+    .NavBar_App{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        align-items: center;
+
+        .SideBar_Toggle{
+            height: max-content;
+        }
+    }
+}
+

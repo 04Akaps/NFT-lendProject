@@ -1,0 +1,27 @@
+.Menu_Body_Total{
+    .Menu_Body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 70%;
+
+        .Menu_Body_content{
+               
+            
+            &:hover{
+                transform: scale(1.05);
+                transition: 0.5s;
+                border: 1px solid blueviolet;
+            }
+
+            .Menu_Body_content_checkQuery{
+                margin-left: 3px;
+                border-radius: 100%;
+                border: 1px solid black;
+                padding: 5px;
+                background-color: red;
+            }
+        }
+    }
+}
+

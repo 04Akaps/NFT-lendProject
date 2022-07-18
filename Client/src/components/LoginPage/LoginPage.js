@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./LoginPage.scss";
 
-import { clienId } from "../utils/googleLogin";
+import { clienId, imgLink } from "../utils/utils";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 
-import dotenv from "dotenv";
-dotenv.config();
-
-function LoginPage() {
-  const [auth, setAuth] = useState(false);
-
+function LoginPage(props) {
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -19,10 +14,15 @@ function LoginPage() {
       });
     }
     gapi.load("client:auth2", start);
+
+    if (props.auth) {
+      window.location.replace("/Home/MainPage");
+    }
   });
   const onSuccess = (result) => {
-    setAuth(true);
-    localStorage.setItem("auth", result.accessToken);
+    props.setAuth(true);
+    window.localStorage.setItem("auth", result.tokenObj.id_token);
+    window.location.replace("/Home/MainPage");
   };
 
   const onFailure = () => {
@@ -33,11 +33,7 @@ function LoginPage() {
     <>
       <div className="login_App">
         <div className="login_Img">
-          <img
-            src="./img/LoginPage.png"
-            alt="LoginImg"
-            className="Login_Img_img"
-          />
+          <img src={imgLink.zolImg} alt="LoginImg" className="Login_Img_img" />
         </div>
 
         <div className="login_container">

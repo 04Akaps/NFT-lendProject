@@ -1,7 +1,6 @@
 import express from 'express'
 import bodyParser from 'body-parser';
 import cors from "cors"
-import cookieParser from 'cookie-parser';
 
 import dotenv from "dotenv"
 dotenv.config();
@@ -17,7 +16,6 @@ const app = express();
 app.use(express.static("public"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieParser())
 
 app.use(cors())
 app.use((
@@ -28,9 +26,6 @@ app.use((
 ) =>(
     res.status(500).json({message : err.message})
 ))
-
-
-
 
 app.use("/OAuth", OAuth)
 
