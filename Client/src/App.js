@@ -2,7 +2,7 @@ import "./App.css";
 import { Redirect, Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { LoginPage, TransactionPage } from "components/main";
+import { LoginPage } from "components/main";
 import Home from "./Home";
 import { useState } from "react";
 import { useEffect } from "react";

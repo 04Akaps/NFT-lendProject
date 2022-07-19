@@ -2,4 +2,10 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+
+}
+
+.button{
+    background: linear-gradient(rgb(254, 153, 59) 0%, rgb(255, 200, 93) 100%);
+    color: white;
 }

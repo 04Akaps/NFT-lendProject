@@ -13,6 +13,7 @@ import {
 } from "components/main";
 import { useEffect } from "react";
 import axios from "axios";
+import { connectWallet } from "components/utils/utils2";
 
 function Home() {
   useEffect(() => {
@@ -22,14 +23,17 @@ function Home() {
           token: window.localStorage.auth,
         })
         .then((result) => {
-          if (result.data.message == "fail") {
+          if (result.data.message === "fail") {
             window.localStorage.removeItem("auth");
-            // window.location.reload("/");
           }
         });
     };
 
+    const walletCheck = () => {
+      connectWallet();
+    };
     vereifyToken();
+    walletCheck();
   }, []);
   return (
     <>

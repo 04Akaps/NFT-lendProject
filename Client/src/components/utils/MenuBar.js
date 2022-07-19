@@ -48,14 +48,23 @@ function MenuBar(props) {
                     }}
                     className="Menu_Body_content"
                   >
-                    <img
-                      src={result.img}
+                    <div
                       style={{
-                        width: "50px",
-                        objectFit: "contain",
                         height: "100%",
+                        backgroundColor: "blue",
                       }}
-                    />
+                    >
+                      <img
+                        src={result.img}
+                        alt={`${result.img}`}
+                        style={{
+                          width: "70px",
+                          objectFit: "contain",
+                          height: "100%",
+                        }}
+                      />
+                    </div>
+
                     <div
                       style={{
                         margin: "0px 0px 0px 10px",

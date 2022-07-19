@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./LoginPage.scss";
 
 import { clienId, imgLink } from "../utils/utils";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 
 function LoginPage(props) {

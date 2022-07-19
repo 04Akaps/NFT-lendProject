@@ -1,0 +1,31 @@
+
+.NavBar_Container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    background-color : rgb(29, 38, 51);
+    border-bottom: 1px solid rgb(4, 6, 8);
+
+    .NavBar_App{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .NavBar_Right{
+
+            width: 200px;
+
+            display: flex;
+            justify-content: space-around;
+            .SideBar_Toggle{
+                height: max-content;
+            }
+        }
+    }
+}
+
+
