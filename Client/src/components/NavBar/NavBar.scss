@@ -21,6 +21,15 @@
 
             display: flex;
             justify-content: space-around;
+            align-items: center;
+
+            .on{
+                padding: 10px;
+                background-color: red;
+                border-radius: 100%;
+                cursor: pointer;
+
+            }
             .SideBar_Toggle{
                 height: max-content;
             }

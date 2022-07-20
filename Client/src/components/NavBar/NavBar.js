@@ -10,10 +10,16 @@ import { getBalanceToken } from "components/utils/utils2";
 function NavBar() {
   const [show, setShow] = useState(false);
   const [myTokenAmount, setMyTokenAmount] = useState(0);
+  const [walletConnect, setWalletConnect] = useState("NotConnected");
 
   useEffect(() => {
     const init = async () => {
       const data = await getBalanceToken();
+      await window.klaytn.enable().then(() => {
+        setWalletConnect("Connected");
+        const data = document.querySelectorAll(".on")[0];
+        data.style.backgroundColor = "green";
+      });
     };
 
     init();
@@ -49,6 +55,8 @@ function NavBar() {
           </Row>
 
           <div className="NavBar_Right">
+            <div className="on" title={walletConnect}></div>
+
             <Button
               className="button"
               variant="secondary"

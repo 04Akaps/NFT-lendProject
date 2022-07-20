@@ -26,3 +26,11 @@
 .none{
   display: none;
 }
+
+@media  (max-width : 991px){
+    .MainPage_Second_Container{
+      color : #fff
+    }
+}
+
+/* 991 */

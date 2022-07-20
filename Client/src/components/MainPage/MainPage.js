@@ -1,6 +1,6 @@
-import { imgLink } from "components/utils/utils";
+import { Feature, imgLink } from "components/utils/utils";
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import "./MainPage.scss";
 
 function MainPage() {
@@ -10,6 +10,7 @@ function MainPage() {
         <Col className="MapinPage_left" md={{ span: 4, offset: 1 }}>
           <h1>My Personal Project</h1>
           <p>Look's Not Good... But I Tryed My Best</p>
+          <Button variant="outline-warning">Mint NFT</Button>
         </Col>
 
         <Col md={{ span: 4, offset: 1 }}>
@@ -38,16 +39,42 @@ function MainPage() {
         >
           Feature
         </h1>
-        <Row xs={1} md={3} lg={5}>
-          <Col className="Feature_Col">hojin</Col>
-          <Col className="Feature_Col">hojin</Col>
-          <Col className="Feature_Col">hojin</Col>
-          <Col className="Feature_Col">hojin</Col>
-          <Col className="Feature_Col">hojin</Col>
+        <Row xs={2} lg={3} className="Feature_Row">
+          {Feature.map((result, index) => {
+            return (
+              <Col className="Feature_Col" key={index}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={result.img}
+                    style={{
+                      objectFit: "contain",
+                      width: "100%",
+                    }}
+                  />
+                  <span
+                    style={{
+                      padding: "5px",
+                      fontWeight: "800",
+                    }}
+                  >
+                    {result.title}
+                  </span>
+                  <p>{result.span}</p>
+                </div>
+              </Col>
+            );
+          })}
         </Row>
       </div>
 
-      <div className="MainPage_Footer">hojin</div>
+      <div className="MainPage_Footer">Copyright © 2021 Personal project</div>
     </div>
   );
 }

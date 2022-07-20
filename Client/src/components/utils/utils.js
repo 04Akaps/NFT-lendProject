@@ -12,6 +12,11 @@ export const imgLink = {
   slumpFive: "/img/닥터슬럼프5.jpeg",
   slumpSix: "/img/닥터슬럼프6.jpeg",
   slumpSeven: "/img/닥터슬럼프7.jpeg",
+  pe: "/img/P&E.png",
+  borrow: "/img/Borrow.png",
+  mint: "/img/Mint.png",
+  stake: "/img/staking.png",
+  travel: "/img/Travel.png",
 };
 
 export const MenuList = [
@@ -44,5 +49,33 @@ export const MenuList = [
     title: "TransactionPage",
     img: imgLink.slumpSix,
     link: "/Home/TransactionPage",
+  },
+];
+
+export const Feature = [
+  {
+    title: "Play & Earn",
+    img: imgLink.pe,
+    span: "You Could earn Token and other rewards by Playing the game and trade on the market",
+  },
+  {
+    title: "Summon NFT",
+    img: imgLink.mint,
+    span: "Summon your NFT using Token then Enjoy Game!",
+  },
+  {
+    title: "Travel",
+    img: imgLink.travel,
+    span: "Travel To Dugeon And Get Item!",
+  },
+  {
+    title: "Borrow NFT",
+    img: imgLink.borrow,
+    span: "Borrow Your NFT To Another And Get Token",
+  },
+  {
+    title: "Staking",
+    img: imgLink.stake,
+    span: "Stake Your Token To Contract And Get Token",
   },
 ];
