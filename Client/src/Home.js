@@ -12,29 +12,16 @@ import {
   TransactionPage,
 } from "components/main";
 import { useEffect } from "react";
-import axios from "axios";
+
 import { connectWallet } from "components/utils/utils2";
+import { vereifyToken } from "components/utils/VerifyToken";
 
 function Home() {
   useEffect(() => {
-    const vereifyToken = async () => {
-      await axios
-        .post("http://localhost:8080/OAuth/checkToken", {
-          token: window.localStorage.auth,
-        })
-        .then((result) => {
-          if (result.data.message === "fail") {
-            window.localStorage.removeItem("auth");
-          }
-        });
-    };
-
-    const walletCheck = () => {
-      connectWallet();
-    };
     vereifyToken();
-    walletCheck();
+    connectWallet();
   }, []);
+
   return (
     <>
       <NavBar />

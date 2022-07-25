@@ -21,7 +21,6 @@ function NavBar() {
         data.style.backgroundColor = "green";
       });
     };
-
     init();
   }, []);
   return (

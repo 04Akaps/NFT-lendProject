@@ -12,6 +12,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
     using SafeMath for *;
 
     struct HERO {
+        uint256 tokenId;
         uint256 level;
         string grade;
         uint256 birthTime;
@@ -420,10 +421,13 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
     function _mintHero() internal {
         getHeroNFT().mint(msg.sender);
 
+        uint256 tokenId = getHeroNFT().getTokenIndex();
+
         uint256 tokenIndex = getHeroNFT().getTokenIndex();
         string memory grade = makeGrade(tokenIndex);
 
         heroVault[tokenIndex] = HERO(
+            tokenId,
             1,
             grade,
             block.timestamp,

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.7+commit.e28d00a7"
 	},
 	"language": "Solidity",
 	"output": {
@@ -497,11 +497,11 @@
 	},
 	"sources": {
 		"Hero/HeroCore.sol": {
-			"keccak256": "0xecba31306aa01e8d06746b06b70ebcd67621273977b51b2237816bfa7701c7c2",
+			"keccak256": "0xf932c76d2c41e3060f2855bc58bd27561d5c2b59f76eb66cfef83c8f86d86861",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://371167dacf9692839ef536c975c0ffef8a6290dad3728735554b0846054bf611",
-				"dweb:/ipfs/QmSJomcrgff3SFNJurLoXwVPkGwEeAFzsDLxC2yVQ3RMKr"
+				"bzz-raw://1da9718b6b65093245878ade5318302fb97b1f9592e24739a192e0b7295ed891",
+				"dweb:/ipfs/Qmb8wYt8bjVCf9teQNw6qCptti2jzXPXHtr6kgkzebMDXJ"
 			]
 		},
 		"Hero/interface/IHeroNFT.sol": {

@@ -17,6 +17,7 @@ export const imgLink = {
   mint: "/img/Mint.png",
   stake: "/img/staking.png",
   travel: "/img/Travel.png",
+  dugeon: "/img/dugeon.webp",
 };
 
 export const MenuList = [

@@ -9,3 +9,9 @@
     background: linear-gradient(rgb(254, 153, 59) 0%, rgb(255, 200, 93) 100%);
     color: white;
 }
+
+.span{
+    font-weight: 800;
+    color: black;
+    padding-left: 10px;
+}

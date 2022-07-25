@@ -1,0 +1,25 @@
+.Travelpage_container{
+    width: 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    height: max-content;
+
+    .Travelpage_app{
+        display: inline-block;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 100px;
+        width: 100%;
+
+
+        .TravelPage_map{
+            color: black;
+            float: left;
+            box-shadow: 1px 1px 1px 5px black;
+            margin: 0px 5% 5% 0px ;
+            padding: 10px;
+            min-width:  20%;
+            background-color: white;
+        }
+    }
+}

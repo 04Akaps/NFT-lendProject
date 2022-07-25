@@ -1,0 +1,70 @@
+.MyPageTotal{
+    background-color: 	#3C467D;
+
+    // #323C73
+    width: 100%;
+    min-height: 100vh;
+
+    .MyPageContainer{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 50px;
+        .MyPageTitleContainer{
+
+            .MyPageTitle{
+                margin-bottom: 100px;
+                position: relative;
+                .MyPageTitle_Circle{
+                    position: absolute;
+                    bottom: -20%;
+                    left: 5%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                }
+
+             
+            }
+
+          .TagList{
+            padding: 20px;
+            height: 80px;
+          }
+
+          .MyPageNFTListContainer{
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px 10px 10px 10px;
+
+            .MyPageListDiv{
+                position: relative;
+                color: black;
+                .MyPageImgData{
+                    position: absolute;
+                    top:0%;
+                    right: 0%;
+                    width: 100%;
+                    display: none;
+                    cursor: pointer;
+                    border: 1px solid black;
+                    border-radius: 5px 5px 5px 5px ;
+                    box-shadow: 1px 1px 1px 1px black;
+
+                }
+
+                &:hover {
+                    .MyPageImgData{
+                        display: inherit;
+                    }
+                }
+            }
+          }
+        }
+        
+    }
+}
