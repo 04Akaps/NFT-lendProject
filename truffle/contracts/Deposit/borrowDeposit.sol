@@ -5,11 +5,11 @@ import "../interface/IKIP7/IKIP7.sol";
 contract borrowDeposit {
     IKIP7 private GxtToken;
 
-    constructor(address _gxtToken, address _houseCore) {
-        GxtToken = IKIP7(GxtToken);
+    constructor(address _gxtToken, address _heroCore) {
+        GxtToken = IKIP7(_gxtToken);
 
-        uint256 maxNumber; // maxNumber만큼 approve해주면 된다.
+        uint256 maxNumber= type(uint256).max;
 
-        GxtToken.approve(_houseCore, maxNumber);
+        GxtToken.approve(_heroCore, maxNumber);
     }
 }

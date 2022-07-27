@@ -4,7 +4,12 @@ import "../interface/IKIP37/KIP37.sol";
 import "./utils/Controller.sol";
 
 contract GXTItem is KIP37, Controller {
-    constructor(string memory uri) KIP37(uri) {}
+    constructor() KIP37() {
+        _setURI(0, "firstItem");
+        _setURI(1, "secondItem");
+        _setURI(2, "thirdItem");
+        _setURI(3, "fourthItem");
+    }
 
     function mint(
         address _user,

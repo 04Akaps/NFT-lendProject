@@ -15,7 +15,7 @@ contract HeroNFT is KIP17Token, Ownable, IHeroNFT {
 
     address private heroProxy;
 
-    string private PREFIX_DATA;
+    string private PREFIX_DATA = "test";
     string private constant SUFIX_DATA = ".json";
 
     modifier onlyHeroCore() {
@@ -26,13 +26,7 @@ contract HeroNFT is KIP17Token, Ownable, IHeroNFT {
         _;
     }
 
-    constructor(
-        string memory name,
-        string memory symbol,
-        string memory _prifixData
-    ) KIP17Token(name, symbol) {
-        PREFIX_DATA = _prifixData;
-    }
+    constructor() KIP17Token("GXTHero", "GXTH") {}
 
     function mint(address _to) external override onlyHeroCore {
         tokenIndex.increment();

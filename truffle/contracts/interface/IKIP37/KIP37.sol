@@ -31,9 +31,7 @@ contract KIP37 is Context, KIP13, IKIP37, IKIP37MetadataURI {
     /**
      * @dev See {_setURI}.
      */
-    constructor(string memory uri_) {
-        _setURI(0, uri_);
-    }
+    constructor() {}
 
     /**
      * @dev See {IKIP13-supportsInterface}.
