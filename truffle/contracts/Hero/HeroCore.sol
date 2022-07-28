@@ -6,40 +6,14 @@ import "./utils/TimeLock.sol";
 import "./utils/LevelDiagram.sol";
 import "./utils/MakeGrade.sol";
 
+import "./interface/IHeroCore.sol";
+
 import "../utils/SafeMath.sol";
 
-contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
+contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
     using SafeMath for *;
 
-    struct HERO {
-        uint256 tokenId;
-        uint256 level;
-        string grade;
-        uint256 birthTime;
-        uint256 reward;
-        chcekStatus status;
-    }
-
-    struct chcekStatus {
-        bool borrowed;
-        bool traveled;
-        bool mining;
-        address owner;
-        traveledStruct travelData;
-        borrowStruct borrowData;
-    }
-
-    struct borrowStruct {
-        uint256 borrowEndTime;
-        address borrowers;
-    }
-
-    struct traveledStruct {
-        address travelOwner;
-        uint256 travelTime;
-    }
-
-    mapping(address => uint256) private mintBuyLimitMap;
+    HERO[] heroArray;
     mapping(uint256 => HERO) private heroVault;
 
     uint256 private constant MINT_BUY_LIMIT = 3;
@@ -51,11 +25,6 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
     uint256 public constant MINING_REWARD = 125000e18;
     uint256 public constant MINING_DURATION = 365 days / 12;
     uint256 public lastClaimTime;
-
-    struct RequestStruct {
-        address requestOwner;
-        uint256 duration;
-    }
 
     mapping(uint256 => RequestStruct[]) private borrowRequestMap;
     mapping(address => uint256) private myRequestMap;
@@ -69,15 +38,11 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
     function mintBuy() external payable {
         // klay를 주고 구입하는 함수
         uint256 value = msg.value;
-        uint256 buyAmount = mintBuyLimitMap[msg.sender];
         uint256 overAmount = value.sub(priceOfKlay);
-
-        require(buyAmount < MINT_BUY_LIMIT, "Error : onlyBuy 3 Hero From Klay");
 
         require(value != 0, "Error : value is Zero");
         require(value >= priceOfKlay, "Error : Not Enough Klay");
 
-        mintBuyLimitMap[msg.sender] = buyAmount.add(1);
         _mintHero();
 
         getOwner().transfer(value);
@@ -426,7 +391,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         uint256 tokenIndex = getHeroNFT().getTokenIndex();
         string memory grade = makeGrade(tokenIndex);
 
-        heroVault[tokenIndex] = HERO(
+        HERO memory newHero = HERO(
             tokenId,
             1,
             grade,
@@ -441,6 +406,9 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
                 borrowStruct(0, address(0x0))
             )
         );
+
+        heroVault[tokenIndex] = newHero;
+        heroArray.push(newHero);
     }
 
     function _checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser)
@@ -545,7 +513,35 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     //// **** view function
 
-    function getMintBuyAmount() external view returns (uint256) {
-        return mintBuyLimitMap[msg.sender];
+    function getHeroStatus(uint256 _heroTokenId)
+        public
+        view
+        returns (HERO memory)
+    {
+        return heroVault[_heroTokenId];
+    }
+
+    function getMyTotalHeroStatus(address _user)
+        public
+        view
+        returns (HERO[] memory)
+    {
+        uint256 length = getHeroNFT().balanceOf(_user);
+
+        HERO[] memory myheroList = new HERO[](length);
+        uint256 index;
+
+        for (uint256 i = 0; i < heroArray.length; i++) {
+            HERO memory hero = heroArray[i];
+
+            uint256 tokenId = hero.tokenId;
+
+            if (getHeroNFT().ownerOf(tokenId) == _user) {
+                myheroList[index] = hero;
+                index = index.add(1);
+            }
+        }
+
+        return myheroList;
     }
 }

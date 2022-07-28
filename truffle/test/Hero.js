@@ -5,6 +5,12 @@ const token = artifacts.require("GXTToken");
 const deposit = artifacts.require("borrowDeposit");
 
 contract("heroCore", (accounts) => {
+  const user1 = accounts[1];
+  const user2 = accounts[2];
+  const user3 = accounts[3];
+  const user4 = accounts[4];
+  const user5 = accounts[5];
+
   let heroCoreContract;
   let NFTContract;
   let itemContract;
@@ -47,5 +53,31 @@ contract("heroCore", (accounts) => {
       assert.equal(coreMiningPaused, false);
       assert.equal(coreOwner, accounts[0]);
     });
+  });
+
+  context(" 🔨 Mint Hero NFT && Check Status", async () => {
+    it("🚀 Mint Hero NFT", async () => {
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: BigInt(1 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: BigInt(2 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: BigInt(3 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: BigInt(1 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: BigInt(2 * DECIMALS),
+      });
+    });
+    it("🚀 check Hero Grade", async () => {});
   });
 });

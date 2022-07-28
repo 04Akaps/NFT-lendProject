@@ -95,10 +95,6 @@ contract KIP17Token is Context, KIP13, IKIP17Metadata {
         returns (address)
     {
         address owner = _owners[tokenId];
-        require(
-            owner != address(0),
-            "KIP17: owner query for nonexistent token"
-        );
         return owner;
     }
 

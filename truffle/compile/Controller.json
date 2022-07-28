@@ -46,7 +46,7 @@
   "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea26469706673582212202021b48a905c4efd2f54f60dc6a5bdfdc9ebb48bc98e002de5bb718cd368b46264736f6c63430008000033",
   "immutableReferences": {},
   "sourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;415:115;;;;;;:::i;:::-;;:::i;:::-;;199:85:30;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:111:3;;;;;;:::i;:::-;;:::i;415:115::-;169:5:30;;-1:-1:-1;;;;;169:5:30;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;491:24:3::1;518:5;491:24:::0;;;:11:::1;:24;::::0;;;;:32;;-1:-1:-1;;491:32:3::1;::::0;;415:115::o;199:85:30:-;239:15;272:5;-1:-1:-1;;;;;272:5:30;199:85;:::o;298:111:3:-;169:5:30;;-1:-1:-1;;;;;169:5:30;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;371:24:3::1;;::::0;;;398:4:::1;371:24;::::0;;;;;;;:31;;-1:-1:-1;;371:31:3::1;::::0;;::::1;::::0;;298:111::o;14:306:33:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:33;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:33:o;325:219::-;-1:-1:-1;;;;;505:32:33;;;;487:51;;475:2;460:18;;442:102::o",
+  "deployedSourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;415:115;;;;;;:::i;:::-;;:::i;:::-;;199:85:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:111:3;;;;;;:::i;:::-;;:::i;415:115::-;169:5:32;;-1:-1:-1;;;;;169:5:32;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;491:24:3::1;518:5;491:24:::0;;;:11:::1;:24;::::0;;;;:32;;-1:-1:-1;;491:32:3::1;::::0;;415:115::o;199:85:32:-;239:15;272:5;-1:-1:-1;;;;;272:5:32;199:85;:::o;298:111:3:-;169:5:32;;-1:-1:-1;;;;;169:5:32;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;371:24:3::1;;::::0;;;398:4:::1;371:24;::::0;;;;;;;:31;;-1:-1:-1;;371:31:3::1;::::0;;::::1;::::0;;298:111::o;14:306:35:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:35;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:35:o;325:219::-;-1:-1:-1;;;;;505:32:35;;;;487:51;;475:2;460:18;;442:102::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"../../utils/Ownable.sol\";\n\ncontract Controller is Ownable {\n    mapping(address => bool) private controllers;\n\n    modifier onlyController() {\n        require(controllers[msg.sender], \"Error : Not Controller\");\n        _;\n    }\n\n    function addController(address _controller) external onlyOwner {\n        controllers[_controller] = true;\n    }\n\n    function deleteController(address _controller) external onlyOwner {\n        controllers[_controller] = false;\n    }\n}\n",
   "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol",
   "ast": {
@@ -56,7 +56,7 @@
         204
       ],
       "Ownable": [
-        7010
+        7022
       ]
     },
     "id": 205,
@@ -80,7 +80,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 205,
-        "sourceUnit": 7011,
+        "sourceUnit": 7023,
         "src": "57:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -93,7 +93,7 @@
               "id": 158,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7010,
+              "referencedDeclaration": 7022,
               "src": "115:7:3"
             },
             "id": 159,
@@ -102,14 +102,14 @@
           }
         ],
         "contractDependencies": [
-          7010
+          7022
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 204,
         "linearizedBaseContracts": [
           204,
-          7010
+          7022
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -391,7 +391,7 @@
                   "id": 179,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7001,
+                  "referencedDeclaration": 7013,
                   "src": "351:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -537,7 +537,7 @@
                   "id": 193,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7001,
+                  "referencedDeclaration": 7013,
                   "src": "471:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -606,7 +606,7 @@
         204
       ],
       "Ownable": [
-        7010
+        7022
       ]
     },
     "id": 205,
@@ -630,7 +630,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 205,
-        "sourceUnit": 7011,
+        "sourceUnit": 7023,
         "src": "57:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -643,7 +643,7 @@
               "id": 158,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7010,
+              "referencedDeclaration": 7022,
               "src": "115:7:3"
             },
             "id": 159,
@@ -652,14 +652,14 @@
           }
         ],
         "contractDependencies": [
-          7010
+          7022
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 204,
         "linearizedBaseContracts": [
           204,
-          7010
+          7022
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -941,7 +941,7 @@
                   "id": 179,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7001,
+                  "referencedDeclaration": 7013,
                   "src": "351:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -1087,7 +1087,7 @@
                   "id": 193,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7001,
+                  "referencedDeclaration": 7013,
                   "src": "471:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -1155,7 +1155,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:13:04.358Z",
+  "updatedAt": "2022-07-28T11:32:02.176Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
