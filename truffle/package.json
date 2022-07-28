@@ -1,0 +1,16 @@
+{
+  "name": "truffle",
+  "version": "1.0.0",
+  "description": "remixd -s /Users/yuhojin/Desktop/myProject/truffle/contracts -u https://ide.klaytn.foundation",
+  "main": "truffle-config.js",
+  "directories": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "shelljs": "^0.8.5"
+  }
+}

@@ -34,7 +34,7 @@ contract HeroController {
         require(msg.sender == coreOwner, "HeroCore Error : onlyOwner");
         _;
     }
-    
+
     constructor() {
         paused = true;
         miningPaused = true;
@@ -63,7 +63,7 @@ contract HeroController {
         paused = !paused;
     }
 
-    function changeMiningPaused() external onlyOwner{
+    function changeMiningPaused() external onlyOwner {
         miningPaused = !miningPaused;
     }
 
@@ -77,14 +77,14 @@ contract HeroController {
         return paused;
     }
 
-    function getMiningPaused() public view returns(bool){
+    function getMiningPaused() public view returns (bool) {
         return miningPaused;
     }
 
-    function getItem() public view returns(IKIP37Full){
+    function getItem() public view returns (IKIP37Full) {
         return item;
     }
-    
+
     function getToken() public view returns (IKIP7) {
         return token;
     }

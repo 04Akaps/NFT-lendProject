@@ -1,0 +1,1608 @@
+{
+  "contractName": "GXTToken",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "subtractedValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "decreaseAllowance",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "spender",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "addedValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "increaseAllowance",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"subtractedValue\",\"type\":\"uint256\"}],\"name\":\"decreaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"addedValue\",\"type\":\"uint256\"}],\"name\":\"increaseAllowance\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"safeTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"allowance(address,address)\":{\"details\":\"See {IKIP7-allowance}.\"},\"approve(address,uint256)\":{\"details\":\"See {IKIP7-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.\"},\"balanceOf(address)\":{\"details\":\"See {IKIP7-balanceOf}.\"},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {KIP7} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IKIP7-balanceOf} and {IKIP7-transfer}.\"},\"decreaseAllowance(address,uint256)\":{\"details\":\"Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IKIP7-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`.\"},\"increaseAllowance(address,uint256)\":{\"details\":\"Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IKIP7-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address.\"},\"name()\":{\"details\":\"Returns the name of the token.\"},\"safeTransfer(address,uint256)\":{\"details\":\"See {IKIP7-safeTransfer}. Emits a {Transfer} event Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`. - if `recipient` is a smart contract, it must implement {IKIP7Receiver}\"},\"safeTransfer(address,uint256,bytes)\":{\"details\":\"Same as {xref-KIP7-safeTransfer-address-uint256-}[`safeTransfer`], with an additional `_data` parameter which is forwarded in {IKIP7Receiver-onKIP7Received} to contract recipients. Emits a {Transfer} event\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"See {IKIP7-safeTransferFrom}. Emits a {Transfer} event Emits an {Approval} event indicating the updated allowance. This is not required by the KIP. See the note at the beginning of {KIP7}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`. - if `recipient` is a smart contract, it must implement {IKIP7Receiver}\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Same as {xref-KIP7-safeTransferFrom-address-uint256-}[`safeTransferFrom`], with an additional `_data` parameter which is forwarded in {IKIP7Receiver-onKIP7Received} to contract recipients. Emits a {Transfer} event Emits an {Approval} event indicating the updated allowance.\"},\"supportsInterface(bytes4)\":{\"details\":\"See {IKIP13-supportsInterface}.\"},\"symbol()\":{\"details\":\"Returns the symbol of the token, usually a shorter version of the name.\"},\"totalSupply()\":{\"details\":\"See {IKIP7-totalSupply}.\"},\"transfer(address,uint256)\":{\"details\":\"See {IKIP7-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"See {IKIP7-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {KIP7}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXT/GXTToken.sol\":\"GXTToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXT/GXTToken.sol\":{\"keccak256\":\"0xc725226533d1dbdf244a1c4dff1505a31f01fb5bd26f266a57814e4ceeeefdc6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f22b397a49d1060723000c8666411fdd1eee5f7bf25ce57c1e3feb6ab2544dcd\",\"dweb:/ipfs/QmctZR9ouyD3kxmoKbFT1qSCMTer5rgLpaV8epW6R8tQna\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP13.sol\":{\"keccak256\":\"0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3d5b38071876acadb51cd31254f6eefa30d9240c21b531bdb89648f7475231fd\",\"dweb:/ipfs/QmVvkB9Uwwdq2QJp1uU6eJrcetmaU9zdcNvdg2z9zRmy9e\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/IKIP7.sol\":{\"keccak256\":\"0xf3f1e32e3d07b7894d60806f2a42b9d369929cc8a429973356f518ca782532a9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ddc28fd4b48e353d73949eed634f7a6fd493f0bf5f712f8b3cbff60f85d3f035\",\"dweb:/ipfs/QmZXnazRkWH2qsKayjNP7oVrwmQPoP5uUPQ837PzP4K7Ws\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/IKIP7Metadata.sol\":{\"keccak256\":\"0x325ec14c9c76c6910fe38ddf5efdf399bef783f3f0a0a7feff06a6104d6c65b1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e81f97329c5c53af2eeff442af2c35ebe43e58581a8116e9a8c03988cbd5dd72\",\"dweb:/ipfs/QmZGS7etHoxjPTYJLFv59CurqqJVC2FZoYqmamZPmqbrBt\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/IKIP7Receiver.sol\":{\"keccak256\":\"0x4ce5a3da376b3f6e0be2a02d0e1fd784918029dadf456fff55a9ab6cd256259c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b631bcfe96e35e9d19fd523d35a995a028ce1cb903016a6e1994797e5530aaf0\",\"dweb:/ipfs/QmShJ3v7PAwDEjkHkWfCbH5hAmbCBYfsNXdJAZmGz2f8TV\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/KIP7Token.sol\":{\"keccak256\":\"0x80638c66ca12c7ae0d7a1532dc8809da5a132ebabb0cfaf8ed16be817aa533c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6a88f009f5e545d584393922559013f82d77aae0dd8b35af167ac979115ef287\",\"dweb:/ipfs/QmSYm4vAYu3q1SvaRkQvxAbKvqj19NpDkujmfUN37fxq63\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/KIP13.sol\":{\"keccak256\":\"0x101d517bdf87da13f270dc8dbabf84e6137e45389a94c653d48b169455b1dfe0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://88a375b0bb017902d8efe9a55f192d2f556264193f9c69334cc313ab979ca750\",\"dweb:/ipfs/QmbPgR3kzJwdnpT9tk5c4JxdQc8GRpCJukFgsNNju9qHyr\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Address.sol\":{\"keccak256\":\"0x5f98f151a3988fd7ef1cfa53b4981a7aadb8d73e0d28429331fa40576120ecbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://009d268e182dc88f2cf6224f826d68961a27bfae21b1784e3f7b1ddb30358bfe\",\"dweb:/ipfs/QmdfRTh51uqK872MKNt5WU9HeFEoEbrBGyWPeooXsRfAd7\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol\":{\"keccak256\":\"0x53ff678ddfddcb518111ea8b628313392a5fac52bca167b6888e6991290f7631\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1cb38203805a884319633b0c5770753fdea4fdbeb79885e171af4d981729e0cb\",\"dweb:/ipfs/QmXfnSoWWMNjE49E1RPd4NBRfqwurSyFmSAEY5FmyXivAB\"]}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b5060408051808201825260038082526211d61560ea1b602080840191825284518086019095528285526208ea8b60eb1b9085015282519293926200005792919062000076565b5080516200006d90600490602084019062000076565b50505062000159565b82805462000084906200011c565b90600052602060002090601f016020900481019282620000a85760008555620000f3565b82601f10620000c357805160ff1916838001178555620000f3565b82800160010185558215620000f3579182015b82811115620000f3578251825591602001919060010190620000d6565b506200010192915062000105565b5090565b5b8082111562000101576000815560010162000106565b6002810460018216806200013157607f821691505b602082108114156200015357634e487b7160e01b600052602260045260246000fd5b50919050565b61129480620001696000396000f3fe608060405234801561001057600080fd5b50600436106101215760003560e01c806342842e0e116100ad578063a457c2d711610071578063a457c2d714610245578063a9059cbb14610258578063b88d4fde1461026b578063dd62ed3e1461027e578063eb7955491461029157610121565b806342842e0e146101ef57806370a0823114610202578063893d20e81461021557806395d89b411461022a5780639dc29fac1461023257610121565b806323b872dd116100f457806323b872dd1461018c578063313ce5671461019f57806339509351146101b457806340c10f19146101c7578063423f6cef146101dc57610121565b806301ffc9a71461012657806306fdde031461014f578063095ea7b31461016457806318160ddd14610177575b600080fd5b610139610134366004610d68565b6102a4565b6040516101469190610e3c565b60405180910390f35b6101576102ec565b6040516101469190610e47565b610139610172366004610cea565b61037e565b61017f6103a0565b6040516101469190611198565b61013961019a366004610c49565b6103a6565b6101a76103d4565b60405161014691906111a1565b6101396101c2366004610cea565b6103d9565b6101da6101d5366004610cea565b610405565b005b6101da6101ea366004610cea565b61042a565b6101da6101fd366004610c49565b610456565b61017f610210366004610bf6565b61048e565b61021d6104a9565b6040516101469190610deb565b6101576104b8565b6101da610240366004610cea565b6104c7565b610139610253366004610cea565b6104e8565b610139610266366004610cea565b610539565b6101da610279366004610c84565b610551565b61017f61028c366004610c17565b61057b565b6101da61029f366004610d13565b6105a6565b60006001600160e01b03198216636578737160e01b14806102d557506001600160e01b0319821663a219a02560e01b145b806102e457506102e4826105be565b90505b919050565b6060600380546102fb906111de565b80601f0160208091040260200160405190810160405280929190818152602001828054610327906111de565b80156103745780601f1061034957610100808354040283529160200191610374565b820191906000526020600020905b81548152906001019060200180831161035757829003601f168201915b5050505050905090565b6000806103896105d7565b90506103968185856105db565b5060019392505050565b60025490565b6000806103b16105d7565b90506103be85828561068f565b6103c98585856106d3565b506001949350505050565b601290565b6000806103e46105d7565b90506103968185856103f6858961057b565b61040091906111af565b6105db565b6005546001600160a01b0316331461041c57600080fd5b61042682826107f7565b5050565b60006104346105d7565b9050610451818484604051806020016040528060008152506108f6565b505050565b60006104606105d7565b905061046d84828461068f565b610488848484604051806020016040528060008152506108f6565b50505050565b6001600160a01b031660009081526020819052604090205490565b6005546001600160a01b031690565b6060600480546102fb906111de565b6005546001600160a01b031633146104de57600080fd5b6104268282610929565b6000806104f36105d7565b90506000610501828661057b565b90508381101561052c5760405162461bcd60e51b815260040161052390611039565b60405180910390fd5b6103c982868684036105db565b6000806105446105d7565b90506103968185856106d3565b600061055b6105d7565b905061056885828561068f565b610574858585856108f6565b5050505050565b6001600160a01b03918216600090815260016020908152604080832093909416825291909152205490565b60006105b06105d7565b9050610488818585856108f6565b6001600160e01b031981166301ffc9a760e01b14919050565b3390565b6001600160a01b0383166106015760405162461bcd60e51b815260040161052390611155565b6001600160a01b0382166106275760405162461bcd60e51b815260040161052390610e91565b6001600160a01b0380841660008181526001602090815260408083209487168084529490915290819020849055517f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92590610682908590611198565b60405180910390a3505050565b600061069b848461057b565b9050600019811461048857818110156106c65760405162461bcd60e51b815260040161052390610e5a565b61048884848484036105db565b6001600160a01b0383166106f95760405162461bcd60e51b81526004016105239061107d565b6001600160a01b03821661071f5760405162461bcd60e51b815260040161052390610ff7565b61072a838383610451565b6001600160a01b038316600090815260208190526040902054818110156107635760405162461bcd60e51b815260040161052390611110565b6001600160a01b0380851660009081526020819052604080822085850390559185168152908120805484929061079a9084906111af565b92505081905550826001600160a01b0316846001600160a01b03167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040516107e49190611198565b60405180910390a3610488848484610451565b6001600160a01b03821661081d5760405162461bcd60e51b815260040161052390610f61565b69d3c21bcecceda10000008160025461083691906111af565b11156108545760405162461bcd60e51b815260040161052390610f98565b61086060008383610451565b806002600082825461087291906111af565b90915550506001600160a01b0382166000908152602081905260408120805483929061089f9084906111af565b90915550506040516001600160a01b038316906000907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef906108e2908590611198565b60405180910390a361042660008383610451565b6109018484846106d3565b61090d84848484610a1a565b6104885760405162461bcd60e51b8152600401610523906110c1565b6001600160a01b03821661094f5760405162461bcd60e51b815260040161052390610fc2565b61095b82600083610451565b6001600160a01b038216600090815260208190526040902054818110156109945760405162461bcd60e51b815260040161052390610f20565b6001600160a01b03831660009081526020819052604081208383039055600280548492906109c39084906111c7565b90915550506040516000906001600160a01b038516907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef90610a06908690611198565b60405180910390a361045183600084610451565b6000610a2e846001600160a01b0316610b2d565b156103c957836001600160a01b0316639d188c22610a4a6105d7565b8786866040518563ffffffff1660e01b8152600401610a6c9493929190610dff565b602060405180830381600087803b158015610a8657600080fd5b505af1925050508015610ab6575060408051601f3d908101601f19168201909252610ab391810190610d84565b60015b610b10573d808015610ae4576040519150601f19603f3d011682016040523d82523d6000602084013e610ae9565b606091505b508051610b085760405162461bcd60e51b815260040161052390610ed2565b805181602001fd5b6001600160e01b031916634e8c461160e11b149050949350505050565b600080826001600160a01b0316803b806020016040519081016040528181526000908060200190933c511192915050565b80356001600160a01b03811681146102e757600080fd5b600082601f830112610b85578081fd5b813567ffffffffffffffff80821115610ba057610ba061122f565b604051601f8301601f191681016020018281118282101715610bc457610bc461122f565b604052828152848301602001861015610bdb578384fd5b82602086016020830137918201602001929092529392505050565b600060208284031215610c07578081fd5b610c1082610b5e565b9392505050565b60008060408385031215610c29578081fd5b610c3283610b5e565b9150610c4060208401610b5e565b90509250929050565b600080600060608486031215610c5d578081fd5b610c6684610b5e565b9250610c7460208501610b5e565b9150604084013590509250925092565b60008060008060808587031215610c99578081fd5b610ca285610b5e565b9350610cb060208601610b5e565b925060408501359150606085013567ffffffffffffffff811115610cd2578182fd5b610cde87828801610b75565b91505092959194509250565b60008060408385031215610cfc578182fd5b610d0583610b5e565b946020939093013593505050565b600080600060608486031215610d27578283fd5b610d3084610b5e565b925060208401359150604084013567ffffffffffffffff811115610d52578182fd5b610d5e86828701610b75565b9150509250925092565b600060208284031215610d79578081fd5b8135610c1081611245565b600060208284031215610d95578081fd5b8151610c1081611245565b60008151808452815b81811015610dc557602081850181015186830182015201610da9565b81811115610dd65782602083870101525b50601f01601f19169290920160200192915050565b6001600160a01b0391909116815260200190565b6001600160a01b0385811682528416602082015260408101839052608060608201819052600090610e3290830184610da0565b9695505050505050565b901515815260200190565b600060208252610c106020830184610da0565b6020808252601c908201527f4b4950373a20696e73756666696369656e7420616c6c6f77616e636500000000604082015260600190565b60208082526021908201527f4b4950373a20617070726f766520746f20746865207a65726f206164647265736040820152607360f81b606082015260800190565b6020808252602e908201527f4b4950373a207472616e7366657220746f206e6f6e204b49503752656365697660408201526d32b91034b6b83632b6b2b73a32b960911b606082015260800190565b60208082526021908201527f4b4950373a206275726e20616d6f756e7420657863656564732062616c616e636040820152606560f81b606082015260800190565b6020808252601e908201527f4b4950373a206d696e7420746f20746865207a65726f20616464726573730000604082015260600190565b60208082526010908201526f26b0bc1029bab838363c9022b93937b960811b604082015260600190565b6020808252818101527f4b4950373a206275726e2066726f6d20746865207a65726f2061646472657373604082015260600190565b60208082526022908201527f4b4950373a207472616e7366657220746f20746865207a65726f206164647265604082015261737360f01b606082015260800190565b60208082526024908201527f4b4950373a2064656372656173656420616c6c6f77616e63652062656c6f77206040820152637a65726f60e01b606082015260800190565b60208082526024908201527f4b4950373a207472616e736665722066726f6d20746865207a65726f206164646040820152637265737360e01b606082015260800190565b6020808252602f908201527f4b4950373a207472616e7366657220746f206e6f6e20494b495037526563656960408201526e3b32b91034b6b83632b6b2b73a32b960891b606082015260800190565b60208082526025908201527f4b4950373a207472616e7366657220616d6f756e7420657863656564732062616040820152646c616e636560d81b606082015260800190565b60208082526023908201527f4b4950373a20617070726f76652066726f6d20746865207a65726f206164647260408201526265737360e81b606082015260800190565b90815260200190565b60ff91909116815260200190565b600082198211156111c2576111c2611219565b500190565b6000828210156111d9576111d9611219565b500390565b6002810460018216806111f257607f821691505b6020821081141561121357634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160e01b03198116811461125b57600080fd5b5056fea2646970667358221220ab480f45fb05ca833642e3b3e51069924674b35b8dea0ce42b72ecd967d7656f64736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101215760003560e01c806342842e0e116100ad578063a457c2d711610071578063a457c2d714610245578063a9059cbb14610258578063b88d4fde1461026b578063dd62ed3e1461027e578063eb7955491461029157610121565b806342842e0e146101ef57806370a0823114610202578063893d20e81461021557806395d89b411461022a5780639dc29fac1461023257610121565b806323b872dd116100f457806323b872dd1461018c578063313ce5671461019f57806339509351146101b457806340c10f19146101c7578063423f6cef146101dc57610121565b806301ffc9a71461012657806306fdde031461014f578063095ea7b31461016457806318160ddd14610177575b600080fd5b610139610134366004610d68565b6102a4565b6040516101469190610e3c565b60405180910390f35b6101576102ec565b6040516101469190610e47565b610139610172366004610cea565b61037e565b61017f6103a0565b6040516101469190611198565b61013961019a366004610c49565b6103a6565b6101a76103d4565b60405161014691906111a1565b6101396101c2366004610cea565b6103d9565b6101da6101d5366004610cea565b610405565b005b6101da6101ea366004610cea565b61042a565b6101da6101fd366004610c49565b610456565b61017f610210366004610bf6565b61048e565b61021d6104a9565b6040516101469190610deb565b6101576104b8565b6101da610240366004610cea565b6104c7565b610139610253366004610cea565b6104e8565b610139610266366004610cea565b610539565b6101da610279366004610c84565b610551565b61017f61028c366004610c17565b61057b565b6101da61029f366004610d13565b6105a6565b60006001600160e01b03198216636578737160e01b14806102d557506001600160e01b0319821663a219a02560e01b145b806102e457506102e4826105be565b90505b919050565b6060600380546102fb906111de565b80601f0160208091040260200160405190810160405280929190818152602001828054610327906111de565b80156103745780601f1061034957610100808354040283529160200191610374565b820191906000526020600020905b81548152906001019060200180831161035757829003601f168201915b5050505050905090565b6000806103896105d7565b90506103968185856105db565b5060019392505050565b60025490565b6000806103b16105d7565b90506103be85828561068f565b6103c98585856106d3565b506001949350505050565b601290565b6000806103e46105d7565b90506103968185856103f6858961057b565b61040091906111af565b6105db565b6005546001600160a01b0316331461041c57600080fd5b61042682826107f7565b5050565b60006104346105d7565b9050610451818484604051806020016040528060008152506108f6565b505050565b60006104606105d7565b905061046d84828461068f565b610488848484604051806020016040528060008152506108f6565b50505050565b6001600160a01b031660009081526020819052604090205490565b6005546001600160a01b031690565b6060600480546102fb906111de565b6005546001600160a01b031633146104de57600080fd5b6104268282610929565b6000806104f36105d7565b90506000610501828661057b565b90508381101561052c5760405162461bcd60e51b815260040161052390611039565b60405180910390fd5b6103c982868684036105db565b6000806105446105d7565b90506103968185856106d3565b600061055b6105d7565b905061056885828561068f565b610574858585856108f6565b5050505050565b6001600160a01b03918216600090815260016020908152604080832093909416825291909152205490565b60006105b06105d7565b9050610488818585856108f6565b6001600160e01b031981166301ffc9a760e01b14919050565b3390565b6001600160a01b0383166106015760405162461bcd60e51b815260040161052390611155565b6001600160a01b0382166106275760405162461bcd60e51b815260040161052390610e91565b6001600160a01b0380841660008181526001602090815260408083209487168084529490915290819020849055517f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b92590610682908590611198565b60405180910390a3505050565b600061069b848461057b565b9050600019811461048857818110156106c65760405162461bcd60e51b815260040161052390610e5a565b61048884848484036105db565b6001600160a01b0383166106f95760405162461bcd60e51b81526004016105239061107d565b6001600160a01b03821661071f5760405162461bcd60e51b815260040161052390610ff7565b61072a838383610451565b6001600160a01b038316600090815260208190526040902054818110156107635760405162461bcd60e51b815260040161052390611110565b6001600160a01b0380851660009081526020819052604080822085850390559185168152908120805484929061079a9084906111af565b92505081905550826001600160a01b0316846001600160a01b03167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040516107e49190611198565b60405180910390a3610488848484610451565b6001600160a01b03821661081d5760405162461bcd60e51b815260040161052390610f61565b69d3c21bcecceda10000008160025461083691906111af565b11156108545760405162461bcd60e51b815260040161052390610f98565b61086060008383610451565b806002600082825461087291906111af565b90915550506001600160a01b0382166000908152602081905260408120805483929061089f9084906111af565b90915550506040516001600160a01b038316906000907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef906108e2908590611198565b60405180910390a361042660008383610451565b6109018484846106d3565b61090d84848484610a1a565b6104885760405162461bcd60e51b8152600401610523906110c1565b6001600160a01b03821661094f5760405162461bcd60e51b815260040161052390610fc2565b61095b82600083610451565b6001600160a01b038216600090815260208190526040902054818110156109945760405162461bcd60e51b815260040161052390610f20565b6001600160a01b03831660009081526020819052604081208383039055600280548492906109c39084906111c7565b90915550506040516000906001600160a01b038516907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef90610a06908690611198565b60405180910390a361045183600084610451565b6000610a2e846001600160a01b0316610b2d565b156103c957836001600160a01b0316639d188c22610a4a6105d7565b8786866040518563ffffffff1660e01b8152600401610a6c9493929190610dff565b602060405180830381600087803b158015610a8657600080fd5b505af1925050508015610ab6575060408051601f3d908101601f19168201909252610ab391810190610d84565b60015b610b10573d808015610ae4576040519150601f19603f3d011682016040523d82523d6000602084013e610ae9565b606091505b508051610b085760405162461bcd60e51b815260040161052390610ed2565b805181602001fd5b6001600160e01b031916634e8c461160e11b149050949350505050565b600080826001600160a01b0316803b806020016040519081016040528181526000908060200190933c511192915050565b80356001600160a01b03811681146102e757600080fd5b600082601f830112610b85578081fd5b813567ffffffffffffffff80821115610ba057610ba061122f565b604051601f8301601f191681016020018281118282101715610bc457610bc461122f565b604052828152848301602001861015610bdb578384fd5b82602086016020830137918201602001929092529392505050565b600060208284031215610c07578081fd5b610c1082610b5e565b9392505050565b60008060408385031215610c29578081fd5b610c3283610b5e565b9150610c4060208401610b5e565b90509250929050565b600080600060608486031215610c5d578081fd5b610c6684610b5e565b9250610c7460208501610b5e565b9150604084013590509250925092565b60008060008060808587031215610c99578081fd5b610ca285610b5e565b9350610cb060208601610b5e565b925060408501359150606085013567ffffffffffffffff811115610cd2578182fd5b610cde87828801610b75565b91505092959194509250565b60008060408385031215610cfc578182fd5b610d0583610b5e565b946020939093013593505050565b600080600060608486031215610d27578283fd5b610d3084610b5e565b925060208401359150604084013567ffffffffffffffff811115610d52578182fd5b610d5e86828701610b75565b9150509250925092565b600060208284031215610d79578081fd5b8135610c1081611245565b600060208284031215610d95578081fd5b8151610c1081611245565b60008151808452815b81811015610dc557602081850181015186830182015201610da9565b81811115610dd65782602083870101525b50601f01601f19169290920160200192915050565b6001600160a01b0391909116815260200190565b6001600160a01b0385811682528416602082015260408101839052608060608201819052600090610e3290830184610da0565b9695505050505050565b901515815260200190565b600060208252610c106020830184610da0565b6020808252601c908201527f4b4950373a20696e73756666696369656e7420616c6c6f77616e636500000000604082015260600190565b60208082526021908201527f4b4950373a20617070726f766520746f20746865207a65726f206164647265736040820152607360f81b606082015260800190565b6020808252602e908201527f4b4950373a207472616e7366657220746f206e6f6e204b49503752656365697660408201526d32b91034b6b83632b6b2b73a32b960911b606082015260800190565b60208082526021908201527f4b4950373a206275726e20616d6f756e7420657863656564732062616c616e636040820152606560f81b606082015260800190565b6020808252601e908201527f4b4950373a206d696e7420746f20746865207a65726f20616464726573730000604082015260600190565b60208082526010908201526f26b0bc1029bab838363c9022b93937b960811b604082015260600190565b6020808252818101527f4b4950373a206275726e2066726f6d20746865207a65726f2061646472657373604082015260600190565b60208082526022908201527f4b4950373a207472616e7366657220746f20746865207a65726f206164647265604082015261737360f01b606082015260800190565b60208082526024908201527f4b4950373a2064656372656173656420616c6c6f77616e63652062656c6f77206040820152637a65726f60e01b606082015260800190565b60208082526024908201527f4b4950373a207472616e736665722066726f6d20746865207a65726f206164646040820152637265737360e01b606082015260800190565b6020808252602f908201527f4b4950373a207472616e7366657220746f206e6f6e20494b495037526563656960408201526e3b32b91034b6b83632b6b2b73a32b960891b606082015260800190565b60208082526025908201527f4b4950373a207472616e7366657220616d6f756e7420657863656564732062616040820152646c616e636560d81b606082015260800190565b60208082526023908201527f4b4950373a20617070726f76652066726f6d20746865207a65726f206164647260408201526265737360e81b606082015260800190565b90815260200190565b60ff91909116815260200190565b600082198211156111c2576111c2611219565b500190565b6000828210156111d9576111d9611219565b500390565b6002810460018216806111f257607f821691505b6020821081141561121357634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052604160045260246000fd5b6001600160e01b03198116811461125b57600080fd5b5056fea2646970667358221220ab480f45fb05ca833642e3b3e51069924674b35b8dea0ce42b72ecd967d7656f64736f6c63430008000033",
+  "immutableReferences": {},
+  "sourceMap": "132:298:1:-:0;;;178:40;;;;;;;;;-1:-1:-1;873:113:25;;;;;;;;;;;;-1:-1:-1;;;873:113:25;;;;;;;;;;;;;;;;;;-1:-1:-1;;;873:113:25;;;;939:13;;873:113;;;939:13;;873:113;;939:13;:::i;:::-;-1:-1:-1;962:17:25;;;;:7;;:17;;;;;:::i;:::-;;873:113;;132:298:1;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;132:298:1;;;-1:-1:-1;132:298:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;14:380:33;99:1;89:12;;146:1;136:12;;;157:2;;211:4;203:6;199:17;189:27;;157:2;264;256:6;253:14;233:18;230:38;227:2;;;310:10;305:3;301:20;298:1;291:31;345:4;342:1;335:15;373:4;370:1;363:15;227:2;;69:325;;;:::o;:::-;132:298:1;;;;;;",
+  "deployedSourceMap": "132:298:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1052:330:25;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;1447:98;;;:::i;:::-;;;;;;;:::i;3840:233::-;;;;;;:::i;:::-;;:::i;2531:106::-;;;:::i;:::-;;;;;;;:::i;4633:286::-;;;;;;:::i;:::-;;:::i;2381:91::-;;;:::i;:::-;;;;;;;:::i;5313:262::-;;;;;;:::i;:::-;;:::i;224:99:1:-;;;;;;:::i;:::-;;:::i;:::-;;6873:207:25;;;;;;:::i;:::-;;:::i;8261:282::-;;;;;;:::i;:::-;;:::i;2694:169::-;;;;;;:::i;:::-;;:::i;199:85:30:-;;;:::i;:::-;;;;;;;:::i;1658:102:25:-;;;:::i;329:99:1:-;;;;;;:::i;:::-;;:::i;6061:488:25:-;;;;;;:::i;:::-;;:::i;3058:225::-;;;;;;:::i;:::-;;:::i;8886:313::-;;;;;;:::i;:::-;;:::i;3340:193::-;;;;;;:::i;:::-;;:::i;7341:232::-;;;;;;:::i;:::-;;:::i;1052:330::-;1184:4;-1:-1:-1;;;;;;1223:38:25;;-1:-1:-1;;;1223:38:25;;:100;;-1:-1:-1;;;;;;;1277:46:25;;-1:-1:-1;;;1277:46:25;1223:100;:152;;;;1339:36;1363:11;1339:23;:36::i;:::-;1204:171;;1052:330;;;;:::o;1447:98::-;1501:13;1533:5;1526:12;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1447:98;:::o;3840:233::-;3955:4;3975:13;3991:12;:10;:12::i;:::-;3975:28;;4013:32;4022:5;4029:7;4038:6;4013:8;:32::i;:::-;-1:-1:-1;4062:4:25;;3840:233;-1:-1:-1;;;3840:233:25:o;2531:106::-;2618:12;;2531:106;:::o;4633:286::-;4760:4;4776:15;4794:12;:10;:12::i;:::-;4776:30;;4816:38;4832:4;4838:7;4847:6;4816:15;:38::i;:::-;4864:27;4874:4;4880:2;4884:6;4864:9;:27::i;:::-;-1:-1:-1;4908:4:25;;4633:286;-1:-1:-1;;;;4633:286:25:o;2381:91::-;2463:2;2381:91;:::o;5313:262::-;5425:4;5445:13;5461:12;:10;:12::i;:::-;5445:28;;5483:64;5492:5;5499:7;5536:10;5508:25;5518:5;5525:7;5508:9;:25::i;:::-;:38;;;;:::i;:::-;5483:8;:64::i;224:99:1:-;169:5:30;;-1:-1:-1;;;;;169:5:30;155:10;:19;147:28;;;;;;297:19:1::1;303:3;308:7;297:5;:19::i;:::-;224:99:::0;;:::o;6873:207:25:-;6992:13;7008:12;:10;:12::i;:::-;6992:28;;7030:43;7044:5;7051:9;7062:6;7030:43;;;;;;;;;;;;:13;:43::i;:::-;6873:207;;;:::o;8261:282::-;8402:15;8420:12;:10;:12::i;:::-;8402:30;;8442:40;8458:6;8466:7;8475:6;8442:15;:40::i;:::-;8492:44;8506:6;8514:9;8525:6;8492:44;;;;;;;;;;;;:13;:44::i;:::-;8261:282;;;;:::o;2694:169::-;-1:-1:-1;;;;;2838:18:25;2808:7;2838:18;;;;;;;;;;;;2694:169::o;199:85:30:-;272:5;;-1:-1:-1;;;;;272:5:30;199:85;:::o;1658:102:25:-;1714:13;1746:7;1739:14;;;;;:::i;329:99:1:-;169:5:30;;-1:-1:-1;;;;;169:5:30;155:10;:19;147:28;;;;;;402:19:1::1;408:3;413:7;402:5;:19::i;6061:488:25:-:0;6178:4;6198:13;6214:12;:10;:12::i;:::-;6198:28;;6236:24;6263:25;6273:5;6280:7;6263:9;:25::i;:::-;6236:52;;6339:15;6319:16;:35;;6298:118;;;;-1:-1:-1;;;6298:118:25;;;;;;;:::i;:::-;;;;;;;;;6450:60;6459:5;6466:7;6494:15;6475:16;:34;6450:8;:60::i;3058:225::-;3169:4;3189:13;3205:12;:10;:12::i;:::-;3189:28;;3227;3237:5;3244:2;3248:6;3227:9;:28::i;8886:313::-;9055:15;9073:12;:10;:12::i;:::-;9055:30;;9095:40;9111:6;9119:7;9128:6;9095:15;:40::i;:::-;9145:47;9159:6;9167:9;9178:6;9186:5;9145:13;:47::i;:::-;8886:313;;;;;:::o;3340:193::-;-1:-1:-1;;;;;3499:18:25;;;3469:7;3499:18;;;:11;:18;;;;;;;;:27;;;;;;;;;;;;;3340:193::o;7341:232::-;7482:13;7498:12;:10;:12::i;:::-;7482:28;;7520:46;7534:5;7541:9;7552:6;7560:5;7520:13;:46::i;979:198:26:-;-1:-1:-1;;;;;;1131:39:26;;-1:-1:-1;;;1131:39:26;979:198;;;:::o;640:96:28:-;719:10;640:96;:::o;16007:368:25:-;-1:-1:-1;;;;;16138:19:25;;16130:67;;;;-1:-1:-1;;;16130:67:25;;;;;;;:::i;:::-;-1:-1:-1;;;;;16215:21:25;;16207:67;;;;-1:-1:-1;;;16207:67:25;;;;;;;:::i;:::-;-1:-1:-1;;;;;16285:18:25;;;;;;;:11;:18;;;;;;;;:27;;;;;;;;;;;;;;:36;;;16336:32;;;;;16315:6;;16336:32;:::i;:::-;;;;;;;;16007:368;;;:::o;16656:440::-;16786:24;16813:25;16823:5;16830:7;16813:9;:25::i;:::-;16786:52;;-1:-1:-1;;16852:16:25;:37;16848:242;;16933:6;16913:16;:26;;16905:67;;;;-1:-1:-1;;;16905:67:25;;;;;;;:::i;:::-;17014:51;17023:5;17030:7;17058:6;17039:16;:25;17014:8;:51::i;10780:648::-;-1:-1:-1;;;;;10906:18:25;;10898:67;;;;-1:-1:-1;;;10898:67:25;;;;;;;:::i;:::-;-1:-1:-1;;;;;10983:16:25;;10975:63;;;;-1:-1:-1;;;10975:63:25;;;;;;;:::i;:::-;11049:38;11070:4;11076:2;11080:6;11049:20;:38::i;:::-;-1:-1:-1;;;;;11120:15:25;;11098:19;11120:15;;;;;;;;;;;11153:21;;;;11145:71;;;;-1:-1:-1;;;11145:71:25;;;;;;;:::i;:::-;-1:-1:-1;;;;;11250:15:25;;;:9;:15;;;;;;;;;;;11268:20;;;11250:38;;11308:13;;;;;;;;:23;;11282:6;;11250:9;11308:23;;11282:6;;11308:23;:::i;:::-;;;;;;;;11362:2;-1:-1:-1;;;;;11347:26:25;11356:4;-1:-1:-1;;;;;11347:26:25;;11366:6;11347:26;;;;;;:::i;:::-;;;;;;;;11384:37;11404:4;11410:2;11414:6;11384:19;:37::i;12800:461::-;-1:-1:-1;;;;;12883:21:25;;12875:64;;;;-1:-1:-1;;;12875:64:25;;;;;;;:::i;:::-;498:10;12972:6;12957:12;;:21;;;;:::i;:::-;:35;;12949:64;;;;-1:-1:-1;;;12949:64:25;;;;;;;:::i;:::-;13023:49;13052:1;13056:7;13065:6;13023:20;:49::i;:::-;13099:6;13083:12;;:22;;;;;;;:::i;:::-;;;;-1:-1:-1;;;;;;;13115:18:25;;:9;:18;;;;;;;;;;:28;;13137:6;;13115:9;:28;;13137:6;;13115:28;:::i;:::-;;;;-1:-1:-1;;13158:37:25;;-1:-1:-1;;;;;13158:37:25;;;13175:1;;13158:37;;;;13188:6;;13158:37;:::i;:::-;;;;;;;;13206:48;13234:1;13238:7;13247:6;13206:19;:48::i;9984:333::-;10134:27;10144:4;10150:2;10154:6;10134:9;:27::i;:::-;10192:45;10213:4;10219:2;10223:6;10231:5;10192:20;:45::i;:::-;10171:139;;;;-1:-1:-1;;;10171:139:25;;;;;;;:::i;15010:574::-;-1:-1:-1;;;;;15093:21:25;;15085:66;;;;-1:-1:-1;;;15085:66:25;;;;;;;:::i;:::-;15162:49;15183:7;15200:1;15204:6;15162:20;:49::i;:::-;-1:-1:-1;;;;;15247:18:25;;15222:22;15247:18;;;;;;;;;;;15283:24;;;;15275:70;;;;-1:-1:-1;;;15275:70:25;;;;;;;:::i;:::-;-1:-1:-1;;;;;15379:18:25;;:9;:18;;;;;;;;;;15400:23;;;15379:44;;15443:12;:22;;15417:6;;15379:9;15443:22;;15417:6;;15443:22;:::i;:::-;;;;-1:-1:-1;;15481:37:25;;15507:1;;-1:-1:-1;;;;;15481:37:25;;;;;;;15511:6;;15481:37;:::i;:::-;;;;;;;;15529:48;15549:7;15566:1;15570:6;15529:19;:48::i;13802:888::-;13949:4;13969:15;:2;-1:-1:-1;;;;;13969:13:25;;:15::i;:::-;13965:719;;;14034:2;-1:-1:-1;;;;;14020:32:25;;14074:12;:10;:12::i;:::-;14108:4;14134:6;14162:5;14020:165;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;14020:165:25;;;;;;;;-1:-1:-1;;14020:165:25;;;;;;;;;;;;:::i;:::-;;;14000:632;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;14360:13:25;;14356:262;;14402:56;;-1:-1:-1;;;14402:56:25;;;;;;;:::i;14356:262::-;14570:6;14564:13;14555:6;14551:2;14547:15;14540:38;14000:632;-1:-1:-1;;;;;;14247:47:25;-1:-1:-1;;;14247:47:25;;-1:-1:-1;13802:888:25;;;;;;:::o;1175:320:27:-;1235:4;1487:1;1465:7;-1:-1:-1;;;;;1465:12:27;;;;;;;;;;;;;;;;;;;;;;;;:19;:23;;1175:320;-1:-1:-1;;1175:320:27:o;14:175:33:-;84:20;;-1:-1:-1;;;;;133:31:33;;123:42;;113:2;;179:1;176;169:12;194:712;;291:3;284:4;276:6;272:17;268:27;258:2;;313:5;306;299:20;258:2;353:6;340:20;379:18;416:2;412;409:10;406:2;;;422:18;;:::i;:::-;471:2;465:9;540:2;521:13;;-1:-1:-1;;517:27:33;505:40;;547:4;501:51;567:18;;;587:22;;;564:46;561:2;;;613:18;;:::i;:::-;649:2;642:22;673:18;;;710:15;;;727:4;706:26;703:35;-1:-1:-1;700:2:33;;;755:5;748;741:20;700:2;823;816:4;808:6;804:17;797:4;789:6;785:17;772:54;846:15;;;863:4;842:26;835:41;;;;850:6;248:658;-1:-1:-1;;;248:658:33:o;911:198::-;;1023:2;1011:9;1002:7;998:23;994:32;991:2;;;1044:6;1036;1029:22;991:2;1072:31;1093:9;1072:31;:::i;:::-;1062:41;981:128;-1:-1:-1;;;981:128:33:o;1114:274::-;;;1243:2;1231:9;1222:7;1218:23;1214:32;1211:2;;;1264:6;1256;1249:22;1211:2;1292:31;1313:9;1292:31;:::i;:::-;1282:41;;1342:40;1378:2;1367:9;1363:18;1342:40;:::i;:::-;1332:50;;1201:187;;;;;:::o;1393:342::-;;;;1539:2;1527:9;1518:7;1514:23;1510:32;1507:2;;;1560:6;1552;1545:22;1507:2;1588:31;1609:9;1588:31;:::i;:::-;1578:41;;1638:40;1674:2;1663:9;1659:18;1638:40;:::i;:::-;1628:50;;1725:2;1714:9;1710:18;1697:32;1687:42;;1497:238;;;;;:::o;1740:563::-;;;;;1912:3;1900:9;1891:7;1887:23;1883:33;1880:2;;;1934:6;1926;1919:22;1880:2;1962:31;1983:9;1962:31;:::i;:::-;1952:41;;2012:40;2048:2;2037:9;2033:18;2012:40;:::i;:::-;2002:50;;2099:2;2088:9;2084:18;2071:32;2061:42;;2154:2;2143:9;2139:18;2126:32;2181:18;2173:6;2170:30;2167:2;;;2218:6;2210;2203:22;2167:2;2246:51;2289:7;2280:6;2269:9;2265:22;2246:51;:::i;:::-;2236:61;;;1870:433;;;;;;;:::o;2308:266::-;;;2437:2;2425:9;2416:7;2412:23;2408:32;2405:2;;;2458:6;2450;2443:22;2405:2;2486:31;2507:9;2486:31;:::i;:::-;2476:41;2564:2;2549:18;;;;2536:32;;-1:-1:-1;;;2395:179:33:o;2579:486::-;;;;2734:2;2722:9;2713:7;2709:23;2705:32;2702:2;;;2755:6;2747;2740:22;2702:2;2783:31;2804:9;2783:31;:::i;:::-;2773:41;;2861:2;2850:9;2846:18;2833:32;2823:42;;2916:2;2905:9;2901:18;2888:32;2943:18;2935:6;2932:30;2929:2;;;2980:6;2972;2965:22;2929:2;3008:51;3051:7;3042:6;3031:9;3027:22;3008:51;:::i;:::-;2998:61;;;2692:373;;;;;:::o;3070:257::-;;3181:2;3169:9;3160:7;3156:23;3152:32;3149:2;;;3202:6;3194;3187:22;3149:2;3246:9;3233:23;3265:32;3291:5;3265:32;:::i;3332:261::-;;3454:2;3442:9;3433:7;3429:23;3425:32;3422:2;;;3475:6;3467;3460:22;3422:2;3512:9;3506:16;3531:32;3557:5;3531:32;:::i;3598:477::-;;3679:5;3673:12;3706:6;3701:3;3694:19;3731:3;3743:162;3757:6;3754:1;3751:13;3743:162;;;3819:4;3875:13;;;3871:22;;3865:29;3847:11;;;3843:20;;3836:59;3772:12;3743:162;;;3923:6;3920:1;3917:13;3914:2;;;3989:3;3982:4;3973:6;3968:3;3964:16;3960:27;3953:40;3914:2;-1:-1:-1;4057:2:33;4036:15;-1:-1:-1;;4032:29:33;4023:39;;;;4064:4;4019:50;;3649:426;-1:-1:-1;;3649:426:33:o;4080:219::-;-1:-1:-1;;;;;4260:32:33;;;;4242:51;;4230:2;4215:18;;4197:102::o;4304:490::-;-1:-1:-1;;;;;4573:15:33;;;4555:34;;4625:15;;4620:2;4605:18;;4598:43;4672:2;4657:18;;4650:34;;;4720:3;4715:2;4700:18;;4693:31;;;4304:490;;4741:47;;4768:19;;4760:6;4741:47;:::i;:::-;4733:55;4507:287;-1:-1:-1;;;;;;4507:287:33:o;4799:187::-;4964:14;;4957:22;4939:41;;4927:2;4912:18;;4894:92::o;4991:221::-;;5140:2;5129:9;5122:21;5160:46;5202:2;5191:9;5187:18;5179:6;5160:46;:::i;5217:352::-;5419:2;5401:21;;;5458:2;5438:18;;;5431:30;5497;5492:2;5477:18;;5470:58;5560:2;5545:18;;5391:178::o;5574:397::-;5776:2;5758:21;;;5815:2;5795:18;;;5788:30;5854:34;5849:2;5834:18;;5827:62;-1:-1:-1;;;5920:2:33;5905:18;;5898:31;5961:3;5946:19;;5748:223::o;5976:410::-;6178:2;6160:21;;;6217:2;6197:18;;;6190:30;6256:34;6251:2;6236:18;;6229:62;-1:-1:-1;;;6322:2:33;6307:18;;6300:44;6376:3;6361:19;;6150:236::o;6391:397::-;6593:2;6575:21;;;6632:2;6612:18;;;6605:30;6671:34;6666:2;6651:18;;6644:62;-1:-1:-1;;;6737:2:33;6722:18;;6715:31;6778:3;6763:19;;6565:223::o;6793:354::-;6995:2;6977:21;;;7034:2;7014:18;;;7007:30;7073:32;7068:2;7053:18;;7046:60;7138:2;7123:18;;6967:180::o;7152:340::-;7354:2;7336:21;;;7393:2;7373:18;;;7366:30;-1:-1:-1;;;7427:2:33;7412:18;;7405:46;7483:2;7468:18;;7326:166::o;7497:356::-;7699:2;7681:21;;;7718:18;;;7711:30;7777:34;7772:2;7757:18;;7750:62;7844:2;7829:18;;7671:182::o;7858:398::-;8060:2;8042:21;;;8099:2;8079:18;;;8072:30;8138:34;8133:2;8118:18;;8111:62;-1:-1:-1;;;8204:2:33;8189:18;;8182:32;8246:3;8231:19;;8032:224::o;8261:400::-;8463:2;8445:21;;;8502:2;8482:18;;;8475:30;8541:34;8536:2;8521:18;;8514:62;-1:-1:-1;;;8607:2:33;8592:18;;8585:34;8651:3;8636:19;;8435:226::o;8666:400::-;8868:2;8850:21;;;8907:2;8887:18;;;8880:30;8946:34;8941:2;8926:18;;8919:62;-1:-1:-1;;;9012:2:33;8997:18;;8990:34;9056:3;9041:19;;8840:226::o;9071:411::-;9273:2;9255:21;;;9312:2;9292:18;;;9285:30;9351:34;9346:2;9331:18;;9324:62;-1:-1:-1;;;9417:2:33;9402:18;;9395:45;9472:3;9457:19;;9245:237::o;9487:401::-;9689:2;9671:21;;;9728:2;9708:18;;;9701:30;9767:34;9762:2;9747:18;;9740:62;-1:-1:-1;;;9833:2:33;9818:18;;9811:35;9878:3;9863:19;;9661:227::o;9893:399::-;10095:2;10077:21;;;10134:2;10114:18;;;10107:30;10173:34;10168:2;10153:18;;10146:62;-1:-1:-1;;;10239:2:33;10224:18;;10217:33;10282:3;10267:19;;10067:225::o;10297:177::-;10443:25;;;10431:2;10416:18;;10398:76::o;10479:184::-;10651:4;10639:17;;;;10621:36;;10609:2;10594:18;;10576:87::o;10668:128::-;;10739:1;10735:6;10732:1;10729:13;10726:2;;;10745:18;;:::i;:::-;-1:-1:-1;10781:9:33;;10716:80::o;10801:125::-;;10869:1;10866;10863:8;10860:2;;;10874:18;;:::i;:::-;-1:-1:-1;10911:9:33;;10850:76::o;10931:380::-;11016:1;11006:12;;11063:1;11053:12;;;11074:2;;11128:4;11120:6;11116:17;11106:27;;11074:2;11181;11173:6;11170:14;11150:18;11147:38;11144:2;;;11227:10;11222:3;11218:20;11215:1;11208:31;11262:4;11259:1;11252:15;11290:4;11287:1;11280:15;11144:2;;10986:325;;;:::o;11316:127::-;11377:10;11372:3;11368:20;11365:1;11358:31;11408:4;11405:1;11398:15;11432:4;11429:1;11422:15;11448:127;11509:10;11504:3;11500:20;11497:1;11490:31;11540:4;11537:1;11530:15;11564:4;11561:1;11554:15;11580:133;-1:-1:-1;;;;;;11656:32:33;;11646:43;;11636:2;;11703:1;11700;11693:12;11636:2;11626:87;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"../interface/IKIP7/KIP7Token.sol\";\nimport \"../utils/Ownable.sol\";\n\ncontract GXTToken is KIP7Token, Ownable {\n    constructor() KIP7Token(\"GXT\", \"GTX\") {}\n\n    function mint(address _to, uint256 _amount) external onlyOwner {\n        _mint(_to, _amount);\n    }\n\n    function burn(address _to, uint256 _amount) external onlyOwner {\n        _burn(_to, _amount);\n    }\n}\n",
+  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXT/GXTToken.sol",
+  "ast": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXT/GXTToken.sol",
+    "exportedSymbols": {
+      "Address": [
+        6891
+      ],
+      "Context": [
+        6913
+      ],
+      "GXTToken": [
+        82
+      ],
+      "IKIP13": [
+        2947
+      ],
+      "IKIP7": [
+        5630
+      ],
+      "IKIP7Metadata": [
+        5680
+      ],
+      "IKIP7Receiver": [
+        5697
+      ],
+      "KIP13": [
+        6596
+      ],
+      "KIP7Token": [
+        6572
+      ],
+      "Ownable": [
+        7010
+      ]
+    },
+    "id": 83,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 37,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:1"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/KIP7Token.sol",
+        "file": "../interface/IKIP7/KIP7Token.sol",
+        "id": 38,
+        "nodeType": "ImportDirective",
+        "scope": 83,
+        "sourceUnit": 6573,
+        "src": "57:42:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol",
+        "file": "../utils/Ownable.sol",
+        "id": 39,
+        "nodeType": "ImportDirective",
+        "scope": 83,
+        "sourceUnit": 7011,
+        "src": "100:30:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 40,
+              "name": "KIP7Token",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 6572,
+              "src": "153:9:1"
+            },
+            "id": 41,
+            "nodeType": "InheritanceSpecifier",
+            "src": "153:9:1"
+          },
+          {
+            "baseName": {
+              "id": 42,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7010,
+              "src": "164:7:1"
+            },
+            "id": 43,
+            "nodeType": "InheritanceSpecifier",
+            "src": "164:7:1"
+          }
+        ],
+        "contractDependencies": [
+          2947,
+          5630,
+          5680,
+          6572,
+          6596,
+          6913,
+          7010
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 82,
+        "linearizedBaseContracts": [
+          82,
+          7010,
+          6572,
+          6913,
+          5680,
+          5630,
+          6596,
+          2947
+        ],
+        "name": "GXTToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 50,
+              "nodeType": "Block",
+              "src": "216:2:1",
+              "statements": []
+            },
+            "id": 51,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "hexValue": "475854",
+                    "id": 46,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "202:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_59014464c1ed0d23ac6c67360fcff2803b240c513964779fb43b9cc19e3b8f3c",
+                      "typeString": "literal_string \"GXT\""
+                    },
+                    "value": "GXT"
+                  },
+                  {
+                    "hexValue": "475458",
+                    "id": 47,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "209:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_f09913389b103e6342a7cc6d94d1d9d778b668d996ffcc3fa84f50ab3941347c",
+                      "typeString": "literal_string \"GTX\""
+                    },
+                    "value": "GTX"
+                  }
+                ],
+                "id": 48,
+                "modifierName": {
+                  "id": 45,
+                  "name": "KIP7Token",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 6572,
+                  "src": "192:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "192:23:1"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:2:1"
+            },
+            "returnParameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "216:0:1"
+            },
+            "scope": 82,
+            "src": "178:40:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 65,
+              "nodeType": "Block",
+              "src": "287:36:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 61,
+                        "name": "_to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 53,
+                        "src": "303:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 62,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 55,
+                        "src": "308:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 60,
+                      "name": "_mint",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6327,
+                      "src": "297:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 63,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "297:19:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 64,
+                  "nodeType": "ExpressionStatement",
+                  "src": "297:19:1"
+                }
+              ]
+            },
+            "functionSelector": "40c10f19",
+            "id": 66,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 58,
+                "modifierName": {
+                  "id": 57,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7001,
+                  "src": "277:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "277:9:1"
+              }
+            ],
+            "name": "mint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 56,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 66,
+                  "src": "238:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "238:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 55,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 66,
+                  "src": "251:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 54,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "237:30:1"
+            },
+            "returnParameters": {
+              "id": 59,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "287:0:1"
+            },
+            "scope": 82,
+            "src": "224:99:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 80,
+              "nodeType": "Block",
+              "src": "392:36:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 76,
+                        "name": "_to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "408:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 77,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "413:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 75,
+                      "name": "_burn",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6461,
+                      "src": "402:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 78,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "402:19:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 79,
+                  "nodeType": "ExpressionStatement",
+                  "src": "402:19:1"
+                }
+              ]
+            },
+            "functionSelector": "9dc29fac",
+            "id": 81,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 73,
+                "modifierName": {
+                  "id": 72,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7001,
+                  "src": "382:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "382:9:1"
+              }
+            ],
+            "name": "burn",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 81,
+                  "src": "343:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "343:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 81,
+                  "src": "356:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "356:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "342:30:1"
+            },
+            "returnParameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "392:0:1"
+            },
+            "scope": 82,
+            "src": "329:99:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 83,
+        "src": "132:298:1"
+      }
+    ],
+    "src": "32:399:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXT/GXTToken.sol",
+    "exportedSymbols": {
+      "Address": [
+        6891
+      ],
+      "Context": [
+        6913
+      ],
+      "GXTToken": [
+        82
+      ],
+      "IKIP13": [
+        2947
+      ],
+      "IKIP7": [
+        5630
+      ],
+      "IKIP7Metadata": [
+        5680
+      ],
+      "IKIP7Receiver": [
+        5697
+      ],
+      "KIP13": [
+        6596
+      ],
+      "KIP7Token": [
+        6572
+      ],
+      "Ownable": [
+        7010
+      ]
+    },
+    "id": 83,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 37,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:1"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/KIP7Token.sol",
+        "file": "../interface/IKIP7/KIP7Token.sol",
+        "id": 38,
+        "nodeType": "ImportDirective",
+        "scope": 83,
+        "sourceUnit": 6573,
+        "src": "57:42:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol",
+        "file": "../utils/Ownable.sol",
+        "id": 39,
+        "nodeType": "ImportDirective",
+        "scope": 83,
+        "sourceUnit": 7011,
+        "src": "100:30:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 40,
+              "name": "KIP7Token",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 6572,
+              "src": "153:9:1"
+            },
+            "id": 41,
+            "nodeType": "InheritanceSpecifier",
+            "src": "153:9:1"
+          },
+          {
+            "baseName": {
+              "id": 42,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7010,
+              "src": "164:7:1"
+            },
+            "id": 43,
+            "nodeType": "InheritanceSpecifier",
+            "src": "164:7:1"
+          }
+        ],
+        "contractDependencies": [
+          2947,
+          5630,
+          5680,
+          6572,
+          6596,
+          6913,
+          7010
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 82,
+        "linearizedBaseContracts": [
+          82,
+          7010,
+          6572,
+          6913,
+          5680,
+          5630,
+          6596,
+          2947
+        ],
+        "name": "GXTToken",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 50,
+              "nodeType": "Block",
+              "src": "216:2:1",
+              "statements": []
+            },
+            "id": 51,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "hexValue": "475854",
+                    "id": 46,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "202:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_59014464c1ed0d23ac6c67360fcff2803b240c513964779fb43b9cc19e3b8f3c",
+                      "typeString": "literal_string \"GXT\""
+                    },
+                    "value": "GXT"
+                  },
+                  {
+                    "hexValue": "475458",
+                    "id": 47,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "209:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_f09913389b103e6342a7cc6d94d1d9d778b668d996ffcc3fa84f50ab3941347c",
+                      "typeString": "literal_string \"GTX\""
+                    },
+                    "value": "GTX"
+                  }
+                ],
+                "id": 48,
+                "modifierName": {
+                  "id": 45,
+                  "name": "KIP7Token",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 6572,
+                  "src": "192:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "192:23:1"
+              }
+            ],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 44,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:2:1"
+            },
+            "returnParameters": {
+              "id": 49,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "216:0:1"
+            },
+            "scope": 82,
+            "src": "178:40:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 65,
+              "nodeType": "Block",
+              "src": "287:36:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 61,
+                        "name": "_to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 53,
+                        "src": "303:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 62,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 55,
+                        "src": "308:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 60,
+                      "name": "_mint",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6327,
+                      "src": "297:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 63,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "297:19:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 64,
+                  "nodeType": "ExpressionStatement",
+                  "src": "297:19:1"
+                }
+              ]
+            },
+            "functionSelector": "40c10f19",
+            "id": 66,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 58,
+                "modifierName": {
+                  "id": 57,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7001,
+                  "src": "277:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "277:9:1"
+              }
+            ],
+            "name": "mint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 56,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 53,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 66,
+                  "src": "238:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 52,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "238:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 55,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 66,
+                  "src": "251:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 54,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "251:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "237:30:1"
+            },
+            "returnParameters": {
+              "id": 59,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "287:0:1"
+            },
+            "scope": 82,
+            "src": "224:99:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 80,
+              "nodeType": "Block",
+              "src": "392:36:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 76,
+                        "name": "_to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "408:3:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 77,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 70,
+                        "src": "413:7:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 75,
+                      "name": "_burn",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 6461,
+                      "src": "402:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,uint256)"
+                      }
+                    },
+                    "id": 78,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "402:19:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 79,
+                  "nodeType": "ExpressionStatement",
+                  "src": "402:19:1"
+                }
+              ]
+            },
+            "functionSelector": "9dc29fac",
+            "id": 81,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 73,
+                "modifierName": {
+                  "id": 72,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7001,
+                  "src": "382:9:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "382:9:1"
+              }
+            ],
+            "name": "burn",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 71,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 68,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 81,
+                  "src": "343:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "343:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 70,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 81,
+                  "src": "356:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 69,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "356:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "342:30:1"
+            },
+            "returnParameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "392:0:1"
+            },
+            "scope": 82,
+            "src": "329:99:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 83,
+        "src": "132:298:1"
+      }
+    ],
+    "src": "32:399:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2022-07-28T11:13:04.355Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "allowance(address,address)": {
+        "details": "See {IKIP7-allowance}."
+      },
+      "approve(address,uint256)": {
+        "details": "See {IKIP7-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address."
+      },
+      "balanceOf(address)": {
+        "details": "See {IKIP7-balanceOf}."
+      },
+      "decimals()": {
+        "details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {KIP7} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IKIP7-balanceOf} and {IKIP7-transfer}."
+      },
+      "decreaseAllowance(address,uint256)": {
+        "details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IKIP7-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+      },
+      "increaseAllowance(address,uint256)": {
+        "details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IKIP7-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+      },
+      "name()": {
+        "details": "Returns the name of the token."
+      },
+      "safeTransfer(address,uint256)": {
+        "details": "See {IKIP7-safeTransfer}. Emits a {Transfer} event Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`. - if `recipient` is a smart contract, it must implement {IKIP7Receiver}"
+      },
+      "safeTransfer(address,uint256,bytes)": {
+        "details": "Same as {xref-KIP7-safeTransfer-address-uint256-}[`safeTransfer`], with an additional `_data` parameter which is forwarded in {IKIP7Receiver-onKIP7Received} to contract recipients. Emits a {Transfer} event"
+      },
+      "safeTransferFrom(address,address,uint256)": {
+        "details": "See {IKIP7-safeTransferFrom}. Emits a {Transfer} event Emits an {Approval} event indicating the updated allowance. This is not required by the KIP. See the note at the beginning of {KIP7}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`. - if `recipient` is a smart contract, it must implement {IKIP7Receiver}"
+      },
+      "safeTransferFrom(address,address,uint256,bytes)": {
+        "details": "Same as {xref-KIP7-safeTransferFrom-address-uint256-}[`safeTransferFrom`], with an additional `_data` parameter which is forwarded in {IKIP7Receiver-onKIP7Received} to contract recipients. Emits a {Transfer} event Emits an {Approval} event indicating the updated allowance."
+      },
+      "supportsInterface(bytes4)": {
+        "details": "See {IKIP13-supportsInterface}."
+      },
+      "symbol()": {
+        "details": "Returns the symbol of the token, usually a shorter version of the name."
+      },
+      "totalSupply()": {
+        "details": "See {IKIP7-totalSupply}."
+      },
+      "transfer(address,uint256)": {
+        "details": "See {IKIP7-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`."
+      },
+      "transferFrom(address,address,uint256)": {
+        "details": "See {IKIP7-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {KIP7}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``'s tokens of at least `amount`."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

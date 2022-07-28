@@ -30,8 +30,22 @@ contract("heroCore", (accounts) => {
       itemContract.address,
       depositContract.address,
       1,
-      BigInt(DECIMALS)
+      1
     );
+
+    await heroCoreContract.changePaused();
+    await heroCoreContract.changeMiningPaused();
   });
-  // 🚀
+
+  context(" 🔨 check Contract setting", async () => {
+    it("🚀 check Contract setting", async () => {
+      const corePaused = await heroCoreContract.getPaused();
+      const coreMiningPaused = await heroCoreContract.getMiningPaused();
+      const coreOwner = await heroCoreContract.getOwner();
+
+      assert.equal(corePaused, false);
+      assert.equal(coreMiningPaused, false);
+      assert.equal(coreOwner, accounts[0]);
+    });
+  });
 });
