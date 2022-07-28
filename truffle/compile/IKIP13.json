@@ -33,15 +33,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP13.sol",
     "exportedSymbols": {
       "IKIP13": [
-        2959
+        3040
       ]
     },
-    "id": 2960,
+    "id": 3041,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2949,
+        "id": 3030,
         "literals": [
           "solidity",
           "^",
@@ -57,44 +57,44 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2950,
+          "id": 3031,
           "nodeType": "StructuredDocumentation",
           "src": "283:142:13",
           "text": " @dev Interface of the KIP13 standard as defined in the KIP.\n See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard"
         },
         "fullyImplemented": false,
-        "id": 2959,
+        "id": 3040,
         "linearizedBaseContracts": [
-          2959
+          3040
         ],
         "name": "IKIP13",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 2951,
+              "id": 3032,
               "nodeType": "StructuredDocumentation",
               "src": "449:387:13",
               "text": " @dev Returns true if this contract implements the interface defined by\n `interfaceId`.\n See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard#how-interface-identifiers-are-defined\n to learn more about how these ids are created.\n Requirements:\n - implementation of this function call must use less than 30 000 gas"
             },
             "functionSelector": "01ffc9a7",
-            "id": 2958,
+            "id": 3039,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "supportsInterface",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2954,
+              "id": 3035,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2953,
+                  "id": 3034,
                   "mutability": "mutable",
                   "name": "interfaceId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2958,
+                  "scope": 3039,
                   "src": "868:18:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -103,7 +103,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 2952,
+                    "id": 3033,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "868:6:13",
@@ -118,16 +118,16 @@
               "src": "867:20:13"
             },
             "returnParameters": {
-              "id": 2957,
+              "id": 3038,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2956,
+                  "id": 3037,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2958,
+                  "scope": 3039,
                   "src": "911:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -136,7 +136,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2955,
+                    "id": 3036,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "911:4:13",
@@ -150,14 +150,14 @@
               ],
               "src": "910:6:13"
             },
-            "scope": 2959,
+            "scope": 3040,
             "src": "841:76:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2960,
+        "scope": 3041,
         "src": "426:493:13"
       }
     ],
@@ -167,15 +167,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP13.sol",
     "exportedSymbols": {
       "IKIP13": [
-        2959
+        3040
       ]
     },
-    "id": 2960,
+    "id": 3041,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2949,
+        "id": 3030,
         "literals": [
           "solidity",
           "^",
@@ -191,44 +191,44 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 2950,
+          "id": 3031,
           "nodeType": "StructuredDocumentation",
           "src": "283:142:13",
           "text": " @dev Interface of the KIP13 standard as defined in the KIP.\n See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard"
         },
         "fullyImplemented": false,
-        "id": 2959,
+        "id": 3040,
         "linearizedBaseContracts": [
-          2959
+          3040
         ],
         "name": "IKIP13",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 2951,
+              "id": 3032,
               "nodeType": "StructuredDocumentation",
               "src": "449:387:13",
               "text": " @dev Returns true if this contract implements the interface defined by\n `interfaceId`.\n See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard#how-interface-identifiers-are-defined\n to learn more about how these ids are created.\n Requirements:\n - implementation of this function call must use less than 30 000 gas"
             },
             "functionSelector": "01ffc9a7",
-            "id": 2958,
+            "id": 3039,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "supportsInterface",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2954,
+              "id": 3035,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2953,
+                  "id": 3034,
                   "mutability": "mutable",
                   "name": "interfaceId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2958,
+                  "scope": 3039,
                   "src": "868:18:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -237,7 +237,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 2952,
+                    "id": 3033,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "868:6:13",
@@ -252,16 +252,16 @@
               "src": "867:20:13"
             },
             "returnParameters": {
-              "id": 2957,
+              "id": 3038,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2956,
+                  "id": 3037,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2958,
+                  "scope": 3039,
                   "src": "911:4:13",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -270,7 +270,7 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 2955,
+                    "id": 3036,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "911:4:13",
@@ -284,14 +284,14 @@
               ],
               "src": "910:6:13"
             },
-            "scope": 2959,
+            "scope": 3040,
             "src": "841:76:13",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2960,
+        "scope": 3041,
         "src": "426:493:13"
       }
     ],
@@ -303,7 +303,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.225Z",
+  "updatedAt": "2022-07-28T12:24:02.163Z",
   "devdoc": {
     "details": "Interface of the KIP13 standard as defined in the KIP. See - http://kips.klaytn.com/KIPs/kip-13-interface_query_standard",
     "kind": "dev",

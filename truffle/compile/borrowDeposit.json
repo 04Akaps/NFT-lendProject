@@ -30,7 +30,7 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Deposit/borrowDeposit.sol",
     "exportedSymbols": {
       "IKIP7": [
-        5642
+        5713
       ],
       "borrowDeposit": [
         35
@@ -57,7 +57,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 36,
-        "sourceUnit": 5643,
+        "sourceUnit": 5714,
         "src": "57:38:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -86,7 +86,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IKIP7_$5642",
+              "typeIdentifier": "t_contract$_IKIP7_$5713",
               "typeString": "contract IKIP7"
             },
             "typeName": {
@@ -96,13 +96,13 @@
                 "id": 3,
                 "name": "IKIP7",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 5642,
+                "referencedDeclaration": 5713,
                 "src": "126:5:0"
               },
-              "referencedDeclaration": 5642,
+              "referencedDeclaration": 5713,
               "src": "126:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IKIP7_$5642",
+                "typeIdentifier": "t_contract$_IKIP7_$5713",
                 "typeString": "contract IKIP7"
               }
             },
@@ -129,7 +129,7 @@
                       "referencedDeclaration": 5,
                       "src": "215:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$5642",
+                        "typeIdentifier": "t_contract$_IKIP7_$5713",
                         "typeString": "contract IKIP7"
                       }
                     },
@@ -161,10 +161,10 @@
                         "name": "IKIP7",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5642,
+                        "referencedDeclaration": 5713,
                         "src": "226:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$5642_$",
+                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$5713_$",
                           "typeString": "type(contract IKIP7)"
                         }
                       },
@@ -179,13 +179,13 @@
                       "src": "226:16:0",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$5642",
+                        "typeIdentifier": "t_contract$_IKIP7_$5713",
                         "typeString": "contract IKIP7"
                       }
                     },
                     "src": "215:27:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IKIP7_$5642",
+                      "typeIdentifier": "t_contract$_IKIP7_$5713",
                       "typeString": "contract IKIP7"
                     }
                   },
@@ -346,7 +346,7 @@
                         "referencedDeclaration": 5,
                         "src": "301:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$5642",
+                          "typeIdentifier": "t_contract$_IKIP7_$5713",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -357,7 +357,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5589,
+                      "referencedDeclaration": 5660,
                       "src": "301:16:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -475,7 +475,7 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Deposit/borrowDeposit.sol",
     "exportedSymbols": {
       "IKIP7": [
-        5642
+        5713
       ],
       "borrowDeposit": [
         35
@@ -502,7 +502,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 36,
-        "sourceUnit": 5643,
+        "sourceUnit": 5714,
         "src": "57:38:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -531,7 +531,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IKIP7_$5642",
+              "typeIdentifier": "t_contract$_IKIP7_$5713",
               "typeString": "contract IKIP7"
             },
             "typeName": {
@@ -541,13 +541,13 @@
                 "id": 3,
                 "name": "IKIP7",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 5642,
+                "referencedDeclaration": 5713,
                 "src": "126:5:0"
               },
-              "referencedDeclaration": 5642,
+              "referencedDeclaration": 5713,
               "src": "126:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IKIP7_$5642",
+                "typeIdentifier": "t_contract$_IKIP7_$5713",
                 "typeString": "contract IKIP7"
               }
             },
@@ -574,7 +574,7 @@
                       "referencedDeclaration": 5,
                       "src": "215:8:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$5642",
+                        "typeIdentifier": "t_contract$_IKIP7_$5713",
                         "typeString": "contract IKIP7"
                       }
                     },
@@ -606,10 +606,10 @@
                         "name": "IKIP7",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 5642,
+                        "referencedDeclaration": 5713,
                         "src": "226:5:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$5642_$",
+                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$5713_$",
                           "typeString": "type(contract IKIP7)"
                         }
                       },
@@ -624,13 +624,13 @@
                       "src": "226:16:0",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$5642",
+                        "typeIdentifier": "t_contract$_IKIP7_$5713",
                         "typeString": "contract IKIP7"
                       }
                     },
                     "src": "215:27:0",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IKIP7_$5642",
+                      "typeIdentifier": "t_contract$_IKIP7_$5713",
                       "typeString": "contract IKIP7"
                     }
                   },
@@ -791,7 +791,7 @@
                         "referencedDeclaration": 5,
                         "src": "301:8:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$5642",
+                          "typeIdentifier": "t_contract$_IKIP7_$5713",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -802,7 +802,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 5589,
+                      "referencedDeclaration": 5660,
                       "src": "301:16:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -922,7 +922,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.171Z",
+  "updatedAt": "2022-07-28T12:24:02.123Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

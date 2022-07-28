@@ -39,6 +39,8 @@ contract("heroCore", (accounts) => {
       1
     );
 
+    await NFTContract.setContract(heroCoreContract.address);
+
     await heroCoreContract.changePaused();
     await heroCoreContract.changeMiningPaused();
   });
@@ -59,25 +61,30 @@ contract("heroCore", (accounts) => {
     it("🚀 Mint Hero NFT", async () => {
       await heroCoreContract.mintBuy({
         from: user1,
-        value: BigInt(1 * DECIMALS),
+        value: Number(1 * DECIMALS),
       });
       await heroCoreContract.mintBuy({
-        from: user1,
-        value: BigInt(2 * DECIMALS),
+        from: user2,
+        value: Number(2 * DECIMALS),
       });
       await heroCoreContract.mintBuy({
-        from: user1,
-        value: BigInt(3 * DECIMALS),
+        from: user3,
+        value: Number(3 * DECIMALS),
       });
       await heroCoreContract.mintBuy({
-        from: user1,
-        value: BigInt(1 * DECIMALS),
+        from: user4,
+        value: Number(1 * DECIMALS),
       });
       await heroCoreContract.mintBuy({
-        from: user1,
-        value: BigInt(2 * DECIMALS),
+        from: user5,
+        value: Number(2 * DECIMALS),
       });
     });
-    it("🚀 check Hero Grade", async () => {});
+    it("🚀 check Hero Grade", async () => {
+      for (let i = 1; i <= 9; i++) {
+        const data = await heroCoreContract.getHeroStatus(i);
+        console.log(`Hero ${i}'s Grade ==  ${data[2].toString()}`);
+      }
+    });
   });
 });

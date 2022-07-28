@@ -48,15 +48,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/IKIP7Receiver.sol",
     "exportedSymbols": {
       "IKIP7Receiver": [
-        5709
+        5780
       ]
     },
-    "id": 5710,
+    "id": 5781,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5694,
+        "id": 5765,
         "literals": [
           "solidity",
           "^",
@@ -72,38 +72,38 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 5709,
+        "id": 5780,
         "linearizedBaseContracts": [
-          5709
+          5780
         ],
         "name": "IKIP7Receiver",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 5695,
+              "id": 5766,
               "nodeType": "StructuredDocumentation",
               "src": "310:516:26",
               "text": " @dev Whenever an {IKIP7} `amount` is transferred to this contract via {IKIP7-safeTransfer}\n or {IKIP7-safeTransferFrom} by `operator` from `from`, this function is called.\n {onKIP7Received} must return its Solidity selector to confirm the token transfer.\n If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.\n The selector can be obtained in Solidity with `IKIP7Receiver.onKIP7Received.selector`."
             },
             "functionSelector": "9d188c22",
-            "id": 5708,
+            "id": 5779,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "onKIP7Received",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5704,
+              "id": 5775,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5697,
+                  "id": 5768,
                   "mutability": "mutable",
                   "name": "operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "864:16:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -112,7 +112,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5696,
+                    "id": 5767,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "864:7:26",
@@ -126,11 +126,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5699,
+                  "id": 5770,
                   "mutability": "mutable",
                   "name": "from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "890:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -139,7 +139,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5698,
+                    "id": 5769,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "890:7:26",
@@ -153,11 +153,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5701,
+                  "id": 5772,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "912:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -166,7 +166,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5700,
+                    "id": 5771,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "912:7:26",
@@ -179,11 +179,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5703,
+                  "id": 5774,
                   "mutability": "mutable",
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "936:20:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -192,7 +192,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 5702,
+                    "id": 5773,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "936:5:26",
@@ -207,16 +207,16 @@
               "src": "854:108:26"
             },
             "returnParameters": {
-              "id": 5707,
+              "id": 5778,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5706,
+                  "id": 5777,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "981:6:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -225,7 +225,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 5705,
+                    "id": 5776,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "981:6:26",
@@ -239,14 +239,14 @@
               ],
               "src": "980:8:26"
             },
-            "scope": 5709,
+            "scope": 5780,
             "src": "831:158:26",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5710,
+        "scope": 5781,
         "src": "280:711:26"
       }
     ],
@@ -256,15 +256,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP7/IKIP7Receiver.sol",
     "exportedSymbols": {
       "IKIP7Receiver": [
-        5709
+        5780
       ]
     },
-    "id": 5710,
+    "id": 5781,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5694,
+        "id": 5765,
         "literals": [
           "solidity",
           "^",
@@ -280,38 +280,38 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 5709,
+        "id": 5780,
         "linearizedBaseContracts": [
-          5709
+          5780
         ],
         "name": "IKIP7Receiver",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 5695,
+              "id": 5766,
               "nodeType": "StructuredDocumentation",
               "src": "310:516:26",
               "text": " @dev Whenever an {IKIP7} `amount` is transferred to this contract via {IKIP7-safeTransfer}\n or {IKIP7-safeTransferFrom} by `operator` from `from`, this function is called.\n {onKIP7Received} must return its Solidity selector to confirm the token transfer.\n If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.\n The selector can be obtained in Solidity with `IKIP7Receiver.onKIP7Received.selector`."
             },
             "functionSelector": "9d188c22",
-            "id": 5708,
+            "id": 5779,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "onKIP7Received",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5704,
+              "id": 5775,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5697,
+                  "id": 5768,
                   "mutability": "mutable",
                   "name": "operator",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "864:16:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -320,7 +320,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5696,
+                    "id": 5767,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "864:7:26",
@@ -334,11 +334,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5699,
+                  "id": 5770,
                   "mutability": "mutable",
                   "name": "from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "890:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -347,7 +347,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 5698,
+                    "id": 5769,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "890:7:26",
@@ -361,11 +361,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5701,
+                  "id": 5772,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "912:14:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -374,7 +374,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5700,
+                    "id": 5771,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "912:7:26",
@@ -387,11 +387,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 5703,
+                  "id": 5774,
                   "mutability": "mutable",
                   "name": "_data",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "936:20:26",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -400,7 +400,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 5702,
+                    "id": 5773,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "936:5:26",
@@ -415,16 +415,16 @@
               "src": "854:108:26"
             },
             "returnParameters": {
-              "id": 5707,
+              "id": 5778,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5706,
+                  "id": 5777,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5708,
+                  "scope": 5779,
                   "src": "981:6:26",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -433,7 +433,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 5705,
+                    "id": 5776,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "981:6:26",
@@ -447,14 +447,14 @@
               ],
               "src": "980:8:26"
             },
-            "scope": 5709,
+            "scope": 5780,
             "src": "831:158:26",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5710,
+        "scope": 5781,
         "src": "280:711:26"
       }
     ],
@@ -466,7 +466,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.270Z",
+  "updatedAt": "2022-07-28T12:24:02.206Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

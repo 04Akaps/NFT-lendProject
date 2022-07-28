@@ -41,12 +41,12 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"addController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"deleteController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":\"Controller\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":{\"keccak256\":\"0xcf1e8b0ca8b02f2ae7cd7970a73497bc812d47edaf64354ae6b697ea54ceb58d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://282cf6d5c73dabb52de35a670d0ce5978e183670c8129ec7140dded476f17af1\",\"dweb:/ipfs/QmVdBdNdBGaWEpUBTmfuPgUVXyNRENEhKu2yoyixYpVdou\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol\":{\"keccak256\":\"0x53ff678ddfddcb518111ea8b628313392a5fac52bca167b6888e6991290f7631\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1cb38203805a884319633b0c5770753fdea4fdbeb79885e171af4d981729e0cb\",\"dweb:/ipfs/QmXfnSoWWMNjE49E1RPd4NBRfqwurSyFmSAEY5FmyXivAB\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610189806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea26469706673582212202021b48a905c4efd2f54f60dc6a5bdfdc9ebb48bc98e002de5bb718cd368b46264736f6c63430008000033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea26469706673582212202021b48a905c4efd2f54f60dc6a5bdfdc9ebb48bc98e002de5bb718cd368b46264736f6c63430008000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"addController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"deleteController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":\"Controller\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":{\"keccak256\":\"0xcf1e8b0ca8b02f2ae7cd7970a73497bc812d47edaf64354ae6b697ea54ceb58d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://282cf6d5c73dabb52de35a670d0ce5978e183670c8129ec7140dded476f17af1\",\"dweb:/ipfs/QmVdBdNdBGaWEpUBTmfuPgUVXyNRENEhKu2yoyixYpVdou\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol\":{\"keccak256\":\"0x8e8faa860397b7043a29ac1a15b3083170b2d782fb7a321ac985df31de841c8c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8c15bc99bf6d627461c4dc27f4992a026242cb7b86ec13510762a64b80d953c4\",\"dweb:/ipfs/QmcUUeF6iAE7cBaMUn6TZnYfNyG3XAWsy9jJcWt9D1J8sk\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610189806100326000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea264697066735822122068831742e69942a59b3fbf342ccbd66c65aff0229bd638d214df0ae60890618064736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea264697066735822122068831742e69942a59b3fbf342ccbd66c65aff0229bd638d214df0ae60890618064736f6c63430008000033",
   "immutableReferences": {},
-  "sourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;415:115;;;;;;:::i;:::-;;:::i;:::-;;199:85:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:111:3;;;;;;:::i;:::-;;:::i;415:115::-;169:5:32;;-1:-1:-1;;;;;169:5:32;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;491:24:3::1;518:5;491:24:::0;;;:11:::1;:24;::::0;;;;:32;;-1:-1:-1;;491:32:3::1;::::0;;415:115::o;199:85:32:-;239:15;272:5;-1:-1:-1;;;;;272:5:32;199:85;:::o;298:111:3:-;169:5:32;;-1:-1:-1;;;;;169:5:32;155:10;:19;147:28;;;;;;-1:-1:-1;;;;;371:24:3::1;;::::0;;;398:4:::1;371:24;::::0;;;;;;;:31;;-1:-1:-1;;371:31:3::1;::::0;;::::1;::::0;;298:111::o;14:306:35:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:35;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:35:o;325:219::-;-1:-1:-1;;;;;505:32:35;;;;487:51;;475:2;460:18;;442:102::o",
+  "sourceMap": "92:440:3:-:0;;;;;;;;;;;;-1:-1:-1;140:5:32;:27;;-1:-1:-1;;;;;;140:27:32;156:10;140:27;;;92:440:3;;;;;;",
+  "deployedSourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;415:115;;;;;;:::i;:::-;;:::i;:::-;;263:87:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:111:3;;;;;;:::i;:::-;;:::i;415:115::-;233:5:32;;-1:-1:-1;;;;;233:5:32;219:10;:19;211:28;;;;;;-1:-1:-1;;;;;491:24:3::1;518:5;491:24:::0;;;:11:::1;:24;::::0;;;;:32;;-1:-1:-1;;491:32:3::1;::::0;;415:115::o;263:87:32:-;304:15;338:5;-1:-1:-1;;;;;338:5:32;263:87;:::o;298:111:3:-;233:5:32;;-1:-1:-1;;;;;233:5:32;219:10;:19;211:28;;;;;;-1:-1:-1;;;;;371:24:3::1;;::::0;;;398:4:::1;371:24;::::0;;;;;;;:31;;-1:-1:-1;;371:31:3::1;::::0;;::::1;::::0;;298:111::o;14:306:35:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:35;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:35:o;325:219::-;-1:-1:-1;;;;;505:32:35;;;;487:51;;475:2;460:18;;442:102::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"../../utils/Ownable.sol\";\n\ncontract Controller is Ownable {\n    mapping(address => bool) private controllers;\n\n    modifier onlyController() {\n        require(controllers[msg.sender], \"Error : Not Controller\");\n        _;\n    }\n\n    function addController(address _controller) external onlyOwner {\n        controllers[_controller] = true;\n    }\n\n    function deleteController(address _controller) external onlyOwner {\n        controllers[_controller] = false;\n    }\n}\n",
   "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol",
   "ast": {
@@ -56,7 +56,7 @@
         204
       ],
       "Ownable": [
-        7022
+        7105
       ]
     },
     "id": 205,
@@ -80,7 +80,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 205,
-        "sourceUnit": 7023,
+        "sourceUnit": 7106,
         "src": "57:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -93,7 +93,7 @@
               "id": 158,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7022,
+              "referencedDeclaration": 7105,
               "src": "115:7:3"
             },
             "id": 159,
@@ -102,14 +102,14 @@
           }
         ],
         "contractDependencies": [
-          7022
+          7105
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 204,
         "linearizedBaseContracts": [
           204,
-          7022
+          7105
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -391,7 +391,7 @@
                   "id": 179,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7013,
+                  "referencedDeclaration": 7096,
                   "src": "351:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -537,7 +537,7 @@
                   "id": 193,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7013,
+                  "referencedDeclaration": 7096,
                   "src": "471:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -606,7 +606,7 @@
         204
       ],
       "Ownable": [
-        7022
+        7105
       ]
     },
     "id": 205,
@@ -630,7 +630,7 @@
         "id": 157,
         "nodeType": "ImportDirective",
         "scope": 205,
-        "sourceUnit": 7023,
+        "sourceUnit": 7106,
         "src": "57:33:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -643,7 +643,7 @@
               "id": 158,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7022,
+              "referencedDeclaration": 7105,
               "src": "115:7:3"
             },
             "id": 159,
@@ -652,14 +652,14 @@
           }
         ],
         "contractDependencies": [
-          7022
+          7105
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 204,
         "linearizedBaseContracts": [
           204,
-          7022
+          7105
         ],
         "name": "Controller",
         "nodeType": "ContractDefinition",
@@ -941,7 +941,7 @@
                   "id": 179,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7013,
+                  "referencedDeclaration": 7096,
                   "src": "351:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -1087,7 +1087,7 @@
                   "id": 193,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7013,
+                  "referencedDeclaration": 7096,
                   "src": "471:9:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -1155,7 +1155,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.176Z",
+  "updatedAt": "2022-07-28T12:24:02.127Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

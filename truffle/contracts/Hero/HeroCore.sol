@@ -35,18 +35,21 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         _;
     }
 
+    fallback() external payable {}
+
     function mintBuy() external payable {
         // klay를 주고 구입하는 함수
         uint256 value = msg.value;
-        uint256 overAmount = value.sub(priceOfKlay);
+        uint256 amount = value.div(priceOfKlay);
 
         require(value != 0, "Error : value is Zero");
         require(value >= priceOfKlay, "Error : Not Enough Klay");
 
-        _mintHero();
+        for (uint256 i = 0; i < amount; i++) {
+            _mintHero();
+        }
 
-        getOwner().transfer(value);
-        payable(msg.sender).transfer(overAmount);
+        payable(address(this)).transfer(value);
     }
 
     function mintByToken(uint256 _tokenAmount) external {

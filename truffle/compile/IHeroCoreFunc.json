@@ -13,15 +13,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
     "exportedSymbols": {
       "IHeroCoreFunc": [
-        2154
+        2235
       ]
     },
-    "id": 2155,
+    "id": 2236,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2153,
+        "id": 2234,
         "literals": [
           "solidity",
           "^",
@@ -37,14 +37,14 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2154,
+        "id": 2235,
         "linearizedBaseContracts": [
-          2154
+          2235
         ],
         "name": "IHeroCoreFunc",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 2155,
+        "scope": 2236,
         "src": "57:25:7"
       }
     ],
@@ -54,15 +54,15 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
     "exportedSymbols": {
       "IHeroCoreFunc": [
-        2154
+        2235
       ]
     },
-    "id": 2155,
+    "id": 2236,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2153,
+        "id": 2234,
         "literals": [
           "solidity",
           "^",
@@ -78,14 +78,14 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2154,
+        "id": 2235,
         "linearizedBaseContracts": [
-          2154
+          2235
         ],
         "name": "IHeroCoreFunc",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 2155,
+        "scope": 2236,
         "src": "57:25:7"
       }
     ],
@@ -97,7 +97,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.210Z",
+  "updatedAt": "2022-07-28T12:24:02.154Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

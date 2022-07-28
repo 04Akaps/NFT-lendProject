@@ -345,21 +345,21 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP37/IKIP37MetadataURI.sol",
     "exportedSymbols": {
       "IKIP13": [
-        2959
+        3040
       ],
       "IKIP37": [
-        4117
+        4188
       ],
       "IKIP37MetadataURI": [
-        4154
+        4225
       ]
     },
-    "id": 4155,
+    "id": 4226,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4143,
+        "id": 4214,
         "literals": [
           "solidity",
           "^",
@@ -372,10 +372,10 @@
       {
         "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP37/IKIP37.sol",
         "file": "./IKIP37.sol",
-        "id": 4144,
+        "id": 4215,
         "nodeType": "ImportDirective",
-        "scope": 4155,
-        "sourceUnit": 4118,
+        "scope": 4226,
+        "sourceUnit": 4189,
         "src": "57:22:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -385,51 +385,51 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 4145,
+              "id": 4216,
               "name": "IKIP37",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4117,
+              "referencedDeclaration": 4188,
               "src": "112:6:20"
             },
-            "id": 4146,
+            "id": 4217,
             "nodeType": "InheritanceSpecifier",
             "src": "112:6:20"
           }
         ],
         "contractDependencies": [
-          2959,
-          4117
+          3040,
+          4188
         ],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 4154,
+        "id": 4225,
         "linearizedBaseContracts": [
-          4154,
-          4117,
-          2959
+          4225,
+          4188,
+          3040
         ],
         "name": "IKIP37MetadataURI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "0e89341c",
-            "id": 4153,
+            "id": 4224,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "uri",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4149,
+              "id": 4220,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4148,
+                  "id": 4219,
                   "mutability": "mutable",
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4153,
+                  "scope": 4224,
                   "src": "138:10:20",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -438,7 +438,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4147,
+                    "id": 4218,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "138:7:20",
@@ -453,16 +453,16 @@
               "src": "137:12:20"
             },
             "returnParameters": {
-              "id": 4152,
+              "id": 4223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4151,
+                  "id": 4222,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4153,
+                  "scope": 4224,
                   "src": "173:13:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -471,7 +471,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 4150,
+                    "id": 4221,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:6:20",
@@ -485,14 +485,14 @@
               ],
               "src": "172:15:20"
             },
-            "scope": 4154,
+            "scope": 4225,
             "src": "125:63:20",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4155,
+        "scope": 4226,
         "src": "81:109:20"
       }
     ],
@@ -502,21 +502,21 @@
     "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP37/IKIP37MetadataURI.sol",
     "exportedSymbols": {
       "IKIP13": [
-        2959
+        3040
       ],
       "IKIP37": [
-        4117
+        4188
       ],
       "IKIP37MetadataURI": [
-        4154
+        4225
       ]
     },
-    "id": 4155,
+    "id": 4226,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4143,
+        "id": 4214,
         "literals": [
           "solidity",
           "^",
@@ -529,10 +529,10 @@
       {
         "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/interface/IKIP37/IKIP37.sol",
         "file": "./IKIP37.sol",
-        "id": 4144,
+        "id": 4215,
         "nodeType": "ImportDirective",
-        "scope": 4155,
-        "sourceUnit": 4118,
+        "scope": 4226,
+        "sourceUnit": 4189,
         "src": "57:22:20",
         "symbolAliases": [],
         "unitAlias": ""
@@ -542,51 +542,51 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 4145,
+              "id": 4216,
               "name": "IKIP37",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 4117,
+              "referencedDeclaration": 4188,
               "src": "112:6:20"
             },
-            "id": 4146,
+            "id": 4217,
             "nodeType": "InheritanceSpecifier",
             "src": "112:6:20"
           }
         ],
         "contractDependencies": [
-          2959,
-          4117
+          3040,
+          4188
         ],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 4154,
+        "id": 4225,
         "linearizedBaseContracts": [
-          4154,
-          4117,
-          2959
+          4225,
+          4188,
+          3040
         ],
         "name": "IKIP37MetadataURI",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "0e89341c",
-            "id": 4153,
+            "id": 4224,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "uri",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4149,
+              "id": 4220,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4148,
+                  "id": 4219,
                   "mutability": "mutable",
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4153,
+                  "scope": 4224,
                   "src": "138:10:20",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -595,7 +595,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 4147,
+                    "id": 4218,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "138:7:20",
@@ -610,16 +610,16 @@
               "src": "137:12:20"
             },
             "returnParameters": {
-              "id": 4152,
+              "id": 4223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4151,
+                  "id": 4222,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4153,
+                  "scope": 4224,
                   "src": "173:13:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -628,7 +628,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 4150,
+                    "id": 4221,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "173:6:20",
@@ -642,14 +642,14 @@
               ],
               "src": "172:15:20"
             },
-            "scope": 4154,
+            "scope": 4225,
             "src": "125:63:20",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 4155,
+        "scope": 4226,
         "src": "81:109:20"
       }
     ],
@@ -661,7 +661,7 @@
   },
   "networks": {},
   "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T11:32:02.243Z",
+  "updatedAt": "2022-07-28T12:24:02.175Z",
   "devdoc": {
     "kind": "dev",
     "methods": {
