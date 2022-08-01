@@ -92,4 +92,8 @@ contract HeroController {
     function getHeroNFT() public view returns (IHeroNFT) {
         return heroNFT;
     }
+
+    function _currentTime() internal view returns (uint256) {
+        return block.timestamp;
+    }
 }
