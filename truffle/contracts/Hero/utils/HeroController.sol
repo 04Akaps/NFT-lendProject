@@ -16,7 +16,8 @@ contract HeroController {
     IKIP37Full private item;
 
     address payable private coreOwner;
-    address public depositAddress;
+    address depositAddress;
+    address miningAddress;
 
     bool private paused;
     bool private miningPaused;
@@ -46,6 +47,7 @@ contract HeroController {
         address _token,
         address _item,
         address _depositAddress,
+        address _miningAddress,
         uint256 _klay,
         uint256 _tokenPrice
     ) external onlyOwner {
@@ -57,6 +59,7 @@ contract HeroController {
         item = IKIP37Full(_item);
 
         depositAddress = _depositAddress;
+        miningAddress = _miningAddress;
     }
 
     function changePaused() external onlyOwner {

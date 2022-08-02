@@ -29,21 +29,33 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
     mapping(uint256 => RequestStruct[]) private borrowRequestMap;
     mapping(address => uint256) private myRequestMap;
 
-    modifier checkStaked(uint256 _tokenId) {
+    modifier checkIsStaked(uint256 _tokenId) {
         address owner = getHeroNFT().ownerOf(_tokenId);
         require(owner == address(this), "Error : Hero is Not Staked!!");
         _;
     }
 
-    modifier checkMining(uint256 _tokenId) {
+    modifier checkNotMining(uint256 _tokenId) {
         HERO memory hero = heroVault[_tokenId];
         require(!hero.status.mining, "Error : hero is Mining!");
         _;
     }
 
-    modifier checkTraveling(uint256 _tokenId) {
+    modifier checkNotTraveling(uint256 _tokenId) {
         HERO memory hero = heroVault[_tokenId];
         require(!hero.status.traveled, "Error : hero is Traveled!");
+        _;
+    }
+
+    modifier checkNotBorrowed(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(!hero.status.borrowed, "Error : hero is Borrowed!");
+        _;
+    }
+
+    modifier checkIsMining(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(hero.status.mining, "Error : hero is Not Mining!");
         _;
     }
 
@@ -93,9 +105,9 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
     function travel(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
-        checkMining(_tokenId)
-        checkTraveling(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
+        checkNotTraveling(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
 
@@ -126,7 +138,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
     function getRewardToTravel(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
 
@@ -173,12 +185,9 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
     function requestBorrow(uint256 _tokenId, uint256 _duartion)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotBorrowed(_tokenId)
     {
-        HERO storage hero = heroVault[_tokenId];
-
-        require(!hero.status.borrowed, "Error : Hero is Browwed anothor User");
-
         require(
             myRequestMap[msg.sender] == 0,
             "Error : already Request Another Hero"
@@ -193,7 +202,10 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         getToken().transfer(depositAddress, borrowPrice);
     }
 
-    function cancelRequest(uint256 _tokenId) external checkStaked(_tokenId) {
+    function cancelBorrowRequest(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+    {
         require(myRequestMap[msg.sender] != 0, "Error : Not Existed Request!");
 
         myRequestMap[msg.sender] = 0;
@@ -202,6 +214,8 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
         for (uint256 i = 0; i < requestList.length; i++) {
             if (requestList[i].requestOwner == msg.sender) {
+                uint256 duration = requestList[i].duration;
+
                 delete requestList[i];
 
                 if (requestList.length == 1 || requestList.length.sub(1) == i) {
@@ -214,9 +228,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
                     requestList.pop();
                 }
 
-                uint256 borrowPrice = requestList[i].duration.mul(
-                    BORROW_PRICE_PER_BLOCK
-                );
+                uint256 borrowPrice = duration.mul(BORROW_PRICE_PER_BLOCK);
 
                 getToken().transferFrom(
                     depositAddress,
@@ -230,10 +242,10 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         }
     }
 
-    function approveBorrow(uint256 _tokenId, address _apprrovedUser)
+    function approveBorrowRequest(uint256 _tokenId, address _apprrovedUser)
         external
-        checkStaked(_tokenId)
-        checkMining(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
         uint256 currentTime = _currentTime();
@@ -249,7 +261,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
         uint256 duration = data.duration;
 
-        uint256 approvedOwnerPrice = _returnBorrowRequestToken(
+        uint256 approvedOwnerPrice = _returnTokenToOther(
             _tokenId,
             _apprrovedUser
         );
@@ -266,12 +278,12 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         getToken().transfer(msg.sender, approvedOwnerPrice);
     }
 
-    function returnHero(uint256 _tokenId)
+    function returnBorrowed(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
-        checkMining(_tokenId)
-        checkTraveling(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotTraveling(_tokenId)
     {
+        // 남은 시간에 비례하여 보상 필요
         HERO storage hero = heroVault[_tokenId];
         uint256 currentTime = _currentTime();
 
@@ -293,21 +305,21 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
     function mining(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
-        checkTraveling(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotTraveling(_tokenId)
+        checkNotBorrowed(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
-
-        require(!hero.status.borrowed, "Error : Token is Borrowed!");
 
         _distributeReward();
 
         hero.status.mining = true;
     }
 
-    function claimMiningAmount(uint256 _tokenId)
+    function stopMining(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
+        checkIsMining(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
 
@@ -316,17 +328,36 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         uint256 rewardAmount = hero.reward;
         hero.reward = 0;
 
-        require(hero.status.mining, "Error : Token is Not Mining");
+        lastClaimTime = _currentTime();
+
+        getToken().transferFrom(miningAddress, address(this), rewardAmount);
+        getToken().transfer(msg.sender, rewardAmount);
+
+        hero.status.mining = false;
+    }
+
+    function claimMiningAmount(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkIsMining(_tokenId)
+    {
+        HERO storage hero = heroVault[_tokenId];
+
+        _distributeReward();
+
+        uint256 rewardAmount = hero.reward;
+        hero.reward = 0;
 
         lastClaimTime = _currentTime();
 
+        getToken().transferFrom(miningAddress, address(this), rewardAmount);
         getToken().transfer(msg.sender, rewardAmount);
     }
 
     function viewCanClaimAmount(uint256 _tokenId)
         external
         view
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
         returns (uint256)
     {
         HERO memory hero = heroVault[_tokenId];
@@ -345,7 +376,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         return hero.reward;
     }
 
-    function levelUp(uint256 _tokenId) external checkStaked(_tokenId) {
+    function levelUp(uint256 _tokenId) external checkIsStaked(_tokenId) {
         HERO storage hero = heroVault[_tokenId];
 
         require(msg.sender == hero.status.owner, "Error : Not TokenOwner");
@@ -379,13 +410,12 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
     function unStake(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
-        checkMining(_tokenId)
-        checkTraveling(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
+        checkNotTraveling(_tokenId)
+        checkNotBorrowed(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
-
-        require(!hero.status.borrowed, "Error : Token is Borrowed!!");
 
         _distributeReward();
 
@@ -447,12 +477,11 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         return (false, requestList[0]);
     }
 
-    function _returnBorrowRequestToken(uint256 _tokenId, address _approvedOwner)
+    function _returnTokenToOther(uint256 _tokenId, address _approvedOwner)
         internal
         returns (uint256)
     {
         RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
-
         uint256 approvedOwnerPrice = 0;
 
         for (uint256 i = 0; i < requestList.length; i++) {
@@ -460,15 +489,15 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
                 BORROW_PRICE_PER_BLOCK
             );
 
-            address approvedOwner = requestList[i].requestOwner;
+            address requestOwner = requestList[i].requestOwner;
 
-            if (approvedOwner != _approvedOwner) {
+            if (requestOwner != _approvedOwner) {
                 getToken().transferFrom(
                     depositAddress,
                     address(this),
                     borrowPrice
                 );
-                getToken().transfer(approvedOwner, borrowPrice);
+                getToken().transfer(requestOwner, borrowPrice);
             } else {
                 approvedOwnerPrice = borrowPrice;
             }

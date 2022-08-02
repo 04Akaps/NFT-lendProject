@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "../interface/IKIP7/IKIP7.sol";
 import "../utils/Ownable.sol";
 
-contract BorrowDeposit is Ownable {
+contract MiningDeposit is Ownable {
     IKIP7 private GxtToken;
 
     constructor(address _gxtToken, address _heroCore) {
