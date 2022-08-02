@@ -1,0 +1,1169 @@
+{
+  "contractName": "Controller",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getOwner",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_controller",
+          "type": "address"
+        }
+      ],
+      "name": "addController",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_controller",
+          "type": "address"
+        }
+      ],
+      "name": "deleteController",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"addController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_controller\",\"type\":\"address\"}],\"name\":\"deleteController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":\"Controller\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol\":{\"keccak256\":\"0xcf1e8b0ca8b02f2ae7cd7970a73497bc812d47edaf64354ae6b697ea54ceb58d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://282cf6d5c73dabb52de35a670d0ce5978e183670c8129ec7140dded476f17af1\",\"dweb:/ipfs/QmVdBdNdBGaWEpUBTmfuPgUVXyNRENEhKu2yoyixYpVdou\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol\":{\"keccak256\":\"0x8e8faa860397b7043a29ac1a15b3083170b2d782fb7a321ac985df31de841c8c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8c15bc99bf6d627461c4dc27f4992a026242cb7b86ec13510762a64b80d953c4\",\"dweb:/ipfs/QmcUUeF6iAE7cBaMUn6TZnYfNyG3XAWsy9jJcWt9D1J8sk\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50600080546001600160a01b03191633179055610189806100326000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea264697066735822122068831742e69942a59b3fbf342ccbd66c65aff0229bd638d214df0ae60890618064736f6c63430008000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80630cfe4d0e14610046578063893d20e81461005b578063a7fc7a0714610079575b600080fd5b610059610054366004610111565b61008c565b005b6100636100c4565b604051610070919061013f565b60405180910390f35b610059610087366004610111565b6100d3565b6000546001600160a01b031633146100a357600080fd5b6001600160a01b03166000908152600160205260409020805460ff19169055565b6000546001600160a01b031690565b6000546001600160a01b031633146100ea57600080fd5b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b600060208284031215610122578081fd5b81356001600160a01b0381168114610138578182fd5b9392505050565b6001600160a01b039190911681526020019056fea264697066735822122068831742e69942a59b3fbf342ccbd66c65aff0229bd638d214df0ae60890618064736f6c63430008000033",
+  "immutableReferences": {},
+  "sourceMap": "92:440:3:-:0;;;;;;;;;;;;-1:-1:-1;140:5:32;:27;;-1:-1:-1;;;;;;140:27:32;156:10;140:27;;;92:440:3;;;;;;",
+  "deployedSourceMap": "92:440:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;415:115;;;;;;:::i;:::-;;:::i;:::-;;263:87:32;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;298:111:3;;;;;;:::i;:::-;;:::i;415:115::-;233:5:32;;-1:-1:-1;;;;;233:5:32;219:10;:19;211:28;;;;;;-1:-1:-1;;;;;491:24:3::1;518:5;491:24:::0;;;:11:::1;:24;::::0;;;;:32;;-1:-1:-1;;491:32:3::1;::::0;;415:115::o;263:87:32:-;304:15;338:5;-1:-1:-1;;;;;338:5:32;263:87;:::o;298:111:3:-;233:5:32;;-1:-1:-1;;;;;233:5:32;219:10;:19;211:28;;;;;;-1:-1:-1;;;;;371:24:3::1;;::::0;;;398:4:::1;371:24;::::0;;;;;;;:31;;-1:-1:-1;;371:31:3::1;::::0;;::::1;::::0;;298:111::o;14:306:35:-;;126:2;114:9;105:7;101:23;97:32;94:2;;;147:6;139;132:22;94:2;178:23;;-1:-1:-1;;;;;230:31:35;;220:42;;210:2;;281:6;273;266:22;210:2;309:5;84:236;-1:-1:-1;;;84:236:35:o;325:219::-;-1:-1:-1;;;;;505:32:35;;;;487:51;;475:2;460:18;;442:102::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"../../utils/Ownable.sol\";\n\ncontract Controller is Ownable {\n    mapping(address => bool) private controllers;\n\n    modifier onlyController() {\n        require(controllers[msg.sender], \"Error : Not Controller\");\n        _;\n    }\n\n    function addController(address _controller) external onlyOwner {\n        controllers[_controller] = true;\n    }\n\n    function deleteController(address _controller) external onlyOwner {\n        controllers[_controller] = false;\n    }\n}\n",
+  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol",
+  "ast": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol",
+    "exportedSymbols": {
+      "Controller": [
+        204
+      ],
+      "Ownable": [
+        7105
+      ]
+    },
+    "id": 205,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 156,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol",
+        "file": "../../utils/Ownable.sol",
+        "id": 157,
+        "nodeType": "ImportDirective",
+        "scope": 205,
+        "sourceUnit": 7106,
+        "src": "57:33:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 158,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7105,
+              "src": "115:7:3"
+            },
+            "id": 159,
+            "nodeType": "InheritanceSpecifier",
+            "src": "115:7:3"
+          }
+        ],
+        "contractDependencies": [
+          7105
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 204,
+        "linearizedBaseContracts": [
+          204,
+          7105
+        ],
+        "name": "Controller",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 163,
+            "mutability": "mutable",
+            "name": "controllers",
+            "nodeType": "VariableDeclaration",
+            "scope": 204,
+            "src": "129:44:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 162,
+              "keyType": {
+                "id": 160,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "137:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "129:24:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 161,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:4:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 174,
+              "nodeType": "Block",
+              "src": "206:86:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "baseExpression": {
+                          "id": 166,
+                          "name": "controllers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 163,
+                          "src": "224:11:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 169,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 167,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "236:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 168,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "236:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "224:23:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4572726f72203a204e6f7420436f6e74726f6c6c6572",
+                        "id": 170,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "249:24:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_37fac7fd80e52324c51c2f8db30779b9ef53d660502a2bba05c54ed5d39ef8fb",
+                          "typeString": "literal_string \"Error : Not Controller\""
+                        },
+                        "value": "Error : Not Controller"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_37fac7fd80e52324c51c2f8db30779b9ef53d660502a2bba05c54ed5d39ef8fb",
+                          "typeString": "literal_string \"Error : Not Controller\""
+                        }
+                      ],
+                      "id": 165,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "216:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 171,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "216:58:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 172,
+                  "nodeType": "ExpressionStatement",
+                  "src": "216:58:3"
+                },
+                {
+                  "id": 173,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "284:1:3"
+                }
+              ]
+            },
+            "id": 175,
+            "name": "onlyController",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "203:2:3"
+            },
+            "src": "180:112:3",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 188,
+              "nodeType": "Block",
+              "src": "361:48:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 186,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 182,
+                        "name": "controllers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 163,
+                        "src": "371:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 184,
+                      "indexExpression": {
+                        "id": 183,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 177,
+                        "src": "383:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "371:24:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 185,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "398:4:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "371:31:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 187,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:31:3"
+                }
+              ]
+            },
+            "functionSelector": "a7fc7a07",
+            "id": 189,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 180,
+                "modifierName": {
+                  "id": 179,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7096,
+                  "src": "351:9:3"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "351:9:3"
+              }
+            ],
+            "name": "addController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 178,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 177,
+                  "mutability": "mutable",
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 189,
+                  "src": "321:19:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 176,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "320:21:3"
+            },
+            "returnParameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "361:0:3"
+            },
+            "scope": 204,
+            "src": "298:111:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 202,
+              "nodeType": "Block",
+              "src": "481:49:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 200,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 196,
+                        "name": "controllers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 163,
+                        "src": "491:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 198,
+                      "indexExpression": {
+                        "id": 197,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 191,
+                        "src": "503:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "491:24:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "66616c7365",
+                      "id": 199,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "518:5:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "src": "491:32:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 201,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:32:3"
+                }
+              ]
+            },
+            "functionSelector": "0cfe4d0e",
+            "id": 203,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 194,
+                "modifierName": {
+                  "id": 193,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7096,
+                  "src": "471:9:3"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "471:9:3"
+              }
+            ],
+            "name": "deleteController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 192,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 191,
+                  "mutability": "mutable",
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 203,
+                  "src": "441:19:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 190,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:21:3"
+            },
+            "returnParameters": {
+              "id": 195,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "481:0:3"
+            },
+            "scope": 204,
+            "src": "415:115:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 205,
+        "src": "92:440:3"
+      }
+    ],
+    "src": "32:501:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/GXTItem/utils/Controller.sol",
+    "exportedSymbols": {
+      "Controller": [
+        204
+      ],
+      "Ownable": [
+        7105
+      ]
+    },
+    "id": 205,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 156,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/utils/Ownable.sol",
+        "file": "../../utils/Ownable.sol",
+        "id": 157,
+        "nodeType": "ImportDirective",
+        "scope": 205,
+        "sourceUnit": 7106,
+        "src": "57:33:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 158,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 7105,
+              "src": "115:7:3"
+            },
+            "id": 159,
+            "nodeType": "InheritanceSpecifier",
+            "src": "115:7:3"
+          }
+        ],
+        "contractDependencies": [
+          7105
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 204,
+        "linearizedBaseContracts": [
+          204,
+          7105
+        ],
+        "name": "Controller",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 163,
+            "mutability": "mutable",
+            "name": "controllers",
+            "nodeType": "VariableDeclaration",
+            "scope": 204,
+            "src": "129:44:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 162,
+              "keyType": {
+                "id": 160,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "137:7:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "129:24:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 161,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "148:4:3",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 174,
+              "nodeType": "Block",
+              "src": "206:86:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "baseExpression": {
+                          "id": 166,
+                          "name": "controllers",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 163,
+                          "src": "224:11:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 169,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 167,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "236:3:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 168,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "236:10:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "224:23:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4572726f72203a204e6f7420436f6e74726f6c6c6572",
+                        "id": 170,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "249:24:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_37fac7fd80e52324c51c2f8db30779b9ef53d660502a2bba05c54ed5d39ef8fb",
+                          "typeString": "literal_string \"Error : Not Controller\""
+                        },
+                        "value": "Error : Not Controller"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_37fac7fd80e52324c51c2f8db30779b9ef53d660502a2bba05c54ed5d39ef8fb",
+                          "typeString": "literal_string \"Error : Not Controller\""
+                        }
+                      ],
+                      "id": 165,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "216:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 171,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "216:58:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 172,
+                  "nodeType": "ExpressionStatement",
+                  "src": "216:58:3"
+                },
+                {
+                  "id": 173,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "284:1:3"
+                }
+              ]
+            },
+            "id": 175,
+            "name": "onlyController",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 164,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "203:2:3"
+            },
+            "src": "180:112:3",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 188,
+              "nodeType": "Block",
+              "src": "361:48:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 186,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 182,
+                        "name": "controllers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 163,
+                        "src": "371:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 184,
+                      "indexExpression": {
+                        "id": 183,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 177,
+                        "src": "383:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "371:24:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 185,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "398:4:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "371:31:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 187,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:31:3"
+                }
+              ]
+            },
+            "functionSelector": "a7fc7a07",
+            "id": 189,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 180,
+                "modifierName": {
+                  "id": 179,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7096,
+                  "src": "351:9:3"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "351:9:3"
+              }
+            ],
+            "name": "addController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 178,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 177,
+                  "mutability": "mutable",
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 189,
+                  "src": "321:19:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 176,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "321:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "320:21:3"
+            },
+            "returnParameters": {
+              "id": 181,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "361:0:3"
+            },
+            "scope": 204,
+            "src": "298:111:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 202,
+              "nodeType": "Block",
+              "src": "481:49:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 200,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 196,
+                        "name": "controllers",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 163,
+                        "src": "491:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 198,
+                      "indexExpression": {
+                        "id": 197,
+                        "name": "_controller",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 191,
+                        "src": "503:11:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "491:24:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "66616c7365",
+                      "id": 199,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "518:5:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "false"
+                    },
+                    "src": "491:32:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 201,
+                  "nodeType": "ExpressionStatement",
+                  "src": "491:32:3"
+                }
+              ]
+            },
+            "functionSelector": "0cfe4d0e",
+            "id": 203,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 194,
+                "modifierName": {
+                  "id": 193,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 7096,
+                  "src": "471:9:3"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "471:9:3"
+              }
+            ],
+            "name": "deleteController",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 192,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 191,
+                  "mutability": "mutable",
+                  "name": "_controller",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 203,
+                  "src": "441:19:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 190,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "441:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "440:21:3"
+            },
+            "returnParameters": {
+              "id": 195,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "481:0:3"
+            },
+            "scope": 204,
+            "src": "415:115:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 205,
+        "src": "92:440:3"
+      }
+    ],
+    "src": "32:501:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2022-07-28T12:24:02.127Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

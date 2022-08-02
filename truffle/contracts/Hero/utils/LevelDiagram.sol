@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 import "./HeroController.sol";
 
 contract LevelDiagram is HeroController {
-
     bytes32 private constant MYTHOLOGY = keccak256("Mythology");
     bytes32 private constant LEGENDARY = keccak256("Legendary");
     bytes32 private constant EPIC = keccak256("Epic");
@@ -42,9 +41,7 @@ contract LevelDiagram is HeroController {
         bytes32 gradeCheck = keccak256(bytes(grade));
 
         return (
-            gradeCheck == MYTHOLOGY
-                ? 675
-                : gradeCheck == LEGENDARY
+            gradeCheck == MYTHOLOGY ? 675 : gradeCheck == LEGENDARY
                 ? 450
                 : gradeCheck == EPIC
                 ? 300
@@ -56,13 +53,17 @@ contract LevelDiagram is HeroController {
         );
     }
 
-    function calculateItemIndex(uint256 _power) internal view returns(uint256){
-        for(uint i=1; i<=5; i++){
+    function calculateItemIndex(uint256 _power)
+        internal
+        view
+        returns (uint256)
+    {
+        for (uint256 i = 1; i <= 5; i++) {
             uint256 randomNumber = makeRandomNumberForItem(i);
 
-            if(_power >= randomNumber){
+            if (_power >= randomNumber) {
                 _power -= randomNumber;
-            }else{
+            } else {
                 return i;
             }
         }
@@ -70,29 +71,36 @@ contract LevelDiagram is HeroController {
         return 0;
     }
 
-    function calculatePower(string memory grade , uint256 level) internal view returns(uint256){
+    function calculatePower(string memory grade, uint256 level)
+        internal
+        view
+        returns (uint256)
+    {
         bytes32 gradeCheck = keccak256(bytes(grade));
 
         uint256 basicPower = (
-            gradeCheck == MYTHOLOGY ? 450 
-            :  gradeCheck == LEGENDARY 
-            ? 300
-            : gradeCheck == EPIC 
-            ? 200
-            : gradeCheck == ADMINISTRATOR
-            ? 150
-            : gradeCheck == NORMAL
-            ? 100
-            : 0
+            gradeCheck == MYTHOLOGY ? 450 : gradeCheck == LEGENDARY
+                ? 300
+                : gradeCheck == EPIC
+                ? 200
+                : gradeCheck == ADMINISTRATOR
+                ? 150
+                : gradeCheck == NORMAL
+                ? 100
+                : 0
         );
 
         uint256 levelCheck = (
-            level == 1 ? 10 : level == 2 ? 15 : level == 3 ? 25 : level == 4 ? 40 : level == 5 ? 70 : 0
+            level == 1 ? 10 : level == 2 ? 15 : level == 3 ? 25 : level == 4
+                ? 40
+                : level == 5
+                ? 70
+                : 0
         );
 
         uint256 itemPower = 0;
 
-        for(uint i=1; i<=5; i++){
+        for (uint256 i = 1; i <= 5; i++) {
             uint256 balanceOf = getItem().balanceOf(msg.sender, i);
             uint256 basicItemPower = i + 1;
             itemPower = itemPower + (basicItemPower * balanceOf);
@@ -101,7 +109,7 @@ contract LevelDiagram is HeroController {
         return ((basicPower + itemPower) * levelCheck) / 10;
     }
 
-     function makeRandomNumberForItem(uint256 _tokenIndex)
+    function makeRandomNumberForItem(uint256 _tokenIndex)
         internal
         view
         returns (uint256)

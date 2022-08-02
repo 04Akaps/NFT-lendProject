@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "../../utils/SafeMath.sol";
 
-contract MakeGrade  {
+contract MakeGrade {
     using SafeMath for *;
 
     uint256[] private weightValueMap;

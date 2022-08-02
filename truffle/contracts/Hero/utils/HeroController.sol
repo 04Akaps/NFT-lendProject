@@ -16,7 +16,8 @@ contract HeroController {
     IKIP37Full private item;
 
     address payable private coreOwner;
-    address public depositAddress;
+    address depositAddress;
+    address miningAddress;
 
     bool private paused;
     bool private miningPaused;
@@ -34,7 +35,7 @@ contract HeroController {
         require(msg.sender == coreOwner, "HeroCore Error : onlyOwner");
         _;
     }
-    
+
     constructor() {
         paused = true;
         miningPaused = true;
@@ -46,6 +47,7 @@ contract HeroController {
         address _token,
         address _item,
         address _depositAddress,
+        address _miningAddress,
         uint256 _klay,
         uint256 _tokenPrice
     ) external onlyOwner {
@@ -57,13 +59,14 @@ contract HeroController {
         item = IKIP37Full(_item);
 
         depositAddress = _depositAddress;
+        miningAddress = _miningAddress;
     }
 
     function changePaused() external onlyOwner {
         paused = !paused;
     }
 
-    function changeMiningPaused() external onlyOwner{
+    function changeMiningPaused() external onlyOwner {
         miningPaused = !miningPaused;
     }
 
@@ -77,19 +80,23 @@ contract HeroController {
         return paused;
     }
 
-    function getMiningPaused() public view returns(bool){
+    function getMiningPaused() public view returns (bool) {
         return miningPaused;
     }
 
-    function getItem() public view returns(IKIP37Full){
+    function getItem() public view returns (IKIP37Full) {
         return item;
     }
-    
+
     function getToken() public view returns (IKIP7) {
         return token;
     }
 
     function getHeroNFT() public view returns (IHeroNFT) {
         return heroNFT;
+    }
+
+    function _currentTime() internal view returns (uint256) {
+        return block.timestamp;
     }
 }

@@ -5,6 +5,12 @@ const token = artifacts.require("GXTToken");
 const deposit = artifacts.require("borrowDeposit");
 
 contract("heroCore", (accounts) => {
+  const user1 = accounts[1];
+  const user2 = accounts[2];
+  const user3 = accounts[3];
+  const user4 = accounts[4];
+  const user5 = accounts[5];
+
   let heroCoreContract;
   let NFTContract;
   let itemContract;
@@ -30,8 +36,55 @@ contract("heroCore", (accounts) => {
       itemContract.address,
       depositContract.address,
       1,
-      BigInt(DECIMALS)
+      1
     );
+
+    await NFTContract.setContract(heroCoreContract.address);
+
+    await heroCoreContract.changePaused();
+    await heroCoreContract.changeMiningPaused();
   });
-  // 🚀
+
+  context(" 🔨 check Contract setting", async () => {
+    it("🚀 check Contract setting", async () => {
+      const corePaused = await heroCoreContract.getPaused();
+      const coreMiningPaused = await heroCoreContract.getMiningPaused();
+      const coreOwner = await heroCoreContract.getOwner();
+
+      assert.equal(corePaused, false);
+      assert.equal(coreMiningPaused, false);
+      assert.equal(coreOwner, accounts[0]);
+    });
+  });
+
+  context(" 🔨 Mint Hero NFT && Check Status", async () => {
+    it("🚀 Mint Hero NFT", async () => {
+      await heroCoreContract.mintBuy({
+        from: user1,
+        value: Number(1 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user2,
+        value: Number(2 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user3,
+        value: Number(3 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user4,
+        value: Number(1 * DECIMALS),
+      });
+      await heroCoreContract.mintBuy({
+        from: user5,
+        value: Number(2 * DECIMALS),
+      });
+    });
+    it("🚀 check Hero Grade", async () => {
+      for (let i = 1; i <= 9; i++) {
+        const data = await heroCoreContract.getHeroStatus(i);
+        console.log(`Hero ${i}'s Grade ==  ${data[2].toString()}`);
+      }
+    });
+  });
 });

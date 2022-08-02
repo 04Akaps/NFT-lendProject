@@ -1,0 +1,1269 @@
+{
+  "contractName": "IHeroCore",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol\":\"IHeroCore\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol\":{\"keccak256\":\"0xc57a74b2b42b882fb1456996c41518e504c8633486a2e4bc71cac6168e8edc6d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b64d94f9ba9e815b882c93f9fbfb29f9fb8af3d109782949665d70ac09066140\",\"dweb:/ipfs/QmeAeu8eL6g4qd5uBU7LKbWCD5QKEbPhK9DoV1Zvdk9rCm\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":{\"keccak256\":\"0x2e615313b921bd5a844a462662894168ecb63683d0e5eddeba586958e1c1e853\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6cc44db8596891b99d561f56e0e573283e07dd1c8313b2a4b177ac3fb54ba17a\",\"dweb:/ipfs/QmNmCuJ4aKquibWK4Dkx5Za3QB3MNehJsHXs9sMcWW5z29\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122005a85596b082cda96e152cb734b4fe0984f41e34bc9bd01380624123acb0aa9764736f6c63430008000033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122005a85596b082cda96e152cb734b4fe0984f41e34bc9bd01380624123acb0aa9764736f6c63430008000033",
+  "immutableReferences": {},
+  "sourceMap": "88:675:6:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "88:675:6:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"./IHeroCoreFunc.sol\";\n\ncontract IHeroCore is IHeroCoreFunc {\n    struct HERO {\n        uint256 tokenId;\n        uint256 level;\n        string grade;\n        uint256 birthTime;\n        uint256 reward;\n        chcekStatus status;\n    }\n\n    struct chcekStatus {\n        bool borrowed;\n        bool traveled;\n        bool mining;\n        address owner;\n        traveledStruct travelData;\n        borrowStruct borrowData;\n    }\n\n    struct borrowStruct {\n        uint256 borrowEndTime;\n        address borrowers;\n    }\n\n    struct traveledStruct {\n        address travelOwner;\n        uint256 travelTime;\n    }\n\n    struct RequestStruct {\n        address requestOwner;\n        uint256 duration;\n    }\n}\n",
+  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+  "ast": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+    "exportedSymbols": {
+      "IHeroCore": [
+        2232
+      ],
+      "IHeroCoreFunc": [
+        2235
+      ]
+    },
+    "id": 2233,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2184,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:6"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+        "file": "./IHeroCoreFunc.sol",
+        "id": 2185,
+        "nodeType": "ImportDirective",
+        "scope": 2233,
+        "sourceUnit": 2236,
+        "src": "57:29:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2186,
+              "name": "IHeroCoreFunc",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 2235,
+              "src": "110:13:6"
+            },
+            "id": 2187,
+            "nodeType": "InheritanceSpecifier",
+            "src": "110:13:6"
+          }
+        ],
+        "contractDependencies": [
+          2235
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2232,
+        "linearizedBaseContracts": [
+          2232,
+          2235
+        ],
+        "name": "IHeroCore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IHeroCore.HERO",
+            "id": 2201,
+            "members": [
+              {
+                "constant": false,
+                "id": 2189,
+                "mutability": "mutable",
+                "name": "tokenId",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "152:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2188,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "152:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2191,
+                "mutability": "mutable",
+                "name": "level",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "177:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2190,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2193,
+                "mutability": "mutable",
+                "name": "grade",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "200:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2192,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "200:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2195,
+                "mutability": "mutable",
+                "name": "birthTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "222:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2194,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "222:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2197,
+                "mutability": "mutable",
+                "name": "reward",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "249:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2196,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "249:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2200,
+                "mutability": "mutable",
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "273:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                  "typeString": "struct IHeroCore.chcekStatus"
+                },
+                "typeName": {
+                  "id": 2199,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2198,
+                    "name": "chcekStatus",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2216,
+                    "src": "273:11:6"
+                  },
+                  "referencedDeclaration": 2216,
+                  "src": "273:11:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                    "typeString": "struct IHeroCore.chcekStatus"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "HERO",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "130:168:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.chcekStatus",
+            "id": 2216,
+            "members": [
+              {
+                "constant": false,
+                "id": 2203,
+                "mutability": "mutable",
+                "name": "borrowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "333:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2202,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "333:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2205,
+                "mutability": "mutable",
+                "name": "traveled",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "356:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2204,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "356:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2207,
+                "mutability": "mutable",
+                "name": "mining",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "379:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2206,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "379:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2209,
+                "mutability": "mutable",
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "400:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2208,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "400:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2212,
+                "mutability": "mutable",
+                "name": "travelData",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "423:25:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                  "typeString": "struct IHeroCore.traveledStruct"
+                },
+                "typeName": {
+                  "id": 2211,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2210,
+                    "name": "traveledStruct",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2226,
+                    "src": "423:14:6"
+                  },
+                  "referencedDeclaration": 2226,
+                  "src": "423:14:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                    "typeString": "struct IHeroCore.traveledStruct"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2215,
+                "mutability": "mutable",
+                "name": "borrowData",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "458:23:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                  "typeString": "struct IHeroCore.borrowStruct"
+                },
+                "typeName": {
+                  "id": 2214,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2213,
+                    "name": "borrowStruct",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2221,
+                    "src": "458:12:6"
+                  },
+                  "referencedDeclaration": 2221,
+                  "src": "458:12:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                    "typeString": "struct IHeroCore.borrowStruct"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "chcekStatus",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "304:184:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.borrowStruct",
+            "id": 2221,
+            "members": [
+              {
+                "constant": false,
+                "id": 2218,
+                "mutability": "mutable",
+                "name": "borrowEndTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2221,
+                "src": "524:21:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2217,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "524:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2220,
+                "mutability": "mutable",
+                "name": "borrowers",
+                "nodeType": "VariableDeclaration",
+                "scope": 2221,
+                "src": "555:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2219,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "borrowStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "494:85:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.traveledStruct",
+            "id": 2226,
+            "members": [
+              {
+                "constant": false,
+                "id": 2223,
+                "mutability": "mutable",
+                "name": "travelOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2226,
+                "src": "617:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2222,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "617:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2225,
+                "mutability": "mutable",
+                "name": "travelTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2226,
+                "src": "646:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2224,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "646:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "traveledStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "585:86:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.RequestStruct",
+            "id": 2231,
+            "members": [
+              {
+                "constant": false,
+                "id": 2228,
+                "mutability": "mutable",
+                "name": "requestOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2231,
+                "src": "708:20:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2227,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "708:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2230,
+                "mutability": "mutable",
+                "name": "duration",
+                "nodeType": "VariableDeclaration",
+                "scope": 2231,
+                "src": "738:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2229,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "738:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "RequestStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "677:84:6",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2233,
+        "src": "88:675:6"
+      }
+    ],
+    "src": "32:732:6"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+    "exportedSymbols": {
+      "IHeroCore": [
+        2232
+      ],
+      "IHeroCoreFunc": [
+        2235
+      ]
+    },
+    "id": 2233,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2184,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:6"
+      },
+      {
+        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+        "file": "./IHeroCoreFunc.sol",
+        "id": 2185,
+        "nodeType": "ImportDirective",
+        "scope": 2233,
+        "sourceUnit": 2236,
+        "src": "57:29:6",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 2186,
+              "name": "IHeroCoreFunc",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 2235,
+              "src": "110:13:6"
+            },
+            "id": 2187,
+            "nodeType": "InheritanceSpecifier",
+            "src": "110:13:6"
+          }
+        ],
+        "contractDependencies": [
+          2235
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2232,
+        "linearizedBaseContracts": [
+          2232,
+          2235
+        ],
+        "name": "IHeroCore",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IHeroCore.HERO",
+            "id": 2201,
+            "members": [
+              {
+                "constant": false,
+                "id": 2189,
+                "mutability": "mutable",
+                "name": "tokenId",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "152:15:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2188,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "152:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2191,
+                "mutability": "mutable",
+                "name": "level",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "177:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2190,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2193,
+                "mutability": "mutable",
+                "name": "grade",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "200:12:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2192,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "200:6:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2195,
+                "mutability": "mutable",
+                "name": "birthTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "222:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2194,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "222:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2197,
+                "mutability": "mutable",
+                "name": "reward",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "249:14:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2196,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "249:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2200,
+                "mutability": "mutable",
+                "name": "status",
+                "nodeType": "VariableDeclaration",
+                "scope": 2201,
+                "src": "273:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                  "typeString": "struct IHeroCore.chcekStatus"
+                },
+                "typeName": {
+                  "id": 2199,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2198,
+                    "name": "chcekStatus",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2216,
+                    "src": "273:11:6"
+                  },
+                  "referencedDeclaration": 2216,
+                  "src": "273:11:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                    "typeString": "struct IHeroCore.chcekStatus"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "HERO",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "130:168:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.chcekStatus",
+            "id": 2216,
+            "members": [
+              {
+                "constant": false,
+                "id": 2203,
+                "mutability": "mutable",
+                "name": "borrowed",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "333:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2202,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "333:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2205,
+                "mutability": "mutable",
+                "name": "traveled",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "356:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2204,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "356:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2207,
+                "mutability": "mutable",
+                "name": "mining",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "379:11:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2206,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "379:4:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2209,
+                "mutability": "mutable",
+                "name": "owner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "400:13:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2208,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "400:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2212,
+                "mutability": "mutable",
+                "name": "travelData",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "423:25:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                  "typeString": "struct IHeroCore.traveledStruct"
+                },
+                "typeName": {
+                  "id": 2211,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2210,
+                    "name": "traveledStruct",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2226,
+                    "src": "423:14:6"
+                  },
+                  "referencedDeclaration": 2226,
+                  "src": "423:14:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                    "typeString": "struct IHeroCore.traveledStruct"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2215,
+                "mutability": "mutable",
+                "name": "borrowData",
+                "nodeType": "VariableDeclaration",
+                "scope": 2216,
+                "src": "458:23:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                  "typeString": "struct IHeroCore.borrowStruct"
+                },
+                "typeName": {
+                  "id": 2214,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2213,
+                    "name": "borrowStruct",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2221,
+                    "src": "458:12:6"
+                  },
+                  "referencedDeclaration": 2221,
+                  "src": "458:12:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                    "typeString": "struct IHeroCore.borrowStruct"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "chcekStatus",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "304:184:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.borrowStruct",
+            "id": 2221,
+            "members": [
+              {
+                "constant": false,
+                "id": 2218,
+                "mutability": "mutable",
+                "name": "borrowEndTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2221,
+                "src": "524:21:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2217,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "524:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2220,
+                "mutability": "mutable",
+                "name": "borrowers",
+                "nodeType": "VariableDeclaration",
+                "scope": 2221,
+                "src": "555:17:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2219,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "555:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "borrowStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "494:85:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.traveledStruct",
+            "id": 2226,
+            "members": [
+              {
+                "constant": false,
+                "id": 2223,
+                "mutability": "mutable",
+                "name": "travelOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2226,
+                "src": "617:19:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2222,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "617:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2225,
+                "mutability": "mutable",
+                "name": "travelTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 2226,
+                "src": "646:18:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2224,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "646:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "traveledStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "585:86:6",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "IHeroCore.RequestStruct",
+            "id": 2231,
+            "members": [
+              {
+                "constant": false,
+                "id": 2228,
+                "mutability": "mutable",
+                "name": "requestOwner",
+                "nodeType": "VariableDeclaration",
+                "scope": 2231,
+                "src": "708:20:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 2227,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "708:7:6",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2230,
+                "mutability": "mutable",
+                "name": "duration",
+                "nodeType": "VariableDeclaration",
+                "scope": 2231,
+                "src": "738:16:6",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2229,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "738:7:6",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "RequestStruct",
+            "nodeType": "StructDefinition",
+            "scope": 2232,
+            "src": "677:84:6",
+            "visibility": "public"
+          }
+        ],
+        "scope": 2233,
+        "src": "88:675:6"
+      }
+    ],
+    "src": "32:732:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2022-07-28T12:24:02.154Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

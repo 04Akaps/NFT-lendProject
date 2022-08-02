@@ -6,40 +6,14 @@ import "./utils/TimeLock.sol";
 import "./utils/LevelDiagram.sol";
 import "./utils/MakeGrade.sol";
 
+import "./interface/IHeroCore.sol";
+
 import "../utils/SafeMath.sol";
 
-contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
+contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
     using SafeMath for *;
 
-    struct HERO {
-        uint256 tokenId;
-        uint256 level;
-        string grade;
-        uint256 birthTime;
-        uint256 reward;
-        chcekStatus status;
-    }
-
-    struct chcekStatus {
-        bool borrowed;
-        bool traveled;
-        bool mining;
-        address owner;
-        traveledStruct travelData;
-        borrowStruct borrowData;
-    }
-
-    struct borrowStruct {
-        uint256 borrowEndTime;
-        address borrowers;
-    }
-
-    struct traveledStruct {
-        address travelOwner;
-        uint256 travelTime;
-    }
-
-    mapping(address => uint256) private mintBuyLimitMap;
+    HERO[] heroArray;
     mapping(uint256 => HERO) private heroVault;
 
     uint256 private constant MINT_BUY_LIMIT = 3;
@@ -50,76 +24,95 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     uint256 public constant MINING_REWARD = 125000e18;
     uint256 public constant MINING_DURATION = 365 days / 12;
-    uint256 public lastClaimTime;
-
-    struct RequestStruct {
-        address requestOwner;
-        uint256 duration;
-    }
+    uint256 private lastClaimTime;
 
     mapping(uint256 => RequestStruct[]) private borrowRequestMap;
     mapping(address => uint256) private myRequestMap;
 
-    modifier checkStaked(uint256 _tokenId) {
+    modifier checkIsStaked(uint256 _tokenId) {
         address owner = getHeroNFT().ownerOf(_tokenId);
         require(owner == address(this), "Error : Hero is Not Staked!!");
         _;
     }
 
-    function mintBuy() external payable {
-        // klay를 주고 구입하는 함수
-        uint256 value = msg.value;
-        uint256 buyAmount = mintBuyLimitMap[msg.sender];
-        uint256 overAmount = value.sub(priceOfKlay);
+    modifier checkNotMining(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(!hero.status.mining, "Error : hero is Mining!");
+        _;
+    }
 
-        require(buyAmount < MINT_BUY_LIMIT, "Error : onlyBuy 3 Hero From Klay");
+    modifier checkNotTraveling(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(!hero.status.traveled, "Error : hero is Traveled!");
+        _;
+    }
+
+    modifier checkNotBorrowed(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(!hero.status.borrowed, "Error : hero is Borrowed!");
+        _;
+    }
+
+    modifier checkIsMining(uint256 _tokenId) {
+        HERO memory hero = heroVault[_tokenId];
+        require(hero.status.mining, "Error : hero is Not Mining!");
+        _;
+    }
+
+    fallback() external payable {}
+
+    function mintBuy() external payable {
+        uint256 value = msg.value;
+        uint256 amount = value.div(priceOfKlay);
 
         require(value != 0, "Error : value is Zero");
         require(value >= priceOfKlay, "Error : Not Enough Klay");
 
-        mintBuyLimitMap[msg.sender] = buyAmount.add(1);
-        _mintHero();
+        for (uint256 i = 0; i < amount; i++) {
+            _mintHero();
+        }
 
-        getOwner().transfer(value);
-        payable(msg.sender).transfer(overAmount);
+        payable(address(this)).transfer(value);
     }
 
     function mintByToken(uint256 _tokenAmount) external {
-        // Token을 주고 구입하는 함수
+        uint256 currentTime = _currentTime();
         uint256 value = _tokenAmount;
+        uint256 amount = value.div(priceOfToken);
 
+        require(value != 0, "Error : value is Zero");
         require(
             value >= priceOfToken,
             "Error : TokenValue lower than PriceOfToken"
         );
 
-        getToken().transferFrom(msg.sender, address(this), value);
-
-        if (value > priceOfToken) {
-            uint256 overValue = value.sub(priceOfToken);
-            getToken().transfer(getOwner(), overValue);
+        for (uint256 i = 0; i < amount; i++) {
+            heroTimeLock[msg.sender].push(currentTime.add(TIME_LOCK_DURATION));
         }
 
-        heroTimeLock[msg.sender].push(block.timestamp.add(TIME_LOCK_DURATION));
+        getToken().transferFrom(msg.sender, address(this), value);
     }
 
     function mintTimeLock(uint256 _index) external {
+        uint256 currentTime = _currentTime();
         uint256 time = heroTimeLock[msg.sender][_index];
 
-        require(time > block.timestamp, "Error : TimeLock Duration");
+        require(time > currentTime, "Error : TimeLock Duration");
 
-        changeTimeLock(_index);
+        _changeTimeLock(_index);
         _mintHero();
     }
 
-    function travel(uint256 _tokenId) external checkStaked(_tokenId) {
+    function travel(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
+        checkNotTraveling(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
         uint256 currentTime = _currentTime();
         uint256 travelDuration = currentTime.add(TRAVEL_DURATION);
-
-        require(!hero.status.traveled, "Error : hero is Traveled!");
-        require(!hero.status.mining, "Error : hero is Traveled!");
 
         if (hero.status.borrowed) {
             require(
@@ -145,7 +138,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     function getRewardToTravel(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
 
@@ -180,7 +173,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         hero.status.travelData.travelOwner = address(0x0);
         hero.status.travelData.travelTime = 0;
 
-        uint256 power = _getHeroPower(_tokenId, false);
+        uint256 power = getHeroPower(_tokenId, false);
         uint256 randomItemNumber = calculateItemIndex(power);
 
         if (randomItemNumber < 1) {
@@ -192,12 +185,9 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     function requestBorrow(uint256 _tokenId, uint256 _duartion)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotBorrowed(_tokenId)
     {
-        HERO storage hero = heroVault[_tokenId];
-
-        require(!hero.status.borrowed, "Error : Hero is Browwed anothor User");
-
         require(
             myRequestMap[msg.sender] == 0,
             "Error : already Request Another Hero"
@@ -212,7 +202,10 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         getToken().transfer(depositAddress, borrowPrice);
     }
 
-    function cancelRequest(uint256 _tokenId) external checkStaked(_tokenId) {
+    function cancelBorrowRequest(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+    {
         require(myRequestMap[msg.sender] != 0, "Error : Not Existed Request!");
 
         myRequestMap[msg.sender] = 0;
@@ -221,6 +214,8 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
         for (uint256 i = 0; i < requestList.length; i++) {
             if (requestList[i].requestOwner == msg.sender) {
+                uint256 duration = requestList[i].duration;
+
                 delete requestList[i];
 
                 if (requestList.length == 1 || requestList.length.sub(1) == i) {
@@ -233,9 +228,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
                     requestList.pop();
                 }
 
-                uint256 borrowPrice = requestList[i].duration.mul(
-                    BORROW_PRICE_PER_BLOCK
-                );
+                uint256 borrowPrice = duration.mul(BORROW_PRICE_PER_BLOCK);
 
                 getToken().transferFrom(
                     depositAddress,
@@ -249,14 +242,13 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         }
     }
 
-    function approveBorrow(uint256 _tokenId, address _apprrovedUser)
+    function approveBorrowRequest(uint256 _tokenId, address _apprrovedUser)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
         uint256 currentTime = _currentTime();
-
-        require(!hero.status.mining, "Error : Token is Mining!");
 
         require(hero.status.owner == msg.sender, "Error : Not Token Owner!");
 
@@ -269,7 +261,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
         uint256 duration = data.duration;
 
-        uint256 approvedOwnerPrice = _returnBorrowRequestToken(
+        uint256 approvedOwnerPrice = _returnTokenToOther(
             _tokenId,
             _apprrovedUser
         );
@@ -286,14 +278,15 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         getToken().transfer(msg.sender, approvedOwnerPrice);
     }
 
-    function returnHero(uint256 _tokenId) external checkStaked(_tokenId) {
+    function returnBorrowed(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkNotTraveling(_tokenId)
+    {
+        // 남은 시간에 비례하여 보상 필요
         HERO storage hero = heroVault[_tokenId];
         uint256 currentTime = _currentTime();
 
-        require(!hero.status.mining, "Error : Token is Mining!");
-
-        // borrow한 Hero를 반환하는 함수
-        // Owner가 실행하던가 아니면 빌려간 User가 실행하여 남은 durtion의 금액을 회수한다.
         require(
             hero.status.borrowData.borrowers == msg.sender ||
                 hero.status.owner == msg.sender,
@@ -310,20 +303,23 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         hero.status.borrowData.borrowers = address(0x0);
     }
 
-    function mining(uint256 _tokenId) external checkStaked(_tokenId) {
+    function mining(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkNotTraveling(_tokenId)
+        checkNotBorrowed(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
-
-        require(!hero.status.borrowed, "Error : Token is Borrowed!");
-        require(!hero.status.traveled, "Error : Token is Traveled!");
 
         _distributeReward();
 
         hero.status.mining = true;
     }
 
-    function claimMiningAmount(uint256 _tokenId)
+    function stopMining(uint256 _tokenId)
         external
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
+        checkIsMining(_tokenId)
     {
         HERO storage hero = heroVault[_tokenId];
 
@@ -332,27 +328,46 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         uint256 rewardAmount = hero.reward;
         hero.reward = 0;
 
-        require(hero.status.mining, "Error : Token is Not Mining");
+        lastClaimTime = _currentTime();
+
+        getToken().transferFrom(miningAddress, address(this), rewardAmount);
+        getToken().transfer(msg.sender, rewardAmount);
+
+        hero.status.mining = false;
+    }
+
+    function claimMiningAmount(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkIsMining(_tokenId)
+    {
+        HERO storage hero = heroVault[_tokenId];
+
+        _distributeReward();
+
+        uint256 rewardAmount = hero.reward;
+        hero.reward = 0;
 
         lastClaimTime = _currentTime();
 
+        getToken().transferFrom(miningAddress, address(this), rewardAmount);
         getToken().transfer(msg.sender, rewardAmount);
     }
 
     function viewCanClaimAmount(uint256 _tokenId)
         external
         view
-        checkStaked(_tokenId)
+        checkIsStaked(_tokenId)
         returns (uint256)
     {
         HERO memory hero = heroVault[_tokenId];
 
         if (!getMiningPaused()) {
-            uint256 totalPower = _getHeroPower(0, true);
+            uint256 totalPower = getHeroPower(0, true);
             uint256 cycle = _currentTime().sub(lastClaimTime);
             uint256 totalReward = MINING_REWARD.div(MINING_DURATION).mul(cycle);
 
-            uint256 heroPower = _getHeroPower(_tokenId, false);
+            uint256 heroPower = getHeroPower(_tokenId, false);
             uint256 personalReward = totalReward.div(totalPower).mul(heroPower);
 
             return hero.reward.add(personalReward);
@@ -361,7 +376,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         return hero.reward;
     }
 
-    function levelUp(uint256 _tokenId) external checkStaked(_tokenId) {
+    function levelUp(uint256 _tokenId) external checkIsStaked(_tokenId) {
         HERO storage hero = heroVault[_tokenId];
 
         require(msg.sender == hero.status.owner, "Error : Not TokenOwner");
@@ -393,23 +408,22 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         getHeroNFT().transferFrom(msg.sender, address(this), _tokenId);
     }
 
-    function unStake(uint256 _tokenId) external checkStaked(_tokenId) {
+    function unStake(uint256 _tokenId)
+        external
+        checkIsStaked(_tokenId)
+        checkNotMining(_tokenId)
+        checkNotTraveling(_tokenId)
+        checkNotBorrowed(_tokenId)
+    {
         HERO storage hero = heroVault[_tokenId];
 
-        require(!hero.status.borrowed, "Error : Token is Borrowed!!");
-        require(!hero.status.traveled, "Error : Token is Traveled!!");
-        require(!hero.status.mining, "Error : Token is Mining!!");
-
         _distributeReward();
-
-        uint256 rewardAmount = hero.reward;
 
         hero.status.owner = address(0x0);
         hero.reward = 0;
 
         lastClaimTime = _currentTime();
 
-        getToken().transfer(msg.sender, rewardAmount);
         getHeroNFT().transferFrom(address(this), msg.sender, _tokenId);
     }
 
@@ -419,6 +433,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     // ** ineternal
     function _mintHero() internal {
+        uint256 currentTime = _currentTime();
         getHeroNFT().mint(msg.sender);
 
         uint256 tokenId = getHeroNFT().getTokenIndex();
@@ -426,11 +441,11 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         uint256 tokenIndex = getHeroNFT().getTokenIndex();
         string memory grade = makeGrade(tokenIndex);
 
-        heroVault[tokenIndex] = HERO(
+        HERO memory newHero = HERO(
             tokenId,
             1,
             grade,
-            block.timestamp,
+            currentTime,
             0,
             chcekStatus(
                 false,
@@ -441,6 +456,9 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
                 borrowStruct(0, address(0x0))
             )
         );
+
+        heroVault[tokenIndex] = newHero;
+        heroArray.push(newHero);
     }
 
     function _checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser)
@@ -459,12 +477,11 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         return (false, requestList[0]);
     }
 
-    function _returnBorrowRequestToken(uint256 _tokenId, address _approvedOwner)
+    function _returnTokenToOther(uint256 _tokenId, address _approvedOwner)
         internal
         returns (uint256)
     {
         RequestStruct[] memory requestList = borrowRequestMap[_tokenId];
-
         uint256 approvedOwnerPrice = 0;
 
         for (uint256 i = 0; i < requestList.length; i++) {
@@ -472,15 +489,15 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
                 BORROW_PRICE_PER_BLOCK
             );
 
-            address approvedOwner = requestList[i].requestOwner;
+            address requestOwner = requestList[i].requestOwner;
 
-            if (approvedOwner != _approvedOwner) {
+            if (requestOwner != _approvedOwner) {
                 getToken().transferFrom(
                     depositAddress,
                     address(this),
                     borrowPrice
                 );
-                getToken().transfer(approvedOwner, borrowPrice);
+                getToken().transfer(requestOwner, borrowPrice);
             } else {
                 approvedOwnerPrice = borrowPrice;
             }
@@ -491,7 +508,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
 
     function _distributeReward() internal {
         if (!getMiningPaused()) {
-            uint256 totalPower = _getHeroPower(0, true);
+            uint256 totalPower = getHeroPower(0, true);
 
             uint256 totalSupply = getHeroNFT().getTokenIndex();
 
@@ -501,7 +518,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
             for (uint256 i = 1; i <= totalSupply; i++) {
                 HERO storage userHero = heroVault[i];
 
-                uint256 heroPower = _getHeroPower(i, false);
+                uint256 heroPower = getHeroPower(i, false);
 
                 uint256 personalReward = totalReward.div(totalPower).mul(
                     heroPower
@@ -511,8 +528,8 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         }
     }
 
-    function _getHeroPower(uint256 _tokenId, bool total)
-        internal
+    function getHeroPower(uint256 _tokenId, bool total)
+        public
         view
         returns (uint256)
     {
@@ -539,13 +556,37 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade {
         }
     }
 
-    function _currentTime() internal view returns (uint256) {
-        return block.timestamp;
-    }
-
     //// **** view function
 
-    function getMintBuyAmount() external view returns (uint256) {
-        return mintBuyLimitMap[msg.sender];
+    function getHeroStatus(uint256 _heroTokenId)
+        public
+        view
+        returns (HERO memory)
+    {
+        return heroVault[_heroTokenId];
+    }
+
+    function getMyTotalHeroStatus(address _user)
+        public
+        view
+        returns (HERO[] memory)
+    {
+        uint256 length = getHeroNFT().balanceOf(_user);
+
+        HERO[] memory myheroList = new HERO[](length);
+        uint256 index;
+
+        for (uint256 i = 0; i < heroArray.length; i++) {
+            HERO memory hero = heroArray[i];
+
+            uint256 tokenId = hero.tokenId;
+
+            if (getHeroNFT().ownerOf(tokenId) == _user) {
+                myheroList[index] = hero;
+                index = index.add(1);
+            }
+        }
+
+        return myheroList;
     }
 }

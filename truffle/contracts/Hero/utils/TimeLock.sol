@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 contract TimeLock {
-    mapping(address => uint256[]) internal heroTimeLock;
+    mapping(address => uint256[]) heroTimeLock;
 
-    function changeTimeLock(uint256 _index) internal {
+    function _changeTimeLock(uint256 _index) internal {
         delete heroTimeLock[msg.sender];
 
         uint256[] storage userTimeLock = heroTimeLock[msg.sender];

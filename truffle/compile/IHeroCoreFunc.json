@@ -1,0 +1,111 @@
+{
+  "contractName": "IHeroCoreFunc",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":\"IHeroCoreFunc\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":{\"keccak256\":\"0x2e615313b921bd5a844a462662894168ecb63683d0e5eddeba586958e1c1e853\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6cc44db8596891b99d561f56e0e573283e07dd1c8313b2a4b177ac3fb54ba17a\",\"dweb:/ipfs/QmNmCuJ4aKquibWK4Dkx5Za3QB3MNehJsHXs9sMcWW5z29\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212205e7ca16203ebfa81d4c36cc9ad1bf0b4c8daeb4c9cd4e93e53e6bba185250c5964736f6c63430008000033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212205e7ca16203ebfa81d4c36cc9ad1bf0b4c8daeb4c9cd4e93e53e6bba185250c5964736f6c63430008000033",
+  "immutableReferences": {},
+  "sourceMap": "57:25:7:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "57:25:7:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract IHeroCoreFunc {}\n",
+  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+  "ast": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+    "exportedSymbols": {
+      "IHeroCoreFunc": [
+        2235
+      ]
+    },
+    "id": 2236,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2234,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2235,
+        "linearizedBaseContracts": [
+          2235
+        ],
+        "name": "IHeroCoreFunc",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 2236,
+        "src": "57:25:7"
+      }
+    ],
+    "src": "32:51:7"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+    "exportedSymbols": {
+      "IHeroCoreFunc": [
+        2235
+      ]
+    },
+    "id": 2236,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2234,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:7"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 2235,
+        "linearizedBaseContracts": [
+          2235
+        ],
+        "name": "IHeroCoreFunc",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 2236,
+        "src": "57:25:7"
+      }
+    ],
+    "src": "32:51:7"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.1.0",
+  "updatedAt": "2022-07-28T12:24:02.154Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

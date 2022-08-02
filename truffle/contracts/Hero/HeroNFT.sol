@@ -13,14 +13,18 @@ contract HeroNFT is KIP17Token, Ownable, IHeroNFT {
 
     Counters.Counter private tokenIndex;
 
-    address private heroProxy;
+    address private heroCore;
 
     string private PREFIX_DATA = "test";
     string private constant SUFIX_DATA = ".json";
 
     modifier onlyHeroCore() {
         require(
-            msg.sender == heroProxy,
+            heroCore != address(0x0),
+            "HeroNFT Error : HeroCore does Not Setting"
+        );
+        require(
+            msg.sender == heroCore,
             "HeroNFT Error : msg.sender != HeroCore Address"
         );
         _;
@@ -51,7 +55,7 @@ contract HeroNFT is KIP17Token, Ownable, IHeroNFT {
             _heroCore != address(0),
             "HeroNFT Error : HeroCore is Zero Address"
         );
-        heroProxy = _heroCore;
+        heroCore = _heroCore;
     }
 
     function getTokenIndex() external view override returns (uint256) {
@@ -59,6 +63,6 @@ contract HeroNFT is KIP17Token, Ownable, IHeroNFT {
     }
 
     function getHeroCore() external view override returns (address) {
-        return heroProxy;
+        return heroCore;
     }
 }
