@@ -1,5 +1,5 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-const { deployer } = require("../Variable/Variable");
+const { deployer } = require("./Variable/Variable");
 
 module.exports = {
   networks: {

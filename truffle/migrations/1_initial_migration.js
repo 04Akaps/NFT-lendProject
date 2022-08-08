@@ -6,7 +6,7 @@ const {
   makeDepositContract,
   makeBorrowContract,
   makeLevelDiagramContract,
-} = require("../../Variable/makeFile");
+} = require("../Variable/makeFile");
 
 const hero = artifacts.require("HeroCore");
 const heroNFT = artifacts.require("HeroNFT");
