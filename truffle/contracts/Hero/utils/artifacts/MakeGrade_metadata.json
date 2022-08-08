@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.4+commit.c7e474f2"
 	},
 	"language": "Solidity",
 	"output": {
@@ -32,26 +32,26 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Hero/utils/MakeGrade.sol": {
-			"keccak256": "0x20db758bee05614ad27579aee61cb9b8b0ccbc8d6346d95c46e191f2bb789837",
+			"keccak256": "0x43c2945ed3b6ec1526972f94ba037099d0331fd57f55286b97f406b2ed75c8e2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1d4b64a9e5ec773afde76039170a372667637da17d37036e4a416f52f0131db8",
-				"dweb:/ipfs/QmUUXoTZsXibaYso4vmPiCw2NfVS3Lkcc7qP3sSoGfXFSn"
+				"bzz-raw://4b104d9b1d0189cb1b256adb207bf106931f02dcd7049cf6a8ebcb3394cce391",
+				"dweb:/ipfs/QmUi6NTfRNQhWPFFyDP5bFnHEX1Ts1LNbqwLZ6dTgfSChe"
 			]
 		},
 		"utils/SafeMath.sol": {
-			"keccak256": "0x72f53db77ad38e00bf1f7409a6367bdc259fbf196e759c2daa023c313211ec0e",
+			"keccak256": "0x884e0eaf6a4a9779317975ad010c62f3a4bd66ed64334977bc7afba8d97fab58",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://eb4600a095a19fa42b1ba4050ccb38d1c3afddc510cc75e995e5ecc590711b59",
-				"dweb:/ipfs/QmQ1ep88ySZ3cK8GfX5hmz2gwhAX7ppLkVVSn4wxSYHNVj"
+				"bzz-raw://d61f2e9002f930fb312e3e6fe19753b1dedb5980b1baaef8914b794ba2a3106e",
+				"dweb:/ipfs/QmYKxUyMMoak1sEdyQvq6hcEdsKtiAUunj1f51LBM6M8fm"
 			]
 		}
 	},

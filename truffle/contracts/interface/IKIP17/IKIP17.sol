@@ -3,7 +3,7 @@
 // Based on OpenZeppelin Contracts v4.5.0 (token/ERC721/IERC721.sol)
 // https://github.com/OpenZeppelin/openzeppelin-contracts/releases/tag/v4.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../IKIP13.sol";
 

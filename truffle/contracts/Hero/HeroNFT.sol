@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../interface/IKIP17/KIP17Token.sol";
 import "./interface/IHeroNFT.sol";

@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "shelljs": "^0.8.5"
+    "@truffle/hdwallet-provider": "^2.0.13",
+    "shelljs": "^0.8.5",
+    "truffle-hdwallet-provider-klaytn": "^1.4.2"
   }
 }

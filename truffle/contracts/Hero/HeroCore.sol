@@ -1,16 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "./utils/HeroController.sol";
 import "./utils/TimeLock.sol";
-import "./utils/LevelDiagram.sol";
 import "./utils/MakeGrade.sol";
 
 import "./interface/IHeroCore.sol";
 
 import "../utils/SafeMath.sol";
 
-contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
+contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
     using SafeMath for *;
 
     HERO[] heroArray;
@@ -59,7 +58,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         _;
     }
 
-    fallback() external payable {}
+    receive() external payable {}
 
     function mintBuy() external payable {
         uint256 value = msg.value;
@@ -174,7 +173,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         hero.status.travelData.travelTime = 0;
 
         uint256 power = getHeroPower(_tokenId, false);
-        uint256 randomItemNumber = calculateItemIndex(power);
+        uint256 randomItemNumber = getLevelDiagram().calculateItemIndex(power);
 
         if (randomItemNumber < 1) {
             getItem().mint(receiver, 1, 1);
@@ -385,7 +384,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
         require(level < MAX_LEVEL, "Error : Token is MaxLevel Status");
 
-        uint256 calculatePrice = calculateTokenAmount(hero.grade, level);
+        uint256 calculatePrice = getLevelDiagram().calculateTokenAmount(hero.grade, level);
 
         require(
             getToken().balanceOf(msg.sender) >= calculatePrice,
@@ -543,7 +542,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
 
                 if (userHero.status.mining) {
                     totalPower = totalPower.add(
-                        calculatePower(userHero.grade, userHero.level)
+                        getLevelDiagram().calculatePower(userHero.grade, userHero.level)
                     );
                 }
             }
@@ -552,7 +551,7 @@ contract HeroCore is TimeLock, LevelDiagram, MakeGrade, IHeroCore {
         } else {
             HERO memory userHero = heroVault[_tokenId];
 
-            return calculatePower(userHero.grade, userHero.level);
+            return getLevelDiagram().calculatePower(userHero.grade, userHero.level);
         }
     }
 

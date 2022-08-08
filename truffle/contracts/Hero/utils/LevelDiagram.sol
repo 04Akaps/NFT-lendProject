@@ -1,18 +1,26 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
-import "./HeroController.sol";
+import "../../interface/IKIP37/IKIP37Full.sol";
+import "../interface/ILevelDiagram.sol";
 
-contract LevelDiagram is HeroController {
+contract LevelDiagram is ILevelDiagram  {
     bytes32 private constant MYTHOLOGY = keccak256("Mythology");
     bytes32 private constant LEGENDARY = keccak256("Legendary");
     bytes32 private constant EPIC = keccak256("Epic");
     bytes32 private constant ADMINISTRATOR = keccak256("Administrator");
     bytes32 private constant NORMAL = keccak256("Normal");
 
+    IKIP37Full private item;
+
+    constructor(address _item) {
+        item = IKIP37Full(_item);
+    }
+
     function calculateTokenAmount(string memory grade, uint256 level)
         public
         pure
+        override
         returns (uint256)
     {
         uint256 gradeAmount = calculateBasicGradeAmount(grade);
@@ -24,6 +32,7 @@ contract LevelDiagram is HeroController {
     function calculateBasicLevelAmount(uint256 level)
         internal
         pure
+        override
         returns (uint256)
     {
         return (
@@ -36,6 +45,7 @@ contract LevelDiagram is HeroController {
     function calculateBasicGradeAmount(string memory grade)
         internal
         pure
+        override
         returns (uint256)
     {
         bytes32 gradeCheck = keccak256(bytes(grade));
@@ -54,8 +64,9 @@ contract LevelDiagram is HeroController {
     }
 
     function calculateItemIndex(uint256 _power)
-        internal
+        external
         view
+        override
         returns (uint256)
     {
         for (uint256 i = 1; i <= 5; i++) {
@@ -72,8 +83,9 @@ contract LevelDiagram is HeroController {
     }
 
     function calculatePower(string memory grade, uint256 level)
-        internal
+        external
         view
+        override
         returns (uint256)
     {
         bytes32 gradeCheck = keccak256(bytes(grade));
@@ -101,7 +113,7 @@ contract LevelDiagram is HeroController {
         uint256 itemPower = 0;
 
         for (uint256 i = 1; i <= 5; i++) {
-            uint256 balanceOf = getItem().balanceOf(msg.sender, i);
+            uint256 balanceOf = item.balanceOf(msg.sender, i);
             uint256 basicItemPower = i + 1;
             itemPower = itemPower + (basicItemPower * balanceOf);
         }
@@ -112,6 +124,7 @@ contract LevelDiagram is HeroController {
     function makeRandomNumberForItem(uint256 _tokenIndex)
         internal
         view
+        override
         returns (uint256)
     {
         return

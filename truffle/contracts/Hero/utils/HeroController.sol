@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../../utils/SafeMath.sol";
 
 import "../interface/IHeroNFT.sol";
+import "../interface/ILevelDiagram.sol";
 
 import "../../interface/IKIP7/IKIP7.sol";
 import "../../interface/IKIP37/IKIP37Full.sol";
@@ -14,6 +15,7 @@ contract HeroController {
     IHeroNFT private heroNFT;
     IKIP7 private token;
     IKIP37Full private item;
+    ILevelDiagram private levelDiagram;
 
     address payable private coreOwner;
     address depositAddress;
@@ -46,6 +48,7 @@ contract HeroController {
         address _heroNFT,
         address _token,
         address _item,
+        address _levelDiagram,
         address _depositAddress,
         address _miningAddress,
         uint256 _klay,
@@ -57,6 +60,7 @@ contract HeroController {
         heroNFT = IHeroNFT(_heroNFT);
         token = IKIP7(_token);
         item = IKIP37Full(_item);
+        levelDiagram = ILevelDiagram(_levelDiagram);
 
         depositAddress = _depositAddress;
         miningAddress = _miningAddress;
@@ -82,6 +86,10 @@ contract HeroController {
 
     function getMiningPaused() public view returns (bool) {
         return miningPaused;
+    }
+
+    function getLevelDiagram() public view returns(ILevelDiagram){
+        return levelDiagram;
     }
 
     function getItem() public view returns (IKIP37Full) {

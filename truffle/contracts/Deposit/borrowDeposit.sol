@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 import "../interface/IKIP7/IKIP7.sol";
 import "../utils/Ownable.sol";

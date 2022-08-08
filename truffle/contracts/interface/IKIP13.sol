@@ -3,7 +3,7 @@
 // Based on OpenZeppelin Contracts v4.5.0 (utils/introspection/IERC165.sol)
 // https://github.com/OpenZeppelin/openzeppelin-contracts/releases/tag/v4.5.0
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 /**
  * @dev Interface of the KIP13 standard as defined in the KIP.

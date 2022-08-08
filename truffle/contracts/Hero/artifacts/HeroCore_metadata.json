@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.4+commit.c7e474f2"
 	},
 	"language": "Solidity",
 	"output": {
@@ -44,7 +44,7 @@
 						"type": "address"
 					}
 				],
-				"name": "approveBorrow",
+				"name": "approveBorrowRequest",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -65,36 +65,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "grade",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "level",
-						"type": "uint256"
-					}
-				],
-				"name": "calculateTokenAmount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "uint256",
 						"name": "_tokenId",
 						"type": "uint256"
 					}
 				],
-				"name": "cancelRequest",
+				"name": "cancelBorrowRequest",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -128,19 +104,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "depositAddress",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "getHeroNFT",
 				"outputs": [
 					{
@@ -153,11 +116,155 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "total",
+						"type": "bool"
+					}
+				],
+				"name": "getHeroPower",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_heroTokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getHeroStatus",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "level",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "grade",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "birthTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "reward",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "bool",
+										"name": "borrowed",
+										"type": "bool"
+									},
+									{
+										"internalType": "bool",
+										"name": "traveled",
+										"type": "bool"
+									},
+									{
+										"internalType": "bool",
+										"name": "mining",
+										"type": "bool"
+									},
+									{
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "travelOwner",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "travelTime",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct IHeroCore.traveledStruct",
+										"name": "travelData",
+										"type": "tuple"
+									},
+									{
+										"components": [
+											{
+												"internalType": "uint256",
+												"name": "borrowEndTime",
+												"type": "uint256"
+											},
+											{
+												"internalType": "address",
+												"name": "borrowers",
+												"type": "address"
+											}
+										],
+										"internalType": "struct IHeroCore.borrowStruct",
+										"name": "borrowData",
+										"type": "tuple"
+									}
+								],
+								"internalType": "struct IHeroCore.chcekStatus",
+								"name": "status",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct IHeroCore.HERO",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "getItem",
 				"outputs": [
 					{
 						"internalType": "contract IKIP37Full",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getLevelDiagram",
+				"outputs": [
+					{
+						"internalType": "contract ILevelDiagram",
 						"name": "",
 						"type": "address"
 					}
@@ -179,13 +286,107 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getMintBuyAmount",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					}
+				],
+				"name": "getMyTotalHeroStatus",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "tokenId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "level",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "grade",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "birthTime",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "reward",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"internalType": "bool",
+										"name": "borrowed",
+										"type": "bool"
+									},
+									{
+										"internalType": "bool",
+										"name": "traveled",
+										"type": "bool"
+									},
+									{
+										"internalType": "bool",
+										"name": "mining",
+										"type": "bool"
+									},
+									{
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "travelOwner",
+												"type": "address"
+											},
+											{
+												"internalType": "uint256",
+												"name": "travelTime",
+												"type": "uint256"
+											}
+										],
+										"internalType": "struct IHeroCore.traveledStruct",
+										"name": "travelData",
+										"type": "tuple"
+									},
+									{
+										"components": [
+											{
+												"internalType": "uint256",
+												"name": "borrowEndTime",
+												"type": "uint256"
+											},
+											{
+												"internalType": "address",
+												"name": "borrowers",
+												"type": "address"
+											}
+										],
+										"internalType": "struct IHeroCore.borrowStruct",
+										"name": "borrowData",
+										"type": "tuple"
+									}
+								],
+								"internalType": "struct IHeroCore.chcekStatus",
+								"name": "status",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct IHeroCore.HERO[]",
 						"name": "",
-						"type": "uint256"
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -262,7 +463,17 @@
 					},
 					{
 						"internalType": "address",
+						"name": "_levelDiagram",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
 						"name": "_depositAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_miningAddress",
 						"type": "address"
 					},
 					{
@@ -279,19 +490,6 @@
 				"name": "initialize",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "lastClaimTime",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -405,7 +603,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "returnHero",
+				"name": "returnBorrowed",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -419,6 +617,19 @@
 					}
 				],
 				"name": "stake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "stopMining",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -467,6 +678,10 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -490,111 +705,122 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Hero/HeroCore.sol": {
-			"keccak256": "0xf932c76d2c41e3060f2855bc58bd27561d5c2b59f76eb66cfef83c8f86d86861",
+			"keccak256": "0xb82ac361542ccdfb38915f4b800c227570f0f84523d7b90a59f3a7ec3951c0d5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1da9718b6b65093245878ade5318302fb97b1f9592e24739a192e0b7295ed891",
-				"dweb:/ipfs/Qmb8wYt8bjVCf9teQNw6qCptti2jzXPXHtr6kgkzebMDXJ"
+				"bzz-raw://596cc5443da6454aff5a5bba7a033478e5a4724ff7334f96afd5d425dcf597ff",
+				"dweb:/ipfs/QmXTUzhLpJJFJ1SQD2PuMUzebLyz8ovfT6kmnTJYHVXhVM"
+			]
+		},
+		"Hero/interface/IHeroCore.sol": {
+			"keccak256": "0xc5ce9217fd638763d941efc6a95214af8cecf547e2a8c001dd8602ecd7841fb1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6ae517d33c84a0f68981f998fe86b24dc1d5895eacc4ac1b20140a847bdd4a07",
+				"dweb:/ipfs/QmY4xS2yNDfnKmwN7uzvZwDqogJetu28TqeJfLvEtrh3QU"
 			]
 		},
 		"Hero/interface/IHeroNFT.sol": {
-			"keccak256": "0x3142bf7e33635c4a58ba1511634a9e8a051f5416dd58edbcf9c27adfc4dfcc58",
+			"keccak256": "0x28719918b6bcd5da2fc05c963dd0c407c3d256a41ba787fd7dd05cfb8e0eefbd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1645ba5a631e37e18ca2c1c2eaaabd6568b1fb899be03a28f24dcda06f21a52e",
-				"dweb:/ipfs/QmSLvQA4RGL5fXEhHVp7Fmh5ACeRZ3PT7cfmgCj2rC2jTa"
+				"bzz-raw://922cc5d0a7c86837ac8697ee76295642fb8ca35453f7e2b20392dc4d3403e651",
+				"dweb:/ipfs/QmPYwhoSmrcTJDR8HgQKH4nTfauncjRUMBDWJTAY99ygX5"
+			]
+		},
+		"Hero/interface/ILevelDiagram.sol": {
+			"keccak256": "0xd8f437609b68a64d8c4e7a7e558d2423cdbc024223b79dd70f7efb9f91188cb2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://287b8c1aaffad16c4cdd055421a36560632359f8655dea7c0161898ca096ffa5",
+				"dweb:/ipfs/Qmbw5qpkztZG8Kr5daxyUcs45oe4NdAxaxjRCccyao14bZ"
 			]
 		},
 		"Hero/utils/HeroController.sol": {
-			"keccak256": "0x777f95655ba80ef72f7afe349bf9fe1e3733401e2dfdf15a83bc31b6b597060d",
+			"keccak256": "0xe603cc4bd26ab6084846a4d34ad9ecb10e7dc108ef6402fcdbb63169cd719ae8",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5acca968583e5d97caef43431734b38f4b7b412834b96b3917acd5bde22fd3ad",
-				"dweb:/ipfs/QmYUJsyzUvpheYyacJTYtwPutPLdqRQVaY1Y8eyiBacK4q"
-			]
-		},
-		"Hero/utils/LevelDiagram.sol": {
-			"keccak256": "0x418465c9bf02752efddcf4040410b1d21c788bb6b2ec8cabab5cced07a37c520",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://bcfcf8d2e93eef9d9a08135c7bae28737e598b041f7193dd206ee7eca6fe8f09",
-				"dweb:/ipfs/QmNmNT2Xv9dZdfQE9MgHfKELFXS8r9gU24X17PTSgcr6Us"
+				"bzz-raw://2e9a668be1d84bb51ac19bc74c351b740430523d36cd33cf457fa68fcb895ef7",
+				"dweb:/ipfs/QmVCdV4xWL7vpebbBG39nNatCH3p2sRASFWHb94MH6pCCX"
 			]
 		},
 		"Hero/utils/MakeGrade.sol": {
-			"keccak256": "0x20db758bee05614ad27579aee61cb9b8b0ccbc8d6346d95c46e191f2bb789837",
+			"keccak256": "0x43c2945ed3b6ec1526972f94ba037099d0331fd57f55286b97f406b2ed75c8e2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1d4b64a9e5ec773afde76039170a372667637da17d37036e4a416f52f0131db8",
-				"dweb:/ipfs/QmUUXoTZsXibaYso4vmPiCw2NfVS3Lkcc7qP3sSoGfXFSn"
+				"bzz-raw://4b104d9b1d0189cb1b256adb207bf106931f02dcd7049cf6a8ebcb3394cce391",
+				"dweb:/ipfs/QmUi6NTfRNQhWPFFyDP5bFnHEX1Ts1LNbqwLZ6dTgfSChe"
 			]
 		},
 		"Hero/utils/TimeLock.sol": {
-			"keccak256": "0x339ed4595a37d70486add08e6f934df6c03da83bc1ace739500f72ac8adeac28",
+			"keccak256": "0xe740f44c141a2cf83f96edf4c1929c2007cfe3ad5341e32f347a35e62535d52c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://89c342adc54e85d5f27aac57a7bd77897d6a0a02ceee3ea76e926fbf82a96fa0",
-				"dweb:/ipfs/QmRca7SFNupdKzfVTQxEwJfRUYCZVgu7KzrFfWD8SFpoWN"
+				"bzz-raw://04bfe23c68fbdde51f330376296faef92e2ffbe2411d6e9dddacefec219bb223",
+				"dweb:/ipfs/QmR8fCXJn68z1dHiStYPY5xnWzWnA4jEpYHj1LrDXzRdtn"
 			]
 		},
 		"interface/IKIP13.sol": {
-			"keccak256": "0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46",
+			"keccak256": "0xfdc08b420cede6482f052a07ef775bf7c0103ceae60337727004f731a6bd2653",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3d5b38071876acadb51cd31254f6eefa30d9240c21b531bdb89648f7475231fd",
-				"dweb:/ipfs/QmVvkB9Uwwdq2QJp1uU6eJrcetmaU9zdcNvdg2z9zRmy9e"
+				"bzz-raw://e9eddad72f93d392fea0f3f0e67776553b6c9bbe06fc3fbd880dac47a61bf1b1",
+				"dweb:/ipfs/QmfYexZsRLaVRfDoReAGBd2L5fAwUJe4o4b7JiiiFpjeUf"
 			]
 		},
 		"interface/IKIP17/IKIP17.sol": {
-			"keccak256": "0xc38b8dadbb565878acbbd3ddea3942ba9f9f8af764291b5e619a014a0ea7cd6a",
+			"keccak256": "0x8aaca7322408ebd3c1086d3b0c285721b92f9c87984dedf03a6b2698a25e1188",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6707e94aab2ecf8ae4bedbba16cd2465299944644d89f3ce42d85277a8c110b0",
-				"dweb:/ipfs/Qmb2S5XaidxjUtbiEE89JJNpCATHGXLJ69QHCzEy8sr2Yc"
+				"bzz-raw://00b071a01cc3eb2ce9b303ba24905f43f8d537466042dc2dbf6a1877db018670",
+				"dweb:/ipfs/QmXbtEuZzGDwGTAsXBhBUVwcPGN7UEPc6zKSUF3LfMxSPm"
 			]
 		},
 		"interface/IKIP37/IKIP37.sol": {
-			"keccak256": "0xd259d4a94b6d4e9fedeaebb635304600c4b1742347d584a5b08a09c1dfdf2e1f",
+			"keccak256": "0xd5ab10c6d1d62b27a38ecd19d534ba8bf3db56425069065b1cb0b5a16c47f7d0",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://9d31657d22ffce0903e9850ded6d0c66d569fc32b24224e9790c08bb09b7c4a0",
-				"dweb:/ipfs/QmQB9oLbyxJomynQsCTmRrBDWmUfDdJ9Y5uVCBh3iW79E4"
+				"bzz-raw://3e535a86c28ed23615fa385e004f46e795d549d6ccb77c73ccba99dcf692fc58",
+				"dweb:/ipfs/QmR6w6fArhEaRnE3NfhjrMDsTEq893EE9PHVwJCcgGTsac"
 			]
 		},
 		"interface/IKIP37/IKIP37Full.sol": {
-			"keccak256": "0xd13c65087f8709cb37af9ec020ba536857750aa51a938c352672be814b20186e",
+			"keccak256": "0xdd12853a84ddb6d1e6f11cea359d858206916acf6c4f2781d9bbb5ceabd3d917",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://8e89784b1af6476261c3e5a100d5f8ce7f73fee8aa65c801859246f930c8eb35",
-				"dweb:/ipfs/QmNrxDjGTFfcUZmqBApaq9ZTQMYiN57ted8hVHVBJFyqr6"
+				"bzz-raw://b2bcd5c381beede46e7b8ca489837706617c3c702fd8fe70563b0c4d3f85bcea",
+				"dweb:/ipfs/QmXPCqN2Yj8Tawkeg6aCwRUcnsn6JcVfRvKYyZgtS1Lgtj"
 			]
 		},
 		"interface/IKIP37/IKIP37MetadataURI.sol": {
-			"keccak256": "0x917308a392f6d30fd6425bfcf0e36ac45dd0ee36836c2c8bf2771291b926c1e4",
+			"keccak256": "0x436fce34d12c87b533de86dd98b218716ef59e7b5fc7677a6d82e54347d8f217",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://fca23c0e05c1721e104a86044873676778fdc0ed9b7a72f10eed9ec09697d83b",
-				"dweb:/ipfs/QmVp1ng2PViGjRaJQNzkA8qNAorwXvNz7b8vxmdcHQzDPd"
+				"bzz-raw://ccdef2e041234906d7adf73194d3d29c0885d263546da69c85aac4f1460847da",
+				"dweb:/ipfs/QmfYJFHs97agtUWpeDsVmjFrdWDWh9sm82NzqVBJmXXwuh"
 			]
 		},
 		"interface/IKIP7/IKIP7.sol": {
-			"keccak256": "0xf3f1e32e3d07b7894d60806f2a42b9d369929cc8a429973356f518ca782532a9",
+			"keccak256": "0x5682f350cd2e8a78fc918639e421e7e81ca17576106687049595d84ca248346e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ddc28fd4b48e353d73949eed634f7a6fd493f0bf5f712f8b3cbff60f85d3f035",
-				"dweb:/ipfs/QmZXnazRkWH2qsKayjNP7oVrwmQPoP5uUPQ837PzP4K7Ws"
+				"bzz-raw://537a3ac6311e841c1fdb2b8b9270219bf6e7b2c91271f361c189dc90159a4bff",
+				"dweb:/ipfs/QmRa5jJs3S3WjPPL4mWpXE2eGEk97gYR2S8yoDxtU8Tm68"
 			]
 		},
 		"utils/SafeMath.sol": {
-			"keccak256": "0x72f53db77ad38e00bf1f7409a6367bdc259fbf196e759c2daa023c313211ec0e",
+			"keccak256": "0x884e0eaf6a4a9779317975ad010c62f3a4bd66ed64334977bc7afba8d97fab58",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://eb4600a095a19fa42b1ba4050ccb38d1c3afddc510cc75e995e5ecc590711b59",
-				"dweb:/ipfs/QmQ1ep88ySZ3cK8GfX5hmz2gwhAX7ppLkVVSn4wxSYHNVj"
+				"bzz-raw://d61f2e9002f930fb312e3e6fe19753b1dedb5980b1baaef8914b794ba2a3106e",
+				"dweb:/ipfs/QmYKxUyMMoak1sEdyQvq6hcEdsKtiAUunj1f51LBM6M8fm"
 			]
 		}
 	},

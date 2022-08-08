@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
-import "./IHeroCoreFunc.sol";
-
-contract IHeroCore is IHeroCoreFunc {
+contract IHeroCore  {
     struct HERO {
         uint256 tokenId;
         uint256 level;

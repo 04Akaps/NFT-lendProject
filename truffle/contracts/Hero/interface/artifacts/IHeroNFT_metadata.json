@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.4+commit.c7e474f2"
 	},
 	"language": "Solidity",
 	"output": {
@@ -408,34 +408,34 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
 	},
 	"sources": {
 		"Hero/interface/IHeroNFT.sol": {
-			"keccak256": "0x3142bf7e33635c4a58ba1511634a9e8a051f5416dd58edbcf9c27adfc4dfcc58",
+			"keccak256": "0x28719918b6bcd5da2fc05c963dd0c407c3d256a41ba787fd7dd05cfb8e0eefbd",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1645ba5a631e37e18ca2c1c2eaaabd6568b1fb899be03a28f24dcda06f21a52e",
-				"dweb:/ipfs/QmSLvQA4RGL5fXEhHVp7Fmh5ACeRZ3PT7cfmgCj2rC2jTa"
+				"bzz-raw://922cc5d0a7c86837ac8697ee76295642fb8ca35453f7e2b20392dc4d3403e651",
+				"dweb:/ipfs/QmPYwhoSmrcTJDR8HgQKH4nTfauncjRUMBDWJTAY99ygX5"
 			]
 		},
 		"interface/IKIP13.sol": {
-			"keccak256": "0xb63277576f18a3a05c2ec7736bbb7b4a0bd0d12bbd823a4751144d60273a2c46",
+			"keccak256": "0xfdc08b420cede6482f052a07ef775bf7c0103ceae60337727004f731a6bd2653",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3d5b38071876acadb51cd31254f6eefa30d9240c21b531bdb89648f7475231fd",
-				"dweb:/ipfs/QmVvkB9Uwwdq2QJp1uU6eJrcetmaU9zdcNvdg2z9zRmy9e"
+				"bzz-raw://e9eddad72f93d392fea0f3f0e67776553b6c9bbe06fc3fbd880dac47a61bf1b1",
+				"dweb:/ipfs/QmfYexZsRLaVRfDoReAGBd2L5fAwUJe4o4b7JiiiFpjeUf"
 			]
 		},
 		"interface/IKIP17/IKIP17.sol": {
-			"keccak256": "0xc38b8dadbb565878acbbd3ddea3942ba9f9f8af764291b5e619a014a0ea7cd6a",
+			"keccak256": "0x8aaca7322408ebd3c1086d3b0c285721b92f9c87984dedf03a6b2698a25e1188",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6707e94aab2ecf8ae4bedbba16cd2465299944644d89f3ce42d85277a8c110b0",
-				"dweb:/ipfs/Qmb2S5XaidxjUtbiEE89JJNpCATHGXLJ69QHCzEy8sr2Yc"
+				"bzz-raw://00b071a01cc3eb2ce9b303ba24905f43f8d537466042dc2dbf6a1877db018670",
+				"dweb:/ipfs/QmXbtEuZzGDwGTAsXBhBUVwcPGN7UEPc6zKSUF3LfMxSPm"
 			]
 		}
 	},

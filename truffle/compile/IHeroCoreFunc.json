@@ -1,35 +1,36 @@
 {
   "contractName": "IHeroCoreFunc",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":\"IHeroCoreFunc\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":{\"keccak256\":\"0x2e615313b921bd5a844a462662894168ecb63683d0e5eddeba586958e1c1e853\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6cc44db8596891b99d561f56e0e573283e07dd1c8313b2a4b177ac3fb54ba17a\",\"dweb:/ipfs/QmNmCuJ4aKquibWK4Dkx5Za3QB3MNehJsHXs9sMcWW5z29\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212205e7ca16203ebfa81d4c36cc9ad1bf0b4c8daeb4c9cd4e93e53e6bba185250c5964736f6c63430008000033",
-  "deployedBytecode": "0x6080604052600080fdfea26469706673582212205e7ca16203ebfa81d4c36cc9ad1bf0b4c8daeb4c9cd4e93e53e6bba185250c5964736f6c63430008000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Hero/interface/IHeroCoreFunc.sol\":\"IHeroCoreFunc\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Hero/interface/IHeroCoreFunc.sol\":{\"keccak256\":\"0x1515e8b535017fcd003275180dfe7fa48d75faf1dfe8534ad1484bbf95d3a3c3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e837af01a611e11dcfef5ee4b5431cebebd59a89b42059ab80eea35f873485cc\",\"dweb:/ipfs/QmPL92pf3Fss6sw68UG5cnQBwV3vgPYCtJycX1abXejR6a\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207cb68f8fd7034265791b0805d13e7322fe9791fabaa4f31501d2af4b837c30de64736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207cb68f8fd7034265791b0805d13e7322fe9791fabaa4f31501d2af4b837c30de64736f6c63430008040033",
   "immutableReferences": {},
-  "sourceMap": "57:25:7:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "57:25:7:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract IHeroCoreFunc {}\n",
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "56:25:24:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "56:25:24:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.4;\n\ncontract IHeroCoreFunc {}\n",
   "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
   "ast": {
-    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+    "absolutePath": "project:/contracts/Hero/interface/IHeroCoreFunc.sol",
     "exportedSymbols": {
       "IHeroCoreFunc": [
-        2235
+        2457
       ]
     },
-    "id": 2236,
+    "id": 2458,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2234,
+        "id": 2456,
         "literals": [
           "solidity",
-          "^",
           "0.8",
-          ".0"
+          ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:7"
+        "src": "32:22:24"
       },
       {
         "abstract": false,
@@ -37,40 +38,41 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2235,
+        "id": 2457,
         "linearizedBaseContracts": [
-          2235
+          2457
         ],
         "name": "IHeroCoreFunc",
+        "nameLocation": "65:13:24",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 2236,
-        "src": "57:25:7"
+        "scope": 2458,
+        "src": "56:25:24",
+        "usedErrors": []
       }
     ],
-    "src": "32:51:7"
+    "src": "32:50:24"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
+    "absolutePath": "project:/contracts/Hero/interface/IHeroCoreFunc.sol",
     "exportedSymbols": {
       "IHeroCoreFunc": [
-        2235
+        2457
       ]
     },
-    "id": 2236,
+    "id": 2458,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2234,
+        "id": 2456,
         "literals": [
           "solidity",
-          "^",
           "0.8",
-          ".0"
+          ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:7"
+        "src": "32:22:24"
       },
       {
         "abstract": false,
@@ -78,26 +80,28 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2235,
+        "id": 2457,
         "linearizedBaseContracts": [
-          2235
+          2457
         ],
         "name": "IHeroCoreFunc",
+        "nameLocation": "65:13:24",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 2236,
-        "src": "57:25:7"
+        "scope": 2458,
+        "src": "56:25:24",
+        "usedErrors": []
       }
     ],
-    "src": "32:51:7"
+    "src": "32:50:24"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T12:24:02.154Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-08-06T03:50:47.337Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

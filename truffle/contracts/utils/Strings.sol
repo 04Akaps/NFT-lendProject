@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+pragma solidity 0.8.4;
 
 library Strings {
     bytes16 private constant _HEX_SYMBOLS = "0123456789abcdef";
@@ -25,11 +25,19 @@ library Strings {
         return string(buffer);
     }
 
-    function append(string memory a, string memory b, string memory c) internal pure returns (string memory) {
+    function append(
+        string memory a,
+        string memory b,
+        string memory c
+    ) internal pure returns (string memory) {
         return string(abi.encodePacked(a, b, c));
     }
 
-    function tokenURI(string memory _prifix, string memory _suffix,uint256 _tokenId)internal pure returns (string memory){
+    function tokenURI(
+        string memory _prifix,
+        string memory _suffix,
+        uint256 _tokenId
+    ) internal pure returns (string memory) {
         return append(_prifix, toString(_tokenId), _suffix);
     }
 }

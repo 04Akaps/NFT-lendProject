@@ -1,91 +1,64 @@
 {
   "contractName": "IHeroCore",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol\":\"IHeroCore\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol\":{\"keccak256\":\"0xc57a74b2b42b882fb1456996c41518e504c8633486a2e4bc71cac6168e8edc6d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b64d94f9ba9e815b882c93f9fbfb29f9fb8af3d109782949665d70ac09066140\",\"dweb:/ipfs/QmeAeu8eL6g4qd5uBU7LKbWCD5QKEbPhK9DoV1Zvdk9rCm\"]},\"/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol\":{\"keccak256\":\"0x2e615313b921bd5a844a462662894168ecb63683d0e5eddeba586958e1c1e853\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6cc44db8596891b99d561f56e0e573283e07dd1c8313b2a4b177ac3fb54ba17a\",\"dweb:/ipfs/QmNmCuJ4aKquibWK4Dkx5Za3QB3MNehJsHXs9sMcWW5z29\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122005a85596b082cda96e152cb734b4fe0984f41e34bc9bd01380624123acb0aa9764736f6c63430008000033",
-  "deployedBytecode": "0x6080604052600080fdfea264697066735822122005a85596b082cda96e152cb734b4fe0984f41e34bc9bd01380624123acb0aa9764736f6c63430008000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Hero/interface/IHeroCore.sol\":\"IHeroCore\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Hero/interface/IHeroCore.sol\":{\"keccak256\":\"0xc5ce9217fd638763d941efc6a95214af8cecf547e2a8c001dd8602ecd7841fb1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6ae517d33c84a0f68981f998fe86b24dc1d5895eacc4ac1b20140a847bdd4a07\",\"dweb:/ipfs/QmY4xS2yNDfnKmwN7uzvZwDqogJetu28TqeJfLvEtrh3QU\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207c84d145cf21ac4185d19428b5f4eaf70c51bbcebca0c296ba47cd6032648bb664736f6c63430008040033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207c84d145cf21ac4185d19428b5f4eaf70c51bbcebca0c296ba47cd6032648bb664736f6c63430008040033",
   "immutableReferences": {},
-  "sourceMap": "88:675:6:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "88:675:6:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\nimport \"./IHeroCoreFunc.sol\";\n\ncontract IHeroCore is IHeroCoreFunc {\n    struct HERO {\n        uint256 tokenId;\n        uint256 level;\n        string grade;\n        uint256 birthTime;\n        uint256 reward;\n        chcekStatus status;\n    }\n\n    struct chcekStatus {\n        bool borrowed;\n        bool traveled;\n        bool mining;\n        address owner;\n        traveledStruct travelData;\n        borrowStruct borrowData;\n    }\n\n    struct borrowStruct {\n        uint256 borrowEndTime;\n        address borrowers;\n    }\n\n    struct traveledStruct {\n        address travelOwner;\n        uint256 travelTime;\n    }\n\n    struct RequestStruct {\n        address requestOwner;\n        uint256 duration;\n    }\n}\n",
-  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "56:659:25:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "56:659:25:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.4;\n\ncontract IHeroCore  {\n    struct HERO {\n        uint256 tokenId;\n        uint256 level;\n        string grade;\n        uint256 birthTime;\n        uint256 reward;\n        chcekStatus status;\n    }\n\n    struct chcekStatus {\n        bool borrowed;\n        bool traveled;\n        bool mining;\n        address owner;\n        traveledStruct travelData;\n        borrowStruct borrowData;\n    }\n\n    struct borrowStruct {\n        uint256 borrowEndTime;\n        address borrowers;\n    }\n\n    struct traveledStruct {\n        address travelOwner;\n        uint256 travelTime;\n    }\n\n    struct RequestStruct {\n        address requestOwner;\n        uint256 duration;\n    }\n}\n",
+  "sourcePath": "/Users/yuhojin/Desktop/NFT-lendProject/Truffle/contracts/Hero/interface/IHeroCore.sol",
   "ast": {
-    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+    "absolutePath": "project:/contracts/Hero/interface/IHeroCore.sol",
     "exportedSymbols": {
       "IHeroCore": [
-        2232
-      ],
-      "IHeroCoreFunc": [
-        2235
+        2462
       ]
     },
-    "id": 2233,
+    "id": 2463,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2184,
+        "id": 2417,
         "literals": [
           "solidity",
-          "^",
           "0.8",
-          ".0"
+          ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:6"
-      },
-      {
-        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
-        "file": "./IHeroCoreFunc.sol",
-        "id": 2185,
-        "nodeType": "ImportDirective",
-        "scope": 2233,
-        "sourceUnit": 2236,
-        "src": "57:29:6",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "src": "32:22:25"
       },
       {
         "abstract": false,
-        "baseContracts": [
-          {
-            "baseName": {
-              "id": 2186,
-              "name": "IHeroCoreFunc",
-              "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2235,
-              "src": "110:13:6"
-            },
-            "id": 2187,
-            "nodeType": "InheritanceSpecifier",
-            "src": "110:13:6"
-          }
-        ],
-        "contractDependencies": [
-          2235
-        ],
+        "baseContracts": [],
+        "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2232,
+        "id": 2462,
         "linearizedBaseContracts": [
-          2232,
-          2235
+          2462
         ],
         "name": "IHeroCore",
+        "nameLocation": "65:9:25",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IHeroCore.HERO",
-            "id": 2201,
+            "id": 2431,
             "members": [
               {
                 "constant": false,
-                "id": 2189,
+                "id": 2419,
                 "mutability": "mutable",
                 "name": "tokenId",
+                "nameLocation": "112:7:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "152:15:6",
+                "scope": 2431,
+                "src": "104:15:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -93,10 +66,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2188,
+                  "id": 2418,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "152:7:6",
+                  "src": "104:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -106,12 +79,13 @@
               },
               {
                 "constant": false,
-                "id": 2191,
+                "id": 2421,
                 "mutability": "mutable",
                 "name": "level",
+                "nameLocation": "137:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "177:13:6",
+                "scope": 2431,
+                "src": "129:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -119,10 +93,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2190,
+                  "id": 2420,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "177:7:6",
+                  "src": "129:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -132,12 +106,13 @@
               },
               {
                 "constant": false,
-                "id": 2193,
+                "id": 2423,
                 "mutability": "mutable",
                 "name": "grade",
+                "nameLocation": "159:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "200:12:6",
+                "scope": 2431,
+                "src": "152:12:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -145,10 +120,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2192,
+                  "id": 2422,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "200:6:6",
+                  "src": "152:6:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -158,12 +133,13 @@
               },
               {
                 "constant": false,
-                "id": 2195,
+                "id": 2425,
                 "mutability": "mutable",
                 "name": "birthTime",
+                "nameLocation": "182:9:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "222:17:6",
+                "scope": 2431,
+                "src": "174:17:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -171,10 +147,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2194,
+                  "id": 2424,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "222:7:6",
+                  "src": "174:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -184,12 +160,13 @@
               },
               {
                 "constant": false,
-                "id": 2197,
+                "id": 2427,
                 "mutability": "mutable",
                 "name": "reward",
+                "nameLocation": "209:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "249:14:6",
+                "scope": 2431,
+                "src": "201:14:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -197,10 +174,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2196,
+                  "id": 2426,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "249:7:6",
+                  "src": "201:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -210,32 +187,33 @@
               },
               {
                 "constant": false,
-                "id": 2200,
+                "id": 2430,
                 "mutability": "mutable",
                 "name": "status",
+                "nameLocation": "237:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "273:18:6",
+                "scope": 2431,
+                "src": "225:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                  "typeIdentifier": "t_struct$_chcekStatus_$2446_storage_ptr",
                   "typeString": "struct IHeroCore.chcekStatus"
                 },
                 "typeName": {
-                  "id": 2199,
+                  "id": 2429,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2198,
+                    "id": 2428,
                     "name": "chcekStatus",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2216,
-                    "src": "273:11:6"
+                    "referencedDeclaration": 2446,
+                    "src": "225:11:25"
                   },
-                  "referencedDeclaration": 2216,
-                  "src": "273:11:6",
+                  "referencedDeclaration": 2446,
+                  "src": "225:11:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                    "typeIdentifier": "t_struct$_chcekStatus_$2446_storage_ptr",
                     "typeString": "struct IHeroCore.chcekStatus"
                   }
                 },
@@ -243,23 +221,25 @@
               }
             ],
             "name": "HERO",
+            "nameLocation": "89:4:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "130:168:6",
+            "scope": 2462,
+            "src": "82:168:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.chcekStatus",
-            "id": 2216,
+            "id": 2446,
             "members": [
               {
                 "constant": false,
-                "id": 2203,
+                "id": 2433,
                 "mutability": "mutable",
                 "name": "borrowed",
+                "nameLocation": "290:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "333:13:6",
+                "scope": 2446,
+                "src": "285:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -267,10 +247,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2202,
+                  "id": 2432,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "333:4:6",
+                  "src": "285:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -280,12 +260,13 @@
               },
               {
                 "constant": false,
-                "id": 2205,
+                "id": 2435,
                 "mutability": "mutable",
                 "name": "traveled",
+                "nameLocation": "313:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "356:13:6",
+                "scope": 2446,
+                "src": "308:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -293,10 +274,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2204,
+                  "id": 2434,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "356:4:6",
+                  "src": "308:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -306,12 +287,13 @@
               },
               {
                 "constant": false,
-                "id": 2207,
+                "id": 2437,
                 "mutability": "mutable",
                 "name": "mining",
+                "nameLocation": "336:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "379:11:6",
+                "scope": 2446,
+                "src": "331:11:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -319,10 +301,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2206,
+                  "id": 2436,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "379:4:6",
+                  "src": "331:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -332,12 +314,13 @@
               },
               {
                 "constant": false,
-                "id": 2209,
+                "id": 2439,
                 "mutability": "mutable",
                 "name": "owner",
+                "nameLocation": "360:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "400:13:6",
+                "scope": 2446,
+                "src": "352:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -345,10 +328,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2208,
+                  "id": 2438,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "400:7:6",
+                  "src": "352:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -359,32 +342,33 @@
               },
               {
                 "constant": false,
-                "id": 2212,
+                "id": 2442,
                 "mutability": "mutable",
                 "name": "travelData",
+                "nameLocation": "390:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "423:25:6",
+                "scope": 2446,
+                "src": "375:25:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                  "typeIdentifier": "t_struct$_traveledStruct_$2456_storage_ptr",
                   "typeString": "struct IHeroCore.traveledStruct"
                 },
                 "typeName": {
-                  "id": 2211,
+                  "id": 2441,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2210,
+                    "id": 2440,
                     "name": "traveledStruct",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2226,
-                    "src": "423:14:6"
+                    "referencedDeclaration": 2456,
+                    "src": "375:14:25"
                   },
-                  "referencedDeclaration": 2226,
-                  "src": "423:14:6",
+                  "referencedDeclaration": 2456,
+                  "src": "375:14:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                    "typeIdentifier": "t_struct$_traveledStruct_$2456_storage_ptr",
                     "typeString": "struct IHeroCore.traveledStruct"
                   }
                 },
@@ -392,32 +376,33 @@
               },
               {
                 "constant": false,
-                "id": 2215,
+                "id": 2445,
                 "mutability": "mutable",
                 "name": "borrowData",
+                "nameLocation": "423:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "458:23:6",
+                "scope": 2446,
+                "src": "410:23:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                  "typeIdentifier": "t_struct$_borrowStruct_$2451_storage_ptr",
                   "typeString": "struct IHeroCore.borrowStruct"
                 },
                 "typeName": {
-                  "id": 2214,
+                  "id": 2444,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2213,
+                    "id": 2443,
                     "name": "borrowStruct",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2221,
-                    "src": "458:12:6"
+                    "referencedDeclaration": 2451,
+                    "src": "410:12:25"
                   },
-                  "referencedDeclaration": 2221,
-                  "src": "458:12:6",
+                  "referencedDeclaration": 2451,
+                  "src": "410:12:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                    "typeIdentifier": "t_struct$_borrowStruct_$2451_storage_ptr",
                     "typeString": "struct IHeroCore.borrowStruct"
                   }
                 },
@@ -425,23 +410,25 @@
               }
             ],
             "name": "chcekStatus",
+            "nameLocation": "263:11:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "304:184:6",
+            "scope": 2462,
+            "src": "256:184:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.borrowStruct",
-            "id": 2221,
+            "id": 2451,
             "members": [
               {
                 "constant": false,
-                "id": 2218,
+                "id": 2448,
                 "mutability": "mutable",
                 "name": "borrowEndTime",
+                "nameLocation": "484:13:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2221,
-                "src": "524:21:6",
+                "scope": 2451,
+                "src": "476:21:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -449,10 +436,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2217,
+                  "id": 2447,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "524:7:6",
+                  "src": "476:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -462,12 +449,13 @@
               },
               {
                 "constant": false,
-                "id": 2220,
+                "id": 2450,
                 "mutability": "mutable",
                 "name": "borrowers",
+                "nameLocation": "515:9:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2221,
-                "src": "555:17:6",
+                "scope": 2451,
+                "src": "507:17:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -475,10 +463,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2219,
+                  "id": 2449,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "555:7:6",
+                  "src": "507:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -489,23 +477,25 @@
               }
             ],
             "name": "borrowStruct",
+            "nameLocation": "453:12:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "494:85:6",
+            "scope": 2462,
+            "src": "446:85:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.traveledStruct",
-            "id": 2226,
+            "id": 2456,
             "members": [
               {
                 "constant": false,
-                "id": 2223,
+                "id": 2453,
                 "mutability": "mutable",
                 "name": "travelOwner",
+                "nameLocation": "577:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2226,
-                "src": "617:19:6",
+                "scope": 2456,
+                "src": "569:19:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -513,10 +503,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2222,
+                  "id": 2452,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "617:7:6",
+                  "src": "569:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -527,12 +517,13 @@
               },
               {
                 "constant": false,
-                "id": 2225,
+                "id": 2455,
                 "mutability": "mutable",
                 "name": "travelTime",
+                "nameLocation": "606:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2226,
-                "src": "646:18:6",
+                "scope": 2456,
+                "src": "598:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -540,10 +531,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2224,
+                  "id": 2454,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "646:7:6",
+                  "src": "598:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -553,23 +544,25 @@
               }
             ],
             "name": "traveledStruct",
+            "nameLocation": "544:14:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "585:86:6",
+            "scope": 2462,
+            "src": "537:86:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.RequestStruct",
-            "id": 2231,
+            "id": 2461,
             "members": [
               {
                 "constant": false,
-                "id": 2228,
+                "id": 2458,
                 "mutability": "mutable",
                 "name": "requestOwner",
+                "nameLocation": "668:12:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2231,
-                "src": "708:20:6",
+                "scope": 2461,
+                "src": "660:20:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -577,10 +570,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2227,
+                  "id": 2457,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "708:7:6",
+                  "src": "660:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -591,12 +584,13 @@
               },
               {
                 "constant": false,
-                "id": 2230,
+                "id": 2460,
                 "mutability": "mutable",
                 "name": "duration",
+                "nameLocation": "698:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2231,
-                "src": "738:16:6",
+                "scope": 2461,
+                "src": "690:16:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -604,10 +598,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2229,
+                  "id": 2459,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "738:7:6",
+                  "src": "690:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -617,95 +611,68 @@
               }
             ],
             "name": "RequestStruct",
+            "nameLocation": "636:13:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "677:84:6",
+            "scope": 2462,
+            "src": "629:84:25",
             "visibility": "public"
           }
         ],
-        "scope": 2233,
-        "src": "88:675:6"
+        "scope": 2463,
+        "src": "56:659:25",
+        "usedErrors": []
       }
     ],
-    "src": "32:732:6"
+    "src": "32:684:25"
   },
   "legacyAST": {
-    "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCore.sol",
+    "absolutePath": "project:/contracts/Hero/interface/IHeroCore.sol",
     "exportedSymbols": {
       "IHeroCore": [
-        2232
-      ],
-      "IHeroCoreFunc": [
-        2235
+        2462
       ]
     },
-    "id": 2233,
+    "id": 2463,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2184,
+        "id": 2417,
         "literals": [
           "solidity",
-          "^",
           "0.8",
-          ".0"
+          ".4"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:6"
-      },
-      {
-        "absolutePath": "/Users/yuhojin/Desktop/NFT-lendProject/truffle/contracts/Hero/interface/IHeroCoreFunc.sol",
-        "file": "./IHeroCoreFunc.sol",
-        "id": 2185,
-        "nodeType": "ImportDirective",
-        "scope": 2233,
-        "sourceUnit": 2236,
-        "src": "57:29:6",
-        "symbolAliases": [],
-        "unitAlias": ""
+        "src": "32:22:25"
       },
       {
         "abstract": false,
-        "baseContracts": [
-          {
-            "baseName": {
-              "id": 2186,
-              "name": "IHeroCoreFunc",
-              "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2235,
-              "src": "110:13:6"
-            },
-            "id": 2187,
-            "nodeType": "InheritanceSpecifier",
-            "src": "110:13:6"
-          }
-        ],
-        "contractDependencies": [
-          2235
-        ],
+        "baseContracts": [],
+        "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2232,
+        "id": 2462,
         "linearizedBaseContracts": [
-          2232,
-          2235
+          2462
         ],
         "name": "IHeroCore",
+        "nameLocation": "65:9:25",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "IHeroCore.HERO",
-            "id": 2201,
+            "id": 2431,
             "members": [
               {
                 "constant": false,
-                "id": 2189,
+                "id": 2419,
                 "mutability": "mutable",
                 "name": "tokenId",
+                "nameLocation": "112:7:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "152:15:6",
+                "scope": 2431,
+                "src": "104:15:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -713,10 +680,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2188,
+                  "id": 2418,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "152:7:6",
+                  "src": "104:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -726,12 +693,13 @@
               },
               {
                 "constant": false,
-                "id": 2191,
+                "id": 2421,
                 "mutability": "mutable",
                 "name": "level",
+                "nameLocation": "137:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "177:13:6",
+                "scope": 2431,
+                "src": "129:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -739,10 +707,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2190,
+                  "id": 2420,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "177:7:6",
+                  "src": "129:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -752,12 +720,13 @@
               },
               {
                 "constant": false,
-                "id": 2193,
+                "id": 2423,
                 "mutability": "mutable",
                 "name": "grade",
+                "nameLocation": "159:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "200:12:6",
+                "scope": 2431,
+                "src": "152:12:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -765,10 +734,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 2192,
+                  "id": 2422,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "200:6:6",
+                  "src": "152:6:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -778,12 +747,13 @@
               },
               {
                 "constant": false,
-                "id": 2195,
+                "id": 2425,
                 "mutability": "mutable",
                 "name": "birthTime",
+                "nameLocation": "182:9:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "222:17:6",
+                "scope": 2431,
+                "src": "174:17:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -791,10 +761,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2194,
+                  "id": 2424,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "222:7:6",
+                  "src": "174:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -804,12 +774,13 @@
               },
               {
                 "constant": false,
-                "id": 2197,
+                "id": 2427,
                 "mutability": "mutable",
                 "name": "reward",
+                "nameLocation": "209:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "249:14:6",
+                "scope": 2431,
+                "src": "201:14:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -817,10 +788,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2196,
+                  "id": 2426,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "249:7:6",
+                  "src": "201:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -830,32 +801,33 @@
               },
               {
                 "constant": false,
-                "id": 2200,
+                "id": 2430,
                 "mutability": "mutable",
                 "name": "status",
+                "nameLocation": "237:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2201,
-                "src": "273:18:6",
+                "scope": 2431,
+                "src": "225:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                  "typeIdentifier": "t_struct$_chcekStatus_$2446_storage_ptr",
                   "typeString": "struct IHeroCore.chcekStatus"
                 },
                 "typeName": {
-                  "id": 2199,
+                  "id": 2429,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2198,
+                    "id": 2428,
                     "name": "chcekStatus",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2216,
-                    "src": "273:11:6"
+                    "referencedDeclaration": 2446,
+                    "src": "225:11:25"
                   },
-                  "referencedDeclaration": 2216,
-                  "src": "273:11:6",
+                  "referencedDeclaration": 2446,
+                  "src": "225:11:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_chcekStatus_$2216_storage_ptr",
+                    "typeIdentifier": "t_struct$_chcekStatus_$2446_storage_ptr",
                     "typeString": "struct IHeroCore.chcekStatus"
                   }
                 },
@@ -863,23 +835,25 @@
               }
             ],
             "name": "HERO",
+            "nameLocation": "89:4:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "130:168:6",
+            "scope": 2462,
+            "src": "82:168:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.chcekStatus",
-            "id": 2216,
+            "id": 2446,
             "members": [
               {
                 "constant": false,
-                "id": 2203,
+                "id": 2433,
                 "mutability": "mutable",
                 "name": "borrowed",
+                "nameLocation": "290:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "333:13:6",
+                "scope": 2446,
+                "src": "285:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -887,10 +861,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2202,
+                  "id": 2432,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "333:4:6",
+                  "src": "285:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -900,12 +874,13 @@
               },
               {
                 "constant": false,
-                "id": 2205,
+                "id": 2435,
                 "mutability": "mutable",
                 "name": "traveled",
+                "nameLocation": "313:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "356:13:6",
+                "scope": 2446,
+                "src": "308:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -913,10 +888,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2204,
+                  "id": 2434,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "356:4:6",
+                  "src": "308:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -926,12 +901,13 @@
               },
               {
                 "constant": false,
-                "id": 2207,
+                "id": 2437,
                 "mutability": "mutable",
                 "name": "mining",
+                "nameLocation": "336:6:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "379:11:6",
+                "scope": 2446,
+                "src": "331:11:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -939,10 +915,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2206,
+                  "id": 2436,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "379:4:6",
+                  "src": "331:4:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -952,12 +928,13 @@
               },
               {
                 "constant": false,
-                "id": 2209,
+                "id": 2439,
                 "mutability": "mutable",
                 "name": "owner",
+                "nameLocation": "360:5:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "400:13:6",
+                "scope": 2446,
+                "src": "352:13:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -965,10 +942,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2208,
+                  "id": 2438,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "400:7:6",
+                  "src": "352:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -979,32 +956,33 @@
               },
               {
                 "constant": false,
-                "id": 2212,
+                "id": 2442,
                 "mutability": "mutable",
                 "name": "travelData",
+                "nameLocation": "390:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "423:25:6",
+                "scope": 2446,
+                "src": "375:25:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                  "typeIdentifier": "t_struct$_traveledStruct_$2456_storage_ptr",
                   "typeString": "struct IHeroCore.traveledStruct"
                 },
                 "typeName": {
-                  "id": 2211,
+                  "id": 2441,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2210,
+                    "id": 2440,
                     "name": "traveledStruct",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2226,
-                    "src": "423:14:6"
+                    "referencedDeclaration": 2456,
+                    "src": "375:14:25"
                   },
-                  "referencedDeclaration": 2226,
-                  "src": "423:14:6",
+                  "referencedDeclaration": 2456,
+                  "src": "375:14:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_traveledStruct_$2226_storage_ptr",
+                    "typeIdentifier": "t_struct$_traveledStruct_$2456_storage_ptr",
                     "typeString": "struct IHeroCore.traveledStruct"
                   }
                 },
@@ -1012,32 +990,33 @@
               },
               {
                 "constant": false,
-                "id": 2215,
+                "id": 2445,
                 "mutability": "mutable",
                 "name": "borrowData",
+                "nameLocation": "423:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2216,
-                "src": "458:23:6",
+                "scope": 2446,
+                "src": "410:23:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                  "typeIdentifier": "t_struct$_borrowStruct_$2451_storage_ptr",
                   "typeString": "struct IHeroCore.borrowStruct"
                 },
                 "typeName": {
-                  "id": 2214,
+                  "id": 2444,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 2213,
+                    "id": 2443,
                     "name": "borrowStruct",
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 2221,
-                    "src": "458:12:6"
+                    "referencedDeclaration": 2451,
+                    "src": "410:12:25"
                   },
-                  "referencedDeclaration": 2221,
-                  "src": "458:12:6",
+                  "referencedDeclaration": 2451,
+                  "src": "410:12:25",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_borrowStruct_$2221_storage_ptr",
+                    "typeIdentifier": "t_struct$_borrowStruct_$2451_storage_ptr",
                     "typeString": "struct IHeroCore.borrowStruct"
                   }
                 },
@@ -1045,23 +1024,25 @@
               }
             ],
             "name": "chcekStatus",
+            "nameLocation": "263:11:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "304:184:6",
+            "scope": 2462,
+            "src": "256:184:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.borrowStruct",
-            "id": 2221,
+            "id": 2451,
             "members": [
               {
                 "constant": false,
-                "id": 2218,
+                "id": 2448,
                 "mutability": "mutable",
                 "name": "borrowEndTime",
+                "nameLocation": "484:13:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2221,
-                "src": "524:21:6",
+                "scope": 2451,
+                "src": "476:21:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1069,10 +1050,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2217,
+                  "id": 2447,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "524:7:6",
+                  "src": "476:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1082,12 +1063,13 @@
               },
               {
                 "constant": false,
-                "id": 2220,
+                "id": 2450,
                 "mutability": "mutable",
                 "name": "borrowers",
+                "nameLocation": "515:9:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2221,
-                "src": "555:17:6",
+                "scope": 2451,
+                "src": "507:17:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1095,10 +1077,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2219,
+                  "id": 2449,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "555:7:6",
+                  "src": "507:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1109,23 +1091,25 @@
               }
             ],
             "name": "borrowStruct",
+            "nameLocation": "453:12:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "494:85:6",
+            "scope": 2462,
+            "src": "446:85:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.traveledStruct",
-            "id": 2226,
+            "id": 2456,
             "members": [
               {
                 "constant": false,
-                "id": 2223,
+                "id": 2453,
                 "mutability": "mutable",
                 "name": "travelOwner",
+                "nameLocation": "577:11:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2226,
-                "src": "617:19:6",
+                "scope": 2456,
+                "src": "569:19:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1133,10 +1117,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2222,
+                  "id": 2452,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "617:7:6",
+                  "src": "569:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1147,12 +1131,13 @@
               },
               {
                 "constant": false,
-                "id": 2225,
+                "id": 2455,
                 "mutability": "mutable",
                 "name": "travelTime",
+                "nameLocation": "606:10:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2226,
-                "src": "646:18:6",
+                "scope": 2456,
+                "src": "598:18:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1160,10 +1145,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2224,
+                  "id": 2454,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "646:7:6",
+                  "src": "598:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1173,23 +1158,25 @@
               }
             ],
             "name": "traveledStruct",
+            "nameLocation": "544:14:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "585:86:6",
+            "scope": 2462,
+            "src": "537:86:25",
             "visibility": "public"
           },
           {
             "canonicalName": "IHeroCore.RequestStruct",
-            "id": 2231,
+            "id": 2461,
             "members": [
               {
                 "constant": false,
-                "id": 2228,
+                "id": 2458,
                 "mutability": "mutable",
                 "name": "requestOwner",
+                "nameLocation": "668:12:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2231,
-                "src": "708:20:6",
+                "scope": 2461,
+                "src": "660:20:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1197,10 +1184,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 2227,
+                  "id": 2457,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "708:7:6",
+                  "src": "660:7:25",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1211,12 +1198,13 @@
               },
               {
                 "constant": false,
-                "id": 2230,
+                "id": 2460,
                 "mutability": "mutable",
                 "name": "duration",
+                "nameLocation": "698:8:25",
                 "nodeType": "VariableDeclaration",
-                "scope": 2231,
-                "src": "738:16:6",
+                "scope": 2461,
+                "src": "690:16:25",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1224,10 +1212,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2229,
+                  "id": 2459,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "738:7:6",
+                  "src": "690:7:25",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1237,25 +1225,27 @@
               }
             ],
             "name": "RequestStruct",
+            "nameLocation": "636:13:25",
             "nodeType": "StructDefinition",
-            "scope": 2232,
-            "src": "677:84:6",
+            "scope": 2462,
+            "src": "629:84:25",
             "visibility": "public"
           }
         ],
-        "scope": 2233,
-        "src": "88:675:6"
+        "scope": 2463,
+        "src": "56:659:25",
+        "usedErrors": []
       }
     ],
-    "src": "32:732:6"
+    "src": "32:684:25"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+    "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.1.0",
-  "updatedAt": "2022-07-28T12:24:02.154Z",
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-08-08T11:59:53.719Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
