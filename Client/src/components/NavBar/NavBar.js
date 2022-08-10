@@ -6,21 +6,41 @@ import MenuBar from "components/utils/MenuBar";
 import { imgLink } from "components/utils/utils";
 import { useEffect } from "react";
 import { getBalanceToken } from "components/utils/utils2";
+import {
+  borrowContractInstance,
+  checkNetworkVersion,
+} from "components/Contract/Contract";
 
 function NavBar() {
   const [show, setShow] = useState(false);
   const [myTokenAmount, setMyTokenAmount] = useState(0);
   const [walletConnect, setWalletConnect] = useState("NotConnected");
 
-  useEffect(() => {
-    const init = async () => {
-      const data = await getBalanceToken();
-      await window.klaytn.enable().then(() => {
-        setWalletConnect("Connected");
-        const data = document.querySelectorAll(".on")[0];
-        data.style.backgroundColor = "green";
+  const init = async () => {
+    const data = await getBalanceToken();
+
+    if (window.ethereum === undefined) {
+      window.localStorage.removeItem("auth");
+    } else {
+      await window.ethereum.enable().then(() => {
+        console.log(borrowContractInstance);
+        if (checkNetworkVersion()) {
+          setWalletConnect("Connected");
+          const data = document.querySelectorAll(".on")[0];
+          data.style.backgroundColor = "green";
+        } else {
+          alert("BSC Test Net을 활용하세요");
+        }
       });
-    };
+    }
+  };
+  window.ethereum.on("chainChanged", (result) => {
+    if (result !== "0x61") {
+      alert("BSC 이용 하세요");
+    }
+  });
+
+  useEffect(() => {
     init();
   }, []);
   return (

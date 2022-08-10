@@ -49,7 +49,7 @@ const makeTokenContract = async (address) => {
 
 const makeDepositContract = async (address) => {
   await fs.writeFileSync(
-    path.join(basePath, "../../ContractFile/DepositContrat.json"),
+    path.join(basePath, "../../ContractFile/DepositContract.json"),
     makeData(miningABI, address)
   );
 };
