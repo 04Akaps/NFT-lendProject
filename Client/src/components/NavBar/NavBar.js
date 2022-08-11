@@ -5,7 +5,6 @@ import { Button, Col, Row } from "react-bootstrap";
 import MenuBar from "components/utils/MenuBar";
 import { imgLink } from "components/utils/utils";
 import { useEffect } from "react";
-import { getBalanceToken } from "components/utils/utils2";
 import {
   borrowContractInstance,
   checkNetworkVersion,
@@ -17,13 +16,10 @@ function NavBar() {
   const [walletConnect, setWalletConnect] = useState("NotConnected");
 
   const init = async () => {
-    const data = await getBalanceToken();
-
     if (window.ethereum === undefined) {
       window.localStorage.removeItem("auth");
     } else {
-      await window.ethereum.enable().then(() => {
-        console.log(borrowContractInstance);
+      await window.ethereum.enable().then(async () => {
         if (checkNetworkVersion()) {
           setWalletConnect("Connected");
           const data = document.querySelectorAll(".on")[0];
@@ -34,6 +30,7 @@ function NavBar() {
       });
     }
   };
+
   window.ethereum.on("chainChanged", (result) => {
     if (result !== "0x61") {
       alert("BSC 이용 하세요");
@@ -75,6 +72,16 @@ function NavBar() {
 
           <div className="NavBar_Right">
             <div className="on" title={walletConnect}></div>
+
+            <Button
+              className="button"
+              variant="secondary"
+              onClick={async () => {
+                await window.ethereum.enable();
+              }}
+            >
+              ConnectWallet
+            </Button>
 
             <Button
               className="button"

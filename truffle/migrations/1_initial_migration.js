@@ -62,6 +62,8 @@ module.exports = async function (deployer) {
   await heroCoreContract.changePaused();
   await heroCoreContract.changeMiningPaused();
 
+  await heroCoreContract.setContract(heroCoreContract.address);
+
   makeHeroCoreContract(heroCoreContract.address);
   makeHeroNFTContract(heroNFTContract.address);
   makeLevelDiagramContract(levelDiagramContract.address);

@@ -1,3 +1,4 @@
+import { mintNFT } from "components/Contract/ContractCall/MintCall";
 import { Feature, imgLink } from "components/utils/utils";
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
@@ -10,7 +11,14 @@ function MainPage() {
         <Col className="MapinPage_left" md={{ span: 4, offset: 1 }}>
           <h1>My Personal Project</h1>
           <p>Look's Not Good... But I Tryed My Best</p>
-          <Button variant="outline-warning">Mint NFT</Button>
+          <Button
+            variant="outline-warning"
+            onClick={() => {
+              mintNFT();
+            }}
+          >
+            Mint NFT
+          </Button>
         </Col>
 
         <Col md={{ span: 4, offset: 1 }}>

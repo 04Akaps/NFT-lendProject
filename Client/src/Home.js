@@ -13,13 +13,11 @@ import {
 } from "components/main";
 import { useEffect } from "react";
 
-import { connectWallet } from "components/utils/utils2";
 import { vereifyToken } from "components/utils/VerifyToken";
 
 function Home() {
   useEffect(() => {
     vereifyToken();
-    connectWallet();
   }, []);
 
   return (
