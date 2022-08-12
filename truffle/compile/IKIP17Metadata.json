@@ -346,21 +346,21 @@
     "absolutePath": "project:/contracts/interface/IKIP17/IKIP17Metadata.sol",
     "exportedSymbols": {
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP17": [
-        3603
+        3578
       ],
       "IKIP17Metadata": [
-        3630
+        3605
       ]
     },
-    "id": 3631,
+    "id": 3606,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3605,
+        "id": 3580,
         "literals": [
           "solidity",
           "0.8",
@@ -372,11 +372,11 @@
       {
         "absolutePath": "project:/contracts/interface/IKIP17/IKIP17.sol",
         "file": "./IKIP17.sol",
-        "id": 3606,
+        "id": 3581,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 3631,
-        "sourceUnit": 3604,
+        "scope": 3606,
+        "sourceUnit": 3579,
         "src": "305:22:90",
         "symbolAliases": [],
         "unitAlias": ""
@@ -386,13 +386,13 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 3608,
+              "id": 3583,
               "name": "IKIP17",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 3603,
+              "referencedDeclaration": 3578,
               "src": "506:6:90"
             },
-            "id": 3609,
+            "id": 3584,
             "nodeType": "InheritanceSpecifier",
             "src": "506:6:90"
           }
@@ -400,17 +400,17 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3607,
+          "id": 3582,
           "nodeType": "StructuredDocumentation",
           "src": "329:148:90",
           "text": " @title KIP-17 Non-Fungible Token Standard, optional metadata extension\n @dev See https://kips.klaytn.com/KIPs/kip-17#metadata-extension"
         },
         "fullyImplemented": false,
-        "id": 3630,
+        "id": 3605,
         "linearizedBaseContracts": [
-          3630,
-          3603,
-          3487
+          3605,
+          3578,
+          3462
         ],
         "name": "IKIP17Metadata",
         "nameLocation": "488:14:90",
@@ -418,13 +418,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 3610,
+              "id": 3585,
               "nodeType": "StructuredDocumentation",
               "src": "519:58:90",
               "text": " @dev Returns the token collection name."
             },
             "functionSelector": "06fdde03",
-            "id": 3615,
+            "id": 3590,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -432,23 +432,23 @@
             "nameLocation": "591:4:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3611,
+              "id": 3586,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "595:2:90"
             },
             "returnParameters": {
-              "id": 3614,
+              "id": 3589,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3613,
+                  "id": 3588,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3615,
+                  "scope": 3590,
                   "src": "621:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -457,7 +457,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3612,
+                    "id": 3587,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "621:6:90",
@@ -471,7 +471,7 @@
               ],
               "src": "620:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "582:54:90",
             "stateMutability": "view",
             "virtual": false,
@@ -479,13 +479,13 @@
           },
           {
             "documentation": {
-              "id": 3616,
+              "id": 3591,
               "nodeType": "StructuredDocumentation",
               "src": "642:60:90",
               "text": " @dev Returns the token collection symbol."
             },
             "functionSelector": "95d89b41",
-            "id": 3621,
+            "id": 3596,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -493,23 +493,23 @@
             "nameLocation": "716:6:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3617,
+              "id": 3592,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "722:2:90"
             },
             "returnParameters": {
-              "id": 3620,
+              "id": 3595,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3619,
+                  "id": 3594,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3621,
+                  "scope": 3596,
                   "src": "748:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -518,7 +518,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3618,
+                    "id": 3593,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "748:6:90",
@@ -532,7 +532,7 @@
               ],
               "src": "747:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "707:56:90",
             "stateMutability": "view",
             "virtual": false,
@@ -540,13 +540,13 @@
           },
           {
             "documentation": {
-              "id": 3622,
+              "id": 3597,
               "nodeType": "StructuredDocumentation",
               "src": "769:90:90",
               "text": " @dev Returns the Uniform Resource Identifier (URI) for `tokenId` token."
             },
             "functionSelector": "c87b56dd",
-            "id": 3629,
+            "id": 3604,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -554,17 +554,17 @@
             "nameLocation": "873:8:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3625,
+              "id": 3600,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3624,
+                  "id": 3599,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "890:7:90",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3629,
+                  "scope": 3604,
                   "src": "882:15:90",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -573,7 +573,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3623,
+                    "id": 3598,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "882:7:90",
@@ -588,17 +588,17 @@
               "src": "881:17:90"
             },
             "returnParameters": {
-              "id": 3628,
+              "id": 3603,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3627,
+                  "id": 3602,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3629,
+                  "scope": 3604,
                   "src": "922:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -607,7 +607,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3626,
+                    "id": 3601,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "922:6:90",
@@ -621,14 +621,14 @@
               ],
               "src": "921:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "864:73:90",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 3631,
+        "scope": 3606,
         "src": "478:461:90",
         "usedErrors": []
       }
@@ -639,21 +639,21 @@
     "absolutePath": "project:/contracts/interface/IKIP17/IKIP17Metadata.sol",
     "exportedSymbols": {
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP17": [
-        3603
+        3578
       ],
       "IKIP17Metadata": [
-        3630
+        3605
       ]
     },
-    "id": 3631,
+    "id": 3606,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3605,
+        "id": 3580,
         "literals": [
           "solidity",
           "0.8",
@@ -665,11 +665,11 @@
       {
         "absolutePath": "project:/contracts/interface/IKIP17/IKIP17.sol",
         "file": "./IKIP17.sol",
-        "id": 3606,
+        "id": 3581,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 3631,
-        "sourceUnit": 3604,
+        "scope": 3606,
+        "sourceUnit": 3579,
         "src": "305:22:90",
         "symbolAliases": [],
         "unitAlias": ""
@@ -679,13 +679,13 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 3608,
+              "id": 3583,
               "name": "IKIP17",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 3603,
+              "referencedDeclaration": 3578,
               "src": "506:6:90"
             },
-            "id": 3609,
+            "id": 3584,
             "nodeType": "InheritanceSpecifier",
             "src": "506:6:90"
           }
@@ -693,17 +693,17 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3607,
+          "id": 3582,
           "nodeType": "StructuredDocumentation",
           "src": "329:148:90",
           "text": " @title KIP-17 Non-Fungible Token Standard, optional metadata extension\n @dev See https://kips.klaytn.com/KIPs/kip-17#metadata-extension"
         },
         "fullyImplemented": false,
-        "id": 3630,
+        "id": 3605,
         "linearizedBaseContracts": [
-          3630,
-          3603,
-          3487
+          3605,
+          3578,
+          3462
         ],
         "name": "IKIP17Metadata",
         "nameLocation": "488:14:90",
@@ -711,13 +711,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 3610,
+              "id": 3585,
               "nodeType": "StructuredDocumentation",
               "src": "519:58:90",
               "text": " @dev Returns the token collection name."
             },
             "functionSelector": "06fdde03",
-            "id": 3615,
+            "id": 3590,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -725,23 +725,23 @@
             "nameLocation": "591:4:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3611,
+              "id": 3586,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "595:2:90"
             },
             "returnParameters": {
-              "id": 3614,
+              "id": 3589,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3613,
+                  "id": 3588,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3615,
+                  "scope": 3590,
                   "src": "621:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -750,7 +750,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3612,
+                    "id": 3587,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "621:6:90",
@@ -764,7 +764,7 @@
               ],
               "src": "620:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "582:54:90",
             "stateMutability": "view",
             "virtual": false,
@@ -772,13 +772,13 @@
           },
           {
             "documentation": {
-              "id": 3616,
+              "id": 3591,
               "nodeType": "StructuredDocumentation",
               "src": "642:60:90",
               "text": " @dev Returns the token collection symbol."
             },
             "functionSelector": "95d89b41",
-            "id": 3621,
+            "id": 3596,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -786,23 +786,23 @@
             "nameLocation": "716:6:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3617,
+              "id": 3592,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "722:2:90"
             },
             "returnParameters": {
-              "id": 3620,
+              "id": 3595,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3619,
+                  "id": 3594,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3621,
+                  "scope": 3596,
                   "src": "748:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -811,7 +811,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3618,
+                    "id": 3593,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "748:6:90",
@@ -825,7 +825,7 @@
               ],
               "src": "747:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "707:56:90",
             "stateMutability": "view",
             "virtual": false,
@@ -833,13 +833,13 @@
           },
           {
             "documentation": {
-              "id": 3622,
+              "id": 3597,
               "nodeType": "StructuredDocumentation",
               "src": "769:90:90",
               "text": " @dev Returns the Uniform Resource Identifier (URI) for `tokenId` token."
             },
             "functionSelector": "c87b56dd",
-            "id": 3629,
+            "id": 3604,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -847,17 +847,17 @@
             "nameLocation": "873:8:90",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3625,
+              "id": 3600,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3624,
+                  "id": 3599,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "890:7:90",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3629,
+                  "scope": 3604,
                   "src": "882:15:90",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -866,7 +866,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3623,
+                    "id": 3598,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "882:7:90",
@@ -881,17 +881,17 @@
               "src": "881:17:90"
             },
             "returnParameters": {
-              "id": 3628,
+              "id": 3603,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3627,
+                  "id": 3602,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3629,
+                  "scope": 3604,
                   "src": "922:13:90",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -900,7 +900,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 3626,
+                    "id": 3601,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "922:6:90",
@@ -914,14 +914,14 @@
               ],
               "src": "921:15:90"
             },
-            "scope": 3630,
+            "scope": 3605,
             "src": "864:73:90",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 3631,
+        "scope": 3606,
         "src": "478:461:90",
         "usedErrors": []
       }
@@ -934,7 +934,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-08T11:59:53.734Z",
+  "updatedAt": "2022-08-12T13:53:55.810Z",
   "devdoc": {
     "details": "See https://kips.klaytn.com/KIPs/kip-17#metadata-extension",
     "kind": "dev",

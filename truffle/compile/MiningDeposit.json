@@ -28,8 +28,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -1747,13 +1746,13 @@
     "absolutePath": "project:/contracts/Deposit/MiningDeposit.sol",
     "exportedSymbols": {
       "IKIP7": [
-        6200
+        6175
       ],
       "MiningDeposit": [
         115
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 116,
@@ -1777,7 +1776,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 116,
-        "sourceUnit": 6201,
+        "sourceUnit": 6176,
         "src": "56:38:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1789,7 +1788,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 116,
-        "sourceUnit": 7613,
+        "sourceUnit": 7588,
         "src": "95:30:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -1802,7 +1801,7 @@
               "id": 62,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7612,
+              "referencedDeclaration": 7587,
               "src": "153:7:1"
             },
             "id": 63,
@@ -1816,7 +1815,7 @@
         "id": 115,
         "linearizedBaseContracts": [
           115,
-          7612
+          7587
         ],
         "name": "MiningDeposit",
         "nameLocation": "136:13:1",
@@ -1834,7 +1833,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IKIP7_$6200",
+              "typeIdentifier": "t_contract$_IKIP7_$6175",
               "typeString": "contract IKIP7"
             },
             "typeName": {
@@ -1844,13 +1843,13 @@
                 "id": 64,
                 "name": "IKIP7",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 6200,
+                "referencedDeclaration": 6175,
                 "src": "167:5:1"
               },
-              "referencedDeclaration": 6200,
+              "referencedDeclaration": 6175,
               "src": "167:5:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IKIP7_$6200",
+                "typeIdentifier": "t_contract$_IKIP7_$6175",
                 "typeString": "contract IKIP7"
               }
             },
@@ -1877,7 +1876,7 @@
                       "referencedDeclaration": 66,
                       "src": "256:8:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$6200",
+                        "typeIdentifier": "t_contract$_IKIP7_$6175",
                         "typeString": "contract IKIP7"
                       }
                     },
@@ -1909,10 +1908,10 @@
                         "name": "IKIP7",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 6200,
+                        "referencedDeclaration": 6175,
                         "src": "267:5:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$6200_$",
+                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$6175_$",
                           "typeString": "type(contract IKIP7)"
                         }
                       },
@@ -1927,13 +1926,13 @@
                       "src": "267:16:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$6200",
+                        "typeIdentifier": "t_contract$_IKIP7_$6175",
                         "typeString": "contract IKIP7"
                       }
                     },
                     "src": "256:27:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IKIP7_$6200",
+                      "typeIdentifier": "t_contract$_IKIP7_$6175",
                       "typeString": "contract IKIP7"
                     }
                   },
@@ -2095,7 +2094,7 @@
                         "referencedDeclaration": 66,
                         "src": "342:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$6200",
+                          "typeIdentifier": "t_contract$_IKIP7_$6175",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -2106,7 +2105,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6147,
+                      "referencedDeclaration": 6122,
                       "src": "342:16:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -2327,7 +2326,7 @@
                         "referencedDeclaration": 66,
                         "src": "463:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$6200",
+                          "typeIdentifier": "t_contract$_IKIP7_$6175",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -2338,7 +2337,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6147,
+                      "referencedDeclaration": 6122,
                       "src": "463:16:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -2378,7 +2377,7 @@
                   "id": 99,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "443:9:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -2447,13 +2446,13 @@
     "absolutePath": "project:/contracts/Deposit/MiningDeposit.sol",
     "exportedSymbols": {
       "IKIP7": [
-        6200
+        6175
       ],
       "MiningDeposit": [
         115
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 116,
@@ -2477,7 +2476,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 116,
-        "sourceUnit": 6201,
+        "sourceUnit": 6176,
         "src": "56:38:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2489,7 +2488,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 116,
-        "sourceUnit": 7613,
+        "sourceUnit": 7588,
         "src": "95:30:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2502,7 +2501,7 @@
               "id": 62,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7612,
+              "referencedDeclaration": 7587,
               "src": "153:7:1"
             },
             "id": 63,
@@ -2516,7 +2515,7 @@
         "id": 115,
         "linearizedBaseContracts": [
           115,
-          7612
+          7587
         ],
         "name": "MiningDeposit",
         "nameLocation": "136:13:1",
@@ -2534,7 +2533,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IKIP7_$6200",
+              "typeIdentifier": "t_contract$_IKIP7_$6175",
               "typeString": "contract IKIP7"
             },
             "typeName": {
@@ -2544,13 +2543,13 @@
                 "id": 64,
                 "name": "IKIP7",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 6200,
+                "referencedDeclaration": 6175,
                 "src": "167:5:1"
               },
-              "referencedDeclaration": 6200,
+              "referencedDeclaration": 6175,
               "src": "167:5:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IKIP7_$6200",
+                "typeIdentifier": "t_contract$_IKIP7_$6175",
                 "typeString": "contract IKIP7"
               }
             },
@@ -2577,7 +2576,7 @@
                       "referencedDeclaration": 66,
                       "src": "256:8:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$6200",
+                        "typeIdentifier": "t_contract$_IKIP7_$6175",
                         "typeString": "contract IKIP7"
                       }
                     },
@@ -2609,10 +2608,10 @@
                         "name": "IKIP7",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 6200,
+                        "referencedDeclaration": 6175,
                         "src": "267:5:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$6200_$",
+                          "typeIdentifier": "t_type$_t_contract$_IKIP7_$6175_$",
                           "typeString": "type(contract IKIP7)"
                         }
                       },
@@ -2627,13 +2626,13 @@
                       "src": "267:16:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IKIP7_$6200",
+                        "typeIdentifier": "t_contract$_IKIP7_$6175",
                         "typeString": "contract IKIP7"
                       }
                     },
                     "src": "256:27:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IKIP7_$6200",
+                      "typeIdentifier": "t_contract$_IKIP7_$6175",
                       "typeString": "contract IKIP7"
                     }
                   },
@@ -2795,7 +2794,7 @@
                         "referencedDeclaration": 66,
                         "src": "342:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$6200",
+                          "typeIdentifier": "t_contract$_IKIP7_$6175",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -2806,7 +2805,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6147,
+                      "referencedDeclaration": 6122,
                       "src": "342:16:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -3027,7 +3026,7 @@
                         "referencedDeclaration": 66,
                         "src": "463:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IKIP7_$6200",
+                          "typeIdentifier": "t_contract$_IKIP7_$6175",
                           "typeString": "contract IKIP7"
                         }
                       },
@@ -3038,7 +3037,7 @@
                       "lValueRequested": false,
                       "memberName": "approve",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6147,
+                      "referencedDeclaration": 6122,
                       "src": "463:16:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
@@ -3078,7 +3077,7 @@
                   "id": 99,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "443:9:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -3147,23 +3146,9 @@
     "name": "solc",
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
-  "networks": {
-    "97": {
-      "events": {},
-      "links": {},
-      "address": "0x118772254B8f894453f84aED69bE3De33fB2b324",
-      "transactionHash": "0xf813d39492f14af304a4a742a312d95d01d2668880904c90d6202154ec782a82"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0x8187718CEc4093921ee3800A1F77F03C0e47B3F5",
-      "transactionHash": "0xf5af7d6d76a70a73b5dd6ae374be4f03536d1b874991aeba6afea14f09b65dc0"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-11T12:02:27.568Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-08-12T13:53:55.776Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

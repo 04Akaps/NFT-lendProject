@@ -854,7 +854,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-08T12:00:50.921Z",
+  "updatedAt": "2022-08-12T13:54:04.460Z",
   "devdoc": {
     "details": "Extension of {KIP7} which exposes metadata functions. See https://kips.klaytn.com/KIPs/kip-7#metadata-extension",
     "kind": "dev",

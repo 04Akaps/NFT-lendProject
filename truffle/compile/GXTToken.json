@@ -78,8 +78,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -122,8 +121,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -136,8 +134,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -174,8 +171,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -212,8 +208,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -324,8 +319,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -338,8 +332,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -352,8 +345,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -8553,34 +8545,34 @@
     "absolutePath": "project:/contracts/GXT/GXTToken.sol",
     "exportedSymbols": {
       "Address": [
-        7481
+        7456
       ],
       "Context": [
-        7503
+        7478
       ],
       "GXTToken": [
         166
       ],
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP7": [
-        6200
+        6175
       ],
       "IKIP7Metadata": [
-        6250
+        6225
       ],
       "IKIP7Receiver": [
-        6267
+        6242
       ],
       "KIP13": [
-        7182
+        7157
       ],
       "KIP7Token": [
-        7142
+        7117
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 167,
@@ -8604,7 +8596,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 167,
-        "sourceUnit": 7143,
+        "sourceUnit": 7118,
         "src": "56:42:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -8616,7 +8608,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 167,
-        "sourceUnit": 7613,
+        "sourceUnit": 7588,
         "src": "99:30:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -8629,7 +8621,7 @@
               "id": 124,
               "name": "KIP7Token",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7142,
+              "referencedDeclaration": 7117,
               "src": "152:9:4"
             },
             "id": 125,
@@ -8641,7 +8633,7 @@
               "id": 126,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7612,
+              "referencedDeclaration": 7587,
               "src": "163:7:4"
             },
             "id": 127,
@@ -8655,13 +8647,13 @@
         "id": 166,
         "linearizedBaseContracts": [
           166,
-          7612,
-          7142,
-          7503,
-          6250,
-          6200,
-          7182,
-          3487
+          7587,
+          7117,
+          7478,
+          6225,
+          6175,
+          7157,
+          3462
         ],
         "name": "GXTToken",
         "nameLocation": "140:8:4",
@@ -8719,7 +8711,7 @@
                   "id": 129,
                   "name": "KIP7Token",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7142,
+                  "referencedDeclaration": 7117,
                   "src": "191:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -8796,7 +8788,7 @@
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6897,
+                      "referencedDeclaration": 6872,
                       "src": "296:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -8836,7 +8828,7 @@
                   "id": 141,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "276:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -8969,7 +8961,7 @@
                       "name": "_burn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7031,
+                      "referencedDeclaration": 7006,
                       "src": "401:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -9009,7 +9001,7 @@
                   "id": 156,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "381:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -9105,34 +9097,34 @@
     "absolutePath": "project:/contracts/GXT/GXTToken.sol",
     "exportedSymbols": {
       "Address": [
-        7481
+        7456
       ],
       "Context": [
-        7503
+        7478
       ],
       "GXTToken": [
         166
       ],
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP7": [
-        6200
+        6175
       ],
       "IKIP7Metadata": [
-        6250
+        6225
       ],
       "IKIP7Receiver": [
-        6267
+        6242
       ],
       "KIP13": [
-        7182
+        7157
       ],
       "KIP7Token": [
-        7142
+        7117
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 167,
@@ -9156,7 +9148,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 167,
-        "sourceUnit": 7143,
+        "sourceUnit": 7118,
         "src": "56:42:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -9168,7 +9160,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 167,
-        "sourceUnit": 7613,
+        "sourceUnit": 7588,
         "src": "99:30:4",
         "symbolAliases": [],
         "unitAlias": ""
@@ -9181,7 +9173,7 @@
               "id": 124,
               "name": "KIP7Token",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7142,
+              "referencedDeclaration": 7117,
               "src": "152:9:4"
             },
             "id": 125,
@@ -9193,7 +9185,7 @@
               "id": 126,
               "name": "Ownable",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 7612,
+              "referencedDeclaration": 7587,
               "src": "163:7:4"
             },
             "id": 127,
@@ -9207,13 +9199,13 @@
         "id": 166,
         "linearizedBaseContracts": [
           166,
-          7612,
-          7142,
-          7503,
-          6250,
-          6200,
-          7182,
-          3487
+          7587,
+          7117,
+          7478,
+          6225,
+          6175,
+          7157,
+          3462
         ],
         "name": "GXTToken",
         "nameLocation": "140:8:4",
@@ -9271,7 +9263,7 @@
                   "id": 129,
                   "name": "KIP7Token",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7142,
+                  "referencedDeclaration": 7117,
                   "src": "191:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -9348,7 +9340,7 @@
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 6897,
+                      "referencedDeclaration": 6872,
                       "src": "296:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -9388,7 +9380,7 @@
                   "id": 141,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "276:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -9521,7 +9513,7 @@
                       "name": "_burn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 7031,
+                      "referencedDeclaration": 7006,
                       "src": "401:5:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -9561,7 +9553,7 @@
                   "id": 156,
                   "name": "onlyOwner",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 7603,
+                  "referencedDeclaration": 7578,
                   "src": "381:9:4"
                 },
                 "nodeType": "ModifierInvocation",
@@ -9657,23 +9649,9 @@
     "name": "solc",
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
-  "networks": {
-    "97": {
-      "events": {},
-      "links": {},
-      "address": "0xa063Ed9A195D413d8A6349A8A4E82075F54e48d3",
-      "transactionHash": "0x057c24d524399fabd559835faf36d0495decb299d6e298535b976957c56c511c"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0xFc81b3b80a14DC36742390f901017B4C2927f953",
-      "transactionHash": "0xab3cbaf355e5f5d47488d22074828b6028a3940e9bba7c106d595659bde18a7e"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-11T12:02:27.565Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-08-12T13:53:55.777Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

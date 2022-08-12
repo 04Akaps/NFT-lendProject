@@ -8,7 +8,7 @@ module.exports = {
       port: 7545,
       network_id: "*",
     },
-    testnet: {
+    bscTest: {
       provider: new HDWalletProvider(
         deployer.privateKey,
         `https://data-seed-prebsc-1-s1.binance.org:8545`
@@ -19,6 +19,7 @@ module.exports = {
     },
   },
 
+  contracts_directory: "./contracts",
   contracts_build_directory: "./compile",
 
   mocha: {

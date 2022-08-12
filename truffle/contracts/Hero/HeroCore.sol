@@ -64,14 +64,14 @@ contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
         uint256 value = msg.value;
         uint256 amount = value.div(priceOfKlay);
 
-        require(value != 0, "Error : value is Zero");
-        require(value >= priceOfKlay, "Error : Not Enough Klay");
+        // require(value != 0, "Error : value is Zero");
+        // require(value >= priceOfKlay, "Error : Not Enough Klay");
 
         for (uint256 i = 0; i < amount; i++) {
             _mintHero();
         }
 
-        payable(address(this)).transfer(value);
+        // payable(address(this)).transfer(value);
     }
 
     function mintByToken(uint256 _tokenAmount) external {
@@ -384,7 +384,10 @@ contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
 
         require(level < MAX_LEVEL, "Error : Token is MaxLevel Status");
 
-        uint256 calculatePrice = getLevelDiagram().calculateTokenAmount(hero.grade, level);
+        uint256 calculatePrice = getLevelDiagram().calculateTokenAmount(
+            hero.grade,
+            level
+        );
 
         require(
             getToken().balanceOf(msg.sender) >= calculatePrice,
@@ -542,7 +545,10 @@ contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
 
                 if (userHero.status.mining) {
                     totalPower = totalPower.add(
-                        getLevelDiagram().calculatePower(userHero.grade, userHero.level)
+                        getLevelDiagram().calculatePower(
+                            userHero.grade,
+                            userHero.level
+                        )
                     );
                 }
             }
@@ -551,7 +557,11 @@ contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
         } else {
             HERO memory userHero = heroVault[_tokenId];
 
-            return getLevelDiagram().calculatePower(userHero.grade, userHero.level);
+            return
+                getLevelDiagram().calculatePower(
+                    userHero.grade,
+                    userHero.level
+                );
         }
     }
 

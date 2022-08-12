@@ -50,15 +50,15 @@
     "absolutePath": "project:/contracts/interface/IKIP17/IKIP17Receiver.sol",
     "exportedSymbols": {
       "IKIP17Receiver": [
-        3648
+        3623
       ]
     },
-    "id": 3649,
+    "id": 3624,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3632,
+        "id": 3607,
         "literals": [
           "solidity",
           "0.8",
@@ -73,15 +73,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3633,
+          "id": 3608,
           "nodeType": "StructuredDocumentation",
           "src": "283:150:91",
           "text": " @title KIP17 token receiver interface\n @dev Interface for any contract that wants to support safeTransfers\n from KIP17 asset contracts."
         },
         "fullyImplemented": false,
-        "id": 3648,
+        "id": 3623,
         "linearizedBaseContracts": [
-          3648
+          3623
         ],
         "name": "IKIP17Receiver",
         "nameLocation": "444:14:91",
@@ -89,13 +89,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 3634,
+              "id": 3609,
               "nodeType": "StructuredDocumentation",
               "src": "465:489:91",
               "text": " @dev Whenever an {IKIP17} `tokenId` token is transferred to this contract via {IKIP17-safeTransferFrom}\n by `operator` from `from`, this function is called.\n It must return its Solidity selector to confirm the token transfer.\n If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.\n The selector can be obtained in Solidity with `IKIP17Receiver.onKIp17Received.selector`."
             },
             "functionSelector": "6745782b",
-            "id": 3647,
+            "id": 3622,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -103,17 +103,17 @@
             "nameLocation": "968:15:91",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3643,
+              "id": 3618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3636,
+                  "id": 3611,
                   "mutability": "mutable",
                   "name": "operator",
                   "nameLocation": "1001:8:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "993:16:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -122,7 +122,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3635,
+                    "id": 3610,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "993:7:91",
@@ -136,12 +136,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3638,
+                  "id": 3613,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "1027:4:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1019:12:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -150,7 +150,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3637,
+                    "id": 3612,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1019:7:91",
@@ -164,12 +164,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3640,
+                  "id": 3615,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "1049:7:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1041:15:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -178,7 +178,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3639,
+                    "id": 3614,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1041:7:91",
@@ -191,12 +191,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3642,
+                  "id": 3617,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "1081:4:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1066:19:91",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -205,7 +205,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 3641,
+                    "id": 3616,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1066:5:91",
@@ -220,17 +220,17 @@
               "src": "983:108:91"
             },
             "returnParameters": {
-              "id": 3646,
+              "id": 3621,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3645,
+                  "id": 3620,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1110:6:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -239,7 +239,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 3644,
+                    "id": 3619,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "1110:6:91",
@@ -253,14 +253,14 @@
               ],
               "src": "1109:8:91"
             },
-            "scope": 3648,
+            "scope": 3623,
             "src": "959:159:91",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 3649,
+        "scope": 3624,
         "src": "434:686:91",
         "usedErrors": []
       }
@@ -271,15 +271,15 @@
     "absolutePath": "project:/contracts/interface/IKIP17/IKIP17Receiver.sol",
     "exportedSymbols": {
       "IKIP17Receiver": [
-        3648
+        3623
       ]
     },
-    "id": 3649,
+    "id": 3624,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3632,
+        "id": 3607,
         "literals": [
           "solidity",
           "0.8",
@@ -294,15 +294,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3633,
+          "id": 3608,
           "nodeType": "StructuredDocumentation",
           "src": "283:150:91",
           "text": " @title KIP17 token receiver interface\n @dev Interface for any contract that wants to support safeTransfers\n from KIP17 asset contracts."
         },
         "fullyImplemented": false,
-        "id": 3648,
+        "id": 3623,
         "linearizedBaseContracts": [
-          3648
+          3623
         ],
         "name": "IKIP17Receiver",
         "nameLocation": "444:14:91",
@@ -310,13 +310,13 @@
         "nodes": [
           {
             "documentation": {
-              "id": 3634,
+              "id": 3609,
               "nodeType": "StructuredDocumentation",
               "src": "465:489:91",
               "text": " @dev Whenever an {IKIP17} `tokenId` token is transferred to this contract via {IKIP17-safeTransferFrom}\n by `operator` from `from`, this function is called.\n It must return its Solidity selector to confirm the token transfer.\n If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.\n The selector can be obtained in Solidity with `IKIP17Receiver.onKIp17Received.selector`."
             },
             "functionSelector": "6745782b",
-            "id": 3647,
+            "id": 3622,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -324,17 +324,17 @@
             "nameLocation": "968:15:91",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 3643,
+              "id": 3618,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3636,
+                  "id": 3611,
                   "mutability": "mutable",
                   "name": "operator",
                   "nameLocation": "1001:8:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "993:16:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -343,7 +343,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3635,
+                    "id": 3610,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "993:7:91",
@@ -357,12 +357,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3638,
+                  "id": 3613,
                   "mutability": "mutable",
                   "name": "from",
                   "nameLocation": "1027:4:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1019:12:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -371,7 +371,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3637,
+                    "id": 3612,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1019:7:91",
@@ -385,12 +385,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3640,
+                  "id": 3615,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "1049:7:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1041:15:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -399,7 +399,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 3639,
+                    "id": 3614,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1041:7:91",
@@ -412,12 +412,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3642,
+                  "id": 3617,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "1081:4:91",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1066:19:91",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -426,7 +426,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 3641,
+                    "id": 3616,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1066:5:91",
@@ -441,17 +441,17 @@
               "src": "983:108:91"
             },
             "returnParameters": {
-              "id": 3646,
+              "id": 3621,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3645,
+                  "id": 3620,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3647,
+                  "scope": 3622,
                   "src": "1110:6:91",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -460,7 +460,7 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 3644,
+                    "id": 3619,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
                     "src": "1110:6:91",
@@ -474,14 +474,14 @@
               ],
               "src": "1109:8:91"
             },
-            "scope": 3648,
+            "scope": 3623,
             "src": "959:159:91",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 3649,
+        "scope": 3624,
         "src": "434:686:91",
         "usedErrors": []
       }
@@ -494,7 +494,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-08T11:59:53.734Z",
+  "updatedAt": "2022-08-12T13:53:55.810Z",
   "devdoc": {
     "details": "Interface for any contract that wants to support safeTransfers from KIP17 asset contracts.",
     "kind": "dev",

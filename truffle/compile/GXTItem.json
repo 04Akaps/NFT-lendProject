@@ -159,8 +159,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -184,8 +183,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -211,8 +209,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -236,8 +233,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -340,8 +336,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -360,8 +355,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -380,8 +374,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -12660,10 +12653,10 @@
     "absolutePath": "project:/contracts/GXTItem/GXTItem.sol",
     "exportedSymbols": {
       "Address": [
-        7481
+        7456
       ],
       "Context": [
-        7503
+        7478
       ],
       "Controller": [
         296
@@ -12672,25 +12665,25 @@
         242
       ],
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP37": [
-        4651
+        4626
       ],
       "IKIP37MetadataURI": [
-        4688
+        4663
       ],
       "IKIP37Receiver": [
-        4726
+        4701
       ],
       "KIP13": [
-        7182
+        7157
       ],
       "KIP37": [
-        6058
+        6033
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 243,
@@ -12714,7 +12707,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 243,
-        "sourceUnit": 6059,
+        "sourceUnit": 6034,
         "src": "56:39:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -12739,7 +12732,7 @@
               "id": 175,
               "name": "KIP37",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 6058,
+              "referencedDeclaration": 6033,
               "src": "150:5:7"
             },
             "id": 176,
@@ -12766,13 +12759,13 @@
         "linearizedBaseContracts": [
           242,
           296,
-          7612,
-          6058,
-          4688,
-          4651,
-          7182,
-          3487,
-          7503
+          7587,
+          6033,
+          4663,
+          4626,
+          7157,
+          3462,
+          7478
         ],
         "name": "GXTItem",
         "nameLocation": "139:7:7",
@@ -12835,7 +12828,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "206:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -12912,7 +12905,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "239:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -12989,7 +12982,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "273:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -13066,7 +13059,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "306:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -13106,7 +13099,7 @@
                   "id": 180,
                   "name": "KIP37",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 6058,
+                  "referencedDeclaration": 6033,
                   "src": "188:5:7"
                 },
                 "nodeType": "ModifierInvocation",
@@ -13219,7 +13212,7 @@
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5408,
+                      "referencedDeclaration": 5383,
                       "src": "471:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -13435,7 +13428,7 @@
                       "name": "_burn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5640,
+                      "referencedDeclaration": 5615,
                       "src": "647:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -13598,10 +13591,10 @@
     "absolutePath": "project:/contracts/GXTItem/GXTItem.sol",
     "exportedSymbols": {
       "Address": [
-        7481
+        7456
       ],
       "Context": [
-        7503
+        7478
       ],
       "Controller": [
         296
@@ -13610,25 +13603,25 @@
         242
       ],
       "IKIP13": [
-        3487
+        3462
       ],
       "IKIP37": [
-        4651
+        4626
       ],
       "IKIP37MetadataURI": [
-        4688
+        4663
       ],
       "IKIP37Receiver": [
-        4726
+        4701
       ],
       "KIP13": [
-        7182
+        7157
       ],
       "KIP37": [
-        6058
+        6033
       ],
       "Ownable": [
-        7612
+        7587
       ]
     },
     "id": 243,
@@ -13652,7 +13645,7 @@
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
         "scope": 243,
-        "sourceUnit": 6059,
+        "sourceUnit": 6034,
         "src": "56:39:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -13677,7 +13670,7 @@
               "id": 175,
               "name": "KIP37",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 6058,
+              "referencedDeclaration": 6033,
               "src": "150:5:7"
             },
             "id": 176,
@@ -13704,13 +13697,13 @@
         "linearizedBaseContracts": [
           242,
           296,
-          7612,
-          6058,
-          4688,
-          4651,
-          7182,
-          3487,
-          7503
+          7587,
+          6033,
+          4663,
+          4626,
+          7157,
+          3462,
+          7478
         ],
         "name": "GXTItem",
         "nameLocation": "139:7:7",
@@ -13773,7 +13766,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "206:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -13850,7 +13843,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "239:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -13927,7 +13920,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "273:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -14004,7 +13997,7 @@
                       "name": "_setURI",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5301,
+                      "referencedDeclaration": 5276,
                       "src": "306:7:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_string_memory_ptr_$returns$__$",
@@ -14044,7 +14037,7 @@
                   "id": 180,
                   "name": "KIP37",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 6058,
+                  "referencedDeclaration": 6033,
                   "src": "188:5:7"
                 },
                 "nodeType": "ModifierInvocation",
@@ -14157,7 +14150,7 @@
                       "name": "_mint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5408,
+                      "referencedDeclaration": 5383,
                       "src": "471:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -14373,7 +14366,7 @@
                       "name": "_burn",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 5640,
+                      "referencedDeclaration": 5615,
                       "src": "647:5:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$_t_uint256_$returns$__$",
@@ -14536,23 +14529,9 @@
     "name": "solc",
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
-  "networks": {
-    "97": {
-      "events": {},
-      "links": {},
-      "address": "0x1962a749cb3dF4C88f20cf1a62C406746Ed2ff76",
-      "transactionHash": "0x0f154c7e68945ea8131673f24014902a20ddbb94b9f542aabfbc5fc5ec9820ec"
-    },
-    "5777": {
-      "events": {},
-      "links": {},
-      "address": "0xB020A66abfd57D5382bb11da228058dac4067FC9",
-      "transactionHash": "0xd409ba3723cbdc47b79d3ee6f410fdbfddb545da86de7d4bd632b6423f1f017b"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-11T12:02:27.561Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-08-12T13:53:55.779Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

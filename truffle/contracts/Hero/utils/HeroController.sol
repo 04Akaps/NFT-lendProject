@@ -88,7 +88,7 @@ contract HeroController {
         return miningPaused;
     }
 
-    function getLevelDiagram() public view returns(ILevelDiagram){
+    function getLevelDiagram() public view returns (ILevelDiagram) {
         return levelDiagram;
     }
 
