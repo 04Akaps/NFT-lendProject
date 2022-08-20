@@ -1,5 +1,7 @@
+import { getNFTBalanceOf } from "components/Contract/ContractCall/BalanceCall";
 import { imgLink } from "components/utils/utils";
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import { Col, Row } from "react-bootstrap";
 import "./MyPage.scss";
 
@@ -63,17 +65,17 @@ const cardDummy = [
   },
 ];
 
-// uint256 tokenId;
-// uint256 level;
-// string grade;
-// uint256 birthTime;
-// uint256 reward;
-
-// bool borrowed;
-// bool traveled;
-// bool mining;
-
 function MyPage() {
+  const [notStakedNFTBalance, setNotStakedNFTBalance] = useState(0);
+
+  useEffect(() => {
+    getNFTAmount();
+  }, []);
+
+  const getNFTAmount = async () => {
+    await getNFTBalanceOf();
+  };
+
   return (
     <div className="MyPageTotal">
       <div className="MyPageContainer">
@@ -121,7 +123,7 @@ function MyPage() {
             })}
           </Row>
           <div className="MyPageNFTListContainer">
-            <Row xs={1} md={3} lg={5}>
+            <Row xs={2} md={3} lg={4}>
               {cardDummy.map((result, index) => {
                 return (
                   <Col

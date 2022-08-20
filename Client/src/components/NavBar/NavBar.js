@@ -20,22 +20,22 @@ function NavBar() {
       window.localStorage.removeItem("auth");
     } else {
       await window.ethereum.enable().then(async () => {
-        if (checkNetworkVersion()) {
-          setWalletConnect("Connected");
-          const data = document.querySelectorAll(".on")[0];
-          data.style.backgroundColor = "green";
-        } else {
-          alert("BSC Test Net을 활용하세요");
-        }
+        // if (checkNetworkVersion()) {
+        setWalletConnect("Connected");
+        const data = document.querySelectorAll(".on")[0];
+        data.style.backgroundColor = "green";
+        // } else {
+        //   alert("BSC Test Net을 활용하세요");
+        // }
       });
     }
   };
 
-  window.ethereum.on("chainChanged", (result) => {
-    if (result !== "0x61") {
-      alert("BSC 이용 하세요");
-    }
-  });
+  // window.ethereum.on("chainChanged", (result) => {
+  //   if (result !== "0x61") {
+  //     alert("BSC 이용 하세요");
+  //   }
+  // });
 
   useEffect(() => {
     init();

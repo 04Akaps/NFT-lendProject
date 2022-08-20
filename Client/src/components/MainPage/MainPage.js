@@ -1,4 +1,6 @@
 import { mintNFT } from "components/Contract/ContractCall/MintCall";
+import { makeNFT } from "components/utils/APICall";
+import P5 from "components/utils/P5";
 import { Feature, imgLink } from "components/utils/utils";
 import React from "react";
 import { Row, Col, Button } from "react-bootstrap";
@@ -13,8 +15,9 @@ function MainPage() {
           <p>Look's Not Good... But I Tryed My Best</p>
           <Button
             variant="outline-warning"
-            onClick={() => {
-              mintNFT();
+            onClick={async () => {
+              await makeNFT();
+              // mintNFT();
             }}
           >
             Mint NFT

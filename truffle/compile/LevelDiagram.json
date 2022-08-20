@@ -34,7 +34,8 @@
         }
       ],
       "stateMutability": "pure",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -53,7 +54,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -77,7 +79,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_item\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_power\",\"type\":\"uint256\"}],\"name\":\"calculateItemIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"grade\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"level\",\"type\":\"uint256\"}],\"name\":\"calculatePower\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"grade\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"level\",\"type\":\"uint256\"}],\"name\":\"calculateTokenAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Hero/utils/LevelDiagram.sol\":\"LevelDiagram\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Hero/interface/ILevelDiagram.sol\":{\"keccak256\":\"0xd8f437609b68a64d8c4e7a7e558d2423cdbc024223b79dd70f7efb9f91188cb2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://287b8c1aaffad16c4cdd055421a36560632359f8655dea7c0161898ca096ffa5\",\"dweb:/ipfs/Qmbw5qpkztZG8Kr5daxyUcs45oe4NdAxaxjRCccyao14bZ\"]},\"project:/contracts/Hero/utils/LevelDiagram.sol\":{\"keccak256\":\"0x7226efb6b04ac1983a737d31410538cf290438131d6529cdef6b0c1ab68b6271\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://76049ec34398fe9761dfd9fa2f363e3f26d80adbda788a31ef83ebac90182ed0\",\"dweb:/ipfs/QmeaCrQokSqQbWcb6KoCtxdPCqke4fcvE4Vp58oKbfHFqn\"]},\"project:/contracts/interface/IKIP13.sol\":{\"keccak256\":\"0xfdc08b420cede6482f052a07ef775bf7c0103ceae60337727004f731a6bd2653\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e9eddad72f93d392fea0f3f0e67776553b6c9bbe06fc3fbd880dac47a61bf1b1\",\"dweb:/ipfs/QmfYexZsRLaVRfDoReAGBd2L5fAwUJe4o4b7JiiiFpjeUf\"]},\"project:/contracts/interface/IKIP37/IKIP37.sol\":{\"keccak256\":\"0xd5ab10c6d1d62b27a38ecd19d534ba8bf3db56425069065b1cb0b5a16c47f7d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3e535a86c28ed23615fa385e004f46e795d549d6ccb77c73ccba99dcf692fc58\",\"dweb:/ipfs/QmR6w6fArhEaRnE3NfhjrMDsTEq893EE9PHVwJCcgGTsac\"]},\"project:/contracts/interface/IKIP37/IKIP37Full.sol\":{\"keccak256\":\"0xdd12853a84ddb6d1e6f11cea359d858206916acf6c4f2781d9bbb5ceabd3d917\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b2bcd5c381beede46e7b8ca489837706617c3c702fd8fe70563b0c4d3f85bcea\",\"dweb:/ipfs/QmXPCqN2Yj8Tawkeg6aCwRUcnsn6JcVfRvKYyZgtS1Lgtj\"]},\"project:/contracts/interface/IKIP37/IKIP37MetadataURI.sol\":{\"keccak256\":\"0x436fce34d12c87b533de86dd98b218716ef59e7b5fc7677a6d82e54347d8f217\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ccdef2e041234906d7adf73194d3d29c0885d263546da69c85aac4f1460847da\",\"dweb:/ipfs/QmfYJFHs97agtUWpeDsVmjFrdWDWh9sm82NzqVBJmXXwuh\"]}},\"version\":1}",
@@ -12761,9 +12764,17 @@
     "name": "solc",
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x38cA98C8ab9e15a5b86d9ffF8EC8c9188c69487E",
+      "transactionHash": "0x6e8ae4d2be685167196de2008edfca6d1c123e1baf3af8eb6eb0b4de49625959"
+    }
+  },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-08-12T13:53:55.804Z",
+  "updatedAt": "2022-08-17T13:12:46.020Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

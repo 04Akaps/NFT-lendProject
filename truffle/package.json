@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "remixd -s /Users/yuhojin/Desktop/myProject/truffle/contracts -u https://ide.klaytn.foundation",
   "main": "truffle-config.js",
-  "directories": {},
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +16,8 @@
     "@truffle/hdwallet-provider": "^2.0.13",
     "shelljs": "^0.8.5",
     "truffle-hdwallet-provider-klaytn": "^1.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.2"
   }
 }

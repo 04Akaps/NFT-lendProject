@@ -13,7 +13,7 @@ import {
 } from "components/main";
 import { useEffect } from "react";
 
-import { vereifyToken } from "components/utils/VerifyToken";
+import { vereifyToken } from "components/utils/APICall";
 
 function Home() {
   useEffect(() => {

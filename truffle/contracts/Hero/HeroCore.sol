@@ -12,6 +12,13 @@ import "../utils/SafeMath.sol";
 contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
     using SafeMath for *;
 
+    event HeroMint(
+        uint256 tokenId,
+        uint256 level,
+        string grade,
+        uint256 birthTime
+    );
+
     HERO[] heroArray;
     mapping(uint256 => HERO) private heroVault;
 
@@ -461,6 +468,8 @@ contract HeroCore is TimeLock, HeroController, MakeGrade, IHeroCore {
 
         heroVault[tokenIndex] = newHero;
         heroArray.push(newHero);
+
+        emit HeroMint(tokenId, 1, grade, currentTime);
     }
 
     function _checkUserInBorrowData(uint256 _tokenId, address _apprrovedUser)
