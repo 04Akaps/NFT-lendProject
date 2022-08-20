@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-  <html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
   </head>
   <body>
-    <h4>안녕하세요 홈페이지입니다.</h4>
+    <script>
+        let y = 100;
+      function setup() {
+        createCanvas(400, 400);
+        stroke(255); 
+        frameRate(30);
+        const random = Math.random() * (255 - 50) + 0;
+        const random2 = Math.random() * (255 - 50) + 0;
+        const random3 = Math.random() * (255 - 50) + 0;
+
+        background(random, random2 , random3); 
+
+        const leftFoot = Math.random() * (180 - 50) + 50;
+        const rightFoot = Math.random() * (350 - 220) + 220;
+
+        const leftArm = Math.random() * (240 - 120) + 120;
+        const rightArm = Math.random()* (240 - 120) + 120;
+        circle(200,80,80)
+        line(200, 120, 200, 260) // 몸통
+
+        line(200, 260, leftFoot, 360) // 다리 왼쪽
+        line(200, 260, rightFoot, 360)    // 다리 오른쪽
+
+        line(200, 180, 100, leftArm) // 왼쪽 팔
+        line(200, 180, 300, rightArm) // 오른쪽 팔
+      }
+
+      function draw() {
+
+       
+      }
+
+    //   function head() {
+    //     circle(100,100,50)
+    //   } 
+    </script>
   </body>
 </html>
