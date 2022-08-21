@@ -6,10 +6,11 @@
   <body>
     <script>
         let y = 100;
-      function setup() {
-        createCanvas(400, 400);
+     async function setup() {
+        const cnv = createCanvas(400, 400);
         stroke(255); 
         frameRate(30);
+        
         const random = Math.random() * (255 - 50) + 0;
         const random2 = Math.random() * (255 - 50) + 0;
         const random3 = Math.random() * (255 - 50) + 0;
@@ -20,25 +21,32 @@
         const rightFoot = Math.random() * (350 - 220) + 220;
 
         const leftArm = Math.random() * (240 - 120) + 120;
+        const leftArmStart = 100;
+
         const rightArm = Math.random()* (240 - 120) + 120;
+        const rightArmStart = 300;
         circle(200,80,80)
         line(200, 120, 200, 260) // 몸통
 
-        line(200, 260, leftFoot, 360) // 다리 왼쪽
+        line(200, 260, leftFoot, 360) // 다리 왼쪽4
         line(200, 260, rightFoot, 360)    // 다리 오른쪽
 
-        line(200, 180, 100, leftArm) // 왼쪽 팔
-        line(200, 180, 300, rightArm) // 오른쪽 팔
+        line(200, 180, leftArmStart, leftArm) // 왼쪽 팔
+        line(200, 180, rightArmStart, rightArm) // 오른쪽 팔
+
+        // save(cnv, 'NewNFT')
+        // console.log(cnv)
       }
 
-      function draw() {
+    
 
-       
+
+      function saveImg () {
+
       }
 
-    //   function head() {
-    //     circle(100,100,50)
-    //   } 
+      saveImg()
+
     </script>
   </body>
 </html>
