@@ -3,7 +3,14 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
   </head>
-  <body>
+
+  <style>
+    * {box-sizing: border-box;
+    margin: 0px;
+  width: max-content;
+height: 400px}
+ </style>
+
     <script>
         let y = 100;
      async function setup() {
@@ -33,20 +40,9 @@
 
         line(200, 180, leftArmStart, leftArm) // 왼쪽 팔
         line(200, 180, rightArmStart, rightArm) // 오른쪽 팔
-
-        // save(cnv, 'NewNFT')
-        // console.log(cnv)
       }
-
-    
-
-
-      function saveImg () {
-
-      }
-
-      saveImg()
-
     </script>
-  </body>
+
+  
+
 </html>
