@@ -1,8 +1,9 @@
 import express from "express";
-import { makeNFT } from "../controllers/NFT.js";
+import { getNFTMetaData, makeNFT } from "../controllers/NFT.js";
 
 const router = express.Router();
 
 router.get("/makeNFT", makeNFT);
+router.get("/getNFTData/:id", getNFTMetaData);
 
 export default router;

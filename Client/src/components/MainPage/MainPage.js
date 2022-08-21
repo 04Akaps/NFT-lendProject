@@ -10,7 +10,15 @@ function MainPage() {
   return (
     <div className="MainPage_App">
       <Row className="MainPage_Container">
-        <Col className="MapinPage_left" md={{ span: 4, offset: 1 }}>
+        <Col
+          className="MapinPage_left"
+          md={{ span: 4, offset: 1 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <h1>My Personal Project</h1>
           <p>Look's Not Good... But I Tryed My Best</p>
           <Button
@@ -24,7 +32,14 @@ function MainPage() {
           </Button>
         </Col>
 
-        <Col md={{ span: 4, offset: 1 }}>
+        <Col
+          md={{ span: 4, offset: 1 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <img
             src={imgLink.slumpSeven}
             alt={imgLink.slumpSeven}

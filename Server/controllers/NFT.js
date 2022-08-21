@@ -28,5 +28,10 @@ export const makeNFT = async (req, res) => {
 
   const imagePrefix = "data:image/png;base64,";
 
-  console.log(imagePrefix + newNFTImageData);
+  const imgBase64 = imagePrefix + newNFTImageData;
+  // Transaction 실행 후 DB값 생성 필요
+};
+
+export const getNFTMetaData = async (req, res) => {
+  const tokenId = req.params.id;
 };
