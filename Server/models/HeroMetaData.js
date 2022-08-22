@@ -9,7 +9,7 @@ export const sequelize = new Sequelize("HeroMetaData", "root", "root", {
   dialect: "mysql",
 });
 
-const HeroMetaData = sequelize.define(
+export const HeroMetaData = sequelize.define(
   "HeroMetaData",
   {
     id: {
@@ -23,11 +23,11 @@ const HeroMetaData = sequelize.define(
       allowNull: false,
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.BLOB,
       allowNull: false,
     },
     description: {
