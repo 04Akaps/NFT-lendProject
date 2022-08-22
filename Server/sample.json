@@ -1,0 +1,16 @@
+{"id":44398,"name":"[7] Tirael Granger","description":"Tirael Granger is a level 7 Crypto Raider!  \n  \nInventory: Red Hunter's Garb, Shabby Sickle, Beast Pelt, Sledge Hammer, Sturdy Bow, Great Axe, Apprentice Staff, Iron Shortsword, Wizards Manual, Heavy Mace, Wizards Manual, Wood Chipper, Wizards Manual, Apprentice Staff, Iron Shortsword, Apprentice Staff, Great Axe, Sturdy Bow, Wizards Manual, Copper Mail, Beast Pelt, Heavy Mace, Great Axe, Wizards Manual, Bash - Spell Rune, Wizards Manual, Wizards Manual, Wizards Manual, Copper Mail, Ivy Longbow, Quilted Doublet, Hunter's Boomerang, Pig Skinner, Bronze Pendant of the Reaver, Dark Sorcerer's Cowl, Quilted Doublet, Woodland Gabardine, Farmer's Sickle, Woodland Gabardine, Solid Iron Band of Intelligence, Hunter's Boomerang, Sorcerer's Cowl, Pig Skinner, Sorcerer's Cowl, Sludge Covered Breastplate, Bronze Pendant of the Reaver, Hunter's Boomerang, Golden Pistol, Centurion Breastplate, Vile Thorn, Solid Iron Band of Strength, Platinum Bludgeon, Iron Pendant of the Defender, Three-Ring Mail, Tall Grass Hook",
+"image":"https://api.cryptoraiders.xyz/img/62048f9070eb1500164f41e0",
+"attributes":[
+    {"display_type":"date","trait_type":"Birthday","value":"1644466065"},
+    {"trait_type":"Level","value":7},
+    {"trait_type":"Experience","value":31209},
+    {"display_type":"number","trait_type":"Generation","value":5},
+    {"display_type":"number","trait_type":"Raids Completed","value":64},
+    {"trait_type":"Vintage"},
+    {"trait_type":"Race","value":"Human"},
+    {"display_type":"boost_number","trait_type":"Strength","value":37},
+    {"display_type":"boost_number","trait_type":"Intelligence","value":0},{"display_type":"boost_number","trait_type":"Agility","value":0},
+    {"display_type":"boost_number","trait_type":"Wisdom","value":5},
+    {"display_type":"boost_number","trait_type":"Charm","value":0},
+    {"display_type":"boost_number","trait_type":"Luck","value":0}]
+}

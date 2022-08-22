@@ -22,7 +22,7 @@ try {
     .authenticate()
     .then(() => {
       console.log("sequelize Auth Success");
-      sequelize.sync({ alter: true }).then(() => {
+      sequelize.sync({ force: true }).then(() => {
         app.listen(PORT, () => {
           console.log(PORT);
         });

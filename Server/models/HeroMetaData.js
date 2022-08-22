@@ -27,7 +27,7 @@ export const HeroMetaData = sequelize.define(
       allowNull: false,
     },
     image: {
-      type: DataTypes.BLOB,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
@@ -49,3 +49,20 @@ export const HeroMetaData = sequelize.define(
     deletedAt: "timeDestroyed",
   }
 );
+
+export const HeroMetaDataImage = sequelize.define("HeroMetaDataImage", {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  tokenId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  image: {
+    type: DataTypes.BLOB,
+    allowNull: false,
+  },
+});
