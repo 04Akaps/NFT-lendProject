@@ -2,31 +2,16 @@ import path from "path";
 import fs from "fs";
 import nodeHtmlToImage from "node-html-to-image";
 import { HeroMetaData, HeroMetaDataImage } from "../models/HeroMetaData.js";
+import { commonDescription } from "../utils/Variable.js";
 
 const __dirname = path.resolve();
 
 export const makeNFT = async (req, res) => {
   const imgHtml = __dirname + "/NFT.html";
-  const newNFTImageLink = __dirname + "/newNFT.png";
 
   const htmlData = await fs.readFileSync(imgHtml, "utf8", (err, data) => {
     return data;
   });
-
-  // await nodeHtmlToImage({
-  //   output: "./newNFT.png",
-  //   html: htmlData,
-  // });
-
-  // const newNFTImageData = await fs.readFileSync(
-  //   newNFTImageLink,
-  //   "base64",
-  //   (err, data) => {
-  //     return data;
-  //   }
-  // );
-
-  // const imgBase64 = "data:image/png;base64," + newNFTImageData;
 
   const testobj = [
     {
@@ -46,7 +31,7 @@ export const makeNFT = async (req, res) => {
       tokenId: tokenId,
       image: `http://localhost:8080/NFT/getNFTImage/${tokenId}`,
       name: "test",
-      description: "test",
+      description: commonDescription,
       birthTime: "test",
       attributes: JSON.stringify(testobj),
     });

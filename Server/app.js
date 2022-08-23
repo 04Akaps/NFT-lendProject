@@ -6,6 +6,7 @@ import { PORT } from "./utils/env.js";
 
 import { NFT, OAuth } from "./router/Assemble.js";
 import { sequelize } from "./models/HeroMetaData.js";
+import { eventLintening } from "./utils/EventListening.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ try {
       sequelize.sync({ force: true }).then(() => {
         app.listen(PORT, () => {
           console.log(PORT);
+          eventLintening();
         });
       });
     })

@@ -50,25 +50,7 @@ function NavBar() {
               alignItems: "center",
               justifyContent: "center",
             }}
-          >
-            <img
-              src={imgLink.slumpOne}
-              alt="goHome"
-              style={{
-                width: "100px",
-                cursor: "pointer",
-              }}
-              onClick={() => window.location.replace("/Home/MainPage")}
-            />
-            <Col
-              className="button"
-              style={{
-                minWidth: "100px",
-              }}
-            >
-              {myTokenAmount}
-            </Col>
-          </Row>
+          ></Row>
 
           <div className="NavBar_Right">
             <div className="on" title={walletConnect}></div>
