@@ -1,56 +1,151 @@
 import React, { useEffect } from "react";
 import "./LoginPage.scss";
 
-import { clienId, imgLink } from "../utils/utils";
-import { GoogleLogin } from "react-google-login";
-import { gapi } from "gapi-script";
+import { imgLink } from "../utils/utils";
+import { Fragment } from "react";
+import { Col, Row, Button, Badge } from "react-bootstrap";
+import { useState } from "react";
+import { accessNetworkVersion, signmessage } from "components/utils/Variable";
+import { web3 } from "components/Contract/Contract";
 
 function LoginPage(props) {
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clienId: clienId,
-        scope: "email",
-      });
+  const [error, setError] = useState("");
+
+  const loginUsingWallet = async () => {
+    const wallet = window.ethereum;
+    setError("");
+
+    if (wallet) {
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+      } catch (error) {
+        setError("연결을 진행해 주세요!");
+        return;
+      }
+
+      const checkisUnLock = await wallet._metamask.isUnlocked();
+
+      if (!checkisUnLock) {
+        try {
+          await wallet.enable();
+        } catch (error) {
+          setError("Wallet 잠금을 해제해 주세요");
+          return;
+        }
+      }
+
+      const currentNetwork = wallet.networkVersion;
+
+      if (currentNetwork != accessNetworkVersion) {
+        setError("networkVersion 바이낸스 테스트넷으로 진행해 주세요!");
+
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              chainId: `0x${Number(97).toString(16)}`,
+              chainName: "Smart Chain - Testnet",
+              nativeCurrency: {
+                name: "BNB",
+                symbol: "BNB",
+                decimals: 18,
+              },
+              rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
+            },
+          ],
+        });
+        return;
+      }
+
+      try {
+        await web3.eth.personal.sign(
+          web3.utils.utf8ToHex(signmessage),
+          wallet.selectedAddress
+        );
+      } catch (error) {
+        setError("Sign해 주세요!");
+        return;
+      }
+
+      console.log("무사히 연결 완료 되었습니다.");
+
+      localStorage.setItem("connect", JSON.stringify(wallet.selectedAddress));
+      props.setAuth(wallet.selectedAddress);
+    } else {
+      setError("지갑을 설치해 주세요");
     }
-    gapi.load("client:auth2", start);
-
-    if (props.auth) {
-      window.location.replace("/Home/MainPage");
-    }
-  });
-  const onSuccess = (result) => {
-    props.setAuth(true);
-    window.localStorage.setItem("auth", result.tokenObj.id_token);
-    window.location.replace("/Home/MainPage");
   };
-
-  const onFailure = () => {
-    localStorage.removeItem("auth");
-  };
-
   return (
-    <>
-      <div className="login_App">
-        <div className="login_Img">
-          <img src={imgLink.zolImg} alt="LoginImg" className="Login_Img_img" />
-        </div>
-
-        <div className="login_container">
-          <div className="Login_Box">
-            <div className="Login_Box_Method">
-              <GoogleLogin
-                clientId={clienId}
-                buttonText="Login"
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={"single_host_origin"}
-              ></GoogleLogin>
+    <Fragment>
+      <div className="login_App flex justify-center align-center column">
+        <h3
+          style={{
+            color: "#ff926e",
+            fontWeight: "800",
+            marginBottom: "20px",
+          }}
+        >
+          Binance Network & My Simple Project
+        </h3>
+        <Row lg={1} xs={1} sm={1}>
+          <Col className="flex justify-center">
+            <img src={imgLink.zolImg} alt="LoginImg" />
+          </Col>
+          <Col
+            className="flex justify-center"
+            style={{
+              paddingTop: "20px",
+            }}
+          >
+            <div
+              className="imghover flex justify-center"
+              style={{
+                width: "300px",
+                height: "180px",
+                padding: "10px",
+                background: "#fff",
+                borderRadius: "16px",
+              }}
+            >
+              <img
+                src={imgLink.wallet}
+                alt="wallet"
+                style={{
+                  objectFit: "contain",
+                  width: "90%",
+                  height: "100%",
+                  cursor: "pointer",
+                }}
+                onClick={async () => {
+                  await loginUsingWallet();
+                }}
+              />
             </div>
-          </div>
-        </div>
+          </Col>
+
+          {error ? (
+            <Col
+              className="flex justify-center"
+              style={{
+                marginTop: "20px",
+              }}
+            >
+              <Button
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: "red",
+                }}
+              >
+                {error}
+              </Button>
+            </Col>
+          ) : (
+            ""
+          )}
+        </Row>
       </div>
-    </>
+    </Fragment>
   );
 }
 

@@ -4,6 +4,7 @@ dotenv.config();
 export const clienId = process.env.REACT_APP_API_CLIENT;
 
 export const imgLink = {
+  wallet: "/img/walletImg.png",
   zolImg: "/img/LoginPage.png",
   slumpOne: "/img/닥터슬럼프1.jpeg",
   slumpTwo: "/img/닥터슬럼프2.jpeg",

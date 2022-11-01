@@ -7,27 +7,28 @@ import Home from "./Home";
 import { useState } from "react";
 import { useEffect } from "react";
 
-//
-
 function App() {
-  const [auth, setAuth] = useState(window.localStorage.getItem("auth"));
+  const [auth, setAuth] = useState(
+    JSON.parse(window.localStorage.getItem("connect"))
+  );
 
   useEffect(() => {
-    setAuth(window.localStorage.getItem("auth"));
-  }, [auth]);
+    setAuth(JSON.parse(window.localStorage.getItem("connect")));
+  }, []);
+
+  console.log(auth);
 
   return (
     <>
       {auth ? "" : <Redirect to="/" />}
       <Switch>
         <Route exact path="/">
-          <LoginPage setAuth={setAuth} auth={auth} />
+          <LoginPage setAuth={setAuth} />
         </Route>
         <Route path="/Home">
           <Home />
         </Route>
       </Switch>
-      <div className="App"></div>
     </>
   );
 }
