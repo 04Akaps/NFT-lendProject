@@ -1,5 +1,5 @@
 import "./App.css";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { LoginPage } from "components/main";
@@ -16,18 +16,16 @@ function App() {
     setAuth(JSON.parse(window.localStorage.getItem("connect")));
   }, []);
 
-  console.log(auth);
-
   return (
     <>
-      {auth ? "" : <Redirect to="/" />}
       <Switch>
-        <Route exact path="/">
-          <LoginPage setAuth={setAuth} />
-        </Route>
-        <Route path="/Home">
+        {auth ? (
           <Home />
-        </Route>
+        ) : (
+          <Route exact path="/">
+            <LoginPage setAuth={setAuth} />
+          </Route>
+        )}
       </Switch>
     </>
   );

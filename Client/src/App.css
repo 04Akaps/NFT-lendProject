@@ -44,3 +44,7 @@
 .align-center {
     align-items: center;
 }
+
+.hide-url {
+    display: none;
+}
