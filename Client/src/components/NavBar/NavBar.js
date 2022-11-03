@@ -42,11 +42,12 @@ const navMenu = [
 function NavBar() {
   return (
     <Fragment>
-      <Row className="App">
-        <Col className="d-flex justify-start">
+      <Row className="App" lg={3} sm={1} xs={1}>
+        <Col className="d-flex justify-center">
           <div
             style={{
               width: "100px",
+              margin: "10px",
             }}
           >
             <img
@@ -63,8 +64,14 @@ function NavBar() {
             />
           </div>
         </Col>
+
         <Col>
-          <Row className="h-100">
+          <Row
+            className="h-100"
+            style={{
+              margin: "10px",
+            }}
+          >
             {navMenu.map((result, index) => {
               return (
                 <Col
@@ -100,11 +107,12 @@ function NavBar() {
             })}
           </Row>
         </Col>
-        {/* TransactionPage */}
-        <Col className="d-flex justify-end align-center">
+
+        <Col className="d-flex justify-center align-center">
           <div
             style={{
               width: "50px",
+              margin: "10px",
               marginRight: "20px",
             }}
           >
