@@ -1,5 +1,4 @@
 import React from "react";
-import "./Home.scss";
 
 import { Route, useLocation } from "react-router-dom";
 import {
@@ -11,6 +10,7 @@ import {
   BorrowPage,
   TransactionPage,
   Error,
+  Mint,
 } from "components/main";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -40,6 +40,11 @@ const routers = [
     path: "/TransactionPage",
     component: TransactionPage,
   },
+
+  {
+    path: "/Mint",
+    component: Mint,
+  },
 ];
 
 function Home() {
@@ -67,9 +72,9 @@ function Home() {
     window.localStorage.removeItem("connect");
     window.location.replace("/");
   });
-  console.log(checkUrl);
+
   return (
-    <>
+    <di>
       {checkUrl && <NavBar />}
 
       <div className={`${checkUrl ? "show-url" : "hide-url"}`}>
@@ -79,9 +84,8 @@ function Home() {
           );
         })}
       </div>
-
       {!checkUrl && <Error />}
-    </>
+    </di>
   );
 }
 

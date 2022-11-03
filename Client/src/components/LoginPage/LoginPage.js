@@ -83,18 +83,32 @@ function LoginPage(props) {
             color: "#ff926e",
             fontWeight: "800",
             marginBottom: "20px",
+            background: "transparent",
           }}
         >
           Binance Network & My Simple Project
         </h3>
-        <Row lg={1} xs={1} sm={1}>
-          <Col className="flex justify-center">
+        <Row
+          lg={1}
+          xs={1}
+          sm={1}
+          style={{
+            background: "transparent",
+          }}
+        >
+          <Col
+            className="flex justify-center"
+            style={{
+              background: "transparent",
+            }}
+          >
             <img src={imgLink.zolImg} alt="LoginImg" />
           </Col>
           <Col
             className="flex justify-center"
             style={{
               paddingTop: "20px",
+              background: "transparent",
             }}
           >
             <div

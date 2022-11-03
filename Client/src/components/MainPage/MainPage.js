@@ -1,106 +1,167 @@
-import { mintNFT } from "components/Contract/ContractCall/MintCall";
-import { makeNFT } from "components/utils/APICall";
-import P5 from "components/utils/P5";
-import { Feature, imgLink } from "components/utils/utils";
+import { imgLink } from "components/utils/utils";
 import React from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Card } from "react-bootstrap";
 import "./MainPage.scss";
 
+const contentMap = [
+  {
+    image: imgLink.game,
+    text: "게임을 즐기고 다른 사람들과 경쟁하세요!!",
+    title: "Play Earn",
+  },
+
+  {
+    image: imgLink.play,
+    text: "Staking을 하여 코인을 투적하세요!",
+    title: "NFT Mining",
+  },
+
+  {
+    image: imgLink.lend,
+    text: "서로 NFT를 빌려줘서 보상 및 탐험을 즐기세요!",
+    title: "Lend NFT To Others",
+  },
+
+  {
+    image: imgLink.exploration,
+    text: "모험에 참여하여 또다른 NFT를 가져가세요!",
+    title: "Exploration Using NFT",
+  },
+];
+
 function MainPage() {
+  const observer = new IntersectionObserver((e) => {
+    console.log("sd");
+  });
+
   return (
-    <div className="MainPage_App">
-      <Row className="MainPage_Container">
+    <div>
+      <Row lg={1} sm={1} xs={1}>
         <Col
-          className="MapinPage_left"
-          md={{ span: 4, offset: 1 }}
+          className="flex justify-center column align-center"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
+            color: "purple",
+            fontSize: "2rem",
+            fontWeight: "1000",
+            marginTop: "25%",
           }}
         >
-          <h1>My Personal Project</h1>
-          <p>Look's Not Good... But I Tryed My Best</p>
           <Button
-            variant="outline-warning"
-            onClick={async () => {
-              await makeNFT();
-              // mintNFT();
+            style={{
+              fontWeight: "1000",
+              color: "#fff",
+              background: "purple",
+              border: "none",
+              width: "200px",
             }}
           >
-            Mint NFT
+            MyPage
           </Button>
+          Welcome To My WebSite
         </Col>
 
-        <Col
-          md={{ span: 4, offset: 1 }}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src={imgLink.slumpSeven}
-            alt={imgLink.slumpSeven}
-            className="MinPage_Right"
-          />
+        <Col className="flex justify-center column align-center">
+          <div
+            style={{
+              background: "transparent",
+              color: "purple",
+              maxWidth: "50%",
+              whiteSpace: "normal",
+              wordBreak: "break-all",
+              textAlign: "center",
+            }}
+          >
+            이곳은 MainPage 입니다. 대략적인 사이트에 대한 설명이 들어가
+            있습니다. 감사합니다.
+          </div>
         </Col>
-      </Row>
 
-      <div className="MainPage_Second_Container">
-        <h1>The Goal Of The Project</h1>
-        <span>It's a project that writed personally or in teams.</span>
-        <p>
-          Although css is immature, But I Tried My Best to Connet BlockChain
-          naturally
-        </p>
-      </div>
-
-      <div className="MainPage_Three_Container">
-        <h1
+        <div
           style={{
-            padding: "0px 0px 50px 0px",
+            marginTop: "1000px",
+            marginBottom: "300px",
           }}
         >
-          Feature
-        </h1>
-        <Row xs={2} lg={3} className="Feature_Row">
-          {Feature.map((result, index) => {
-            return (
-              <Col className="Feature_Col" key={index}>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src={result.img}
+          <div
+            className="flex justify-center"
+            style={{
+              padding: "20px",
+              fontWeight: "1000",
+              fontSize: "3rem",
+              color: "purple",
+            }}
+          >
+            Our Content
+          </div>
+
+          <Row className="flex justify-around w-100" lg={4} sm={2} xs={1}>
+            {contentMap.map((result, index) => {
+              return (
+                <Col className="flex justify-center">
+                  <Card
                     style={{
-                      objectFit: "contain",
-                      width: "100%",
-                    }}
-                  />
-                  <span
-                    style={{
-                      padding: "5px",
-                      fontWeight: "800",
+                      margin: "20px",
+                      padding: "20px",
+                      borderRadius: "12px",
+                      cursor: "pointer",
                     }}
                   >
-                    {result.title}
-                  </span>
-                  <p>{result.span}</p>
-                </div>
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
+                    <img
+                      src={result.image}
+                      style={{
+                        borderRadius: "12px",
+                        width: "100%",
+                        height: "90%",
+                        objectFit: "cover",
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.opacity = 0;
 
-      <div className="MainPage_Footer">Copyright © 2021 Personal project</div>
+                        const data = document.querySelectorAll(`#test${index}`);
+
+                        data[0].style.opacity = 1;
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.opacity = 1;
+
+                        const data = document.querySelectorAll(`#test${index}`);
+
+                        data[0].style.opacity = 0;
+                      }}
+                    />
+                    <div
+                      id={`test${index}`}
+                      style={{
+                        position: "absolute",
+                        opacity: "0",
+                        top: "20%",
+                        width: "90%",
+                        marginRight: "auto",
+                        marginLeft: "auto",
+                        background: "transparent",
+                      }}
+                    >
+                      {result.text}
+                    </div>
+                    <div
+                      className="flex justify-center"
+                      style={{
+                        background: "transparent",
+                        fontSize: "1rem",
+                        color: "black",
+                        fontWeight: "800",
+                        marginTop: "15px",
+                      }}
+                    >
+                      {result.title}
+                    </div>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+      </Row>
     </div>
   );
 }

@@ -19,6 +19,12 @@ export const imgLink = {
   stake: "/img/staking.png",
   travel: "/img/Travel.png",
   dugeon: "/img/dugeon.webp",
+  avatar: "/img/1.png",
+  background: "/img/background.png",
+  game: "/img/game.PNG",
+  play: "/img/-pic1.png",
+  lend: "/img/lend.PNG",
+  exploration: "/img/exploration.PNG",
 };
 
 export const MenuList = [
