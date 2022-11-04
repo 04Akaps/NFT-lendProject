@@ -31,6 +31,7 @@ export const imgLink = {
   zolFour: "/img/Zol4.PNG",
   zolFive: "/img/Zol5.PNG",
   mintButtonImg: "/img/mintImg.gif",
+  questionMark: "/img/물음표.jpg",
 };
 
 export const MenuList = [
