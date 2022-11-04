@@ -25,6 +25,12 @@ export const imgLink = {
   play: "/img/-pic1.png",
   lend: "/img/lend.PNG",
   exploration: "/img/exploration.PNG",
+  zolOne: "/img/Zol1.PNG",
+  zolTwo: "/img/Zol2.PNG",
+  zolThree: "/img/Zol3.PNG",
+  zolFour: "/img/Zol4.PNG",
+  zolFive: "/img/Zol5.PNG",
+  mintButtonImg: "/img/mintImg.gif",
 };
 
 export const MenuList = [

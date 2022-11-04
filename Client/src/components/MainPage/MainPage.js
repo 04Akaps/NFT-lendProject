@@ -43,7 +43,7 @@ function MainPage() {
             color: "purple",
             fontSize: "2rem",
             fontWeight: "1000",
-            marginTop: "25%",
+            marginTop: "5%",
           }}
         >
           <Button
@@ -78,7 +78,7 @@ function MainPage() {
 
         <div
           style={{
-            marginTop: "1000px",
+            marginTop: "300px",
             marginBottom: "300px",
           }}
         >
@@ -99,6 +99,7 @@ function MainPage() {
               return (
                 <Col className="flex justify-center">
                   <Card
+                    id={`card${index}`}
                     style={{
                       margin: "20px",
                       padding: "20px",
@@ -115,17 +116,36 @@ function MainPage() {
                         objectFit: "cover",
                       }}
                       onMouseOver={(e) => {
+                        e.target.style.transition = "all 1s";
                         e.target.style.opacity = 0;
 
                         const data = document.querySelectorAll(`#test${index}`);
+                        const card = document.querySelectorAll(`#card${index}`);
+                        const title = document.querySelectorAll(
+                          `#title${index}`
+                        );
 
+                        title[0].style.color = "#fff";
+
+                        card[0].style.background = "purple";
+                        card[0].style.transition = "all 1s";
+
+                        data[0].style.transition = "all 1s";
                         data[0].style.opacity = 1;
                       }}
                       onMouseOut={(e) => {
                         e.target.style.opacity = 1;
 
+                        const card = document.querySelectorAll(`#card${index}`);
+
+                        const title = document.querySelectorAll(
+                          `#title${index}`
+                        );
+
                         const data = document.querySelectorAll(`#test${index}`);
 
+                        title[0].style.color = "black";
+                        card[0].style.background = "#fff";
                         data[0].style.opacity = 0;
                       }}
                     />
@@ -139,11 +159,13 @@ function MainPage() {
                         marginRight: "auto",
                         marginLeft: "auto",
                         background: "transparent",
+                        color: "#fff",
                       }}
                     >
                       {result.text}
                     </div>
                     <div
+                      id={`title${index}`}
                       className="flex justify-center"
                       style={{
                         background: "transparent",

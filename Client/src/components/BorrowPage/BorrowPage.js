@@ -42,32 +42,7 @@ const dummyData = [
 ];
 
 function BorrowPage() {
-  return (
-    <>
-      <div className="Borrow_Page">
-        <div className="Borrow_Container">
-          <Row xs={2} sm={2} lg={4}>
-            {dummyData.map((result) => {
-              return (
-                <Col>
-                  <Card style={{ width: "18rem" }}>
-                    <Card.Img variant="top" src={result.img} />
-                    <ListGroup className="list-group-flush">
-                      <ListGroup.Item>
-                        TokenId : {result.tokenId}
-                      </ListGroup.Item>
-                      <ListGroup.Item>Level : {result.level}</ListGroup.Item>
-                      <ListGroup.Item>Price : {result.price}</ListGroup.Item>
-                    </ListGroup>
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-        </div>
-      </div>
-    </>
-  );
+  return <>hojin</>;
 }
 
 export default BorrowPage;
