@@ -83,7 +83,6 @@ function BorrowTo() {
                       background: "#fff",
                       border: "1px solid black",
                       borderRadius: "12px",
-
                       width: "200px",
                       height: "200px",
                     }}
