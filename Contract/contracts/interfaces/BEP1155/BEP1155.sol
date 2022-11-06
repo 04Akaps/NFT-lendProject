@@ -17,7 +17,7 @@ import "../../utils/BEP165.sol";
  *
  * _Available since v3.1._
  */
-contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
+contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
     using Address for address;
 
     // Mapping from token ID to account balances
@@ -37,17 +37,17 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
     }
 
     /**
-     * @dev See {IERC165-supportsInterface}.
+     * @dev See {IBEP165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public view virtual override(BEP165, IBEP165) returns (bool) {
         return
-            interfaceId == type(IERC1155).interfaceId ||
-            interfaceId == type(IERC1155MetadataURI).interfaceId ||
+            interfaceId == type(IBEP1155).interfaceId ||
+            interfaceId == type(IBEP1155MetadataURI).interfaceId ||
             super.supportsInterface(interfaceId);
     }
 
     /**
-     * @dev See {IERC1155MetadataURI-uri}.
+     * @dev See {IBEP1155MetadataURI-uri}.
      *
      * This implementation returns the same URI for *all* token types. It relies
      * on the token type ID substitution mechanism
@@ -61,7 +61,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
     }
 
     /**
-     * @dev See {IERC1155-balanceOf}.
+     * @dev See {IBEP1155-balanceOf}.
      *
      * Requirements:
      *
@@ -73,7 +73,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
     }
 
     /**
-     * @dev See {IERC1155-balanceOfBatch}.
+     * @dev See {IBEP1155-balanceOfBatch}.
      *
      * Requirements:
      *
@@ -98,21 +98,21 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
     }
 
     /**
-     * @dev See {IERC1155-setApprovalForAll}.
+     * @dev See {IBEP1155-setApprovalForAll}.
      */
     function setApprovalForAll(address operator, bool approved) public virtual override {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
     /**
-     * @dev See {IERC1155-isApprovedForAll}.
+     * @dev See {IBEP1155-isApprovedForAll}.
      */
     function isApprovedForAll(address account, address operator) public view virtual override returns (bool) {
         return _operatorApprovals[account][operator];
     }
 
     /**
-     * @dev See {IERC1155-safeTransferFrom}.
+     * @dev See {IBEP1155-safeTransferFrom}.
      */
     function safeTransferFrom(
         address from,
@@ -129,7 +129,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
     }
 
     /**
-     * @dev See {IERC1155-safeBatchTransferFrom}.
+     * @dev See {IBEP1155-safeBatchTransferFrom}.
      */
     function safeBatchTransferFrom(
         address from,
@@ -154,7 +154,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
      *
      * - `to` cannot be the zero address.
      * - `from` must have a balance of tokens of type `id` of at least `amount`.
-     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
+     * - If `to` refers to a smart contract, it must implement {IBEP1155Receiver-onERC1155Received} and return the
      * acceptance magic value.
      */
     function _safeTransferFrom(
@@ -193,7 +193,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
      *
      * Requirements:
      *
-     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155BatchReceived} and return the
+     * - If `to` refers to a smart contract, it must implement {IBEP1155Receiver-onERC1155BatchReceived} and return the
      * acceptance magic value.
      */
     function _safeBatchTransferFrom(
@@ -260,7 +260,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
      * Requirements:
      *
      * - `to` cannot be the zero address.
-     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the
+     * - If `to` refers to a smart contract, it must implement {IBEP1155Receiver-onERC1155Received} and return the
      * acceptance magic value.
      */
     function _mint(
@@ -293,7 +293,7 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
      * Requirements:
      *
      * - `ids` and `amounts` must have the same length.
-     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155BatchReceived} and return the
+     * - If `to` refers to a smart contract, it must implement {IBEP1155Receiver-onERC1155BatchReceived} and return the
      * acceptance magic value.
      */
     function _mintBatch(
@@ -473,8 +473,8 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IERC1155Receiver(to).onERC1155Received(operator, from, id, amount, data) returns (bytes4 response) {
-                if (response != IERC1155Receiver.onERC1155Received.selector) {
+            try IBEP1155Receiver(to).onERC1155Received(operator, from, id, amount, data) returns (bytes4 response) {
+                if (response != IBEP1155Receiver.onERC1155Received.selector) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
             } catch Error(string memory reason) {
@@ -494,10 +494,10 @@ contract BEP1155 is Context, BEP165, IERC1155, IBEP1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IERC1155Receiver(to).onERC1155BatchReceived(operator, from, ids, amounts, data) returns (
+            try IBEP1155Receiver(to).onERC1155BatchReceived(operator, from, ids, amounts, data) returns (
                 bytes4 response
             ) {
-                if (response != IERC1155Receiver.onERC1155BatchReceived.selector) {
+                if (response != IBEP1155Receiver.onERC1155BatchReceived.selector) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
             } catch Error(string memory reason) {

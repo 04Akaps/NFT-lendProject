@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)
+// OpenZeppelin Contracts v4.4.1 (utils/introspection/IBEP165.sol)
 
 pragma solidity ^0.8.0;
 
 /**
- * @dev Interface of the ERC165 standard, as defined in the
+ * @dev Interface of the BEP165 standard, as defined in the
  * https://eips.ethereum.org/EIPS/eip-165[EIP].
  *
  * Implementers can declare support of contract interfaces, which can then be
  * queried by others ({ERC165Checker}).
  *
- * For an implementation, see {ERC165}.
+ * For an implementation, see {BEP165}.
  */
 interface IBEP165 {
     /**

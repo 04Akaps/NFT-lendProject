@@ -1,12 +1,12 @@
 // SPDX-License-Identifier: MIT
-// OpenZeppelin Contracts (last updated v4.7.0) (token/ERC721/IERC721.sol)
+// OpenZeppelin Contracts (last updated v4.7.0) (token/BEP721/IBEP721.sol)
 
 pragma solidity ^0.8.0;
 
 import "../../utils/IBEP165.sol";
 
 /**
- * @dev Required interface of an ERC721 compliant contract.
+ * @dev Required interface of an BEP721 compliant contract.
  */
 interface IBEP721 is IBEP165 {
     /**
@@ -47,7 +47,7 @@ interface IBEP721 is IBEP165 {
      * - `to` cannot be the zero address.
      * - `tokenId` token must exist and be owned by `from`.
      * - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}.
-     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+     * - If `to` refers to a smart contract, it must implement {IBEP721Receiver-onERC721Received}, which is called upon a safe transfer.
      *
      * Emits a {Transfer} event.
      */
@@ -60,7 +60,7 @@ interface IBEP721 is IBEP165 {
 
     /**
      * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
-     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
+     * are aware of the BEP721 protocol to prevent tokens from being forever locked.
      *
      * Requirements:
      *
@@ -68,7 +68,7 @@ interface IBEP721 is IBEP165 {
      * - `to` cannot be the zero address.
      * - `tokenId` token must exist and be owned by `from`.
      * - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}.
-     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
+     * - If `to` refers to a smart contract, it must implement {IBEP721Receiver-onERC721Received}, which is called upon a safe transfer.
      *
      * Emits a {Transfer} event.
      */
@@ -81,7 +81,7 @@ interface IBEP721 is IBEP165 {
     /**
      * @dev Transfers `tokenId` token from `from` to `to`.
      *
-     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721
+     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving BEP721
      * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must
      * understand this adds an external call which potentially creates a reentrancy vulnerability.
      *
