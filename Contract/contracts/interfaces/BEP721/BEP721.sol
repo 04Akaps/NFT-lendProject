@@ -11,13 +11,14 @@ import "../../utils/Address.sol";
 import "../../utils/Context.sol";
 import "../../utils/Strings.sol";
 import "../../utils/BEP165.sol";
+import "../../utils/ToString.sol";
 
 /**
  * @dev Implementation of https://eips.ethereum.org/EIPS/eip-721[BEP721] Non-Fungible Token Standard, including
  * the Metadata extension, but not including the Enumerable extension, which is available separately as
  * {ERC721Enumerable}.
  */
-contract BEP721 is Context, BEP165, IBEP721, IBEP721Metadata {
+contract BEP721 is Context, ToString,BEP165, IBEP721, IBEP721Metadata {
     using Address for address;
     using Strings for uint256;
 
@@ -38,6 +39,9 @@ contract BEP721 is Context, BEP165, IBEP721, IBEP721Metadata {
 
     // Mapping from owner to operator approvals
     mapping(address => mapping(address => bool)) private _operatorApprovals;
+
+    // for TokenUri
+    mapping(uint256 => string) private _tokenUris;
 
     /**
      * @dev Initializes the contract by setting a `name` and a `symbol` to the token collection.
@@ -98,13 +102,19 @@ contract BEP721 is Context, BEP165, IBEP721, IBEP721Metadata {
         return bytes(baseURI).length > 0 ? string(abi.encodePacked(baseURI, tokenId.toString())) : "";
     }
 
+    function setTokenUri(uint256 _tokenId) internal  {
+        string memory uri = append(_baseURI(), toString(_tokenId), ".json");
+        
+        _tokenUris[_tokenId] = uri;
+    }
+
     /**
      * @dev Base URI for computing {tokenURI}. If set, the resulting URI for each
      * token will be the concatenation of the `baseURI` and the `tokenId`. Empty
      * by default, can be overridden in child contracts.
      */
     function _baseURI() internal view virtual returns (string memory) {
-        return "";
+        return "need to change";
     }
 
     /**
