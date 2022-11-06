@@ -27,6 +27,6 @@ contract ZolCore is ZolSet {
         uint256 overedPrice = mintPrice - value;
         payable(msg.sender).transfer(overedPrice);
 
-
+        
     }
 }
