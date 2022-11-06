@@ -15,7 +15,8 @@ contract ZolNFT is BEP721("Zol", "Zl"), OnlyOwner {
     Counters.Counter tokenCount;
 
     modifier onlyCore() {
-        require(msg.sender == zolCore);
+        require(zolCore != address(0x0), "zolCore Error : Set ZolCore CA");
+        require(msg.sender == zolCore, "zolCore Error : Sender is Not ZolCore");
         _;
     }
 
@@ -33,7 +34,7 @@ contract ZolNFT is BEP721("Zol", "Zl"), OnlyOwner {
     function burn(uint256 _tokenId) external {
         _burn(_tokenId);
 
-        event Burn(_tokenId);
+        emit Burn(_tokenId);
     }
 
     function viewTotalSupply() external view returns(uint256){
