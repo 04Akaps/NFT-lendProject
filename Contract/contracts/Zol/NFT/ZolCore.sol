@@ -3,18 +3,18 @@ pragma solidity 0.8.0;
 import "./utils/ZolSet.sol";
 
 contract ZolCore is ZolSet {
-    // 넣은 기능
-    // 1. Breed
-    // 2. LevelUp
 
     // 넣을 컨텐츠
     // Staking, Mining, Lend, Exploration
     struct Zol {
         address currentOwner;
         uint256 level;
-        uint256 breedCount;
+        string grade;
         uint256 timeStamp;
     }
+
+    mapping(uint256 => Zol) private zolMap;
+    uint256 zolTokenIndex;
 
     constructor(uint256 _mintPrice, IBEPFull _zolNft) ZolSet(_mintPrice, _zolNft) {}
 
@@ -27,6 +27,17 @@ contract ZolCore is ZolSet {
         uint256 overedPrice = mintPrice - value;
         payable(msg.sender).transfer(overedPrice);
 
-        
+        _makeZol();
+    }
+
+    function _makeZol() internal {
+        zolMap[zolTokenIndex] = Zol (
+            msg.sender,
+            1,
+            "test",
+            block.timestamp
+        );
+
+        zolTokenIndex++;
     }
 }
