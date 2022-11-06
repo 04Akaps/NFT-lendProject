@@ -1,9 +1,9 @@
 import { imgLink } from "components/utils/utils";
-import CardComponents from "components/utils/CardComponents";
-import { Col, Row, Button, ListGroup, Tab } from "react-bootstrap";
-import React from "react";
 
-// import dugeonImage from "/img/dugeon.webp";
+import React from "react";
+import { useState } from "react";
+import { Fragment } from "react";
+import { Card, Button, Row, Col } from "react-bootstrap";
 
 import "./TravelPage.scss";
 
@@ -46,77 +46,69 @@ const travelData = [
 ];
 
 function TravelPage() {
+  const [checkButton, setCheckButton] = useState(false);
+
   return (
-    <>
-      <div
-        className="Travelpage_container"
+    <Fragment>
+      <Card
+        className="flex column align-center"
         style={{
-          backgroundImage: `url(/img/dugeon.webp)`,
+          border: "none",
+          margin: "40px 20px",
+          minHeight: "500px",
+          background: "transparent",
         }}
       >
-        <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
-          <Row>
-            <Col sm={4}>
-              <ListGroup horizontal>
-                <ListGroup.Item action href="#link1">
-                  Traveling NFT
-                </ListGroup.Item>
-                <ListGroup.Item action href="#link2">
-                  Do Travel
-                </ListGroup.Item>
-              </ListGroup>
-            </Col>
-            <Col sm={8}>
-              <Tab.Content>
-                <Tab.Pane eventKey="#link1">
-                  <div className="Travelpage_app">
-                    {travelData.map((result, index) => {
-                      return (
-                        <>
-                          <div className="TravelPage_map" key={index}>
-                            <img
-                              src={result.img}
-                              style={{
-                                width: "100%",
-                                height: "100px",
-                                objectFit: "contain",
-                              }}
-                            />
-                            <p>tokenId : {result.tokenId}</p>
-                            <p>remain Time : {result.remainTime}</p>
-                          </div>
-                        </>
-                      );
-                    })}
+        <Button
+          style={{
+            textAlign: "center",
+            width: "max-content",
+          }}
+          onClick={() => {
+            setCheckButton(!checkButton);
+          }}
+        >
+          {checkButton ? "여행 가능한 NFT 보기" : "여행 진행중 인 NFT 보기"}
+        </Button>
+        <Card.Body className="flex justify-center">
+          <img
+            src={imgLink.questionMark}
+            style={{
+              width: "300px",
+              height: "300px",
+              borderRadius: "12px",
+            }}
+          />
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Row xs={2} sm={3} lg={5}>
+            {travelData.map((result, i) => {
+              return (
+                <Col key={i} className="flex justify-center">
+                  <div
+                    style={{
+                      padding: "10px",
+                      margin: "10px",
+                    }}
+                  >
+                    <img
+                      src={result.img}
+                      style={{
+                        width: "200px",
+                        height: "200px",
+                        borderRadius: "16px",
+                      }}
+                    />
                   </div>
-                </Tab.Pane>
-                <Tab.Pane eventKey="#link2">
-                  <div className="Travelpage_app">
-                    {travelData.map((result, index) => {
-                      return (
-                        <>
-                          <div className="TravelPage_map" key={index}>
-                            <img
-                              src={result.img}
-                              style={{
-                                width: "100%",
-                                height: "100px",
-                                objectFit: "contain",
-                              }}
-                            />
-                            <p>tokenId : {result.tokenId}</p>
-                          </div>
-                        </>
-                      );
-                    })}
-                  </div>
-                </Tab.Pane>
-              </Tab.Content>
-            </Col>
+                </Col>
+              );
+            })}
           </Row>
-        </Tab.Container>
-      </div>
-    </>
+        </Card.Body>
+      </Card>
+    </Fragment>
   );
 }
 

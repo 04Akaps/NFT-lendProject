@@ -4,6 +4,7 @@ dotenv.config();
 export const clienId = process.env.REACT_APP_API_CLIENT;
 
 export const imgLink = {
+  wallet: "/img/walletImg.png",
   zolImg: "/img/LoginPage.png",
   slumpOne: "/img/닥터슬럼프1.jpeg",
   slumpTwo: "/img/닥터슬럼프2.jpeg",
@@ -18,6 +19,19 @@ export const imgLink = {
   stake: "/img/staking.png",
   travel: "/img/Travel.png",
   dugeon: "/img/dugeon.webp",
+  avatar: "/img/1.png",
+  background: "/img/background.png",
+  game: "/img/game.PNG",
+  play: "/img/-pic1.png",
+  lend: "/img/lend.PNG",
+  exploration: "/img/exploration.PNG",
+  zolOne: "/img/Zol1.PNG",
+  zolTwo: "/img/Zol2.PNG",
+  zolThree: "/img/Zol3.PNG",
+  zolFour: "/img/Zol4.PNG",
+  zolFive: "/img/Zol5.PNG",
+  mintButtonImg: "/img/mintImg.gif",
+  questionMark: "/img/물음표.jpg",
 };
 
 export const MenuList = [

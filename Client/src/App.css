@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-
+    background-color: #fffaf2
 }
 
 .button{
@@ -14,4 +14,50 @@
     font-weight: 800;
     color: black;
     padding-left: 10px;
+}
+
+.imghover :hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out 0s;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-end {
+    justify-content: end;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content:space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.hide-url {
+    display: none;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100{
+    height: 100%;
 }

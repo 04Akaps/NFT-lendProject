@@ -1,5 +1,5 @@
 import "./App.css";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { LoginPage } from "components/main";
@@ -8,24 +8,25 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function App() {
-  const [auth, setAuth] = useState(window.localStorage.getItem("auth"));
+  const [auth, setAuth] = useState(
+    JSON.parse(window.localStorage.getItem("connect"))
+  );
 
   useEffect(() => {
-    setAuth(window.localStorage.getItem("auth"));
-  }, [auth]);
+    setAuth(JSON.parse(window.localStorage.getItem("connect")));
+  }, []);
 
   return (
     <>
-      {auth ? "" : <Redirect to="/" />}
       <Switch>
-        <Route exact path="/">
-          <LoginPage setAuth={setAuth} auth={auth} />
-        </Route>
-        <Route path="/Home">
+        {auth ? (
           <Home />
-        </Route>
+        ) : (
+          <Route exact path="/">
+            <LoginPage setAuth={setAuth} />
+          </Route>
+        )}
       </Switch>
-      <div className="App"></div>
     </>
   );
 }

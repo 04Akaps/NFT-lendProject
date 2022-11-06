@@ -12,4 +12,11 @@ export { default as TransactionPage } from "./TranscationPage/TransactionPage";
 
 export { default as TravelPage } from "./TravelPage/TravelPage";
 
+export { default as Mint } from "./Mint/Mint";
+
 export { default as LoginPage } from "./LoginPage/LoginPage";
+
+export { default as Error } from "./Error/Error";
+
+export { default as BorrowTo } from "./BorrowPage/BorrowTo";
+export { default as BorrowFrom } from "./BorrowPage/BorrowFrom";
