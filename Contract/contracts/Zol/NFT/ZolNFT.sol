@@ -31,7 +31,7 @@ contract ZolNFT is BEP721("Zol", "Zl"), OnlyOwner {
         emit Mint(_to, currentTokenId);
     }
 
-    function burn(uint256 _tokenId) external {
+    function burn(uint256 _tokenId) external onlyCore {
         _burn(_tokenId);
 
         emit Burn(_tokenId);

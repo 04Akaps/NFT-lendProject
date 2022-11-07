@@ -3,11 +3,12 @@ pragma solidity 0.8.0;
 import "../../../utils/OnlyOwner.sol";
 import "../../../interfaces/BEP721/IBEPFull.sol";
 
-abstract contract ZolSet is OnlyOwner {
+import "./ZolDiagram.sol";
+
+abstract contract ZolSet is OnlyOwner, ZolDiagram {
 
     IBEPFull private zolNft;
     uint256 private mintPrice;
-
 
     receive() external payable {}
 
@@ -28,7 +29,9 @@ abstract contract ZolSet is OnlyOwner {
         return mintPrice;
     }
 
+    function viewZolNft() public view returns(IBEPFull){
+        return zolNft;
+    }
 
-    
 
 }

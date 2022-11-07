@@ -1,6 +1,7 @@
 pragma solidity 0.8.0;
 
-contract ZolDiagram {
+
+contract ZolDiagram  {
 
     bytes32 MYTHICAL = keccak256("Mythical");
     bytes32 LEGENDARY = keccak256("Legendary");
@@ -18,8 +19,8 @@ contract ZolDiagram {
         gradeProbability[4] = 50;
     }
 
-    function calculateZolGrade() external view returns(string memory) {
-        uint256 randomNumber = _getRandomnNumber();
+    function calculateZolGrade(uint256 _vrfRandomNumber)  internal view returns(string memory) {
+        uint256 randomNumber = _getRandomnNumber(_vrfRandomNumber);
 
         for (uint256 i=0; i<gradeProbability.length; i++){
             uint256 probability = gradeProbability[i];
@@ -34,7 +35,7 @@ contract ZolDiagram {
         return "grade_error";
     }
 
-    function calculateNextGrade(string calldata _currentGrade) external view returns(string memory){
+    function calculateNextGrade(string calldata _currentGrade)  internal view returns(string memory){
         bytes32 currentGrade = keccak256(bytes(_currentGrade));
 
         require(currentGrade != NORMAL, "Error : MaxLevel Error");
@@ -60,12 +61,13 @@ contract ZolDiagram {
         );
     }
 
-    function _getRandomnNumber() internal view returns(uint256){
+    function _getRandomnNumber(uint256 _vrfRandomNumber) internal view returns(uint256){
         return uint256(keccak256(abi.encodePacked(
             msg.sender,
             block.timestamp,
             block.gaslimit,
-            block.difficulty
+            block.difficulty,
+            _vrfRandomNumber
         ))) % 100;
     }
 }

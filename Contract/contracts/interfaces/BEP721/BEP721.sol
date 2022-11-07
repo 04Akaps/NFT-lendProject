@@ -74,7 +74,6 @@ contract BEP721 is Context, ToString,BEP165, IBEP721, IBEP721Metadata {
      */
     function ownerOf(uint256 tokenId) public view virtual override returns (address) {
         address owner = _ownerOf(tokenId);
-        require(owner != address(0), "BEP721: invalid token ID");
         return owner;
     }
 
