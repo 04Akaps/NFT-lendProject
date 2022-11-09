@@ -1,6 +1,5 @@
 import path from "path";
 import fs from "fs";
-import nodeHtmlToImage from "node-html-to-image";
 import { HeroMetaData, HeroMetaDataImage } from "../models/HeroMetaData.js";
 import { commonDescription } from "../utils/Variable.js";
 

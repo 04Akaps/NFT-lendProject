@@ -22,15 +22,15 @@ export const HeroMetaData = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    name: {
+    level: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    grade: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
