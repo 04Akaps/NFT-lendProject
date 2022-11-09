@@ -6,7 +6,7 @@ import { Fragment } from "react";
 import { Col, Row, Button, Badge } from "react-bootstrap";
 import { useState } from "react";
 import { accessNetworkVersion, signmessage } from "components/utils/Variable";
-import { web3 } from "components/Contract/Contract";
+import { web3 } from "contract/contract";
 
 function LoginPage(props) {
   const [error, setError] = useState("");

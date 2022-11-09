@@ -1,15 +1,7 @@
-# Basic Sample Hardhat Project
+HardHat Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Use Language : Solidity
 
-Try running some of the following tasks:
+Network : BSC
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+remixd -s pwd -u https://remix.ethereum.org
