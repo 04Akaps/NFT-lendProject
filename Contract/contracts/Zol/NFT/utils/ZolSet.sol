@@ -3,10 +3,12 @@ pragma solidity 0.8.0;
 import "../../../utils/OnlyOwner.sol";
 import "../../../interfaces/BEP721/IBEP721Full.sol";
 import "../../../interfaces/BEP20/IBEP20.sol";
+import "../../../interfaces/BEP1155/IBEP1155Full.sol";
 
 import "./ZolDiagram.sol";
 
 abstract contract ZolSet is OnlyOwner, ZolDiagram {
+    IBEP1155Full private zolWeapon;
     IBEP721Full private zolNft;
     IBEP20 private zolToken;
 
@@ -16,12 +18,15 @@ abstract contract ZolSet is OnlyOwner, ZolDiagram {
 
     constructor(
         uint256 _mintPrice,
+        IBEP1155Full _zolWeapon,
         IBEP721Full _zolNft,
         IBEP20 _zolToken
     ) {
         mintPrice = _mintPrice;
+
         zolNft = _zolNft;
         zolToken = _zolToken;
+        zolWeapon = _zolWeapon;
     }
 
     // -> onlyOwner
@@ -34,6 +39,10 @@ abstract contract ZolSet is OnlyOwner, ZolDiagram {
 
     function viewMintPrice() public view returns (uint256) {
         return mintPrice;
+    }
+
+    function viewZolWeapon() public view returns (IBEP1155Full) {
+        return zolWeapon;
     }
 
     function viewZolNft() public view returns (IBEP721Full) {

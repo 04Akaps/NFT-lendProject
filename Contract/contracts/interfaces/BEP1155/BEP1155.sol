@@ -27,19 +27,45 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
     mapping(address => mapping(address => bool)) private _operatorApprovals;
 
     // Used as the URI for all token types by relying on ID substitution, e.g. https://token-cdn-domain/{id}.json
-    string private _uri;
+    mapping(uint256 => string) _uris;
 
     /**
      * @dev See {_setURI}.
      */
-    constructor(string memory uri_) {
-        _setURI(uri_);
+
+    /**
+     * @dev Sets a new URI for all token types, by relying on the token type ID
+     * substitution mechanism
+     * https://eips.ethereum.org/EIPS/eip-1155#metadata[defined in the EIP].
+     *
+     * By this mechanism, any occurrence of the `\{id\}` substring in either the
+     * URI or any of the amounts in the JSON file at said URI will be replaced by
+     * clients with the token type ID.
+     *
+     * For example, the `https://token-cdn-domain/\{id\}.json` URI would be
+     * interpreted by clients as
+     * `https://token-cdn-domain/000000000000000000000000000000000000000000000000000000000004cce0.json`
+     * for token type ID 0x4cce0.
+     *
+     * See {uri}.
+     *
+     * Because these URIs cannot be meaningfully represented by the {URI} event,
+     * this function emits no events.
+     */
+    function _setURI(uint256 _tokenId, string memory newuri) internal virtual {
+        _uris[_tokenId] = newuri;
     }
 
     /**
      * @dev See {IBEP165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(BEP165, IBEP165) returns (bool) {
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        override(BEP165, IBEP165)
+        returns (bool)
+    {
         return
             interfaceId == type(IBEP1155).interfaceId ||
             interfaceId == type(IBEP1155MetadataURI).interfaceId ||
@@ -56,8 +82,14 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
      * Clients calling this function must replace the `\{id\}` substring with the
      * actual token type ID.
      */
-    function uri(uint256) public view virtual override returns (string memory) {
-        return _uri;
+    function uri(uint256 _tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        return _uris[_tokenId];
     }
 
     /**
@@ -67,8 +99,17 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
      *
      * - `account` cannot be the zero address.
      */
-    function balanceOf(address account, uint256 id) public view virtual override returns (uint256) {
-        require(account != address(0), "ERC1155: address zero is not a valid owner");
+    function balanceOf(address account, uint256 id)
+        public
+        view
+        virtual
+        override
+        returns (uint256)
+    {
+        require(
+            account != address(0),
+            "ERC1155: address zero is not a valid owner"
+        );
         return _balances[id][account];
     }
 
@@ -86,7 +127,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         override
         returns (uint256[] memory)
     {
-        require(accounts.length == ids.length, "ERC1155: accounts and ids length mismatch");
+        require(
+            accounts.length == ids.length,
+            "ERC1155: accounts and ids length mismatch"
+        );
 
         uint256[] memory batchBalances = new uint256[](accounts.length);
 
@@ -100,14 +144,24 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
     /**
      * @dev See {IBEP1155-setApprovalForAll}.
      */
-    function setApprovalForAll(address operator, bool approved) public virtual override {
+    function setApprovalForAll(address operator, bool approved)
+        public
+        virtual
+        override
+    {
         _setApprovalForAll(_msgSender(), operator, approved);
     }
 
     /**
      * @dev See {IBEP1155-isApprovedForAll}.
      */
-    function isApprovedForAll(address account, address operator) public view virtual override returns (bool) {
+    function isApprovedForAll(address account, address operator)
+        public
+        view
+        virtual
+        override
+        returns (bool)
+    {
         return _operatorApprovals[account][operator];
     }
 
@@ -173,7 +227,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         _beforeTokenTransfer(operator, from, to, ids, amounts, data);
 
         uint256 fromBalance = _balances[id][from];
-        require(fromBalance >= amount, "ERC1155: insufficient balance for transfer");
+        require(
+            fromBalance >= amount,
+            "ERC1155: insufficient balance for transfer"
+        );
         unchecked {
             _balances[id][from] = fromBalance - amount;
         }
@@ -203,7 +260,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         uint256[] memory amounts,
         bytes memory data
     ) internal virtual {
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
         require(to != address(0), "ERC1155: transfer to the zero address");
 
         address operator = _msgSender();
@@ -215,7 +275,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
             uint256 amount = amounts[i];
 
             uint256 fromBalance = _balances[id][from];
-            require(fromBalance >= amount, "ERC1155: insufficient balance for transfer");
+            require(
+                fromBalance >= amount,
+                "ERC1155: insufficient balance for transfer"
+            );
             unchecked {
                 _balances[id][from] = fromBalance - amount;
             }
@@ -226,30 +289,14 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
 
         _afterTokenTransfer(operator, from, to, ids, amounts, data);
 
-        _doSafeBatchTransferAcceptanceCheck(operator, from, to, ids, amounts, data);
-    }
-
-    /**
-     * @dev Sets a new URI for all token types, by relying on the token type ID
-     * substitution mechanism
-     * https://eips.ethereum.org/EIPS/eip-1155#metadata[defined in the EIP].
-     *
-     * By this mechanism, any occurrence of the `\{id\}` substring in either the
-     * URI or any of the amounts in the JSON file at said URI will be replaced by
-     * clients with the token type ID.
-     *
-     * For example, the `https://token-cdn-domain/\{id\}.json` URI would be
-     * interpreted by clients as
-     * `https://token-cdn-domain/000000000000000000000000000000000000000000000000000000000004cce0.json`
-     * for token type ID 0x4cce0.
-     *
-     * See {uri}.
-     *
-     * Because these URIs cannot be meaningfully represented by the {URI} event,
-     * this function emits no events.
-     */
-    function _setURI(string memory newuri) internal virtual {
-        _uri = newuri;
+        _doSafeBatchTransferAcceptanceCheck(
+            operator,
+            from,
+            to,
+            ids,
+            amounts,
+            data
+        );
     }
 
     /**
@@ -282,7 +329,14 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
 
         _afterTokenTransfer(operator, address(0), to, ids, amounts, data);
 
-        _doSafeTransferAcceptanceCheck(operator, address(0), to, id, amount, data);
+        _doSafeTransferAcceptanceCheck(
+            operator,
+            address(0),
+            to,
+            id,
+            amount,
+            data
+        );
     }
 
     /**
@@ -303,7 +357,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         bytes memory data
     ) internal virtual {
         require(to != address(0), "ERC1155: mint to the zero address");
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
 
         address operator = _msgSender();
 
@@ -317,7 +374,14 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
 
         _afterTokenTransfer(operator, address(0), to, ids, amounts, data);
 
-        _doSafeBatchTransferAcceptanceCheck(operator, address(0), to, ids, amounts, data);
+        _doSafeBatchTransferAcceptanceCheck(
+            operator,
+            address(0),
+            to,
+            ids,
+            amounts,
+            data
+        );
     }
 
     /**
@@ -369,7 +433,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         uint256[] memory amounts
     ) internal virtual {
         require(from != address(0), "ERC1155: burn from the zero address");
-        require(ids.length == amounts.length, "ERC1155: ids and amounts length mismatch");
+        require(
+            ids.length == amounts.length,
+            "ERC1155: ids and amounts length mismatch"
+        );
 
         address operator = _msgSender();
 
@@ -380,7 +447,10 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
             uint256 amount = amounts[i];
 
             uint256 fromBalance = _balances[id][from];
-            require(fromBalance >= amount, "ERC1155: burn amount exceeds balance");
+            require(
+                fromBalance >= amount,
+                "ERC1155: burn amount exceeds balance"
+            );
             unchecked {
                 _balances[id][from] = fromBalance - amount;
             }
@@ -473,7 +543,15 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IBEP1155Receiver(to).onERC1155Received(operator, from, id, amount, data) returns (bytes4 response) {
+            try
+                IBEP1155Receiver(to).onERC1155Received(
+                    operator,
+                    from,
+                    id,
+                    amount,
+                    data
+                )
+            returns (bytes4 response) {
                 if (response != IBEP1155Receiver.onERC1155Received.selector) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
@@ -494,10 +572,18 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         bytes memory data
     ) private {
         if (to.isContract()) {
-            try IBEP1155Receiver(to).onERC1155BatchReceived(operator, from, ids, amounts, data) returns (
-                bytes4 response
-            ) {
-                if (response != IBEP1155Receiver.onERC1155BatchReceived.selector) {
+            try
+                IBEP1155Receiver(to).onERC1155BatchReceived(
+                    operator,
+                    from,
+                    ids,
+                    amounts,
+                    data
+                )
+            returns (bytes4 response) {
+                if (
+                    response != IBEP1155Receiver.onERC1155BatchReceived.selector
+                ) {
                     revert("ERC1155: ERC1155Receiver rejected tokens");
                 }
             } catch Error(string memory reason) {
@@ -508,7 +594,11 @@ contract BEP1155 is Context, BEP165, IBEP1155, IBEP1155MetadataURI {
         }
     }
 
-    function _asSingletonArray(uint256 element) private pure returns (uint256[] memory) {
+    function _asSingletonArray(uint256 element)
+        private
+        pure
+        returns (uint256[] memory)
+    {
         uint256[] memory array = new uint256[](1);
         array[0] = element;
 

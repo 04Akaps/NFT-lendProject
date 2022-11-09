@@ -4,7 +4,7 @@ import "./utils/ZolSet.sol";
 
 contract ZolCore is ZolSet {
     // 넣을 컨텐츠
-    // Mining, Lend, Exploration
+    // Mining, Exploration
     struct Zol {
         address stakedOwner;
         uint256 level;
@@ -20,17 +20,29 @@ contract ZolCore is ZolSet {
         uint256 calculatedBorrowPrice;
     }
 
+    struct Exploration {
+        address sender;
+        uint256 tokenId;
+        uint256 startTime;
+        uint256 endTime;
+    }
+
     mapping(uint256 => Zol) private zolMap;
 
     mapping(uint256 => bool) private isUploaded;
+    mapping(uint256 => bool) private isExplorated;
 
     Borrow[] private borrowArray;
+    Exploration[] private explorationArray;
+
+    uint256 constant MAX_LEVEL = 5;
 
     constructor(
         uint256 _mintPrice,
+        IBEP1155Full _zolWeapon,
         IBEP721Full _zolNft,
         IBEP20 _zolToken
-    ) ZolSet(_mintPrice, _zolNft, _zolToken) {}
+    ) ZolSet(_mintPrice, _zolWeapon, _zolNft, _zolToken) {}
 
     modifier checkTokenOwner(uint256 _zolTokenId) {
         IBEP721Full nft = viewZolNft();
@@ -66,8 +78,7 @@ contract ZolCore is ZolSet {
         _;
     }
 
-    // Staking
-
+    /** Staking */
     function staingZol(uint256 _zolTokenId)
         external
         checkTokenOwner(_zolTokenId)
@@ -89,13 +100,15 @@ contract ZolCore is ZolSet {
 
         // 다른 사용자에게 빌려준 상태라면 unStaking 불가능
         require(zolMap[_zolTokenId].borrowedEOA == address(0x0));
+        // Token이 여행 중일떄에는 불가능
+        require(!isExplorated[_zolTokenId]);
 
         zolMap[_zolTokenId].stakedOwner = address(0x0);
 
         nft.transferFrom(address(this), msg.sender, _zolTokenId);
     }
 
-    // Lend
+    /** Lend */
     function uploadToLend(uint256 _zolTokenId, uint256 _perBlockBorrowPrice)
         external
         checkIsStaked(_zolTokenId)
@@ -106,7 +119,9 @@ contract ZolCore is ZolSet {
         // 1. Staked 되어 있는지 , Staking을 시도한 User인지
         // 2. 이미 upload되어 있는지
         // 3. 다른 사용자에게 빌려 주었는지
+        // 4. Exploration진행 중인 상태인지
         require(!isUploaded[_zolTokenId]);
+        require(!isExplorated[_zolTokenId]);
 
         isUploaded[_zolTokenId] = true;
         borrowArray.push(Borrow(_zolTokenId, _perBlockBorrowPrice, 0, 0));
@@ -223,8 +238,113 @@ contract ZolCore is ZolSet {
         // Exploration에서 Borrow한 시간을 넘었을떄 동작할 함수
     }
 
-    // Mint or Burn
+    /** Exploration */
+    // 1. 여행을 보내서 ERC1155를 수령하게 할 함수 기능 입니다.
 
+    function doExploration(uint256 _zolTokenId, uint256 _duration)
+        external
+        checkIsStaked(_zolTokenId)
+    {
+        // 1. Borrow한 Token인지, 아니면 기존의 TokenOwner인지를 확인해야 한다.
+        require(!isExplorated[_zolTokenId], "Error : zol already explorated");
+        require(!isUploaded[_zolTokenId], "Error : zol already uploaded");
+
+        Zol memory zol = zolMap[_zolTokenId];
+
+        if (zol.borrowedEOA == address(0x0)) {
+            require(zol.stakedOwner == msg.sender);
+        } else {
+            require(zol.borrowedEOA == msg.sender);
+        }
+
+        explorationArray.push(
+            Exploration(
+                msg.sender,
+                _zolTokenId,
+                block.timestamp,
+                block.timestamp + _duration
+            )
+        );
+
+        isExplorated[_zolTokenId] = true;
+    }
+
+    function endExploration(uint256 _zolTokenId) external {
+        // 해당 함수에서는 빌려간 Token일 경우 실행되는 시점과, borrowEndTime을 비교해서 보상을 다른 사용자에게 전송해줄 필요가 있따.
+        require(isExplorated[_zolTokenId], "Error : zol's not Explorated");
+
+        Zol memory zol = zolMap[_zolTokenId];
+        uint256 length = explorationArray.length;
+
+        for (uint256 i = 0; i < length; i++) {
+            Exploration memory expolration = explorationArray[i];
+
+            if (expolration.tokenId == _zolTokenId) {
+                // 이제 보상을 주어야 한다.
+                // 1. endTime인지 확인
+                uint256 explorationEndTime = expolration.endTime;
+
+                require(
+                    explorationEndTime >= block.timestamp,
+                    "Error : Not Ended"
+                );
+
+                require(expolration.sender == msg.sender, "Error : Not Sender");
+                uint256 duration = expolration.startTime - explorationEndTime;
+                uint256 level = zol.level;
+                string memory grade = zol.grade;
+
+                // 2. 보상을 주는 로직 추가
+                uint256 weaponTokenId = calculateExplorationRewardNumber(
+                    duration,
+                    level,
+                    grade
+                );
+
+                viewZolWeapon().mint(msg.sender, weaponTokenId, 1);
+
+                if (i == length - 1) {
+                    explorationArray.pop();
+                } else {
+                    Exploration memory lastValue = explorationArray[length - 1];
+                    explorationArray[i] = lastValue;
+                    explorationArray.pop();
+                }
+
+                break;
+            }
+        }
+
+        isExplorated[_zolTokenId] = false;
+    }
+
+    /** Level Up */
+
+    function levelUpZol(uint256 _zolTokenId) external {
+        require(
+            viewZolNft().ownerOf(_zolTokenId) == msg.sender,
+            "Error : Not Token Owner"
+        );
+        require(zolMap[_zolTokenId].level < MAX_LEVEL, "Error : MAX LEVEL");
+
+        zolMap[_zolTokenId].level++;
+    }
+
+    /** Grade Up */
+
+    function gradeUpZol(uint256 _zolTokenId) external {
+        require(viewZolNft().ownerOf(_zolTokenId) == msg.sender);
+
+        string memory nextGrade = calculateNextGrade(zolMap[_zolTokenId].grade);
+
+        zolMap[_zolTokenId].grade = nextGrade;
+    }
+
+    // Mining
+    // 1. Contract에 보관된 Token을 Mining할 함수 입니다.
+    // 2. 현재 Contract에는 Lend쪽에서 Token을 관리하고 있기 떄문에 외부 Contract를 두어서 그쪽에서 Token을 수령할 예정입니다.
+
+    // Mint or Burn
     function mintZol() external payable {
         uint256 value = msg.value;
         uint256 mintPrice = viewMintPrice();
