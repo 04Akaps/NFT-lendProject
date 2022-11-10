@@ -1,10 +1,10 @@
 pragma solidity 0.8.0;
 
-import "./utils/ZolSet.sol";
+import "./utils/Mining.sol";
 
-contract ZolCore is ZolSet {
+contract ZolCore is Mining {
     // 넣을 컨텐츠
-    // Mining, Exploration
+    // Mining
     struct Zol {
         address stakedOwner;
         uint256 level;
@@ -31,6 +31,9 @@ contract ZolCore is ZolSet {
 
     mapping(uint256 => bool) private isUploaded;
     mapping(uint256 => bool) private isExplorated;
+
+    mapping(address => uint256) private miningRewardMap;
+    uint256[] private stakedTokenArray;
 
     Borrow[] private borrowArray;
     Exploration[] private explorationArray;
@@ -86,6 +89,7 @@ contract ZolCore is ZolSet {
         IBEP721Full nft = viewZolNft();
 
         zolMap[_zolTokenId].stakedOwner = msg.sender;
+        stakedTokenArray.push(_zolTokenId);
 
         nft.transferFrom(msg.sender, address(this), _zolTokenId);
     }
@@ -104,6 +108,24 @@ contract ZolCore is ZolSet {
         require(!isExplorated[_zolTokenId]);
 
         zolMap[_zolTokenId].stakedOwner = address(0x0);
+
+        _distributeMiningReward();
+
+        for (uint256 i = 0; i < stakedTokenArray.length; i++) {
+            if (stakedTokenArray[i] == _zolTokenId) {
+                if (i == stakedTokenArray.length - 1) {
+                    stakedTokenArray.pop();
+                } else {
+                    uint256 lastValue = stakedTokenArray[
+                        stakedTokenArray.length - 1
+                    ];
+                    stakedTokenArray[i] = lastValue;
+                    stakedTokenArray.pop();
+                }
+
+                break;
+            }
+        }
 
         nft.transferFrom(address(this), msg.sender, _zolTokenId);
     }
@@ -319,7 +341,6 @@ contract ZolCore is ZolSet {
     }
 
     /** Level Up */
-
     function levelUpZol(uint256 _zolTokenId) external {
         require(
             viewZolNft().ownerOf(_zolTokenId) == msg.sender,
@@ -331,7 +352,6 @@ contract ZolCore is ZolSet {
     }
 
     /** Grade Up */
-
     function gradeUpZol(uint256 _zolTokenId) external {
         require(viewZolNft().ownerOf(_zolTokenId) == msg.sender);
 
@@ -340,9 +360,47 @@ contract ZolCore is ZolSet {
         zolMap[_zolTokenId].grade = nextGrade;
     }
 
-    // Mining
+    /** Mining */
     // 1. Contract에 보관된 Token을 Mining할 함수 입니다.
     // 2. 현재 Contract에는 Lend쪽에서 Token을 관리하고 있기 떄문에 외부 Contract를 두어서 그쪽에서 Token을 수령할 예정입니다.
+    function withDrawMiningReward(uint256 _amount) external {
+        // EOA가 보상을 수령해 가는 함수
+
+        require(miningRewardMap[msg.sender] >= _amount);
+
+        viewZolToken().transfer(msg.sender, _amount);
+    }
+
+    function _distributeMiningReward() internal {
+        // MiningReward를 누적 시킬 함수
+        uint256 length = stakedTokenArray.length;
+        uint256 totalPower = getZolPower(true, 0);
+
+        for (uint256 i = 0; i < length; i++) {
+            uint256 tokenId = stakedTokenArray[i];
+            uint256 personalZolPower = getZolPower(false, tokenId);
+        }
+    }
+
+    function calculateZolReward(uint256 _zolTokenId)
+        public
+        view
+        returns (uint256)
+    {}
+
+    function getZolPower(bool _total, uint256 _zolTokenId)
+        public
+        view
+        returns (uint256)
+    {
+        if (_total) {
+            // 모든 ZolNFT의 MP를 확인할 떄
+        } else {
+            // 특정 zolNFT의 MP를 확인할 떄
+        }
+
+        return 3;
+    }
 
     // Mint or Burn
     function mintZol() external payable {
