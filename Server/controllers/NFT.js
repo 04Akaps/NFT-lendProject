@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs";
 import { HeroMetaData, HeroMetaDataImage } from "../models/HeroMetaData.js";
-import { commonDescription } from "../utils/Variable.js";
 
 const __dirname = path.resolve();
 
@@ -14,29 +13,27 @@ export const makeNFT = async (req, res) => {
 
   const testobj = [
     {
-      obj: "test",
-      value: 3,
+      trait_type: "Level",
+      value: 1,
     },
     {
-      obj: "dsgsdg",
-      value: 4,
+      trait_type: "Grade",
+      value: "Normal",
     },
   ];
 
-  const tokenId = 1;
-
   try {
     await HeroMetaData.create({
-      tokenId: tokenId,
-      image: `http://localhost:8080/NFT/getNFTImage/${tokenId}`,
-      name: "test",
-      description: commonDescription,
+      tokenId: 1,
+      image: `http://localhost:8080/NFT/getNFTImage/${1}`,
+      level: 1,
+      grade: "Normal",
       birthTime: "test",
       attributes: JSON.stringify(testobj),
     });
 
     await HeroMetaDataImage.create({
-      tokenId: tokenId,
+      tokenId: 1,
       image: htmlData,
     });
   } catch (error) {
