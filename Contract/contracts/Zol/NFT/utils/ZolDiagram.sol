@@ -24,6 +24,34 @@ contract ZolDiagram {
         weaponMintProbability[4] = 1500;
     }
 
+    function zolPowerDiagram(uint256 _level, string memory _grade)
+        internal
+        view
+        returns (uint256)
+    {
+        bytes32 currentGrade = keccak256(bytes(_grade));
+
+        uint256 gradePoint = currentGrade == NORMAL ? 100 : currentGrade == RARE
+            ? 120
+            : currentGrade == EPIC
+            ? 140
+            : currentGrade == LEGENDARY
+            ? 160
+            : currentGrade == MYTHICAL
+            ? 200
+            : 0;
+
+        uint256 levelPoint = _level == 1 ? 50 : _level == 2 ? 80 : _level == 3
+            ? 100
+            : _level == 4
+            ? 120
+            : _level == 5
+            ? 150
+            : 0;
+
+        return gradePoint + levelPoint;
+    }
+
     function calculateExplorationRewardNumber(
         uint256 _duration,
         uint256 _level,

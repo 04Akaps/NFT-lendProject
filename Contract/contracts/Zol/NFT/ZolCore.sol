@@ -34,6 +34,7 @@ contract ZolCore is Mining {
 
     mapping(address => uint256) private miningRewardMap;
     uint256[] private stakedTokenArray;
+    uint256 public totalZolPower;
 
     Borrow[] private borrowArray;
     Exploration[] private explorationArray;
@@ -91,6 +92,11 @@ contract ZolCore is Mining {
         zolMap[_zolTokenId].stakedOwner = msg.sender;
         stakedTokenArray.push(_zolTokenId);
 
+        totalZolPower += zolPowerDiagram(
+            zolMap[_zolTokenId].level,
+            zolMap[_zolTokenId].grade
+        );
+
         nft.transferFrom(msg.sender, address(this), _zolTokenId);
     }
 
@@ -122,6 +128,11 @@ contract ZolCore is Mining {
                     stakedTokenArray[i] = lastValue;
                     stakedTokenArray.pop();
                 }
+
+                totalZolPower -= zolPowerDiagram(
+                    zolMap[_zolTokenId].level,
+                    zolMap[_zolTokenId].grade
+                );
 
                 break;
             }
@@ -342,6 +353,8 @@ contract ZolCore is Mining {
 
     /** Level Up */
     function levelUpZol(uint256 _zolTokenId) external {
+        // Token 사용량 추가 필요
+
         require(
             viewZolNft().ownerOf(_zolTokenId) == msg.sender,
             "Error : Not Token Owner"
@@ -354,6 +367,8 @@ contract ZolCore is Mining {
     /** Grade Up */
     function gradeUpZol(uint256 _zolTokenId) external {
         require(viewZolNft().ownerOf(_zolTokenId) == msg.sender);
+
+        // Token 사용량 추가 필요
 
         string memory nextGrade = calculateNextGrade(zolMap[_zolTokenId].grade);
 
@@ -374,11 +389,9 @@ contract ZolCore is Mining {
     function _distributeMiningReward() internal {
         // MiningReward를 누적 시킬 함수
         uint256 length = stakedTokenArray.length;
-        uint256 totalPower = getZolPower(true, 0);
 
         for (uint256 i = 0; i < length; i++) {
             uint256 tokenId = stakedTokenArray[i];
-            uint256 personalZolPower = getZolPower(false, tokenId);
         }
     }
 
@@ -388,18 +401,12 @@ contract ZolCore is Mining {
         returns (uint256)
     {}
 
-    function getZolPower(bool _total, uint256 _zolTokenId)
-        public
-        view
-        returns (uint256)
-    {
-        if (_total) {
-            // 모든 ZolNFT의 MP를 확인할 떄
-        } else {
-            // 특정 zolNFT의 MP를 확인할 떄
-        }
-
-        return 3;
+    function getZolPower(uint256 _zolTokenId) public view returns (uint256) {
+        return
+            zolPowerDiagram(
+                zolMap[_zolTokenId].level,
+                zolMap[_zolTokenId].grade
+            );
     }
 
     // Mint or Burn
