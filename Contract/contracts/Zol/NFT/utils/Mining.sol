@@ -5,7 +5,7 @@ import "./ZolSet.sol";
 abstract contract Mining is ZolSet {
     uint256 public constant MINING_AMOUNT = 7500000e18;
     uint256 public constant MINING_DAY = 365 days / 12;
-    bool private miningPaused = true;
+    bool miningPaused = true;
     uint256 private lastUpdateTime;
     uint256 private remainTime;
 

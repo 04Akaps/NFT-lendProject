@@ -11,6 +11,7 @@ contract ZolCore is Mining {
         string grade;
         uint256 timeStamp;
         address borrowedEOA;
+        uint256 miningReward;
     }
 
     struct Borrow {
@@ -32,7 +33,6 @@ contract ZolCore is Mining {
     mapping(uint256 => bool) private isUploaded;
     mapping(uint256 => bool) private isExplorated;
 
-    mapping(address => uint256) private miningRewardMap;
     uint256[] private stakedTokenArray;
     uint256 public totalZolPower;
 
@@ -376,30 +376,50 @@ contract ZolCore is Mining {
     }
 
     /** Mining */
-    // 1. Contract에 보관된 Token을 Mining할 함수 입니다.
-    // 2. 현재 Contract에는 Lend쪽에서 Token을 관리하고 있기 떄문에 외부 Contract를 두어서 그쪽에서 Token을 수령할 예정입니다.
-    function withDrawMiningReward(uint256 _amount) external {
-        // EOA가 보상을 수령해 가는 함수
+    function withDrawMiningReward(uint256 _tokenId, uint256 _amount) external {
+        require(
+            zolMap[_tokenId].miningReward > _amount,
+            "Error : Need More Reward!"
+        );
 
-        require(miningRewardMap[msg.sender] >= _amount);
-
+        zolMap[_tokenId].miningReward -= _amount;
         viewZolToken().transfer(msg.sender, _amount);
     }
 
     function _distributeMiningReward() internal {
+        if (miningPaused) {
+            return;
+        }
+
         // MiningReward를 누적 시킬 함수
         uint256 length = stakedTokenArray.length;
+        uint256 rewardedAmount = _calculateReward();
 
         for (uint256 i = 0; i < length; i++) {
             uint256 tokenId = stakedTokenArray[i];
+            uint256 personalZolPower = getZolPower(tokenId);
+
+            uint256 reward = (rewardedAmount * personalZolPower) /
+                totalZolPower;
+
+            zolMap[tokenId].miningReward += reward;
         }
     }
 
-    function calculateZolReward(uint256 _zolTokenId)
-        public
+    function expectMiningReward(uint256 _zolTokenId)
+        external
         view
         returns (uint256)
-    {}
+    {
+        if (miningPaused) {
+            return 0;
+        }
+
+        uint256 totalAmount = _calculateReward() / totalZolPower;
+        uint256 myZolPower = getZolPower(_zolTokenId);
+
+        return zolMap[_zolTokenId].miningReward + (totalAmount * myZolPower);
+    }
 
     function getZolPower(uint256 _zolTokenId) public view returns (uint256) {
         return
@@ -443,7 +463,8 @@ contract ZolCore is Mining {
             1,
             calculateZolGrade(1), // vrf Contract import 필요
             block.timestamp,
-            address(0x0)
+            address(0x0),
+            0
         );
     }
 }
