@@ -46,9 +46,8 @@ contract ZolCore is Mining, EventList {
         uint256 _mintPrice,
         IBEP1155Full _zolWeapon,
         IBEP721Full _zolNft,
-        IBEP20 _zolToken,
-        address _miningPool
-    ) ZolSet(_mintPrice, _zolWeapon, _zolNft, _zolToken, _miningPool) {}
+        IBEP20 _zolToken
+    ) ZolSet(_mintPrice, _zolWeapon, _zolNft, _zolToken) {}
 
     modifier checkTokenOwner(uint256 _zolTokenId) {
         IBEP721Full nft = viewZolNft();
