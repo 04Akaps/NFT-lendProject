@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { Row, Col, Dropdown } from "react-bootstrap";
 import { imgLink } from "components/utils/utils";
 import { Link } from "react-router-dom";
+import { TextIndentLeft } from "react-bootstrap-icons";
 
 const dropdown = [
   {
@@ -21,6 +22,10 @@ const dropdown = [
 ];
 
 const navMenu = [
+  {
+    text: "Home",
+    link: "/",
+  },
   {
     text: "Mint",
     link: "/Mint",
@@ -43,29 +48,8 @@ function NavBar() {
   return (
     <Fragment>
       <Row className="App" lg={3} sm={1} xs={1}>
-        <Col className="d-flex justify-center">
-          <div
-            style={{
-              width: "100px",
-              margin: "10px",
-            }}
-          >
-            <img
-              src={imgLink.dugeon}
-              alt="home"
-              className="w-100"
-              style={{
-                borderRadius: "16px",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                window.location.replace("/");
-              }}
-            />
-          </div>
-        </Col>
-
-        <Col>
+        <Col className="nav_media"> </Col>
+        <Col className="nav_media">
           <Row
             className="h-100"
             style={{
@@ -107,8 +91,20 @@ function NavBar() {
             })}
           </Row>
         </Col>
-
-        <Col className="d-flex justify-center align-center">
+        <Col className="nav_medie_on_box">
+          <div
+            className="nav_medie_on"
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              const slideBar = document.querySelectorAll(".side_bar");
+              slideBar[0].style.display = "block";
+              slideBar[0].style.animation = "slidebar 1s ease-out";
+            }}
+          >
+            <TextIndentLeft size={30} />
+          </div>
           <div
             style={{
               width: "50px",

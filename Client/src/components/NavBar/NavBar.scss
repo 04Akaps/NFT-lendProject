@@ -1,3 +1,28 @@
 .App{
     padding: 20px;
 }
+
+.nav_medie_on {
+    display: none;
+}
+
+.nav_medie_on_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width : 992px ){
+    .nav_media{
+        display: none;
+    }
+
+    .nav_medie_on {
+        display: block;
+    }
+
+    .nav_medie_on_box{
+        justify-content: space-between;
+    }
+}
+
