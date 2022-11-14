@@ -3,10 +3,9 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import { PORT } from "./utils/env.js";
-
-import { NFT, OAuth } from "./router/Assemble.js";
 import { sequelize } from "./models/HeroMetaData.js";
-import { eventLintening } from "./utils/EventListening.js";
+import { NFT } from "./router/Assemble.js";
+import { swagger } from "./swagger/swagger.js";
 
 const app = express();
 
@@ -15,7 +14,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/OAuth", OAuth);
+app.use("/swagger", swagger.serve, swagger.setup);
+
 app.use("/NFT", NFT);
 
 try {
@@ -24,13 +24,13 @@ try {
     .then(() => {
       console.log("sequelize Auth Success");
       sequelize.sync({ force: true }).then(() => {
+        // test 끝나면 force옵션 제거
         app.listen(PORT, () => {
           console.log(PORT);
-          eventLintening();
         });
       });
     })
-    .catch(() => {
+    .catch((err) => {
       console.log("HeroMetaData 생성 실패!");
     });
 } catch (error) {

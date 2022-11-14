@@ -7,6 +7,12 @@ export const sequelize = new Sequelize("HeroMetaData", "root", "root", {
   },
   port: "3306",
   dialect: "mysql",
+  pool: {
+    max: 5,
+    mint: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
 });
 
 export const HeroMetaData = sequelize.define(
@@ -22,15 +28,15 @@ export const HeroMetaData = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    name: {
+    level: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    grade: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
