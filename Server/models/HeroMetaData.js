@@ -24,10 +24,6 @@ export const HeroMetaData = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    tokenId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     level: {
       type: DataTypes.TEXT,
       allowNull: false,
@@ -63,12 +59,20 @@ export const HeroMetaDataImage = sequelize.define("HeroMetaDataImage", {
     primaryKey: true,
     autoIncrement: true,
   },
-  tokenId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   image: {
     type: DataTypes.BLOB,
     allowNull: false,
   },
 });
+
+HeroMetaDataImage.hasOne(HeroMetaData, {
+  onDelete: "CASCADE",
+  foreignKey: {
+    name: "zolTokenId",
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+});
+// HeroMetaData.belongsTo(HeroMetaDataImage, {
+
+// });

@@ -24,18 +24,20 @@ export const makeNFT = async (req, res) => {
 
   try {
     await HeroMetaData.create({
-      tokenId: 1,
+      zolTokenId: 1,
       image: `http://localhost:8080/NFT/getNFTImage/${1}`,
       level: 1,
       grade: "Normal",
       birthTime: "test",
       attributes: JSON.stringify(testobj),
+    }).then((result) => {
+      console.log(result);
     });
 
-    await HeroMetaDataImage.create({
-      tokenId: 1,
-      image: htmlData,
-    });
+    // await HeroMetaDataImage.create({
+    //   tokenId: 1,
+    //   image: htmlData,
+    // });
   } catch (error) {
     console.log(error);
   }
