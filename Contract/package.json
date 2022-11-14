@@ -8,6 +8,10 @@
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "ethers": "^5.7.1",
     "hardhat": "^2.11.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.5",
+    "sequelize-cli": "^6.5.2",
     "shelljs": "^0.8.5",
     "web3": "^1.8.1"
   },

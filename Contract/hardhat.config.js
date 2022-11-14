@@ -10,9 +10,8 @@ module.exports = {
     bscTest: {
       url: url,
       // account Sample deployAccount.key로 변경 해야함
-      accounts: [
-        "8913731759aa5c3c772610b6f048c67d940331ef1f207bc318cb7cc95a7cea45",
-      ],
+      accounts: [deployAccount.key],
+      allowUnlimitedContractSize: true,
     },
   },
 
