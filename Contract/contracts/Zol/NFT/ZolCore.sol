@@ -1,16 +1,17 @@
 pragma solidity 0.8.0;
 
-import "./utils/ZolSet.sol";
+import "./utils/Mining.sol";
+import "./utils/EventList.sol";
 
-contract ZolCore is ZolSet {
+contract ZolCore is Mining, EventList {
     // 넣을 컨텐츠
-    // Mining, Exploration
     struct Zol {
         address stakedOwner;
         uint256 level;
         string grade;
         uint256 timeStamp;
         address borrowedEOA;
+        uint256 miningReward;
     }
 
     struct Borrow {
@@ -32,7 +33,11 @@ contract ZolCore is ZolSet {
     mapping(uint256 => bool) private isUploaded;
     mapping(uint256 => bool) private isExplorated;
 
+    mapping(uint256 => Borrow) private borrowMap;
     Borrow[] private borrowArray;
+
+    uint256[] private stakedTokenArray;
+    uint256 public totalZolPower;
     Exploration[] private explorationArray;
 
     uint256 constant MAX_LEVEL = 5;
@@ -86,8 +91,16 @@ contract ZolCore is ZolSet {
         IBEP721Full nft = viewZolNft();
 
         zolMap[_zolTokenId].stakedOwner = msg.sender;
+        stakedTokenArray.push(_zolTokenId);
+
+        totalZolPower += zolPowerDiagram(
+            zolMap[_zolTokenId].level,
+            zolMap[_zolTokenId].grade
+        );
 
         nft.transferFrom(msg.sender, address(this), _zolTokenId);
+
+        emit StakingZol(msg.sender, _zolTokenId, block.timestamp);
     }
 
     function unStakingZol(uint256 _zolTokenId) external {
@@ -105,7 +118,31 @@ contract ZolCore is ZolSet {
 
         zolMap[_zolTokenId].stakedOwner = address(0x0);
 
+        _distributeMiningReward();
+
+        for (uint256 i = 0; i < stakedTokenArray.length; i++) {
+            if (stakedTokenArray[i] == _zolTokenId) {
+                if (i == stakedTokenArray.length - 1) {
+                    stakedTokenArray.pop();
+                } else {
+                    uint256 lastValue = stakedTokenArray[
+                        stakedTokenArray.length - 1
+                    ];
+                    stakedTokenArray[i] = lastValue;
+                    stakedTokenArray.pop();
+                }
+
+                totalZolPower -= zolPowerDiagram(
+                    zolMap[_zolTokenId].level,
+                    zolMap[_zolTokenId].grade
+                );
+
+                break;
+            }
+        }
+
         nft.transferFrom(address(this), msg.sender, _zolTokenId);
+        emit UnStakingZol(msg.sender, _zolTokenId, block.timestamp);
     }
 
     /** Lend */
@@ -124,7 +161,20 @@ contract ZolCore is ZolSet {
         require(!isExplorated[_zolTokenId]);
 
         isUploaded[_zolTokenId] = true;
+        borrowMap[_zolTokenId] = Borrow(
+            _zolTokenId,
+            _perBlockBorrowPrice,
+            0,
+            0
+        );
         borrowArray.push(Borrow(_zolTokenId, _perBlockBorrowPrice, 0, 0));
+
+        emit UploadToLend(
+            msg.sender,
+            _zolTokenId,
+            block.timestamp,
+            _perBlockBorrowPrice
+        );
     }
 
     function cancelUploadFromLend(uint256 _zolTokenId)
@@ -152,8 +202,9 @@ contract ZolCore is ZolSet {
                 break;
             }
         }
-
+        delete borrowMap[_zolTokenId];
         isUploaded[_zolTokenId] = false;
+        emit CancelUpLoadFromLend(msg.sender, _zolTokenId, block.timestamp);
     }
 
     function borrowZolFromLend(
@@ -174,13 +225,20 @@ contract ZolCore is ZolSet {
         // Token의 decimals를 고려해서 60을 주기에는 너무 야박하니 decimals를 고려하지 않는 값으로 활용할 예정
         uint256 calculatedEndTime = _payAmount / perBlockPrice;
 
-        borrowStruct.perBlockPrice = block.timestamp + calculatedEndTime;
+        borrowStruct.borrowEndTime = block.timestamp + calculatedEndTime;
         borrowStruct.calculatedBorrowPrice = _payAmount;
+
+        borrowMap[_zolTokenId].borrowEndTime =
+            block.timestamp +
+            calculatedEndTime;
+        borrowMap[_zolTokenId].calculatedBorrowPrice = _payAmount;
 
         zolMap[_zolTokenId].borrowedEOA = msg.sender;
         isUploaded[_zolTokenId] = false;
 
         viewZolToken().transferFrom(msg.sender, address(this), _payAmount);
+
+        emit BorrowZolFromLend(msg.sender, _zolTokenId, block.timestamp);
     }
 
     function giveBackZolFromBorrow(uint256 _zolTokenId) external {
@@ -232,15 +290,12 @@ contract ZolCore is ZolSet {
         }
 
         zolMap[_zolTokenId].borrowedEOA = address(0x0);
-    }
 
-    function _giveBackZolFromBorrow() internal {
-        // Exploration에서 Borrow한 시간을 넘었을떄 동작할 함수
+        emit GiveBackZolFromBorrow(msg.sender, _zolTokenId, block.timestamp);
     }
 
     /** Exploration */
     // 1. 여행을 보내서 ERC1155를 수령하게 할 함수 기능 입니다.
-
     function doExploration(uint256 _zolTokenId, uint256 _duration)
         external
         checkIsStaked(_zolTokenId)
@@ -267,6 +322,8 @@ contract ZolCore is ZolSet {
         );
 
         isExplorated[_zolTokenId] = true;
+
+        emit DoExploration(msg.sender, _zolTokenId, block.timestamp, _duration);
     }
 
     function endExploration(uint256 _zolTokenId) external {
@@ -289,7 +346,16 @@ contract ZolCore is ZolSet {
                     "Error : Not Ended"
                 );
 
-                require(expolration.sender == msg.sender, "Error : Not Sender");
+                address receiver;
+
+                if (borrowMap[_zolTokenId].borrowEndTime < block.timestamp) {
+                    // borrow상태 라면 borrowEndTime을 체크
+                    // 만약 borrowEndTime 이후에 실행이 되었다면 보상을 기존 NFT Owner가 가져간다.
+                    receiver = zol.stakedOwner;
+                } else {
+                    receiver = zol.borrowedEOA;
+                }
+
                 uint256 duration = expolration.startTime - explorationEndTime;
                 uint256 level = zol.level;
                 string memory grade = zol.grade;
@@ -301,7 +367,7 @@ contract ZolCore is ZolSet {
                     grade
                 );
 
-                viewZolWeapon().mint(msg.sender, weaponTokenId, 1);
+                viewZolWeapon().mint(receiver, weaponTokenId, 1);
 
                 if (i == length - 1) {
                     explorationArray.pop();
@@ -311,6 +377,13 @@ contract ZolCore is ZolSet {
                     explorationArray.pop();
                 }
 
+                emit EndExploration(
+                    msg.sender,
+                    _zolTokenId,
+                    block.timestamp,
+                    weaponTokenId
+                );
+
                 break;
             }
         }
@@ -319,8 +392,9 @@ contract ZolCore is ZolSet {
     }
 
     /** Level Up */
-
     function levelUpZol(uint256 _zolTokenId) external {
+        // Token 사용량 추가 필요
+
         require(
             viewZolNft().ownerOf(_zolTokenId) == msg.sender,
             "Error : Not Token Owner"
@@ -328,21 +402,90 @@ contract ZolCore is ZolSet {
         require(zolMap[_zolTokenId].level < MAX_LEVEL, "Error : MAX LEVEL");
 
         zolMap[_zolTokenId].level++;
+
+        emit LevelUpZol(
+            msg.sender,
+            _zolTokenId,
+            block.timestamp,
+            zolMap[_zolTokenId].level
+        );
     }
 
     /** Grade Up */
-
     function gradeUpZol(uint256 _zolTokenId) external {
         require(viewZolNft().ownerOf(_zolTokenId) == msg.sender);
+
+        // Token 사용량 추가 필요
 
         string memory nextGrade = calculateNextGrade(zolMap[_zolTokenId].grade);
 
         zolMap[_zolTokenId].grade = nextGrade;
+
+        emit GradeUpZol(msg.sender, _zolTokenId, block.timestamp, nextGrade);
     }
 
-    // Mining
-    // 1. Contract에 보관된 Token을 Mining할 함수 입니다.
-    // 2. 현재 Contract에는 Lend쪽에서 Token을 관리하고 있기 떄문에 외부 Contract를 두어서 그쪽에서 Token을 수령할 예정입니다.
+    /** Mining */
+    function withDrawMiningReward(uint256 _tokenId, uint256 _amount) external {
+        require(
+            zolMap[_tokenId].miningReward > _amount,
+            "Error : Need More Reward!"
+        );
+
+        zolMap[_tokenId].miningReward -= _amount;
+
+        viewZolToken().transferFrom(miningPool, address(this), _amount);
+        viewZolToken().transfer(msg.sender, _amount);
+
+        emit WithDrawMiningReward(
+            msg.sender,
+            _tokenId,
+            block.timestamp,
+            _amount
+        );
+    }
+
+    function _distributeMiningReward() internal {
+        if (miningPaused) {
+            return;
+        }
+
+        // MiningReward를 누적 시킬 함수
+        uint256 length = stakedTokenArray.length;
+        uint256 rewardedAmount = _calculateReward();
+
+        for (uint256 i = 0; i < length; i++) {
+            uint256 tokenId = stakedTokenArray[i];
+            uint256 personalZolPower = getZolPower(tokenId);
+
+            uint256 reward = (rewardedAmount * personalZolPower) /
+                totalZolPower;
+
+            zolMap[tokenId].miningReward += reward;
+        }
+    }
+
+    function expectMiningReward(uint256 _zolTokenId)
+        external
+        view
+        returns (uint256)
+    {
+        if (miningPaused) {
+            return 0;
+        }
+
+        uint256 totalAmount = _calculateReward() / totalZolPower;
+        uint256 myZolPower = getZolPower(_zolTokenId);
+
+        return zolMap[_zolTokenId].miningReward + (totalAmount * myZolPower);
+    }
+
+    function getZolPower(uint256 _zolTokenId) public view returns (uint256) {
+        return
+            zolPowerDiagram(
+                zolMap[_zolTokenId].level,
+                zolMap[_zolTokenId].grade
+            );
+    }
 
     // Mint or Burn
     function mintZol() external payable {
@@ -378,7 +521,8 @@ contract ZolCore is ZolSet {
             1,
             calculateZolGrade(1), // vrf Contract import 필요
             block.timestamp,
-            address(0x0)
+            address(0x0),
+            0
         );
     }
 }

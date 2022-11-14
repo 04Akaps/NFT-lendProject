@@ -1,0 +1,42 @@
+const Web3 = require("web3");
+
+const zolCoreJson = require("../../../Client/src/contract/JSON/zolCore.json");
+
+const zolMiningPoolAddress =
+  require("../../../Client/src/contract/JSON/zolMiningPool.json").address;
+
+const web3 = new Web3("http://127.0.0.1:8545");
+
+const zolCoreInstance = new web3.eth.Contract(
+  zolCoreJson.abi,
+  zolCoreJson.address
+).methods;
+
+const sendTranscationToLocal = async () => {
+  const encodeABI = zolCoreInstance
+    .setMiningPool(zolMiningPoolAddress)
+    .encodeABI();
+
+  await web3.eth.accounts
+    .signTransaction(
+      {
+        from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        to: zolCoreJson.address,
+        gas: 5000000,
+        data: encodeABI,
+      },
+      "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+    )
+    .then(async (Tx) => {
+      await web3.eth
+        .sendSignedTransaction(Tx.rawTransaction)
+        .then((hash, err) => {
+          if (err) console.log(err);
+          else {
+            console.log("success To Local");
+          }
+        });
+    });
+};
+
+sendTranscationToLocal();

@@ -11,6 +11,7 @@ abstract contract ZolSet is OnlyOwner, ZolDiagram {
     IBEP1155Full private zolWeapon;
     IBEP721Full private zolNft;
     IBEP20 private zolToken;
+    address miningPool;
 
     uint256 private mintPrice;
 
@@ -33,6 +34,10 @@ abstract contract ZolSet is OnlyOwner, ZolDiagram {
 
     function changeMintPrice(uint256 _mintPrice) external onlyOwner {
         mintPrice = _mintPrice;
+    }
+
+    function setMiningPool(address _miningPool) external onlyOwner {
+        miningPool = _miningPool;
     }
 
     // -> View

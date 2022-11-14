@@ -1,3 +1,5 @@
+const { url, deployAccount } = require("./Deploy/utils/utils.js");
+
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 
@@ -5,13 +7,15 @@ module.exports = {
   defaultnetwork: "localhost",
 
   networks: {
-    rinkeby: {
-      url: "https://goerli.infura.io/v3/cf51080a391a4c9fab88d891e49d93e8",
+    bscTest: {
+      url: url,
+      // account Sample deployAccount.key로 변경 해야함
       accounts: [
-        "4fdbe4cf7ea3bf1408794f1cfdfc9c551ab9195c9f475f0d379c8eb2911f241f",
+        "8913731759aa5c3c772610b6f048c67d940331ef1f207bc318cb7cc95a7cea45",
       ],
     },
   },
+
   solidity: {
     version: "0.8.0",
     settings: {
