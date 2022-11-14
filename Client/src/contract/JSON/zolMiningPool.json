@@ -1,1 +1,1 @@
-{"abi":[{"inputs":[{"internalType":"address","name":"_zolCore","type":"address"},{"internalType":"contract IBEP20","name":"_zolToken","type":"address"}],"stateMutability":"nonpayable","type":"constructor"}],"address":"0x0165878A594ca255338adfa4d48449f69242Eb8F"}
+{"abi":[{"inputs":[{"internalType":"address","name":"_zolCore","type":"address"},{"internalType":"contract IBEP20","name":"_zolToken","type":"address"}],"stateMutability":"nonpayable","type":"constructor"}],"address":"0x7a2088a1bFc9d81c55368AE168C2C02570cB814F"}
