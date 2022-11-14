@@ -19,31 +19,38 @@ const routers = [
   {
     path: "/",
     component: MainPage,
+    title: "MainPage",
   },
   {
     path: "/MyPage",
     component: MyPage,
+    title: "MyPage",
   },
   {
     path: "/MiningPage",
     component: MiningPage,
+    title: "MiningPage",
   },
   {
     path: "/TravelPage",
     component: TravelPage,
+    title: "TravelPage",
   },
   {
     path: "/BorrowPage",
     component: BorrowPage,
+    title: "BorrowPage",
   },
   {
     path: "/TransactionPage",
     component: TransactionPage,
+    title: "TransactionPage",
   },
 
   {
     path: "/Mint",
     component: Mint,
+    title: "Mint",
   },
 ];
 
@@ -58,6 +65,11 @@ function Home() {
     for (let i = 0; i < routers.length; i++) {
       const url = routers[i].path;
       if (url == pathName) {
+        const titleName = routers[i].title;
+
+        const htmlTitle = document.querySelector("title");
+        htmlTitle.innerHTML = titleName;
+
         setCheckUrl(true);
         break;
       }

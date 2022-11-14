@@ -2,8 +2,8 @@ import Web3 from "web3";
 export const web3 = new Web3(window.ethereum);
 
 const zolCoreJson = require("./zolCore.json");
-const zolItemJson = reuqire("./zolItem.json");
-const zolMiningPoolJson = requre("./zolMiningPool.json");
+const zolItemJson = require("./zolItem.json");
+const zolMiningPoolJson = require("./zolMiningPool.json");
 const zolNFTJson = require("./zolNFT.json");
 const zolTokenJson = require("./zolToken.json");
 
