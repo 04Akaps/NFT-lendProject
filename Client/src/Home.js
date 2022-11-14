@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Route, useLocation } from "react-router-dom";
+import { Link, Route, useLocation } from "react-router-dom";
 import {
   NavBar,
   MainPage,
@@ -86,7 +86,66 @@ function Home() {
   });
 
   return (
-    <di>
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <div
+        className="side_bar"
+        style={{
+          position: "absolute",
+          height: "100%",
+          minHeight: "1300px",
+          background: "#123551",
+          width: "300px",
+          zIndex: "10000",
+        }}
+      >
+        <div
+          className="d-flex justify-end"
+          style={{
+            background: "#123551",
+          }}
+        >
+          <div
+            style={{
+              padding: "20px",
+              fontSize: "1.1rem",
+              fontWeight: "800",
+              cursor: "pointer",
+              background: "#123551",
+              color: "#fff",
+            }}
+            onClick={() => {
+              const slideBar = document.querySelectorAll(".side_bar");
+              slideBar[0].style.display = "none";
+            }}
+          >
+            X
+          </div>
+        </div>
+        <div className="d-flex column">
+          {routers.map((data, i) => {
+            return (
+              <Link
+                to={data.path}
+                style={{
+                  background: "#123551",
+                  color: "#fff",
+                  padding: "20px",
+                  fontWeight: "1000",
+                  fontSize: "1.2rem",
+                  textDecoration: "none",
+                }}
+              >
+                {data.title}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+
       {checkUrl && <NavBar />}
 
       <div className={`${checkUrl ? "show-url" : "hide-url"}`}>
@@ -97,7 +156,7 @@ function Home() {
         })}
       </div>
       {!checkUrl && <Error />}
-    </di>
+    </div>
   );
 }
 
