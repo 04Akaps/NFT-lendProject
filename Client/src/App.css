@@ -5,6 +5,28 @@
     background-color: #fffaf2
 }
 
+.modal-title {
+    color : black;
+    padding : 14px;
+}
+
+.modal-body{
+    border-radius: 12px;
+}
+
+.fade{
+    background:  transparent;
+}
+
+.modal-dialog{
+    background:  transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
 .button{
     background: linear-gradient(rgb(254, 153, 59) 0%, rgb(255, 200, 93) 100%);
     color: white;
