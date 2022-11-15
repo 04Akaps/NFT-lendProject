@@ -20,7 +20,7 @@ export const sendNoValueTransaction = async (data, to, gas, text) => {
     .catch((error) => console.log(error));
 };
 
-export const sendValueTranscation = async (data, to, value, text) => {
+export const sendValueTranscation = async (data, to, gas, value, text) => {
   const mintValue = web3.utils.toWei(value.toString(), "ether");
 
   const currentGasprice = Math.round((await web3.eth.getGasPrice()) * 1.2); // to speed up 1.2

@@ -6,9 +6,12 @@ import { Fragment } from "react";
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { accessNetworkVersion, signmessage } from "components/utils/Variable";
-import { web3, zolCoreAddress } from "contract/JSON/contract";
+import { web3, zolCoreAddress, zolTokenInstance } from "contract/JSON/contract";
 import { useEffect } from "react";
-import { checkTokenAllowance } from "contract/zolTokenCall";
+import {
+  checkTokenAllowance,
+  sendApproveTransaction,
+} from "contract/zolTokenCall";
 import { checkSelectedAddress } from "contract/MetaMask/MetaMask";
 
 function LoginPage(props) {
@@ -121,6 +124,7 @@ function LoginPage(props) {
 
     return false;
   };
+
   return (
     <Fragment>
       <div className="login_App flex justify-center align-center column">
@@ -213,6 +217,14 @@ function LoginPage(props) {
               className="flex justify-center"
               style={{
                 cursor: "pointer",
+              }}
+              onClick={async () => {
+                if (!zolTokenApprove) {
+                  await sendApproveTransaction(
+                    window.ethereum.selectedAddress,
+                    zolCoreAddress
+                  );
+                }
               }}
             >
               {zolTokenApprove ? "✔" : "Need To Approve"}
