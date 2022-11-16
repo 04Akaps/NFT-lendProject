@@ -4,7 +4,7 @@ import "../../interfaces/BEP20/BEP20.sol";
 import "../../utils/OnlyOwner.sol";
 
 contract ZolToken is BEP20("Zol", "ZL"), OnlyOwner {
-    uint256 constant maxSupply = 10000000e18;
+    uint256 constant maxSupply = 100000000e18;
 
     function mint(address _to, uint256 _amount) external onlyOwner {
         require(totalSupply() <= maxSupply, "Error : maxSupply Error");

@@ -1,5 +1,5 @@
 "use strict";
-import { Model, DataTypes, Sequelize } from "sequelize";
+import { DataTypes, Sequelize } from "sequelize";
 
 export const sequelize = new Sequelize("HeroMetaData", "root", "root", {
   define: {

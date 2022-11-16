@@ -97,7 +97,7 @@ function MainPage() {
           <Row className="flex justify-around w-100" lg={4} sm={2} xs={1}>
             {contentMap.map((result, index) => {
               return (
-                <Col className="flex justify-center">
+                <Col className="flex justify-center" key={index}>
                   <Card
                     id={`card${index}`}
                     style={{

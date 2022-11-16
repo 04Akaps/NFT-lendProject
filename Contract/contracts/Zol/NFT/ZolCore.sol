@@ -489,16 +489,16 @@ contract ZolCore is Mining, EventList {
 
     // Mint or Burn
     function mintZol() external payable {
-        uint256 value = msg.value;
-        uint256 mintPrice = viewMintPrice();
+        // uint256 value = msg.value;
+        // uint256 mintPrice = viewMintPrice();
 
-        require(
-            value >= viewMintPrice(),
-            "mintZol Error : Price is out of range"
-        );
+        // require(
+        //     value >= viewMintPrice(),
+        //     "mintZol Error : Price is out of range"
+        // );
 
-        uint256 overedPrice = mintPrice - value;
-        payable(msg.sender).transfer(overedPrice);
+        // uint256 overedPrice = mintPrice - value;
+        // payable(msg.sender).transfer(overedPrice);
 
         _makeZol();
     }
@@ -515,14 +515,17 @@ contract ZolCore is Mining, EventList {
         IBEP721Full nft = viewZolNft();
 
         nft.mint(msg.sender);
+        string memory grade = calculateZolGrade(1);
 
         zolMap[nft.viewTotalSupply()] = Zol(
             address(0x0),
             1,
-            calculateZolGrade(1), // vrf Contract import 필요
+            grade, // vrf Contract import 필요
             block.timestamp,
             address(0x0),
             0
         );
+
+        emit MintBuy(msg.sender, 1, grade);
     }
 }

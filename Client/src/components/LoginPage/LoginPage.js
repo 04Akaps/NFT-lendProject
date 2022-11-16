@@ -1,12 +1,21 @@
 import React from "react";
 import "./LoginPage.scss";
 
-import { imgLink } from "../utils/utils";
+import { addToken, imgLink, LoadingSpinner } from "../utils/utils";
 import { Fragment } from "react";
 import { Col, Row, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
-import { accessNetworkVersion, signmessage } from "components/utils/Variable";
-import { web3, zolCoreAddress, zolTokenInstance } from "contract/JSON/contract";
+import {
+  accessNetworkVersion,
+  signmessage,
+  totalSupplyZolToken,
+} from "components/utils/Variable";
+import {
+  web3,
+  zolCoreAddress,
+  zolTokenAdress,
+  zolTokenInstance,
+} from "contract/JSON/contract";
 import { useEffect } from "react";
 import {
   checkTokenAllowance,
@@ -18,6 +27,9 @@ function LoginPage(props) {
   const [error, setError] = useState("");
   const [loginModal, setLoginModal] = useState(false);
   const [zolTokenApprove, setZolTokenApprove] = useState(false);
+  const [tokenRegist, setTokenRegist] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const htmlTitle = document.querySelector("title");
@@ -28,7 +40,7 @@ function LoginPage(props) {
     if (checkSelectedAddress()) {
       await approveCheck();
     }
-  }, [loginModal]);
+  }, [loginModal, isLoading]);
 
   const loginUsingWallet = async () => {
     const wallet = window.ethereum;
@@ -36,7 +48,10 @@ function LoginPage(props) {
 
     if (wallet) {
       try {
-        await window.ethereum.request({ method: "eth_requestAccounts" });
+        await window.ethereum.request({
+          method: "wallet_requestPermissions",
+          params: [{ eth_accounts: {} }],
+        });
       } catch (error) {
         setError("연결을 진행해 주세요!");
         return;
@@ -120,7 +135,11 @@ function LoginPage(props) {
 
   const approveCheck = async () => {
     const allowanceAmount = await checkTokenAllowance(zolCoreAddress);
-    console.log(allowanceAmount);
+
+    if (allowanceAmount > 10000000000000000000000) {
+      setZolTokenApprove(true);
+      return true;
+    }
 
     return false;
   };
@@ -211,64 +230,88 @@ function LoginPage(props) {
       </div>
 
       <Modal show={loginModal} centered backdrop="static">
-        <Modal.Body>
-          <Row>
-            <Col
-              className="flex justify-center"
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <Fragment>
+            {" "}
+            <Modal.Body>
+              <Row>
+                <Col
+                  className="flex justify-center"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={async () => {
+                    if (!zolTokenApprove) {
+                      setIsLoading(true);
+                      await sendApproveTransaction(
+                        zolCoreAddress,
+                        totalSupplyZolToken
+                      );
+                      setIsLoading(false);
+                    }
+                  }}
+                >
+                  {zolTokenApprove ? (
+                    "✔"
+                  ) : (
+                    <Button
+                      style={{
+                        border: "none",
+                        background: "#fff",
+                        color: "black",
+                      }}
+                    >
+                      Send Approve Transaction
+                    </Button>
+                  )}
+                </Col>
+                <Col
+                  className="flex justify-center"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  onClick={async () => {
+                    await addToken();
+                  }}
+                >
+                  Register ZolToken
+                </Col>
+              </Row>
+            </Modal.Body>
+            <Modal.Footer
               style={{
-                cursor: "pointer",
-              }}
-              onClick={async () => {
-                if (!zolTokenApprove) {
-                  await sendApproveTransaction(
-                    window.ethereum.selectedAddress,
-                    zolCoreAddress
-                  );
-                }
+                justifyContent: "space-between",
               }}
             >
-              {zolTokenApprove ? "✔" : "Need To Approve"}
-            </Col>
-            <Col
-              className="flex justify-center"
-              style={{
-                cursor: "pointer",
-              }}
-            >
-              Register ZolToken
-            </Col>
-          </Row>
-        </Modal.Body>
-        <Modal.Footer
-          style={{
-            justifyContent: "space-between",
-          }}
-        >
-          <Button
-            onClick={() => {
-              setLoginModal(false);
-            }}
-            style={{
-              border: "none",
-              background: "purple",
-            }}
-          >
-            Cancel
-          </Button>
-          <Button
-            onClick={() => {
-              console.log("approve를 체크 해야 한다.");
+              <Button
+                onClick={() => {
+                  setLoginModal(false);
+                }}
+                style={{
+                  border: "none",
+                  background: "purple",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={() => {
+                  console.log("approve를 체크 해야 한다.");
 
-              localStorage.setItem(
-                "connect",
-                JSON.stringify(window.ethereum.selectedAddress)
-              );
-              props.setAuth(window.ethereum.selectedAddress);
-            }}
-          >
-            Next
-          </Button>
-        </Modal.Footer>
+                  localStorage.setItem(
+                    "connect",
+                    JSON.stringify(window.ethereum.selectedAddress)
+                  );
+                  props.setAuth(window.ethereum.selectedAddress);
+                }}
+              >
+                Next
+              </Button>
+            </Modal.Footer>
+          </Fragment>
+        )}
       </Modal>
     </Fragment>
   );

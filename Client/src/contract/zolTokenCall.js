@@ -1,4 +1,10 @@
-import { zolTokenAdress, zolTokenInstance } from "./JSON/contract";
+/* global BigInt */
+
+import {
+  zolCoreAddress,
+  zolTokenAdress,
+  zolTokenInstance,
+} from "./JSON/contract";
 import { sendNoValueTransaction } from "./sendTransaction";
 
 export const checkTokenAllowance = async (address) => {
@@ -10,13 +16,15 @@ export const checkTokenAllowance = async (address) => {
   return allowanceAmount;
 };
 
-export const sendApproveTransaction = async (sender, to) => {
-  const encodeABI = await zolTokenInstance.approve(sender, to).encodeABI();
+export const sendApproveTransaction = async (to, amount) => {
+  const encodeABI = await zolTokenInstance
+    .approve(to, BigInt(amount))
+    .encodeABI();
 
   try {
     const gasPrice = await zolTokenInstance
-      .approve(sender, to)
-      .estimateGas({ from: sender });
+      .approve(zolCoreAddress, BigInt(amount))
+      .estimateGas({ from: window.ethereum.selectedAddress });
 
     await sendNoValueTransaction(
       encodeABI,

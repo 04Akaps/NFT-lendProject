@@ -1,7 +1,43 @@
+import { zolTokenAdress } from "contract/JSON/contract";
 import dotenv from "dotenv";
 dotenv.config();
 
 export const clienId = process.env.REACT_APP_API_CLIENT;
+
+export function LoadingSpinner() {
+  return (
+    <div
+      className="flex justify-center"
+      style={{
+        width: "100%",
+        heigth: "100%",
+      }}
+    >
+      <img
+        src="/img/loading.gif"
+        style={{
+          width: "120px",
+          height: "100px",
+        }}
+      />
+    </div>
+  );
+}
+
+export const addToken = async () => {
+  await window.ethereum.request({
+    method: "wallet_watchAsset",
+    params: {
+      type: "ERC20",
+      options: {
+        address: zolTokenAdress,
+        symbol: "Zl",
+        decimals: 18,
+        image: imgLink.tokenImg,
+      },
+    },
+  });
+};
 
 export const imgLink = {
   wallet: "/img/walletImg.png",

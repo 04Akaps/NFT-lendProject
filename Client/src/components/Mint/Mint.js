@@ -7,8 +7,10 @@ import "swiper/modules/pagination/pagination.scss";
 
 import { imgLink } from "components/utils/utils";
 import { Fragment } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Badge } from "react-bootstrap";
 import { useEffect } from "react";
+import { mintNFT } from "contract/zolCoreCall";
+import { useState } from "react";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -31,6 +33,8 @@ const siperExample = [
 ];
 
 function Mint() {
+  const [mintLoading, setMintLoading] = useState(false);
+
   useEffect(() => {
     const data = document.querySelectorAll(".swiper-pagination");
 
@@ -65,7 +69,7 @@ function Mint() {
           >
             {siperExample.map((data, index) => {
               return (
-                <SwiperSlide className="flex justify-center">
+                <SwiperSlide className="flex justify-center" key={index}>
                   <img
                     src={data.img}
                     style={{
@@ -113,17 +117,36 @@ function Mint() {
                 paddingTop: "20px",
               }}
             >
-              <Button
-                style={{
-                  width: "100px",
-                  background: "transparent",
-                }}
-                onClick={() => {
-                  console.log("sdf");
-                }}
-              >
-                <img src={imgLink.mintButtonImg} className="w-100" />
-              </Button>
+              {mintLoading ? (
+                <div className="flex column align-center">
+                  <Button
+                    style={{
+                      width: "100px",
+                      background: "transparent",
+                    }}
+                  >
+                    <img src={imgLink.mintButtonImg} className="w-100" />
+                  </Button>
+                  <div
+                    style={{
+                      background: "transparent",
+                      textAlign: "center",
+                    }}
+                  >
+                    Transcation's Loading...
+                  </div>
+                </div>
+              ) : (
+                <Button
+                  onClick={async () => {
+                    setMintLoading(true);
+                    await mintNFT();
+                    setMintLoading(false);
+                  }}
+                >
+                  Mint NFT!
+                </Button>
+              )}
             </Col>
           </Row>
         </Col>
