@@ -17,21 +17,60 @@ const metaDataLog = createLogger({
 
   transports: [
     new winstonDaily({
-      filename: "MetaData.log",
+      filename: "getMetaData.log",
       datePattern: "YYYY-MM-DD",
-      dirname: logDir + "/logs",
-      level: "MetaData",
+      dirname: logDir + "mysql/get",
+      level: "info",
+    }),
+    new winstonDaily({
+      filename: "postMetaData.log",
+      datePattern: "YYYY-MM-DD",
+      dirname: logDir + "mysql/post",
+      level: "info",
     }),
     new winstonDaily({
       datePattern: "YYYY-MM-DD",
-      dirname: logDir + "/error",
+      dirname: logDir + "mysql/error",
       filename: "MetaData-error.log",
       level: "error",
     }),
   ],
 });
 
+const redisLog = createLogger({
+  format: format.combine(
+    format.timestamp({
+      format: "YYYY-MM-DD HH:mm:ss",
+    }),
+    logFormat
+  ),
+
+  transports: [
+    new winstonDaily({
+      filename: "redis-connect.log",
+      datePattern: "YYYY-MM-DD",
+      dirname: logDir + "/redis/logs",
+      level: "info",
+    }),
+    new winstonDaily({
+      datePattern: "YYYY-MM-DD",
+      dirname: logDir + "/redis/error",
+      filename: "redis-error.log",
+      level: "error",
+    }),
+  ],
+});
+
 metaDataLog.add(
+  new transports.Console({
+    format: format.combine(
+      format.colorize(), // 색깔 넣어서 출력
+      format.simple() // `${info.level}: ${info.message} JSON.stringify({ ...rest })` 포맷으로 출력
+    ),
+  })
+);
+
+redisLog.add(
   new transports.Console({
     format: format.combine(
       format.colorize(), // 색깔 넣어서 출력

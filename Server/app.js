@@ -3,20 +3,27 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 import { PORT } from "./utils/env.js";
+
 import { sequelize } from "./models/HeroMetaData.js";
-import { NFT } from "./router/Assemble.js";
+import { NFT, Transaction } from "./router/Assemble.js";
 import { swagger } from "./swagger/swagger.js";
+import { checkCache } from "./redis/redis.js";
 
 const app = express();
 
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    methods: ["GET", "POST"],
+  })
+);
 
 app.use("/swagger", swagger.serve, swagger.setup);
 
 app.use("/NFT", NFT);
+app.use("/Transaction", checkCache, Transaction);
 
 try {
   sequelize

@@ -24,10 +24,6 @@ export const HeroMetaData = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    // tokenId: {
-    //   type: DataTypes.TEXT,
-    //   allowNull: false,
-    // },
     level: {
       type: DataTypes.TEXT,
       allowNull: false,

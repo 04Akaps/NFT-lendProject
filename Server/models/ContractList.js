@@ -1,36 +1,43 @@
 "use strict";
 import { DataTypes, Sequelize } from "sequelize";
+import { sequelize } from "./TranscationList.js";
 
-export const sequelize = new Sequelize("ContractList", "root", "root", {
-  define: {
-    freezeTableName: true,
-  },
-  port: "3306",
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    mint: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
-
-export const ContractList = sequelize.define("ContractList", {
+export const TransactionOwnerList = sequelize.define("TransactionOwnerList", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
-  name: {
+  owner: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  abi: {
+});
+
+export const TransactionList = sequelize.define("TransactionList", {
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  from: {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  address: {
+  to: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  text: {
+    type: DataTypes.TEXT,
+  },
+});
+
+TransactionOwnerList.hasMany(TransactionList, {
+  foreignKey: {
+    name: "owner",
     type: DataTypes.TEXT,
     allowNull: false,
   },
