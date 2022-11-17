@@ -13,17 +13,49 @@ const zolCoreInstance = new web3.eth.Contract(
 ).methods;
 
 const sendTranscationToLocal = async () => {
-  const encodeABI = zolCoreInstance
-    .setMiningPool(zolMiningPoolAddress)
+  const setMiningPoolABI = zolCoreInstance
+    .setMiningPool(zolMiningPool.address)
     .encodeABI();
 
+  const miningGasPrice =
+    (await zolCoreInstance
+      .setMiningPool(zolMiningPool.address)
+      .estimateGas({ from: deployAccount.address })) * 2;
+
+  const setZolCoreCaABI = zolNFTInstance
+    .setting(zolCoreJson.address)
+    .encodeABI();
+
+  const zolCoreCaGasPrice =
+    (await zolNFTInstance
+      .setting(zolCoreJson.address)
+      .estimateGas({ from: deployAccount.address })) * 2;
+
+  await sendTranscation(
+    setZolCoreCaABI,
+    zolNftJson.address,
+    zolCoreCaGasPrice,
+    "setZolCore"
+  );
+
+  await sendTranscation(
+    setMiningPoolABI,
+    zolCoreJson.address,
+    miningGasPrice,
+    "setMiningPool"
+  );
+};
+
+sendTranscationToLocal();
+
+const sendTranscation = async (abi, to, gas, text) => {
   await web3.eth.accounts
     .signTransaction(
       {
         from: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-        to: zolCoreJson.address,
-        gas: 5000000,
-        data: encodeABI,
+        to: to,
+        gas: gas,
+        data: abi,
       },
       "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
     )
@@ -33,10 +65,8 @@ const sendTranscationToLocal = async () => {
         .then((hash, err) => {
           if (err) console.log(err);
           else {
-            console.log("success To Local");
+            console.log("success To Local", text);
           }
         });
     });
 };
-
-sendTranscationToLocal();

@@ -1,7 +1,7 @@
 "use strict";
 import { DataTypes, Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize("HeroMetaData", "root", "root", {
+export const heroSequelize = new Sequelize("HeroMetaData", "root", "root", {
   define: {
     freezeTableName: true,
   },
@@ -15,7 +15,7 @@ export const sequelize = new Sequelize("HeroMetaData", "root", "root", {
   },
 });
 
-export const HeroMetaData = sequelize.define(
+export const HeroMetaData = heroSequelize.define(
   "HeroMetaData",
   {
     id: {
@@ -52,7 +52,7 @@ export const HeroMetaData = sequelize.define(
   }
 );
 
-export const HeroMetaDataImage = sequelize.define("HeroMetaDataImage", {
+export const HeroMetaDataImage = heroSequelize.define("HeroMetaDataImage", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,

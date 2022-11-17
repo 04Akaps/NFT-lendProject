@@ -102,7 +102,7 @@ contract BEP721 is Context, ToString,BEP165, IBEP721, IBEP721Metadata {
     }
 
     function setTokenUri(uint256 _tokenId) internal  {
-        string memory uri = append(_baseURI(), toString(_tokenId), ".json");
+        string memory uri = append(_baseURI(), toString(_tokenId), "");
         
         _tokenUris[_tokenId] = uri;
     }
@@ -113,7 +113,7 @@ contract BEP721 is Context, ToString,BEP165, IBEP721, IBEP721Metadata {
      * by default, can be overridden in child contracts.
      */
     function _baseURI() internal view virtual returns (string memory) {
-        return "need to change";
+        return "http://localhost:8080/NFT/getNFTImage/";
     }
 
     /**

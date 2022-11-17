@@ -11,6 +11,8 @@ export const makeNFT = async (req, res) => {
     return data;
   });
 
+  console.log(htmlData);
+
   const testobj = [
     {
       trait_type: "Level",
@@ -46,7 +48,7 @@ export const makeNFT = async (req, res) => {
 export const getNFTMetaData = async (req, res) => {
   const tokenId = req.params.id;
 
-  const tempData = await HeroMetaData.findOne({ where: { tokenId: tokenId } });
+  const tempData = await HeroMetaData.findOne({ where: { id: tokenId } });
 
   if (tempData == null) {
     res.status(201).send({ message: "Not Existed" });

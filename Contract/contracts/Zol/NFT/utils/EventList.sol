@@ -2,7 +2,7 @@ pragma solidity 0.8.0;
 
 abstract contract EventList {
 
-    event MintBuy(address to,uint256 level, string grade );
+    event MintBuy(address to,uint256 level, string grade, uint256 tokenId, uint256 birthTime );
     event StakingZol(address indexed from, uint256 zolTokenId, uint256 time);
     event UnStakingZol(address indexed from, uint256 zolTokenId, uint256 time);
 

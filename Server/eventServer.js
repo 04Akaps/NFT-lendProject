@@ -1,6 +1,10 @@
 import express from "express";
 import Web3 from "web3";
-import { ContractList, sequelize } from "./models/ContractList.js";
+import path from "path";
+import fs from "fs";
+
+import { ContractList, contractListSequelize } from "./models/ContractList.js";
+import { heroSequelize, HeroMetaData } from "./models/HeroMetaData.js";
 
 const eventServer = express();
 const web3Socket = new Web3(
@@ -11,24 +15,57 @@ const web3Socket = new Web3(
 let zolCoreABI;
 let zolCoreAddress;
 
+const __dirname = path.resolve();
+const imgHtml = __dirname + "/NFT.html";
+
 const startEventListener = () => {
   const zolCoreSocketInstance = new web3Socket.eth.Contract(
     JSON.parse(zolCoreABI),
     zolCoreAddress
   );
 
-  zolCoreSocketInstance.events.MintBuy((err, result) => {
+  zolCoreSocketInstance.events.MintBuy(async (err, result) => {
     if (result) {
-      console.log(result);
+      const value = result.returnValues;
+
+      const htmlData = await fs.readFileSync(imgHtml, "utf8", (err, data) => {
+        return data;
+      });
+
+      await HeroMetaData.create({
+        tokenId: value.tokenId,
+        level: value.level,
+        grade: value.grade,
+        birthTime: value.birthTime,
+        image: `http://localhost:8080/NFT/getNFTImage/${value.tokenId}`,
+        attributes: JSON.stringify([
+          {
+            trait_type: "Level",
+            value: value.level,
+          },
+          {
+            trait_type: "Grade",
+            value: value.grade,
+          },
+        ]),
+      })
+        .then(async (result) => {
+          await result.createHeroMetaDataImage({
+            tokenId: value.tokenId,
+            image: htmlData,
+          });
+        })
+        .catch((err) => console.log(err));
     }
   });
 };
 
-sequelize
+heroSequelize.authenticate();
+
+contractListSequelize
   .authenticate()
   .then(() => {
-    console.log("sequelize Auth Success");
-    sequelize.sync().then(async () => {
+    contractListSequelize.sync().then(async () => {
       // test 끝나면 force옵션 제거
       eventServer.listen(5050, () => {
         console.log(5050);

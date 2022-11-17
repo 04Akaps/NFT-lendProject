@@ -1,6 +1,8 @@
 const shell = require("shelljs");
+
 const cliString = "npx hardhat run --network bscTest ../scripts/deploy.js";
 const settingString = "npm run bsc";
+
 const init = async () => {
   await shell.exec(cliString);
 

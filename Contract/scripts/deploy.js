@@ -1,5 +1,5 @@
 const hre = require("hardhat");
-const { sequelize } = require("../Deploy/models/ContractList");
+const { contractListSequelize } = require("../Deploy/model/model.js");
 
 const {
   makeZolCore,
@@ -33,10 +33,10 @@ async function main() {
     zolToken.address
   );
 
-  await sequelize
+  await contractListSequelize
     .authenticate()
     .then(async () => {
-      await sequelize.sync({ force: true });
+      await contractListSequelize.sync({ force: true });
     })
     .catch((err) => console.log("에러 있다...", err));
 

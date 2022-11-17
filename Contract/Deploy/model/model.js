@@ -1,7 +1,9 @@
 "use strict";
-const { DataTypes, Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize("ContractList", "root", "root", {
+const DataTypes = require("sequelize");
+const Sequelize = require("sequelize");
+
+const contractListSequelize = new Sequelize("ContractList", "root", "root", {
   define: {
     freezeTableName: true,
   },
@@ -15,7 +17,7 @@ const sequelize = new Sequelize("ContractList", "root", "root", {
   },
 });
 
-const ContractList = sequelize.define("ContractList", {
+const ContractList = contractListSequelize.define("ContractList", {
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -37,6 +39,6 @@ const ContractList = sequelize.define("ContractList", {
 });
 
 module.exports = {
+  contractListSequelize,
   ContractList,
-  sequelize,
 };

@@ -20,7 +20,7 @@ const sendTranscationToBSC = async () => {
     .setMiningPool(zolMiningPool.address)
     .encodeABI();
 
-  const gasPrice =
+  const miningGasPrice =
     (await zolCoreInstance
       .setMiningPool(zolMiningPool.address)
       .estimateGas({ from: deployAccount.address })) * 2;
@@ -29,18 +29,23 @@ const sendTranscationToBSC = async () => {
     .setting(zolCoreJson.address)
     .encodeABI();
 
+  const zolCoreCaGasPrice =
+    (await zolNFTInstance
+      .setting(zolCoreJson.address)
+      .estimateGas({ from: deployAccount.address })) * 2;
+
   await sendTranscation(
     setZolCoreCaABI,
     zolNftJson.address,
-    5000000,
-    "setZolCore Error"
+    zolCoreCaGasPrice,
+    "setZolCore"
   );
 
   await sendTranscation(
     setMiningPoolABI,
     zolCoreJson.address,
-    gasPrice,
-    "setMiningPool Error"
+    miningGasPrice,
+    "setMiningPool"
   );
 };
 
@@ -61,7 +66,7 @@ const sendTranscation = async (abi, to, gas, text) => {
         .then((hash, err) => {
           if (err) console.log(err, text);
           else {
-            console.log("success To BSC");
+            console.log("success To BSC", text);
           }
         });
     });

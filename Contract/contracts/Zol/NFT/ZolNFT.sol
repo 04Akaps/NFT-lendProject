@@ -21,12 +21,11 @@ contract ZolNFT is BEP721("Zol", "Zl"), OnlyOwner {
     }
 
     function mint(address _to) external onlyCore {
+        tokenCount.increment();
         uint256 currentTokenId = tokenCount.current();
 
         _mint(_to, currentTokenId);
         setTokenUri(currentTokenId);
-
-        tokenCount.increment();
 
         emit Mint(_to, currentTokenId);
     }

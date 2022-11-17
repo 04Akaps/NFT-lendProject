@@ -515,9 +515,10 @@ contract ZolCore is Mining, EventList {
         IBEP721Full nft = viewZolNft();
 
         nft.mint(msg.sender);
+        uint256 tokenId = nft.viewTotalSupply();
         string memory grade = calculateZolGrade(1);
 
-        zolMap[nft.viewTotalSupply()] = Zol(
+        zolMap[tokenId] = Zol(
             address(0x0),
             1,
             grade, // vrf Contract import 필요
@@ -525,7 +526,7 @@ contract ZolCore is Mining, EventList {
             address(0x0),
             0
         );
-
-        emit MintBuy(msg.sender, 1, grade);
+        
+        emit MintBuy(msg.sender, 1, grade, tokenId, block.timestamp);
     }
 }

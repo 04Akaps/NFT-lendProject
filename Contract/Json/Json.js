@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { ContractList } = require("../Deploy/models/ContractList");
+const { ContractList } = require("../Deploy/model/model.js");
 
 const basePath = __dirname;
 

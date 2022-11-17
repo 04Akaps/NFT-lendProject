@@ -4,7 +4,7 @@ import cors from "cors";
 
 import { PORT } from "./utils/env.js";
 
-import { sequelize } from "./models/HeroMetaData.js";
+import { heroSequelize } from "./models/HeroMetaData.js";
 import { NFT, Transaction } from "./router/Assemble.js";
 import { swagger } from "./swagger/swagger.js";
 import { checkCache } from "./redis/redis.js";
@@ -26,11 +26,11 @@ app.use("/NFT", NFT);
 app.use("/Transaction", checkCache, Transaction);
 
 try {
-  sequelize
+  heroSequelize
     .authenticate()
     .then(() => {
       console.log("sequelize Auth Success");
-      sequelize.sync({ force: true }).then(() => {
+      heroSequelize.sync({ force: true }).then(() => {
         // test 끝나면 force옵션 제거
         app.listen(PORT, () => {
           console.log(PORT);
