@@ -2,14 +2,8 @@
 <html lang="en">
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-
-  <style>
-    * {box-sizing: border-box;
-    margin: 0px;
-  width: max-content;
-height: 400px}
- </style>
 
     <script>
         let y = 100;
@@ -40,9 +34,36 @@ height: 400px}
 
         line(200, 180, leftArmStart, leftArm) // 왼쪽 팔
         line(200, 180, rightArmStart, rightArm) // 오른쪽 팔
+
+        await sendImg()
+      }
+
+
+      const sendImg = async() =>{
+
+        const imgData = document.querySelectorAll(".p5Canvas");
+        const imgBase64 = imgData[0].toDataURL('image/jpeg')
+        // imgBase64를 보내 주어야 한다.
+
+        axios.post("http://localhost:8080", {
+          img : imgBase64
+        })
       }
     </script>
 
-  
+<style>
+  * {box-sizing: border-box;
+  margin: 0px;
+width: 100%;
+height: 100%;
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+}
+
+head {
+  display:  none;
+}
+</style>
 
 </html>
