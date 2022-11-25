@@ -4,14 +4,16 @@ import { HeroMetaData, HeroMetaDataImage } from "../models/HeroMetaData.js";
 
 const __dirname = path.resolve();
 
+export const makeImg = async (req, res) => {
+  const base64Img = req.body.img;
+};
+
 export const makeNFT = async (req, res) => {
   const imgHtml = __dirname + "/NFT.html";
 
   const htmlData = await fs.readFileSync(imgHtml, "utf8", (err, data) => {
     return data;
   });
-
-  console.log(htmlData);
 
   const testobj = [
     {
@@ -32,17 +34,18 @@ export const makeNFT = async (req, res) => {
       grade: "Normal",
       birthTime: "test",
       attributes: JSON.stringify(testobj),
-    }).then(async (result) => {
-      await result.createHeroMetaDataImage({
-        tokenId: 1,
-        image: htmlData,
-      });
     });
+    // .then(async (result) => {
+    //   await result.createHeroMetaDataImage({
+    //     tokenId: 1,
+    //     image: htmlData,
+    //   });
+    // });
   } catch (error) {
     console.log(error);
   }
 
-  // Transaction 실행 후 DB값 생성 필요
+  res.sendFile(imgHtml);
 };
 
 export const getNFTMetaData = async (req, res) => {

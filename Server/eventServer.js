@@ -5,6 +5,7 @@ import fs from "fs";
 
 import { ContractList, contractListSequelize } from "./models/ContractList.js";
 import { heroSequelize, HeroMetaData } from "./models/HeroMetaData.js";
+import { drawNFT } from "./utils/drawNFT.js";
 
 const eventServer = express();
 const web3Socket = new Web3(
@@ -27,17 +28,14 @@ const startEventListener = () => {
   zolCoreSocketInstance.events.MintBuy(async (err, result) => {
     if (result) {
       const value = result.returnValues;
-
-      const htmlData = await fs.readFileSync(imgHtml, "utf8", (err, data) => {
-        return data;
-      });
+      const tokenId = value.tokenId;
 
       await HeroMetaData.create({
-        tokenId: value.tokenId,
+        tokenId: tokenId,
         level: value.level,
         grade: value.grade,
         birthTime: value.birthTime,
-        image: `http://localhost:8080/NFT/getNFTImage/${value.tokenId}`,
+        image: `http://localhost:8080/NFT/getNFTImage/${tokenId}`,
         attributes: JSON.stringify([
           {
             trait_type: "Level",
@@ -47,15 +45,13 @@ const startEventListener = () => {
             trait_type: "Grade",
             value: value.grade,
           },
-        ]),
-      })
-        .then(async (result) => {
+        ]).then(async () => {
           await result.createHeroMetaDataImage({
-            tokenId: value.tokenId,
-            image: htmlData,
+            tokenId: tokenId,
+            image: await drawNFT(tokenId),
           });
-        })
-        .catch((err) => console.log(err));
+        }),
+      });
     }
   });
 };

@@ -8,6 +8,7 @@ import { heroSequelize } from "./models/HeroMetaData.js";
 import { NFT, Transaction } from "./router/Assemble.js";
 import { swagger } from "./swagger/swagger.js";
 import { checkCache } from "./redis/redis.js";
+import axios from "axios";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
     methods: ["GET", "POST"],
+    origin: "*",
   })
 );
 
