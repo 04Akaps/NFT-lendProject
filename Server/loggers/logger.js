@@ -20,7 +20,7 @@ const metaDataLog = createLogger({
       filename: "getMetaData.log",
       datePattern: "YYYY-MM-DD",
       dirname: logDir + "mysql/get",
-      level: "info",
+      level: "get",
     }),
     new winstonDaily({
       filename: "postMetaData.log",

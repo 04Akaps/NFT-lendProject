@@ -6,6 +6,7 @@ import fs from "fs";
 import { ContractList, contractListSequelize } from "./models/ContractList.js";
 import { heroSequelize, HeroMetaData } from "./models/HeroMetaData.js";
 import { drawNFT } from "./utils/drawNFT.js";
+import { metaDataLog } from "./loggers/logger.js";
 
 const eventServer = express();
 const web3Socket = new Web3(
@@ -30,28 +31,34 @@ const startEventListener = () => {
       const value = result.returnValues;
       const tokenId = value.tokenId;
 
-      await HeroMetaData.create({
-        tokenId: tokenId,
-        level: value.level,
-        grade: value.grade,
-        birthTime: value.birthTime,
-        image: `http://localhost:8080/NFT/getNFTImage/${tokenId}`,
-        attributes: JSON.stringify([
-          {
-            trait_type: "Level",
-            value: value.level,
-          },
-          {
-            trait_type: "Grade",
-            value: value.grade,
-          },
-        ]).then(async () => {
-          await result.createHeroMetaDataImage({
-            tokenId: tokenId,
-            image: await drawNFT(tokenId),
-          });
-        }),
-      });
+      try {
+        await HeroMetaData.create({
+          tokenId: tokenId,
+          level: value.level,
+          grade: value.grade,
+          birthTime: value.birthTime,
+          image: `http://localhost:8080/NFT/getNFTImage/${tokenId}`,
+          attributes: JSON.stringify([
+            {
+              trait_type: "Level",
+              value: value.level,
+            },
+            {
+              trait_type: "Grade",
+              value: value.grade,
+            },
+          ]).then(async () => {
+            await result.createHeroMetaDataImage({
+              tokenId: tokenId,
+              image: await drawNFT(tokenId),
+            });
+
+            metaDataLog.info(`created NFT Token Id : ${tokenId}`);
+          }),
+        });
+      } catch (error) {
+        metaDataLog.error(`meataData create Error : ${tokenId}`);
+      }
     }
   });
 };
