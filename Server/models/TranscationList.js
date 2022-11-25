@@ -1,9 +1,8 @@
 "use strict";
-import { DataTypes } from "sequelize";
-import { sequelize } from "./HeroMetaData.js";
+import { DataTypes, Sequelize } from "sequelize";
 
 export const transcationListSequelize = new Sequelize(
-  "TransactionOwnerList",
+  "TransactionSequelize",
   "root",
   "root",
   {
@@ -31,7 +30,7 @@ export const TransactionOwnerList = transcationListSequelize.define(
       autoIncrement: true,
     },
     owner: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   }
@@ -63,7 +62,5 @@ export const TransactionList = transcationListSequelize.define(
 TransactionOwnerList.hasMany(TransactionList, {
   foreignKey: {
     name: "owner",
-    type: DataTypes.TEXT,
-    allowNull: false,
   },
 });
