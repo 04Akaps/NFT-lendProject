@@ -1,7 +1,6 @@
 import express from "express";
 import Web3 from "web3";
 import path from "path";
-import fs from "fs";
 
 import { ContractList, contractListSequelize } from "./models/ContractList.js";
 import { heroSequelize, HeroMetaData } from "./models/HeroMetaData.js";
@@ -52,7 +51,6 @@ const startEventListener = () => {
               tokenId: tokenId,
               image: await drawNFT(tokenId),
             });
-
             metaDataLog.info(`created NFT Token Id : ${tokenId}`);
           }),
         });

@@ -1,9 +1,8 @@
-const { createCanvas, Image } = require("canvas");
-const fs = require("fs");
+import { createCanvas, Image } from "canvas";
 const width = 1200;
 const height = 1200;
 
-const drawNFT = async (tokenId) => {
+export const drawNFT = async (tokenId) => {
   // Instantiate the canvas object
   const canvas = createCanvas(width, height);
   const context = canvas.getContext("2d");
@@ -138,8 +137,4 @@ const drawNFT = async (tokenId) => {
   return (
     "data:image/png;base64," + Buffer.from(buffer, "utf8").toString("base64")
   );
-};
-
-module.exports = {
-  drawNFT,
 };

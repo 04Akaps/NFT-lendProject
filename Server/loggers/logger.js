@@ -1,5 +1,5 @@
-const { createLogger, format, transports } = require("winston");
-const winstonDaily = require("winston-daily-rotate-file");
+import { createLogger, format, transports } from "winston";
+import winstonDaily from "winston-daily-rotate-file";
 
 const logDir = "loggers";
 
@@ -7,7 +7,7 @@ const logFormat = format.printf((info) => {
   return `${info.timestamp}, ${info.level}: ${info.message}`;
 });
 
-const metaDataLog = createLogger({
+export const metaDataLog = createLogger({
   format: format.combine(
     format.timestamp({
       format: "YYYY-MM-DD HH:mm:ss",
@@ -17,27 +17,21 @@ const metaDataLog = createLogger({
 
   transports: [
     new winstonDaily({
-      filename: "getMetaData.log",
+      filename: "APILogInfo.log",
       datePattern: "YYYY-MM-DD",
-      dirname: logDir + "mysql/get",
-      level: "get",
-    }),
-    new winstonDaily({
-      filename: "postMetaData.log",
-      datePattern: "YYYY-MM-DD",
-      dirname: logDir + "mysql/post",
+      dirname: logDir + "/mysql/Info",
       level: "info",
     }),
     new winstonDaily({
       datePattern: "YYYY-MM-DD",
-      dirname: logDir + "mysql/error",
-      filename: "MetaData-error.log",
+      dirname: logDir + "/mysql/Error",
+      filename: "APILogError.log",
       level: "error",
     }),
   ],
 });
 
-const redisLog = createLogger({
+export const redisLog = createLogger({
   format: format.combine(
     format.timestamp({
       format: "YYYY-MM-DD HH:mm:ss",
@@ -78,5 +72,3 @@ redisLog.add(
     ),
   })
 );
-
-module.exports = { metaDataLog };
