@@ -11,16 +11,16 @@ export const redisClient = redis.createClient({
   legacyMode: true,
 });
 
-redisClient.on("connect", () => {
-  //  morgan 로그 필요
-});
-
-redisClient.on("error", (err) => {
-  //  morgan 로그 필요
-});
-
 export const checkCache = async (req, res, next) => {
   console.log("여기 한번 타고 갑니다.");
+
+  const address = req.params.address;
+
+  if (address) {
+    const redisData = await redisClient.get("test", (err, value) => {
+      console.log(value);
+    });
+  }
   next();
   //     let value = await redisCli.get(req.key); // redis get key 를 한다.
   //    if (value) {

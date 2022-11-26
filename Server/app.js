@@ -5,7 +5,6 @@ import cors from "cors";
 import { PORT } from "./utils/env.js";
 
 import { heroSequelize } from "./models/HeroMetaData.js";
-import { transcationListSequelize } from "./models/TranscationList.js";
 
 import { NFT, Transaction } from "./router/Assemble.js";
 import { swagger } from "./swagger/swagger.js";
@@ -26,7 +25,7 @@ app.use(
 app.use("/swagger", swagger.serve, swagger.setup);
 
 app.use("/NFT", NFT);
-app.use("/Transaction", checkCache, Transaction);
+app.use("/Transaction", Transaction);
 
 try {
   heroSequelize
@@ -35,14 +34,18 @@ try {
       console.log("heroSequelize Auth Success");
       heroSequelize.sync({ force: true });
 
-      transcationListSequelize.authenticate().then(() => {
-        console.log("transcationListSequelize Auth Success");
+      // transcationListSequelize.authenticate().then(() => {
+      //   console.log("transcationListSequelize Auth Success");
 
-        transcationListSequelize.sync({ force: true });
+      //   transcationListSequelize.sync({ force: true });
 
-        app.listen(PORT, () => {
-          console.log(PORT);
-        });
+      //   // transcationListSequelize.query(
+      //   //   "create transaction_index on TransactionList from"
+      //   // );
+      // });
+
+      app.listen(PORT, () => {
+        console.log(PORT);
       });
     })
     .catch((err) => {

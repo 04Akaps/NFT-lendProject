@@ -1,13 +1,9 @@
 import express from "express";
-import {
-  getTrnascationList,
-  transcationTest,
-} from "../controllers/Transaction.js";
+import { getTrnascationList } from "../controllers/Transaction.js";
+import { checkCache } from "../redis/redis.js";
 
 const router = express.Router();
 
-router.get("/:address", getTrnascationList);
-
-router.post("/test", transcationTest);
+router.get("/:address", checkCache, getTrnascationList);
 
 export default router;

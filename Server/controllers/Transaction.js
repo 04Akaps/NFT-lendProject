@@ -1,32 +1,18 @@
-import { TransactionOwnerList } from "../models/TranscationList.js";
+import { TransactionList } from "../models/TranscationList.js";
+import { redisClient } from "../redis/redis.js";
 
-export const getTrnascationList = (req, res) => {
-  console.log(req.params);
-};
+export const getTrnascationList = async (req, res) => {
+  const address = req.params.address;
 
-export const transcationTest = async (req, res) => {
-  const isDataExisted = await TransactionOwnerList.findOne({
-    where: { owner: "0x0x00000" },
+  const findData = await TransactionList.findAll({
+    where: { from: address },
+    raw: true,
   });
 
-  if (isDataExisted == null) {
-    // data가 없으니 만들어 주어야 한다.
-    try {
-      await TransactionOwnerList.create({
-        owner: "0x0x00000",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    // data가 있으니 단순히 transactionList에만 추가해주면 된다.
-    console.log("sdfsf");
+  // 이곳을 탔다는 의미는 redis를 한번 거쳐서 캐시된 데이터가 없기 떄문에 탓다는 의미
+  // 그러기 떄문에 redis에 데이터를 다시 추가해 주어야 한다.
 
-    await isDataExisted.createTransactionList({
-      from: "0x0x00000",
-      to: "test",
-      text: "testststst",
-      owner: "0x0x00000",
-    });
-  }
+  await redisClient.set(address, findData);
+
+  res.status(200).send({ message: "redis Data is setted" });
 };
