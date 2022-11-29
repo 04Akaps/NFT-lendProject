@@ -47,3 +47,11 @@ export const TransactionList = transcationListSequelize.define(
 // 조회 같은 경우에는 redis를 활용하면 캐시된 데이터를 조회 가능하기 떄문에
 
 // 이러한 방식으로 구조를 구성하였습니다.
+
+export const makeTranscationDB = async (from, to, description) => {
+  await TransactionList.create({
+    from: from,
+    to: to,
+    description: description,
+  });
+};
